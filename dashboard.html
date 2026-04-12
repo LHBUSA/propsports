@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>You're In — PropSports API</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#D73B1A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FAFAF7;--paper:#F3F2EE;--paper2:#ECEAE4;--white:#fff;--ink:#141412;--mid:#5C5A54;--soft:#9B9990;--border:#E0DDD7;--red:#D73B1A;--green:#0B7A45;--blue:#1A5FBF;--sans:'DM Sans',sans-serif;--display:'Syne',sans-serif;--mono:'JetBrains Mono',monospace;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+
+nav{height:58px;display:flex;align-items:center;padding:0 28px;background:rgba(250,250,247,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.logo-t{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:0.5px;color:var(--ink);}
+.logo-t span{color:var(--red);}
+
+.hero{flex:1;display:flex;align-items:center;justify-content:center;padding:56px 20px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(11,122,69,0.05) 0%,transparent 60%);}
+.hero-inner{max-width:680px;width:100%;position:relative;z-index:1;}
+
+/* SUCCESS BADGE */
+.success-badge{display:flex;align-items:center;justify-content:center;margin-bottom:28px;}
+.check-circle{width:72px;height:72px;border-radius:50%;background:rgba(11,122,69,0.1);border:2px solid rgba(11,122,69,0.25);display:flex;align-items:center;justify-content:center;animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;}
+@keyframes popIn{from{opacity:0;transform:scale(0.5);}to{opacity:1;transform:scale(1);}}
+.check-circle svg{animation:checkDraw 0.4s ease 0.3s both;}
+@keyframes checkDraw{from{opacity:0;transform:scale(0.6);}to{opacity:1;transform:scale(1);}}
+
+.eyebrow{font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:10px;text-align:center;}
+h1{font-family:var(--display);font-size:clamp(36px,5vw,60px);font-weight:800;letter-spacing:-2px;color:var(--ink);line-height:1.0;text-align:center;margin-bottom:10px;}
+.sub{font-size:16px;color:var(--mid);text-align:center;max-width:480px;margin:0 auto 36px;line-height:1.75;}
+
+/* EMAIL CALLOUT */
+.email-box{background:var(--white);border:2px solid rgba(11,122,69,0.2);border-radius:16px;padding:22px 24px;margin-bottom:28px;display:flex;align-items:flex-start;gap:16px;box-shadow:0 4px 20px rgba(11,122,69,0.06);}
+.email-icon{width:40px;height:40px;border-radius:10px;background:rgba(11,122,69,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.email-title{font:700 15px var(--sans);color:var(--ink);margin-bottom:4px;}
+.email-body{font-size:13px;color:var(--mid);line-height:1.6;}
+.email-note{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font:600 11px var(--mono);letter-spacing:0.06em;color:var(--soft);}
+
+/* WHAT NOW STEPS */
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:28px;}
+.step{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;position:relative;}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font:700 12px var(--mono);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.step-title{font:700 13px var(--sans);color:var(--ink);margin-bottom:4px;}
+.step-body{font-size:12px;color:var(--mid);line-height:1.6;}
+
+/* QUICK START */
+.qs-wrap{background:var(--ink);border-radius:14px;overflow:hidden;margin-bottom:28px;}
+.qs-head{background:#1a1a18;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);}
+.qs-lang{font:700 10px var(--mono);letter-spacing:0.1em;color:rgba(255,255,255,0.3);}
+.qs-copy{font:600 10px var(--mono);padding:4px 10px;border-radius:4px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.15s;}
+.qs-copy:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.qs-body{padding:20px;font:400 13px var(--mono);line-height:1.9;color:#C9D1D9;overflow-x:auto;}
+.ck{color:#7EE787;}.cs{color:#A5D6FF;}.cn{color:#6E7681;}.cv{color:#79C0FF;}
+
+/* KEY PLACEHOLDER */
+.key-hint{background:rgba(215,59,26,0.05);border:1px dashed rgba(215,59,26,0.25);border-radius:8px;padding:12px 16px;margin-bottom:20px;font:400 12px var(--mono);color:var(--mid);text-align:center;line-height:1.7;}
+.key-hint strong{color:var(--red);font-weight:700;}
+
+/* CTA ROW */
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-green{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;background:var(--green);color:#fff;font:700 13px var(--mono);letter-spacing:0.05em;border-radius:9px;text-decoration:none;transition:all 0.2s;}
+.btn-green:hover{background:#0a6a3c;transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:transparent;color:var(--ink);font:600 13px var(--mono);letter-spacing:0.04em;border-radius:9px;text-decoration:none;border:1.5px solid var(--border2,var(--border));transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--ink);background:var(--paper);}
+
+/* SUPPORT */
+.support{margin-top:28px;text-align:center;padding:18px;background:var(--paper);border-radius:12px;border:1px solid var(--border);}
+.support p{font-size:13px;color:var(--mid);}
+.support a{color:var(--red);text-decoration:none;font-weight:600;}
+
+@media(max-width:600px){.steps{grid-template-columns:1fr;}.hero{padding:40px 16px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+    <span class="logo-t">Prop<span>Sports</span> API</span>
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+
+    <div class="success-badge">
+      <div class="check-circle">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M8 16L13.5 21.5L24 10" stroke="#0B7A45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="eyebrow">Payment Confirmed</div>
+    <h1>You're in. Welcome.</h1>
+    <p class="sub">Your API key is on its way. Check your inbox — it usually arrives within 60 seconds. Spam folder if you don't see it.</p>
+
+    <div class="email-box">
+      <div class="email-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="email-title">API key delivery in progress</div>
+        <div class="email-body">We're generating your unique API key and sending it via Resend. The email subject line is <strong>"Your PropSports API Key"</strong>. It includes your key, plan details, and code examples.</div>
+        <div class="email-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Usually arrives within 60 seconds &middot; Check spam if not received
+        </div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Get your key</div>
+        <div class="step-body">Copy the key from the email. It starts with <code style="font-size:11px;background:var(--paper2);padding:1px 5px;border-radius:3px;">psa_live_</code></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Make your first call</div>
+        <div class="step-body">Pass it as <code style="font-size:11px;background:var(--paper2);padding:1px 5px;border-radius:3px;">X-API-Key</code> header or <code style="font-size:11px;background:var(--paper2);padding:1px 5px;border-radius:3px;">?key=</code> param on any endpoint.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Read the docs</div>
+        <div class="step-body">All 31 endpoints with params, response fields, and working code examples.</div>
+      </div>
+    </div>
+
+    <div class="key-hint">
+      Replace <strong>YOUR_KEY_HERE</strong> with the key from your email &darr;
+    </div>
+
+    <div class="qs-wrap">
+      <div class="qs-head">
+        <span class="qs-lang">JAVASCRIPT — FIRST API CALL</span>
+        <button class="qs-copy" onclick="copyQS(this)">Copy</button>
+      </div>
+      <div class="qs-body" id="qs-code"><span class="ck">const</span> API_BASE = <span class="cs">'https://propsports-api.sales-fd3.workers.dev'</span>;
+<span class="ck">const</span> API_KEY  = <span class="cs">'YOUR_KEY_HERE'</span>; <span class="cn">// ← paste your key from the email</span>
+
+<span class="cn">// Get today's full MLB slate with probable pitchers</span>
+<span class="ck">const</span> res  = <span class="ck">await</span> <span class="cv">fetch</span>(<span class="cs">`${API_BASE}/mlb/schedule/today`</span>, {
+  headers: { <span class="cs">'X-API-Key'</span>: API_KEY }
+});
+<span class="ck">const</span> data = <span class="ck">await</span> res.<span class="cv">json</span>();
+
+<span class="cn">// data.games — array of today's games</span>
+<span class="cn">// data.games[0].teams.away.probablePitcher.fullName</span>
+<span class="cn">// data.games[0].venue.name</span>
+<span class="cn">// data.games[0].gameDate (UTC)</span>
+console.<span class="cv">log</span>(data.games.<span class="cv">length</span>, <span class="cs">'games today'</span>);</div>
+    </div>
+
+    <div class="cta-row">
+      <a href="/docs" class="btn-green">&#128214; Read the Docs &rarr;</a>
+      <a href="/live" class="btn-outline">&#9889; See It In Action</a>
+      <a href="/" class="btn-outline">&#8592; Back to Home</a>
+    </div>
+
+    <div class="support">
+      <p>Key didn't arrive? We got you. Call or text <a href="tel:18887843881">1-888-784-3881</a> and we'll sort it out immediately.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Show different message based on plan if passed in URL
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan');
+  if (plan === 'pro') {
+    document.querySelector('h1').textContent = 'Pro Sport. Let\'s go.';
+  } else if (plan === 'bundle') {
+    document.querySelector('h1').textContent = 'Full bundle. All four. Let\'s go.';
+  }
+  // Clean URL
+  window.history.replaceState({}, '', '/dashboard');
+})();
+
+function copyQS(btn) {
+  const el = document.getElementById('qs-code');
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+</script>
+</body>
+</html>

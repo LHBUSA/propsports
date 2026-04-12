@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>NFL API — Real-Time National Football League Data | PropSports API</title>
+<meta name="description" content="PropSports NFL API: live scores, schedules, stats, and odds for National Football League. Official data source. Free tier available. Starts at $9/month.">
+<link rel="canonical" href="https://propsports.proptechusa.ai/nfl.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"NFL API","item":"https://propsports.proptechusa.ai/nfl.html"}]},{"@type":"TechArticle","headline":"NFL API Documentation","description":"Complete reference for PropSports API NFL endpoints.","url":"https://propsports.proptechusa.ai/nfl.html","publisher":{"@id":"https://proptechusa.ai/#organization"}}]}</script>
+<style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --white:#ffffff;--off:#F7F6F3;--paper:#EFEFEB;
+  --ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--border:#E2E1DC;
+  --red:#E8321A;--red2:#FF4429;--green:#0BAA5C;--blue:#1B65F0;--gold:#E8A020;
+  --card-shadow:0 2px 20px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.05);
+  --max:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html {scroll-behavior:smooth; overflow-x: hidden; max-width: 100vw;}
+body{background:var(--white);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* ── BALLS BG ── */
+.balls-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.ball{position:absolute;border-radius:50%;animation:ballFloat linear infinite;}
+@keyframes ballFloat{0%{transform:translateY(110vh) rotate(0deg);}100%{transform:translateY(-150px) rotate(900deg);}}
+.ball-baseball{background:radial-gradient(circle at 35% 30%,#fff 0%,#f0ece8 60%,#e8e0d8 100%);box-shadow:inset -3px -3px 8px rgba(0,0,0,0.1),0 2px 8px rgba(0,0,0,0.06);}
+.ball-basketball{background:radial-gradient(circle at 35% 30%,#f5a623 0%,#e8831a 50%,#c45a00 100%);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.ball-soccer{background:radial-gradient(circle at 35% 30%,#fff 0%,#ddd 60%,#bbb 100%);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.ball-hockey{background:radial-gradient(circle at 35% 30%,#888 0%,#444 100%);border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--ink);overflow:hidden;height:34px;display:flex;align-items:center;position:relative;z-index:10;}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 55s linear infinite;}
+.ticker-track:hover{animation-play-state:paused;}
+.t-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font-size:11px;font-weight:600;font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,0.6);border-right:1px solid rgba(255,255,255,0.06);}
+.t-score{color:#F5A623;font-weight:700;}
+.t-live{display:inline-block;width:5px;height:5px;border-radius:50%;background:#4ade80;animation:blink 1.5s infinite;flex-shrink:0;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+/* ── GLOBAL SEARCH ── */
+.search-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;backdrop-filter:blur(4px);}
+.search-modal-bg.open{display:flex;align-items:flex-start;justify-content:center;padding-top:80px;}
+.search-modal{background:var(--white);border-radius:16px;width:min(600px,92vw);box-shadow:0 24px 80px rgba(0,0,0,0.2);overflow:hidden;}
+.search-input-row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);}
+.search-icon{font-size:18px;flex-shrink:0;color:var(--muted);}
+.search-input{flex:1;font-size:16px;border:none;outline:none;font-family:'JetBrains Mono',monospace;color:var(--ink);background:transparent;}
+.search-input::placeholder{color:var(--muted);}
+.search-close{font-size:20px;color:var(--muted);cursor:pointer;padding:4px;line-height:1;}
+.search-results{max-height:400px;overflow-y:auto;}
+.search-result-item{display:flex;align-items:center;gap:12px;padding:12px 20px;cursor:pointer;border-bottom:1px solid var(--border);text-decoration:none;transition:background 0.1s;}
+.search-result-item:hover{background:var(--off);}
+.search-result-item:last-child{border-bottom:none;}
+.sr-badge{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(11,170,92,0.1);color:var(--green);border:1px solid rgba(11,170,92,0.2);white-space:nowrap;flex-shrink:0;}
+.sr-path{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink);font-weight:500;}
+.sr-desc{font-size:12px;color:var(--muted);margin-left:auto;flex-shrink:0;}
+.sr-sport{font-size:11px;margin-right:4px;}
+.search-empty{padding:32px;text-align:center;color:var(--muted);font-size:14px;}
+.search-hint{padding:10px 20px;font-size:11px;color:var(--muted);background:var(--off);display:flex;justify-content:space-between;}
+.search-key{background:var(--border);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 24px;}
+.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:8px;}
+.logo-wrap{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-icon{width:30px;height:30px;flex-shrink:0;}
+.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);letter-spacing:-0.3px;}
+.logo-text span{color:var(--red);}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all 0.15s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);background:var(--off);}
+.nav-search-btn{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:8px;border:1px solid var(--border);font-size:12px;color:var(--muted);cursor:pointer;background:var(--off);transition:all 0.15s;white-space:nowrap;margin-left:8px;}
+.nav-search-btn:hover{border-color:#bbb;}
+.nav-search-key{background:var(--border);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+.nav-pill{font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(232,50,26,0.08);color:var(--red);border:1px solid rgba(232,50,26,0.15);white-space:nowrap;}
+.btn-nav{padding:7px 16px;background:var(--ink);color:var(--white);font-size:13px;font-weight:600;border-radius:7px;text-decoration:none;transition:all 0.2s;white-space:nowrap;flex-shrink:0;}
+.btn-nav:hover{background:var(--ink2);}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;margin-left:auto;}
+.hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;inset:0;top:60px;background:white;z-index:150;padding:16px;flex-direction:column;gap:2px;overflow-y:auto;}
+.mobile-menu a{display:block;padding:12px 14px;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border-radius:8px;transition:background 0.15s;}
+.mobile-menu a:hover{background:var(--off);}
+.mobile-menu .btn-nav{text-align:center;margin-top:8px;display:block;}
+.mobile-search{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;border:1px solid var(--border);margin-bottom:8px;color:var(--muted);font-size:14px;cursor:pointer;}
+
+/* ── LAYOUT ── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+section{padding:72px 0;position:relative;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(40px,7vw,80px);font-weight:800;letter-spacing:-2.5px;color:var(--ink);line-height:0.97;margin-bottom:16px;}
+h2{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,48px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.05;margin-bottom:12px;}
+h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.lead{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:28px;}
+.accent{color:var(--red);}
+
+/* ── BUTTONS ── */
+.btn-red{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--red);color:white;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(232,50,26,0.3);}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,50,26,0.4);}
+.btn-ink{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--ink);color:white;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all 0.2s;}
+.btn-ink:hover{background:var(--ink2);transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;color:var(--ink);font-weight:600;font-size:13px;border-radius:10px;text-decoration:none;border:1.5px solid var(--border);font-family:'JetBrains Mono',monospace;transition:all 0.2s;}
+.btn-ghost:hover{border-color:#bbb;background:var(--off);}
+.btn-outline{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:transparent;color:var(--ink);font-weight:600;font-size:13px;border-radius:8px;text-decoration:none;border:1.5px solid var(--border);transition:all 0.2s;}
+.btn-outline:hover{border-color:#aaa;background:var(--off);}
+
+/* ── STATS STRIP ── */
+.stats-strip{background:var(--ink);padding:24px;display:flex;justify-content:center;flex-wrap:wrap;gap:0;}
+.stat-box{text-align:center;padding:8px 36px;border-right:1px solid rgba(255,255,255,0.1);}
+.stat-box:last-child{border-right:none;}
+.stat-n{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:white;letter-spacing:-1px;line-height:1;display:block;}
+.stat-n em{color:var(--gold);font-style:normal;}
+.stat-l{font-size:10px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-top:3px;}
+
+/* ── INTERACTIVE PREVIEW ── */
+.preview-section{background:var(--ink);padding:72px 0;position:relative;overflow:hidden;}
+.preview-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(232,50,26,0.08) 0%,transparent 70%);pointer-events:none;}
+.preview-tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap;}
+.prev-tab{padding:7px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);background:transparent;font-family:'Instrument Sans',sans-serif;transition:all 0.15s;}
+.prev-tab.on,.prev-tab:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:white;}
+.prev-tab.on{border-color:var(--red);color:var(--red);background:rgba(232,50,26,0.1);}
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.prev-panel{display:none;}
+.prev-panel.on{display:contents;}
+.code-block{background:#0D1117;border-radius:12px;overflow:hidden;}
+.code-header{padding:10px 16px;background:#161B22;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);}
+.dot{width:10px;height:10px;border-radius:50%;}
+pre{padding:18px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.75;color:#e6edf3;-webkit-overflow-scrolling:touch;}
+.kw{color:#FF7B72;}.str{color:#A5D6FF;}.cm{color:#6E7681;}.fn{color:#D2A8FF;}.url{color:#F2CC60;}.num{color:#79C0FF;}.key{color:#7EE787;}
+.try-btn{display:flex;align-items:center;gap:6px;margin-top:12px;padding:8px 16px;background:var(--red);color:white;font-size:12px;font-weight:700;border-radius:6px;text-decoration:none;width:fit-content;transition:all 0.2s;}
+.try-btn:hover{background:var(--red2);}
+.response-block{background:#0D1117;border-radius:12px;overflow:hidden;height:100%;}
+.response-header{padding:10px 16px;background:#161B22;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;}
+.response-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);}
+.response-status{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);font-weight:700;}
+
+/* ── ENDPOINT SEARCH ── */
+.ep-search-wrap{position:relative;margin-bottom:20px;}
+.ep-search{width:100%;padding:12px 16px 12px 44px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-family:'JetBrains Mono',monospace;background:var(--white);color:var(--ink);outline:none;transition:border-color 0.15s;}
+.ep-search:focus{border-color:var(--red);}
+.ep-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;pointer-events:none;}
+.ep-count{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.ep-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:13px 16px;display:flex;gap:11px;align-items:flex-start;transition:all 0.15s;cursor:pointer;}
+.ep-card:hover{border-color:rgba(232,50,26,0.3);background:rgba(232,50,26,0.02);}
+.ep-card.hidden{display:none;}
+.get-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:3px 6px;border-radius:3px;background:rgba(11,170,92,0.1);color:var(--green);border:1px solid rgba(11,170,92,0.2);white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.ep-path{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink);margin-bottom:2px;font-weight:500;}
+.ep-path mark{background:rgba(232,50,26,0.12);color:var(--red);border-radius:2px;padding:0 2px;}
+.ep-desc{font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* ── CARDS ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--card-shadow);transition:all 0.25s;}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,0.1);}
+.card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+.icon-red{background:rgba(232,50,26,0.08);}
+.icon-blue{background:rgba(27,101,240,0.08);}
+.icon-green{background:rgba(11,170,92,0.08);}
+.icon-gold{background:rgba(232,160,32,0.08);}
+
+/* ── SPORT PAGES ── */
+.sport-nav{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap;}
+.stab{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);color:var(--muted);background:var(--white);transition:all 0.15s;font-family:'Instrument Sans',sans-serif;}
+.stab.on,.stab:hover{background:var(--ink);color:var(--white);border-color:var(--ink);}
+
+/* ── PRICING ── */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px;}
+.p-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:26px 22px;position:relative;transition:all 0.25s;}
+.p-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,0.1);}
+.p-card.hot{border-color:var(--red);background:linear-gradient(160deg,#fff8f7 0%,var(--white) 100%);}
+.hot-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--red);color:white;font-size:9px;font-weight:800;letter-spacing:1px;padding:3px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;}
+.p-sport{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.p-icon{font-size:26px;margin-bottom:10px;display:block;}
+.p-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.p-price{display:flex;align-items:baseline;gap:2px;margin-bottom:4px;}
+.p-dollar{font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;}
+.p-num{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:var(--ink);line-height:1;}
+.p-period{font-size:12px;color:var(--muted);margin-left:2px;}
+.p-was{font-size:11px;color:var(--muted);text-decoration:line-through;margin-bottom:14px;}
+.p-feats{list-style:none;margin-bottom:20px;}
+.p-feats li{font-size:13px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;}
+.p-feats li:last-child{border-bottom:none;}
+.ck{color:var(--green);font-size:13px;flex-shrink:0;}
+.btn-plan{display:block;text-align:center;padding:11px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none;transition:all 0.2s;}
+.btn-plan-red{background:var(--red);color:white;}
+.btn-plan-red:hover{background:var(--red2);}
+.btn-plan-ink{background:var(--ink);color:white;}
+.btn-plan-ink:hover{background:var(--ink2);}
+.btn-plan-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.btn-plan-outline:hover{border-color:#aaa;background:var(--off);}
+
+/* ── SPONSOR ── */
+.sponsor-bar{background:var(--ink);padding:40px;border-radius:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.sponsor-logo-txt{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:white;letter-spacing:-0.5px;white-space:nowrap;}
+.sponsor-logo-txt em{color:var(--red);font-style:normal;}
+.sponsor-div{width:1px;height:46px;background:rgba(255,255,255,0.12);flex-shrink:0;}
+.sponsor-copy h3{font-size:15px;font-weight:700;color:white;margin-bottom:3px;}
+.sponsor-copy p{font-size:13px;color:rgba(255,255,255,0.45);max-width:360px;line-height:1.6;}
+.btn-sponsor{margin-left:auto;padding:11px 22px;background:var(--red);color:white;font-weight:700;font-size:13px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:all 0.2s;}
+.btn-sponsor:hover{background:var(--red2);}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:56px 24px 28px;}
+.footer-inner{max-width:var(--max);margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.35);margin-top:10px;max-width:210px;line-height:1.6;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:12px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.15s;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.18);}
+.footer-legal{display:flex;gap:18px;}
+.footer-legal a{font-size:12px;color:rgba(255,255,255,0.18);text-decoration:none;}
+.footer-legal a:hover{color:rgba(255,255,255,0.5);}
+.breadcrumb{padding:10px 0;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--ink);}
+.bc-sep{opacity:0.4;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp 0.55s ease both;}
+.d1{animation-delay:0.08s;}.d2{animation-delay:0.16s;}.d3{animation-delay:0.24s;}.d4{animation-delay:0.32s;}.d5{animation-delay:0.4s;}
+.scroll-fu{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.scroll-fu.visible{opacity:1;transform:none;}
+
+/* ── DOCS ── */
+.docs-layout{display:grid;grid-template-columns:220px 1fr;gap:0;max-width:var(--max);margin:0 auto;padding:0 24px;}
+.docs-sidebar{position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;padding:28px 20px 28px 0;border-right:1px solid var(--border);scrollbar-width:thin;}
+.sidebar-section{margin-bottom:20px;}
+.sidebar-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;padding:0 8px;}
+.sidebar-link{display:block;padding:5px 8px;font-size:13px;color:var(--muted);text-decoration:none;border-radius:5px;transition:all 0.12s;}
+.sidebar-link:hover,.sidebar-link.active{color:var(--ink);background:var(--off);}
+.docs-content{padding:36px 0 80px 40px;}
+.doc-section{margin-bottom:52px;}
+.param-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;}
+.param-table th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);}
+.param-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.param-table tr:last-child td{border-bottom:none;}
+.p-name{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue);}
+.p-type{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);}
+.p-req{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;background:rgba(232,50,26,0.08);color:var(--red);}
+.p-opt{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;background:var(--off);color:var(--muted);}
+.alert{padding:12px 16px;border-radius:8px;font-size:13px;margin:14px 0;line-height:1.6;}
+.alert-blue{background:rgba(27,101,240,0.05);border-left:3px solid var(--blue);}
+.alert-green{background:rgba(11,170,92,0.05);border-left:3px solid var(--green);}
+.alert-red{background:rgba(232,50,26,0.05);border-left:3px solid var(--red);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  .docs-layout{grid-template-columns:1fr;padding:0 20px;}
+  .docs-sidebar{display:none;}
+  .docs-content{padding:28px 0 60px;}
+}
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-links,.nav-search-btn{display:none;}
+  .hamburger{display:flex;}
+  .wrap{padding:0 16px;}
+  .preview-grid{grid-template-columns:1fr;}
+  .stats-strip{padding:16px;}
+  .stat-box{padding:10px 16px;width:50%;}
+  section{padding:52px 0;}
+  .sponsor-bar{flex-direction:column;text-align:center;}
+  .sponsor-div{width:60px;height:1px;}
+  .btn-sponsor{margin-left:0;}
+  footer{padding:40px 16px 20px;}
+  .footer-grid{grid-template-columns:1fr;gap:20px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .pricing-grid{grid-template-columns:1fr;}
+  h1{letter-spacing:-1.5px;}
+  h2{letter-spacing:-0.8px;}
+}
+@media(max-width:480px){
+  .ep-grid{grid-template-columns:1fr;}
+  .stat-box{width:50%;}
+  .preview-tabs{gap:6px;}
+  .prev-tab{font-size:11px;padding:6px 12px;}
+}
+</style>
+<style>
+.page-hero{padding:56px 0 44px;border-bottom:1px solid var(--border);}
+.sport-hdr{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.sp-big{font-size:52px;line-height:1;}
+.try-live{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:6px;background:rgba(11,170,92,0.08);border:1px solid rgba(11,170,92,0.2);color:var(--green);font-size:12px;font-weight:700;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:all 0.15s;}
+.try-live:hover{background:rgba(11,170,92,0.12);}
+</style>
+
+
+
+<style id="psa-footer-css">
+/* ── BASE = MOBILE ─────────────────────────────────────── */
+.psa-ft { background:#141412; color:#fff; position:relative; overflow:hidden; }
+.psa-ft::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+.psa-ft-red  { height:2px; background:linear-gradient(90deg,transparent,#D73B1A 30%,#D73B1A 70%,transparent); position:relative; z-index:1; }
+
+/* powered-by strip */
+.psa-ft-pb  { background:rgba(215,59,26,0.06); border-bottom:1px solid rgba(215,59,26,0.12); padding:14px 16px; position:relative; z-index:1; }
+.psa-ft-pb-in { display:flex; flex-direction:column; align-items:stretch; gap:8px; max-width:1280px; margin:0 auto; }
+.psa-ft-pb-label { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.25); text-align:center; }
+.psa-ft-pb-link { display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; padding:8px 14px; border-radius:20px; transition:all 0.2s; }
+.psa-ft-pb-link-red  { background:rgba(215,59,26,0.1); border:1px solid rgba(215,59,26,0.3); }
+.psa-ft-pb-link-red:hover  { background:rgba(215,59,26,0.2); }
+.psa-ft-pb-link-blue { background:rgba(27,95,191,0.08); border:1px solid rgba(27,95,191,0.2); }
+.psa-ft-pb-link-blue:hover { background:rgba(27,95,191,0.18); }
+.psa-ft-pb-name { font:700 12px 'JetBrains Mono',monospace; letter-spacing:0.06em; color:#fff; }
+.psa-ft-pb-sub  { font:400 10px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.35); }
+.psa-ft-pb-arr  { color:rgba(255,255,255,0.3); font-size:10px; }
+
+/* main grid */
+.psa-ft-body { position:relative; z-index:1; }
+.psa-ft-grid { display:grid; grid-template-columns:1fr; gap:0; padding:28px 16px 16px; max-width:1280px; margin:0 auto; }
+
+/* brand col */
+.psa-ft-brand { padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:0; }
+.psa-ft-logo  { display:flex; align-items:center; gap:9px; text-decoration:none; margin-bottom:12px; }
+.psa-ft-logo-t { font:800 17px 'Syne','DM Sans',sans-serif; letter-spacing:0.5px; color:#fff; }
+.psa-ft-logo-t span { color:#D73B1A; }
+.psa-ft-desc  { font-size:13px; color:rgba(255,255,255,0.32); line-height:1.75; margin:0 0 16px; max-width:280px; }
+.psa-ft-phone { display:inline-flex; align-items:center; gap:8px; text-decoration:none; margin-bottom:14px; color:rgba(255,255,255,0.45); font:500 13px 'DM Sans',sans-serif; }
+.psa-ft-phone-ic { width:30px; height:30px; border-radius:7px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.09); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.psa-ft-socials { display:flex; gap:7px; flex-wrap:wrap; }
+.psa-ft-soc { width:34px; height:34px; border-radius:7px; display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.45); transition:all 0.2s; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
+.psa-ft-soc:hover { background:rgba(255,255,255,0.1); color:#fff; }
+
+/* link columns */
+.psa-ft-col { padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.psa-ft-col:last-child { border-bottom:none; padding-bottom:8px; }
+.psa-ft-col-h { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2); display:block; margin-bottom:12px; }
+.psa-ft-links { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.psa-ft-links a { font-size:13px; color:rgba(255,255,255,0.45); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color 0.15s; }
+.psa-ft-links a:hover { color:#fff; }
+.psa-ft-links .psa-ft-link-blue { color:#4D9EFF !important; }
+.psa-ft-links .psa-ft-link-blue:hover { color:#80bfff !important; }
+.psa-ft-ext-arr { font-size:9px; opacity:0.4; }
+
+/* bottom bar */
+.psa-ft-base { border-top:1px solid rgba(255,255,255,0.06); position:relative; z-index:1; }
+.psa-ft-base-in { display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:14px 16px; max-width:1280px; margin:0 auto; }
+.psa-ft-copy { font:400 11px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.18); }
+.psa-ft-badges { display:flex; flex-wrap:wrap; gap:5px; }
+.psa-ft-badge { font:600 9px 'JetBrains Mono',monospace; letter-spacing:0.06em; padding:3px 9px; border-radius:20px; border:1px solid rgba(255,255,255,0.07); color:rgba(255,255,255,0.18); }
+
+/* ── TABLET 640px ──────────────────────────────────────── */
+@media(min-width:640px) {
+  .psa-ft-grid { grid-template-columns:1fr 1fr; gap:0 28px; padding:36px 24px 20px; }
+  .psa-ft-brand { grid-column:1/-1; }
+  .psa-ft-pb-in { flex-direction:row; align-items:center; justify-content:center; gap:16px; }
+  .psa-ft-pb-link { flex:none; }
+  .psa-ft-pb-label { flex:none; }
+  .psa-ft-base-in { flex-direction:row; align-items:center; justify-content:space-between; }
+}
+
+/* ── DESKTOP 1024px ────────────────────────────────────── */
+@media(min-width:1024px) {
+  .psa-ft-grid { grid-template-columns:2.2fr 1fr 1fr 1fr; gap:44px; padding:52px 28px 36px; }
+  .psa-ft-brand { grid-column:auto; border-bottom:none; padding-bottom:0; }
+  .psa-ft-col { border-bottom:none; padding:0; }
+  .psa-ft-desc { max-width:230px; }
+  .psa-ft-base-in { padding:16px 28px; }
+  .psa-ft-pb-in { padding:0 28px; }
+}
+</style>
+
+<style id="psa-nav-mobile">
+@media(max-width:768px){
+  /* Hide nav-r links/buttons, keep only hamburger */
+  .nav-r > a { display:none !important; }
+  .nav-r > button.btn-red { display:none !important; }
+  .ham { display:flex !important; }
+  nav { padding:0 14px !important; }
+  /* Nav sports pills */
+  .nav-sports, .nav-tag { display:none !important; }
+}
+</style>
+
+<style id="psa-overflow">
+html,body{overflow-x:hidden!important;max-width:100vw;}
+*{box-sizing:border-box;}
+@media(max-width:768px){
+  section,main,article{overflow-x:hidden!important;}
+  .hero-inner{grid-template-columns:1fr!important;padding:0 16px!important;gap:28px!important;}
+  .hero-inner>div{min-width:0;overflow-wrap:break-word;word-break:break-word;}
+  .hero-lead{max-width:100%!important;overflow-wrap:break-word!important;}
+  h1{word-break:break-word!important;}
+  .stats-inner,.stat-inner{flex-wrap:wrap!important;}
+  .si,.stat-item{width:50%!important;}
+  #scores-grid{grid-template-columns:1fr 1fr!important;gap:8px!important;}
+  .feat-grid,.p-grid,.use-grid,.powers-grid,.compare-grid{grid-template-columns:1fr!important;}
+  .cta-btns{flex-direction:column!important;align-items:stretch!important;}
+  .cta-btns a{text-align:center!important;justify-content:center!important;}
+}
+@media(max-width:400px){
+  #scores-grid{grid-template-columns:1fr!important;}
+}
+</style>
+</head>
+<body>
+<div class="balls-bg" id="balls-bg"></div>
+<div class="search-modal-bg" id="search-modal-bg">
+  <div class="search-modal">
+    <div class="search-input-row"><span class="search-icon">🔍</span><input class="search-input" id="global-search-input" type="text" placeholder="Search endpoints…"><span class="search-close" onclick="closeSearch()">✕</span></div>
+    <div class="search-results" id="search-results-list"></div>
+    <div class="search-hint"><span>31 endpoints across MLB, NFL, NBA, NHL</span><span><span class="search-key">⌘K</span> · <span class="search-key">Esc</span></span></div>
+  </div>
+</div>
+<div class="ticker-wrap"><div class="ticker-track">
+  <span class="t-item">🏈 /nfl/schedule/today</span>
+  <span class="t-item">🏈 /nfl/games/live</span>
+  <span class="t-item">🏈 /nfl/odds</span>
+  <span class="t-item">🔍 Press ⌘K to search all 31 endpoints</span>
+  <span class="t-item">🏈 /nfl/schedule/today</span>
+  <span class="t-item">🏈 /nfl/games/live</span>
+  <span class="t-item">🏈 /nfl/odds</span>
+  <span class="t-item">🔍 Press ⌘K to search all 31 endpoints</span>
+</div></div>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo-wrap"><svg class="logo-icon" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E8321A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg><span class="logo-text">Prop<span>Sports</span> API</span></a>
+    <div class="nav-links">
+      <a href="/mlb.html" >MLB</a>
+      <a href="/nfl.html" class="active">NFL</a>
+      <a href="/nba.html" >NBA</a>
+      <a href="/nhl.html" >NHL</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/pricing.html">Pricing</a>
+    </div>
+    <div class="nav-search-btn" onclick="openSearch()">🔍 Search endpoints <span class="nav-search-key">⌘K</span></div>
+    <a href="/pricing.html" class="btn-nav" style="margin-left:8px;">Get API Key</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-search" onclick="toggleMenu();openSearch()">🔍 Search all 31 endpoints…</div>
+  <a href="/mlb.html" onclick="toggleMenu()">⚾ MLB</a><a href="/nfl.html" onclick="toggleMenu()">🏈 NFL</a>
+  <a href="/nba.html" onclick="toggleMenu()">🏀 NBA</a><a href="/nhl.html" onclick="toggleMenu()">🏒 NHL</a>
+  <a href="/docs.html" onclick="toggleMenu()">📖 Docs</a><a href="/pricing.html" onclick="toggleMenu()">💳 Pricing</a>
+  <a href="/pricing.html" class="btn-nav" onclick="toggleMenu()">Get API Key →</a>
+</div>
+
+<div class="wrap">
+  <nav class="breadcrumb"><a href="/">Home</a><span class="bc-sep">›</span><span>NFL API</span></nav>
+  <div class="page-hero fu">
+    <div class="sport-hdr">
+      <span class="sp-big">🏈</span>
+      <div><div class="eyebrow">National Football League</div><h1 style="font-size:clamp(34px,5vw,60px);margin-bottom:0;">NFL API</h1></div>
+    </div>
+    <p class="lead">Official National Football League data — live scores, schedules, stats, and odds. The same sources the league uses, available as a clean REST API.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <a href="/pricing.html" class="btn-red">Get API Key →</a>
+      <a href="https://propsports-api.sales-fd3.workers.dev/nfl/schedule/today" target="_blank" class="try-live">▶ Try Live</a>
+      <span class="nav-search-btn" onclick="openSearch()" style="cursor:pointer;font-size:12px;">🔍 Search endpoints</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">All NFL Endpoints</div>
+    <h2>Search all endpoints.</h2>
+    <p class="lead" style="margin-bottom:20px;">Base URL: <code style="font-family:'JetBrains Mono',monospace;background:var(--off);padding:2px 8px;border-radius:4px;font-size:12px;">https://propsports-api.sales-fd3.workers.dev</code></p>
+    <div class="ep-search-wrap">
+      <span class="ep-search-icon">🔍</span>
+      <input class="ep-search" id="ep-search" type="text" placeholder="Filter NFL endpoints… try 'live' or 'stats' or 'odds'">
+      <span class="ep-count" id="ep-count"></span>
+    </div>
+    <div class="ep-grid"><div class="ep-card" data-path="/nfl/schedule week football games" data-desc="NFL weekly schedule matchups venues"><span class="get-badge">GET</span><div><div class="ep-path">/nfl/schedule?week=1</div><div class="ep-desc">Weekly schedule with matchups & venues</div></div></div>
+<div class="ep-card" data-path="/nfl/games/live football live scores" data-desc="Live NFL games in progress"><span class="get-badge">GET</span><div><div class="ep-path">/nfl/games/live</div><div class="ep-desc">Live NFL games in progress</div></div></div>
+<div class="ep-card" data-path="/nfl/odds spread moneyline total football" data-desc="NFL point spreads totals moneylines"><span class="get-badge">GET</span><div><div class="ep-path">/nfl/odds</div><div class="ep-desc">Point spreads, totals, moneylines</div></div></div></div>
+  </div>
+</section>
+
+<section style="background:var(--off);padding:52px 0;">
+  <div class="wrap" style="text-align:center;">
+    <h2>Ready to build with NFL data?</h2>
+    <p class="lead" style="margin:0 auto 24px;">Free tier available. No credit card required.</p>
+    <a href="/pricing.html" class="btn-red">Get Your Free API Key →</a>
+  </div>
+</section>
+
+<footer class="psa-ft">
+  <div class="psa-ft-red"></div>
+
+  <!-- POWERED BY -->
+  <div class="psa-ft-pb">
+    <div class="psa-ft-pb-in">
+      <span class="psa-ft-pb-label">Powered by</span>
+      <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-red">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+        <span class="psa-ft-pb-name">PropTechUSA.ai</span>
+        <span class="psa-ft-pb-sub">165+ Cloudflare Workers</span>
+      </a>
+      <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-blue">
+        <span class="psa-ft-pb-name" style="color:#4D9EFF">PropData API</span>
+        <span class="psa-ft-pb-sub">Real Estate Intelligence</span>
+        <span class="psa-ft-pb-arr">&#8599;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="psa-ft-body">
+    <div class="psa-ft-grid">
+
+      <!-- BRAND -->
+      <div class="psa-ft-brand">
+        <a href="/" class="psa-ft-logo">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+          <span class="psa-ft-logo-t">Prop<span>Sports</span> API</span>
+        </a>
+        <p class="psa-ft-desc">Real-time MLB, NFL, NBA &amp; NHL data. Official sources. Flat monthly pricing. No per-call fees ever.</p>
+        <a href="tel:18887843881" class="psa-ft-phone">
+          <span class="psa-ft-phone-ic">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          1-888-784-3881
+        </a>
+        <div class="psa-ft-socials">
+          <a href="https://x.com/PropTechUSAAI" target="_blank" rel="noopener" class="psa-ft-soc" title="@PropTechUSAAI">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+          <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropTechUSA.ai">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
+          <a href="https://propbetedge.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropBetEdge.ai">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SPORTS -->
+      <div class="psa-ft-col">
+        <span class="psa-ft-col-h">Sports</span>
+        <ul class="psa-ft-links">
+          <li><a href="/mlb">&#9918; MLB API</a></li>
+          <li><a href="/nfl">&#127944; NFL API</a></li>
+          <li><a href="/nba">&#127936; NBA API</a></li>
+          <li><a href="/nhl">&#127944; NHL API</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="psa-ft-col">
+        <span class="psa-ft-col-h">Resources</span>
+        <ul class="psa-ft-links">
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/live">&#9889; See It Live</a></li>
+          <li><a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" rel="noopener">Live API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="tel:18887843881">1-888-784-3881</a></li>
+        </ul>
+      </div>
+
+      <!-- NETWORK -->
+      <div class="psa-ft-col">
+        <span class="psa-ft-col-h">Network</span>
+        <ul class="psa-ft-links">
+          <li><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-link-blue">PropData API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="psa-ft-base">
+    <div class="psa-ft-base-in">
+      <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved</div>
+      <div class="psa-ft-badges">
+        <span class="psa-ft-badge">MLB Stats API</span>
+        <span class="psa-ft-badge">Baseball Savant</span>
+        <span class="psa-ft-badge">NHL Stats API</span>
+        <span class="psa-ft-badge">NBA Stats API</span>
+        <span class="psa-ft-badge">Cloudflare Workers</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>// PropSports API — Shared JS v2
+
+// ── ALL ENDPOINTS (search database) ──────────────────────────────────────
+const ALL_ENDPOINTS = [
+  // MLB
+  {sport:'⚾',label:'MLB',path:'/mlb/schedule/today',desc:'Full slate with probable pitchers & venues',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/schedule?date=YYYY-MM-DD',desc:'Schedule for any date',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/games/live',desc:'Live games only with linescore',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/lineups?date=YYYY-MM-DD',desc:'Confirmed batting orders',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/game/:gamePk/plays',desc:'Real-time play-by-play data',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/game/:gamePk/boxscore',desc:'Full box score with player stats',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/game/:gamePk/linescore',desc:'Inning-by-inning linescore',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/schedule/today',desc:'Exit velocity, barrel%, hard hit% — MLB/AAA/AA',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/statcast/pitchers',desc:'SwStr%, velo, EV allowed, barrels',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/weather?park=Camden+Yards',desc:'Wind, temp, park factor for a specific park',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/schedule/today',desc:'Weather for every park today',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/umpires?date=YYYY-MM-DD',desc:'Home plate umpire assignments',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/player/:id/stats',desc:'Season hitting or pitching stats',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/player/:id/gamelog',desc:'Game-by-game log for any player',page:'/mlb.html'},
+  {sport:'⚾',label:'MLB',path:'/mlb/odds',desc:'Moneylines, spreads, over/unders',page:'/mlb.html'},
+  // NFL
+  {sport:'🏈',label:'NFL',path:'/nfl/schedule?week=1',desc:'Weekly schedule with matchups & venues',page:'/nfl.html'},
+  {sport:'🏈',label:'NFL',path:'/nfl/games/live',desc:'Live NFL games in progress',page:'/nfl.html'},
+  {sport:'🏈',label:'NFL',path:'/nfl/odds',desc:'Point spreads, totals, moneylines',page:'/nfl.html'},
+  // NBA
+  {sport:'🏀',label:'NBA',path:'/nba/schedule/today',desc:'Today\'s games with scores & odds',page:'/nba.html'},
+  {sport:'🏀',label:'NBA',path:'/nba/schedule?date=YYYYMMDD',desc:'Games for any date',page:'/nba.html'},
+  {sport:'🏀',label:'NBA',path:'/nba/games/live',desc:'Live games real-time',page:'/nba.html'},
+  {sport:'🏀',label:'NBA',path:'/nba/leaders?stat=PTS',desc:'Stat leaders — PTS/REB/AST/BLK/STL',page:'/nba.html'},
+  {sport:'🏀',label:'NBA',path:'/nba/player/:id/stats',desc:'Player season averages',page:'/nba.html'},
+  {sport:'🏀',label:'NBA',path:'/nba/odds',desc:'Game lines and totals',page:'/nba.html'},
+  // NHL
+  {sport:'🏒',label:'NHL',path:'/nhl/schedule/today',desc:'Puck drops with TV broadcast info',page:'/nhl.html'},
+  {sport:'🏒',label:'NHL',path:'/nhl/schedule?date=YYYY-MM-DD',desc:'Games for any date',page:'/nhl.html'},
+  {sport:'🏒',label:'NHL',path:'/nhl/games/live',desc:'Live games with period and score',page:'/nhl.html'},
+  {sport:'🏒',label:'NHL',path:'/nhl/standings',desc:'Full conference and division standings',page:'/nhl.html'},
+  {sport:'🏒',label:'NHL',path:'/nhl/leaders?category=goals',desc:'Goals, assists, points leaders',page:'/nhl.html'},
+  {sport:'🏒',label:'NHL',path:'/nhl/player/:id/stats',desc:'Player stats and career info',page:'/nhl.html'},
+  {sport:'🏒',label:'NHL',path:'/nhl/odds',desc:'Puck lines, totals, moneylines',page:'/nhl.html'},
+];
+
+const BASE = 'https://propsports-api.sales-fd3.workers.dev';
+
+// ── GLOBAL SEARCH MODAL ───────────────────────────────────────────────────
+function openSearch() {
+  const bg = document.getElementById('search-modal-bg');
+  if (!bg) return;
+  bg.classList.add('open');
+  setTimeout(() => {
+    const inp = document.getElementById('global-search-input');
+    if (inp) inp.focus();
+  }, 50);
+}
+function closeSearch() {
+  const bg = document.getElementById('search-modal-bg');
+  if (bg) bg.classList.remove('open');
+}
+
+function renderSearchResults(query) {
+  const list = document.getElementById('search-results-list');
+  if (!list) return;
+  const q = query.toLowerCase().trim();
+  if (!q) {
+    list.innerHTML = '<div class="search-empty">Type to search all 31 endpoints…</div>';
+    return;
+  }
+  const results = ALL_ENDPOINTS.filter(ep =>
+    ep.path.toLowerCase().includes(q) ||
+    ep.desc.toLowerCase().includes(q) ||
+    ep.label.toLowerCase().includes(q)
+  );
+  if (!results.length) {
+    list.innerHTML = '<div class="search-empty">No endpoints found for "' + query + '"</div>';
+    return;
+  }
+  list.innerHTML = results.map(ep => {
+    const hi = s => s.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
+    return `<a href="${ep.page}" class="search-result-item">
+      <span class="sr-sport">${ep.sport}</span>
+      <span class="sr-badge">GET</span>
+      <span class="sr-path">${hi(ep.path)}</span>
+      <span class="sr-desc">${ep.desc}</span>
+    </a>`;
+  }).join('');
+}
+
+// ── MOBILE MENU ───────────────────────────────────────────────────────────
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const ham = document.getElementById('hamburger');
+  if (!menu) return;
+  const open = menu.style.display === 'flex';
+  menu.style.display = open ? 'none' : 'flex';
+  if (ham) {
+    ham.children[0].style.transform = open ? '' : 'rotate(45deg) translate(4px,4px)';
+    ham.children[1].style.opacity = open ? '1' : '0';
+    ham.children[2].style.transform = open ? '' : 'rotate(-45deg) translate(4px,-4px)';
+  }
+}
+
+// ── ANIMATED BALLS ────────────────────────────────────────────────────────
+function initBalls() {
+  const container = document.getElementById('balls-bg');
+  if (!container) return;
+  const types = ['baseball','basketball','basketball','baseball','soccer','hockey'];
+  const count = window.innerWidth < 600 ? 7 : 15;
+  for (let i = 0; i < count; i++) {
+    const ball = document.createElement('div');
+    const type = types[i % types.length];
+    const size = type === 'hockey' ? (12 + Math.random() * 20) : (24 + Math.random() * 70);
+    const dur = 14 + Math.random() * 22;
+    const delay = -(Math.random() * dur);
+    ball.className = 'ball ball-' + type;
+    ball.style.cssText = [
+      'width:' + size + 'px',
+      'height:' + (type === 'hockey' ? Math.round(size * 0.38) : size) + 'px',
+      'left:' + (Math.random() * 100) + '%',
+      'animation-duration:' + dur + 's',
+      'animation-delay:' + delay + 's',
+      'opacity:' + (0.04 + Math.random() * 0.07),
+    ].join(';');
+    container.appendChild(ball);
+  }
+}
+
+// ── INLINE ENDPOINT SEARCH ────────────────────────────────────────────────
+function initEpSearch() {
+  const inp = document.getElementById('ep-search');
+  const countEl = document.getElementById('ep-count');
+  if (!inp) return;
+  inp.addEventListener('input', () => {
+    const q = inp.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.ep-card[data-path]');
+    let visible = 0;
+    cards.forEach(card => {
+      const path = (card.dataset.path || '').toLowerCase();
+      const desc = (card.dataset.desc || '').toLowerCase();
+      const hit = !q || path.includes(q) || desc.includes(q);
+      card.classList.toggle('hidden', !hit);
+      if (hit) {
+        visible++;
+        // Highlight matching text
+        const pathEl = card.querySelector('.ep-path');
+        const descEl = card.querySelector('.ep-desc');
+        if (q && pathEl) pathEl.innerHTML = highlightMatch(card.dataset.path, q);
+        else if (pathEl) pathEl.textContent = card.dataset.path;
+        if (q && descEl) descEl.innerHTML = highlightMatch(card.dataset.desc, q);
+        else if (descEl) descEl.textContent = card.dataset.desc;
+      }
+    });
+    if (countEl) countEl.textContent = visible + ' endpoints';
+  });
+}
+
+function highlightMatch(text, q) {
+  if (!q) return text;
+  return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
+}
+
+// ── SPORT TAB SWITCHER ────────────────────────────────────────────────────
+function showSport(sport, btn) {
+  document.querySelectorAll('[data-sport-panel]').forEach(p => {
+    p.style.display = p.dataset.sportPanel === sport ? 'grid' : 'none';
+  });
+  document.querySelectorAll('[data-sport-tab]').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+// ── PREVIEW TABS ──────────────────────────────────────────────────────────
+function showPreview(name, btn) {
+  document.querySelectorAll('.prev-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.prev-tab').forEach(b => b.classList.remove('on'));
+  const panel = document.getElementById('prev-' + name);
+  if (panel) panel.classList.add('on');
+  btn.classList.add('on');
+}
+
+// ── SCROLL FADE UP ────────────────────────────────────────────────────────
+function initScrollFu() {
+  const els = document.querySelectorAll('.scroll-fu');
+  if (!els.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+}
+
+// ── KEYBOARD SHORTCUTS ────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+  if (e.key === 'Escape') closeSearch();
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  initBalls();
+  initScrollFu();
+  initEpSearch();
+
+  // Search modal input
+  const globalInp = document.getElementById('global-search-input');
+  if (globalInp) {
+    globalInp.addEventListener('input', () => renderSearchResults(globalInp.value));
+    renderSearchResults('');
+  }
+
+  // Close search on bg click
+  const bg = document.getElementById('search-modal-bg');
+  if (bg) bg.addEventListener('click', e => { if (e.target === bg) closeSearch(); });
+});
+</script>
+<script>
+// Set count on load
+document.addEventListener('DOMContentLoaded',()=>{
+  const ct = document.querySelect

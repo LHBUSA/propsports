@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Cal is your AI acquisitions specialist from Local Home Buyers USA. Get honest answers about selling your home 24/7 — no pressure, no scripts, no fees to sellers.">
+<meta name="keywords" content="sell my house fast, cash home buyers, we buy houses, home buyers USA, sell house as-is, BKPP, real estate AI">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#080807">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cal · LHBUSA">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://localhomebuyersusa.ai">
+<meta property="og:title" content="Cal — AI Acquisitions Specialist · Local Home Buyers USA">
+<meta property="og:description" content="Get honest answers about selling your home 24/7. Three lanes, full transparency, no fees to sellers.">
+<meta property="og:site_name" content="Local Home Buyers USA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cal — AI Acquisitions Specialist">
+<meta name="twitter:description" content="Honest answers about selling your home, 24/7. No pressure, no scripts, no fees to sellers.">
+<link rel="canonical" href="https://localhomebuyersusa.ai">
+<title>Cal · AI Home Acquisitions Specialist | Local Home Buyers USA</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080807'/%3E%3Crect x='1' y='1' width='30' height='30' rx='6' fill='none' stroke='%23c49a3c' stroke-width='1.5'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18'%3E%F0%9F%90%9D%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23080807'/%3E%3Crect x='6' y='6' width='168' height='168' rx='34' fill='none' stroke='%23c49a3c' stroke-width='6'/%3E%3Ctext x='90' y='125' text-anchor='middle' font-size='100'%3E%F0%9F%90%9D%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://localhomebuyersusa.com/#business",
+      "name": "Local Home Buyers USA",
+      "alternateName": "LHBUSA",
+      "url": "https://localhomebuyersusa.com",
+      "description": "Nationwide real estate acquisitions company offering three lanes for home sellers: cash offers, BKPP Partnership Program, and agent listing comparisons. No fees to sellers.",
+      "telephone": "+18008580588",
+      "foundingDate": "2025-07",
+      "founder": {"@type": "Person", "name": "Justin Erickson"},
+      "address": {"@type": "PostalAddress", "addressLocality": "Saint Paul", "addressRegion": "MN", "addressCountry": "US"},
+      "areaServed": {"@type": "Country", "name": "United States"},
+      "priceRange": "No fees to sellers",
+      "sameAs": ["https://localhomebuyersusa.com", "https://localhomebuyersusa.ai"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://localhomebuyersusa.ai/#website",
+      "url": "https://localhomebuyersusa.ai",
+      "name": "Cal · Local Home Buyers USA",
+      "description": "AI-powered acquisitions assistant for home sellers"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "How fast can you close on my house?", "acceptedAnswer": {"@type": "Answer", "text": "Cash offers close in 7-14 days. BKPP closes in 30-60 days with best net proceeds. Agent listings take 60-120+ days."}},
+        {"@type": "Question", "name": "Are there any fees to sellers?", "acceptedAnswer": {"@type": "Answer", "text": "Zero fees to sellers. We earn from the deal structure at closing — never from the seller."}},
+        {"@type": "Question", "name": "What is the Bee's Knees Partner Program (BKPP)?", "acceptedAnswer": {"@type": "Answer", "text": "BKPP is a partnership where we handle all repairs, staging, and marketing for a retail sale. Sellers net 15-25% more than a cash offer in 30-60 days."}},
+        {"@type": "Question", "name": "Do you buy houses in all 50 states?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Local Home Buyers USA operates nationwide across all 50 states."}},
+        {"@type": "Question", "name": "Can you buy my house if it needs repairs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — BKPP is designed for homes with deferred maintenance. You don't spend a dime on repairs."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blk:      #080807;
+  --blk2:     #0e0d0c;
+  --blk3:     #161513;
+  --blk4:     #1e1c19;
+  --blk5:     #252220;
+  --gold:     #c49a3c;
+  --gold-hi:  #e2b55a;
+  --gold-lo:  rgba(196,154,60,0.1);
+  --grn:      #3db87a;
+  --red:      #e05c4a;
+  --cream:    #ede8df;
+  --cream2:   #bdb5a8;
+  --cream3:   #7a7268;
+  --cream4:   #4e4840;
+  --bdr:      rgba(255,255,255,0.055);
+  --bdr-g:    rgba(196,154,60,0.2);
+  --serif:   'Cormorant', Georgia, serif;
+  --mono:    'DM Mono', monospace;
+  --sans:    'Plus Jakarta Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background: var(--blk);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.app { display: flex; height: 100dvh; }
+
+/* ═══════════════════════════════════════
+   LEFT PANEL
+═══════════════════════════════════════ */
+.panel {
+  width: 420px;
+  min-width: 420px;
+  background: var(--blk2);
+  border-right: 1px solid var(--bdr);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.orbs { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.orb1 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(196,154,60,0.11) 0%, transparent 70%);
+  top: -60px; left: -40px;
+  animation: of1 14s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(196,154,60,0.06) 0%, transparent 70%);
+  bottom: 80px; right: -30px;
+  animation: of2 18s ease-in-out infinite;
+}
+
+@keyframes of1 { 0%,100%{transform:translate(0,0)} 40%{transform:translate(18px,28px)} 70%{transform:translate(-12px,14px)} }
+@keyframes of2 { 0%,100%{transform:translate(0,0)} 55%{transform:translate(-16px,-22px)} }
+
+.orbs::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.7;
+}
+
+/* ── BRAND ── */
+.panel-brand {
+  position: relative;
+  z-index: 1;
+  padding: 28px 26px 22px;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: su 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+}
+
+.p-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+
+.p-logo { display: flex; align-items: center; gap: 9px; }
+
+.p-bee {
+  width: 30px; height: 30px;
+  border-radius: 7px;
+  background: var(--blk4);
+  border: 1px solid var(--bdr-g);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 10px rgba(196,154,60,0.1);
+}
+
+.p-name { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream2); }
+
+.p-domain { font-family: var(--mono); font-size: 9px; color: var(--cream4); letter-spacing: 0.05em; padding: 3px 8px; border-radius: 99px; border: 1px solid var(--bdr); background: rgba(255,255,255,0.015); }
+
+.p-kicker { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+.p-rule { width: 26px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+.p-kicker-txt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+
+.p-hed { font-family: var(--serif); font-size: 46px; font-weight: 300; line-height: 0.95; letter-spacing: -0.01em; color: var(--cream); margin-bottom: 10px; }
+.p-hed .ig { font-style: italic; color: var(--gold-hi); }
+.p-hed .lw { color: var(--cream3); }
+
+.p-desc { font-size: 12px; font-weight: 300; color: var(--cream3); line-height: 1.7; }
+
+.panel-div { position: relative; z-index: 1; height: 1px; background: var(--bdr); flex-shrink: 0; }
+
+/* ═══════════════════════════════════════
+   TICKER
+═══════════════════════════════════════ */
+.ticker { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* ── DATA FRESHNESS ── */
+.t-freshness {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 14px;
+  background: var(--blk3);
+  border-bottom: 1px solid var(--bdr);
+  flex-shrink: 0;
+}
+
+.tf-left { display: flex; align-items: center; gap: 6px; }
+
+.tf-pip {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--cream4);
+  transition: background 0.3s;
+}
+
+.tf-pip.live { background: var(--grn); box-shadow: 0 0 4px rgba(61,184,122,0.6); animation: pp 2s ease infinite; }
+.tf-pip.loading { background: var(--gold); animation: pp 0.8s ease infinite; }
+.tf-pip.error { background: var(--red); }
+
+@keyframes pp { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.tf-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream4); }
+.tf-source { font-family: var(--mono); font-size: 8px; color: var(--cream4); letter-spacing: 0.04em; opacity: 0.7; }
+
+/* ── TAPE ── */
+.tape-shell { position: relative; background: var(--blk3); border-bottom: 1px solid var(--bdr); height: 30px; overflow: hidden; flex-shrink: 0; }
+.tape-shell::before, .tape-shell::after { content: ''; position: absolute; top: 0; bottom: 0; width: 28px; z-index: 2; pointer-events: none; }
+.tape-shell::before { left: 0; background: linear-gradient(90deg, var(--blk3), transparent); }
+.tape-shell::after  { right: 0; background: linear-gradient(-90deg, var(--blk3), transparent); }
+
+.tape { display: flex; align-items: center; height: 100%; white-space: nowrap; animation: scroll 32s linear infinite; }
+.tape:hover { animation-play-state: paused; }
+@keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+.ti { display: inline-flex; align-items: center; gap: 6px; padding: 0 16px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.03em; border-right: 1px solid var(--bdr); }
+.ti-k { color: var(--cream4); text-transform: uppercase; font-size: 8px; letter-spacing: 0.12em; }
+.ti-v { color: var(--cream); }
+.ti-v.up { color: var(--grn); }
+.ti-v.dn { color: var(--red); }
+.ti-v.gd { color: var(--gold-hi); }
+.ti-a { font-size: 7.5px; }
+.ti-a.up { color: var(--grn); }
+.ti-a.dn { color: var(--red); }
+
+/* skeleton shimmer for loading */
+.skeleton {
+  background: linear-gradient(90deg, var(--blk3) 25%, var(--blk4) 50%, var(--blk3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* ── 2×2 GRID ── */
+.t-grid { display: grid; grid-template-columns: 1fr 1fr; flex-shrink: 0; }
+
+.t-cell {
+  padding: 12px 14px 10px;
+  background: var(--blk2);
+  border-bottom: 1px solid var(--bdr);
+  border-right: 1px solid var(--bdr);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.18s;
+}
+
+.t-cell:nth-child(even) { border-right: none; }
+.t-cell::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(196,154,60,0.07), transparent 55%); opacity: 0; transition: opacity 0.2s; }
+.t-cell:hover { background: var(--blk3); }
+.t-cell:hover::after { opacity: 1; }
+.t-cell.on { background: var(--blk4); outline: 1px solid var(--bdr-g); outline-offset: -1px; }
+.t-cell.on::after { opacity: 1; }
+
+.tc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.tc-k { font-family: var(--mono); font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream4); }
+
+.tc-badge { font-family: var(--mono); font-size: 7px; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.06em; }
+.b-dn  { background: rgba(224,92,74,0.12); color: var(--red); }
+.b-up  { background: rgba(61,184,122,0.1); color: var(--grn); }
+.b-gd  { background: var(--gold-lo); color: var(--gold-hi); border: 1px solid var(--bdr-g); }
+.b-nt  { background: rgba(255,255,255,0.04); color: var(--cream3); }
+
+.tc-val { font-family: var(--serif); font-size: 24px; font-weight: 300; line-height: 1; color: var(--cream); letter-spacing: -0.01em; margin-bottom: 3px; }
+.tc-val .u { font-family: var(--mono); font-size: 9px; color: var(--cream3); margin-left: 1px; }
+.tc-val.loading .num { display: none; }
+.tc-val.loading::after { content: ''; display: inline-block; width: 60px; height: 20px; background: linear-gradient(90deg, var(--blk3) 25%, var(--blk4) 50%, var(--blk3) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 3px; vertical-align: middle; }
+
+.tc-delta { font-family: var(--mono); font-size: 8.5px; color: var(--cream4); line-height: 1; }
+.tc-delta.up { color: var(--grn); }
+.tc-delta.dn { color: var(--red); }
+.tc-delta.gd { color: var(--gold-hi); }
+
+.tc-spark { position: absolute; bottom: 2px; right: 3px; width: 64px; height: 26px; opacity: 0.35; }
+
+/* ── DETAIL ── */
+.t-detail { background: var(--blk3); border-bottom: 1px solid var(--bdr-g); max-height: 0; overflow: hidden; transition: max-height 0.32s cubic-bezier(0.16,1,0.3,1); flex-shrink: 0; }
+.t-detail.open { max-height: 170px; }
+.t-detail-inner { padding: 12px 16px 10px; }
+.t-detail-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.t-detail-title { font-family: var(--serif); font-size: 12.5px; font-style: italic; font-weight: 300; color: var(--cream2); }
+.t-esc { font-family: var(--mono); font-size: 8px; color: var(--cream4); cursor: pointer; padding: 2px 7px; border: 1px solid var(--bdr); border-radius: 3px; letter-spacing: 0.08em; transition: color .15s, border-color .15s; }
+.t-esc:hover { color: var(--gold-hi); border-color: var(--bdr-g); }
+.t-rows { display: flex; flex-direction: column; gap: 0; }
+.t-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.t-row:last-child { border-bottom: none; }
+.t-row-k { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.08em; color: var(--cream4); text-transform: uppercase; }
+.t-row-v { font-family: var(--mono); font-size: 9.5px; color: var(--cream2); }
+.t-row-v.good { color: var(--grn); }
+.t-row-v.warn { color: var(--red); }
+.t-row-v.gd   { color: var(--gold-hi); }
+
+/* ── CHART ── */
+.t-chart { flex-shrink: 0; padding: 10px 14px 7px; background: var(--blk2); border-bottom: 1px solid var(--bdr); }
+.t-chart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+.t-chart-label { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream4); }
+.t-chart-val { font-family: var(--mono); font-size: 9.5px; color: var(--gold-hi); letter-spacing: 0.04em; }
+.t-chart-src { font-family: var(--mono); font-size: 7px; color: var(--cream4); opacity: 0.6; }
+
+.chart-area { position: relative; height: 42px; }
+.chart-area svg { width: 100%; height: 100%; overflow: visible; }
+
+.c-tip { position: absolute; background: var(--blk5); border: 1px solid var(--bdr-g); border-radius: 4px; padding: 3px 7px; font-family: var(--mono); font-size: 9px; color: var(--cream); pointer-events: none; opacity: 0; transition: opacity 0.12s; transform: translate(-50%, -100%); margin-top: -5px; white-space: nowrap; z-index: 10; letter-spacing: 0.04em; }
+.c-tip.show { opacity: 1; }
+
+.t-chart-weeks { display: flex; justify-content: space-between; margin-top: 3px; font-family: var(--mono); font-size: 7px; color: var(--cream4); letter-spacing: 0.04em; }
+
+/* ── INSIGHT ── */
+.t-insight { flex: 1; display: flex; align-items: center; gap: 9px; padding: 10px 14px; background: var(--blk2); min-height: 0; }
+.t-insight-icon { font-size: 12px; flex-shrink: 0; }
+.t-insight-txt { font-family: var(--serif); font-size: 12px; font-style: italic; font-weight: 300; color: var(--cream3); line-height: 1.5; flex: 1; min-width: 0; transition: opacity 0.25s; }
+.t-insight-txt strong { color: var(--gold-hi); font-style: normal; font-weight: 400; }
+.t-insight-btn { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.1em; color: var(--cream4); cursor: pointer; padding: 3px 7px; border: 1px solid var(--bdr); border-radius: 3px; flex-shrink: 0; transition: color .15s, border-color .15s; white-space: nowrap; }
+.t-insight-btn:hover { color: var(--gold-hi); border-color: var(--bdr-g); }
+.t-insight-btn.spin { animation: spin 0.5s linear; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── FOOTER ── */
+.panel-foot { position: relative; z-index: 1; padding: 10px 16px; border-top: 1px solid var(--bdr); display: flex; align-items: center; justify-content: space-between; background: var(--blk2); flex-shrink: 0; }
+.fp-pills { display: flex; gap: 5px; }
+.fp-pill { display: flex; align-items: center; gap: 4px; padding: 3px 7px; border-radius: 99px; border: 1px solid var(--bdr); background: rgba(255,255,255,0.015); font-family: var(--mono); font-size: 9px; color: var(--cream4); }
+.fp-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--grn); box-shadow: 0 0 4px rgba(61,184,122,0.7); }
+.fp-phone { font-family: var(--mono); font-size: 9.5px; color: var(--cream4); text-decoration: none; letter-spacing: 0.04em; transition: color .15s; }
+.fp-phone:hover { color: var(--gold-hi); }
+
+/* ═══════════════════════════════════════
+   RIGHT — CHAT
+═══════════════════════════════════════ */
+.chat { flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--blk); position: relative; }
+.chat::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 220px; background: radial-gradient(ellipse at 50% 0%, rgba(196,154,60,0.04) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+.chat-bar { display: flex; align-items: center; justify-content: space-between; padding: 17px 26px; border-bottom: 1px solid var(--bdr); flex-shrink: 0; position: relative; z-index: 2; opacity: 0; animation: fi 0.5s ease 0.9s forwards; }
+.cb-id { display: flex; align-items: center; gap: 10px; }
+.cb-bee { width: 28px; height: 28px; border-radius: 50%; background: var(--blk3); border: 1px solid var(--bdr-g); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+.cb-name { font-weight: 600; font-size: 13px; color: var(--cream); }
+.cb-status { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9px; color: var(--grn); letter-spacing: 0.06em; }
+.live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--grn); box-shadow: 0 0 5px rgba(61,184,122,0.7); animation: lp 2.5s ease infinite; }
+@keyframes lp { 0%,100%{opacity:1} 50%{opacity:.45} }
+.cb-right { display: flex; align-items: center; gap: 8px; }
+.cb-phone { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9.5px; color: var(--cream3); text-decoration: none; padding: 5px 11px; border: 1px solid var(--bdr); border-radius: 99px; letter-spacing: 0.04em; transition: all 0.2s; }
+.cb-phone:hover { border-color: var(--bdr-g); color: var(--gold-hi); background: var(--gold-lo); }
+.cb-offer { padding: 7px 17px; border-radius: 99px; background: var(--gold); color: var(--blk); font-size: 11px; font-weight: 600; font-family: var(--sans); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; text-decoration: none; border: none; transition: all 0.2s; }
+.cb-offer:hover { background: var(--gold-hi); transform: translateY(-1px); box-shadow: 0 5px 18px rgba(196,154,60,0.3); }
+
+.feed { flex: 1; overflow-y: auto; padding: 26px 26px 14px; position: relative; z-index: 1; display: flex; flex-direction: column; }
+.feed::-webkit-scrollbar { width: 3px; }
+.feed::-webkit-scrollbar-thumb { background: var(--bdr); border-radius: 2px; }
+
+.welcome { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; padding-bottom: 10px; opacity: 0; animation: fi 0.6s ease 1.1s forwards; }
+.w-tag { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px; border-radius: 99px; border: 1px solid var(--bdr-g); background: var(--gold-lo); font-family: var(--mono); font-size: 9px; color: var(--gold-hi); letter-spacing: 0.1em; text-transform: uppercase; width: fit-content; }
+.w-hed { font-family: var(--serif); font-size: 34px; font-weight: 300; line-height: 1.12; color: var(--cream); }
+.w-hed em { font-style: italic; color: var(--gold-hi); }
+.w-sub { font-size: 13px; font-weight: 300; color: var(--cream3); line-height: 1.75; max-width: 380px; }
+
+.q-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; max-width: 520px; }
+.qb { padding: 10px 12px; border: 1px solid var(--bdr); border-radius: 9px; background: var(--blk2); cursor: pointer; text-align: left; transition: all 0.2s; position: relative; overflow: hidden; }
+.qb::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold-lo), transparent); opacity: 0; transition: opacity 0.2s; }
+.qb:hover { border-color: var(--bdr-g); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+.qb:hover::before { opacity: 1; }
+.qi { display: block; font-size: 15px; margin-bottom: 4px; position: relative; }
+.qt { font-size: 11px; color: var(--cream2); line-height: 1.35; position: relative; font-weight: 300; }
+
+.msgs { display: flex; flex-direction: column; gap: 18px; }
+.msg { display: flex; gap: 12px; opacity: 0; animation: md 0.32s cubic-bezier(0.16,1,0.3,1) forwards; }
+@keyframes md { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.msg.user { flex-direction: row-reverse; }
+.m-avi { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 4px; }
+.msg.cal .m-avi { background: var(--blk3); border: 1px solid var(--bdr-g); font-size: 12px; }
+.msg.user .m-avi { background: var(--blk3); border: 1px solid var(--bdr); font-size: 10px; color: var(--cream3); }
+.m-body { max-width: calc(100% - 80px); display: flex; flex-direction: column; gap: 3px; }
+.msg.user .m-body { align-items: flex-end; }
+.m-who { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream4); }
+.msg.cal .m-who { color: var(--gold); }
+.bub { padding: 12px 16px; border-radius: 3px 10px 10px 10px; font-size: 14px; line-height: 1.7; background: var(--blk2); border: 1px solid var(--bdr); color: var(--cream); font-weight: 300; }
+.msg.user .bub { background: var(--gold-lo); border-color: rgba(196,154,60,0.18); border-radius: 10px 3px 10px 10px; }
+.bub p { margin-bottom: .55em; } .bub p:last-child { margin-bottom: 0; }
+.bub strong { color: var(--gold-hi); font-weight: 500; }
+.bub em { color: var(--cream2); font-style: italic; }
+.bub a { color: var(--gold-hi); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(226,181,90,0.35); }
+.bub.streaming::after { content:'▋'; color:var(--gold); font-size:11px; margin-left:2px; animation:blink .75s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.ty-row { display:flex; gap:12px; opacity:0; animation:md .3s cubic-bezier(0.16,1,0.3,1) forwards; }
+.ty-bub { background:var(--blk2); border:1px solid var(--bdr); border-radius:3px 10px 10px 10px; padding:12px 15px; display:flex; gap:5px; align-items:center; }
+.td { width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:.3; animation:tda 1.4s ease infinite; }
+.td:nth-child(2){animation-delay:.2s} .td:nth-child(3){animation-delay:.4s}
+@keyframes tda { 0%,80%,100%{opacity:.3;transform:scale(1)} 40%{opacity:1;transform:scale(1.4)} }
+
+.chat-inp { padding: 13px 26px 18px; border-top: 1px solid var(--bdr); flex-shrink: 0; position: relative; z-index: 2; opacity: 0; animation: fi 0.5s ease 1.1s forwards; }
+.inp-shell { display: flex; gap: 9px; align-items: flex-end; background: var(--blk2); border: 1px solid var(--bdr); border-radius: 12px; padding: 10px 11px 10px 16px; transition: border-color .2s, box-shadow .2s; }
+.inp-shell:focus-within { border-color: var(--bdr-g); box-shadow: 0 0 0 3px rgba(196,154,60,0.05); }
+#msg { flex: 1; background: none; border: none; outline: none; color: var(--cream); font-size: 14px; font-family: var(--sans); font-weight: 300; resize: none; max-height: 120px; min-height: 24px; line-height: 1.55; padding: 1px 0; }
+#msg::placeholder { color: var(--cream4); }
+.s-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; opacity: 0.22; transform: scale(0.9); }
+.s-btn.live { opacity: 1; transform: scale(1); }
+.s-btn.live:hover { background: var(--gold-hi); transform: scale(1.07); box-shadow: 0 4px 14px rgba(196,154,60,0.35); }
+.s-btn svg { color: var(--blk); }
+.inp-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding: 0 2px; }
+.im-l { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 9px; color: var(--cream4); letter-spacing: 0.05em; }
+.ai-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.6; }
+.lang-sw { display: flex; background: var(--blk3); border: 1px solid var(--bdr); border-radius: 99px; padding: 3px; gap: 2px; }
+.lb { padding: 2px 10px; border-radius: 99px; border: none; background: none; color: var(--cream4); font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; cursor: pointer; transition: all .15s; }
+.lb.on { background: var(--gold); color: var(--blk); }
+
+@keyframes su { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fi { from{opacity:0} to{opacity:1} }
+@keyframes flash { 0%{color:var(--gold-hi)} 100%{color:var(--cream)} }
+.flash { animation: flash 0.9s ease forwards; }
+
+/* ═══ MOBILE MARKET STRIP ═══ */
+.mobile-strip {
+  display: none;
+  background: var(--blk3);
+  border-bottom: 1px solid var(--bdr);
+  padding: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ms-scroll {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 14px;
+  gap: 10px;
+}
+
+.ms-scroll::-webkit-scrollbar { display: none; }
+
+.ms-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--blk4);
+  border: 1px solid var(--bdr);
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-width: 72px;
+}
+
+.ms-item:active { border-color: var(--bdr-g); background: var(--blk5); }
+
+.ms-item-k {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream4);
+  white-space: nowrap;
+}
+
+.ms-item-v {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.ms-item-v.up { color: var(--grn); }
+.ms-item-v.dn { color: var(--red); }
+.ms-item-v.gd { color: var(--gold-hi); }
+
+.ms-item-d {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  color: var(--cream4);
+}
+
+.ms-item-d.up { color: var(--grn); }
+.ms-item-d.dn { color: var(--red); }
+
+@media (max-width: 860px) {
+  .panel { display: none; }
+  .mobile-strip { display: block; }
+  .app { display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
+  .chat { flex: 1; min-height: 0; height: auto; display: flex; flex-direction: column; }
+  .feed {
+    padding: 14px 14px 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+  .chat-bar { padding: 11px 14px; }
+  .chat-inp {
+    padding: 10px 14px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+  .q-grid { grid-template-columns: 1fr 1fr; gap: 6px; max-width: 100%; }
+  .qb { padding: 9px 10px; }
+  .qi { font-size: 14px; margin-bottom: 3px; }
+  .qt { font-size: 11px; }
+  .cb-phone { display: none; }
+  .cb-offer { padding: 6px 14px; font-size: 11px; }
+  .w-hed { font-size: 28px; }
+  .w-sub { font-size: 12.5px; }
+  .welcome { gap: 16px; }
+  #msg { font-size: 16px; } /* prevent iOS zoom on focus */
+  .bub { font-size: 14px; padding: 11px 14px; }
+  .inp-shell { padding: 9px 10px 9px 14px; }
+  .s-btn { width: 38px; height: 38px; } /* bigger tap target */
+  .chat-bar { border-bottom: 1px solid var(--bdr); }
+}
+
+@media (max-width: 1140px) and (min-width: 861px) {
+  .panel { width: 360px; min-width: 360px; }
+  .p-hed { font-size: 38px; }
+  .panel-brand { padding: 22px 20px 18px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ══ LEFT PANEL ══ -->
+<aside class="panel">
+  <div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+  <div class="panel-brand">
+    <div class="p-nav">
+      <div class="p-logo"><div class="p-bee">🐝</div><span class="p-name">LHBUSA</span></div>
+      <span class="p-domain">localhomebuyersusa.ai</span>
+    </div>
+    <div class="p-kicker"><div class="p-rule"></div><span class="p-kicker-txt">AI Acquisitions · 24/7</span></div>
+    <h1 class="p-hed">The<br><span class="ig">honest</span><br><span class="lw">exit.</span></h1>
+    <p class="p-desc">Three lanes. Full transparency. An AI that knows when to say no.</p>
+  </div>
+
+  <div class="panel-div"></div>
+
+  <div class="ticker">
+
+    <!-- data freshness bar -->
+    <div class="t-freshness">
+      <div class="tf-left">
+        <div class="tf-pip loading" id="tf-pip"></div>
+        <span class="tf-label" id="tf-label">Loading market data…</span>
+      </div>
+      <span class="tf-source">FRED · Freddie Mac PMMS</span>
+    </div>
+
+    <!-- tape -->
+    <div class="tape-shell"><div class="tape" id="tape"><span class="ti"><span class="ti-k">Loading</span><span class="ti-v">—</span></span></div></div>
+
+    <!-- 2×2 -->
+    <div class="t-grid">
+      <div class="t-cell" id="tc-rate" onclick="tToggle('rate')">
+        <div class="tc-top"><span class="tc-k">30yr Fixed</span><span class="tc-badge b-dn" id="b-rate">—</span></div>
+        <div class="tc-val loading" id="v-rate"><span class="num">—<span class="u">%</span></span></div>
+        <div class="tc-delta dn" id="d-rate">—</div>
+        <svg class="tc-spark" id="sp-rate" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="t-cell" id="tc-inv" onclick="tToggle('inv')">
+        <div class="tc-top"><span class="tc-k">Inventory</span><span class="tc-badge b-nt" id="b-inv">—</span></div>
+        <div class="tc-val loading" id="v-inv"><span class="num">—<span class="u">mo</span></span></div>
+        <div class="tc-delta" id="d-inv">—</div>
+        <svg class="tc-spark" id="sp-inv" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="t-cell" id="tc-fed" onclick="tToggle('fed')">
+        <div class="tc-top"><span class="tc-k">Fed Rate</span><span class="tc-badge b-nt" id="b-fed">—</span></div>
+        <div class="tc-val loading" id="v-fed"><span class="num">—<span class="u">%</span></span></div>
+        <div class="tc-delta" id="d-fed">Policy rate</div>
+        <svg class="tc-spark" id="sp-fed" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="t-cell" id="tc-bkpp" onclick="tToggle('bkpp')">
+        <div class="tc-top"><span class="tc-k">BKPP Edge</span><span class="tc-badge b-gd" id="b-bkpp">🐝 Best</span></div>
+        <div class="tc-val loading" id="v-bkpp"><span class="num">—<span class="u">avg</span></span></div>
+        <div class="tc-delta gd" id="d-bkpp">vs cash offer</div>
+        <svg class="tc-spark" id="sp-bkpp" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
+      </div>
+    </div>
+
+    <!-- detail drawer -->
+    <div class="t-detail" id="t-detail">
+      <div class="t-detail-inner">
+        <div class="t-detail-head">
+          <span class="t-detail-title" id="dt-title"></span>
+          <span class="t-esc" onclick="tClose()">ESC</span>
+        </div>
+        <div class="t-rows" id="dt-rows"></div>
+      </div>
+    </div>
+
+    <!-- chart -->
+    <div class="t-chart">
+      <div class="t-chart-head">
+        <span class="t-chart-label">30yr Fixed — Weekly (Freddie Mac PMMS)</span>
+        <span class="t-chart-val" id="ch-val">—</span>
+      </div>
+      <div class="chart-area"><svg id="ch-svg" viewBox="0 0 372 42" preserveAspectRatio="none"></svg><div class="c-tip" id="c-tip"></div></div>
+      <div class="t-chart-weeks" id="ch-weeks"></div>
+    </div>
+
+    <!-- insight -->
+    <div class="t-insight">
+      <span class="t-insight-icon">🐝</span>
+      <span class="t-insight-txt" id="ins-txt">Loading market insight…</span>
+      <span class="t-insight-btn" id="ins-btn" onclick="nextInsight()">↻ Next</span>
+    </div>
+
+  </div>
+
+  <div class="panel-foot">
+    <div class="fp-pills">
+      <div class="fp-pill"><div class="fp-dot"></div>No seller fees</div>
+      <div class="fp-pill"><div class="fp-dot"></div>Nationwide</div>
+    </div>
+    <a href="tel:18008580588" class="fp-phone">1-800-858-0588</a>
+  </div>
+
+</aside>
+
+<!-- ══ CHAT ══ -->
+<main class="chat">
+
+  <!-- MOBILE MARKET STRIP -->
+  <div class="mobile-strip" id="mobile-strip">
+    <div class="ms-scroll" id="ms-scroll">
+      <div class="ms-item"><span class="ms-item-k">30yr Fixed</span><span class="ms-item-v dn" id="ms-rate">—</span><span class="ms-item-d dn" id="ms-rate-d">—</span></div>
+      <div class="ms-item"><span class="ms-item-k">Fed Rate</span><span class="ms-item-v" id="ms-fed">—</span><span class="ms-item-d">policy</span></div>
+      <div class="ms-item"><span class="ms-item-k">Inventory</span><span class="ms-item-v" id="ms-inv">—</span><span class="ms-item-d" id="ms-inv-d">—</span></div>
+      <div class="ms-item"><span class="ms-item-k">BKPP Edge</span><span class="ms-item-v gd" id="ms-bkpp">—</span><span class="ms-item-d">vs cash</span></div>
+      <div class="ms-item"><span class="ms-item-k">15yr Fixed</span><span class="ms-item-v dn" id="ms-r15">—</span><span class="ms-item-d">rate</span></div>
+    </div>
+  </div>
+
+  <div class="chat-bar">
+    <div class="cb-id">
+      <div class="cb-bee">🐝</div>
+      <div><div class="cb-name">Cal</div><div class="cb-status"><div class="live-dot"></div>Online now</div></div>
+    </div>
+    <div class="cb-right">
+      <a href="tel:18008580588" class="cb-phone">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.04 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        1-800-858-0588
+      </a>
+      <a href="https://localhomebuyersusa.com/get-offer/" target="_blank" class="cb-offer">Get Offer</a>
+    </div>
+  </div>
+
+  <div class="feed" id="feed">
+    <div class="welcome" id="welcome">
+      <div class="w-tag"><span>🐝</span> Hey — I'm Cal</div>
+      <h2 class="w-hed">What's on your mind<br>about <em>your home?</em></h2>
+      <p class="w-sub">Straight answers, no scripts. Tell me your situation — I'll tell you your options.</p>
+      <div class="q-grid">
+        <button class="qb" onclick="sendQ('What is my home worth right now?')"><span class="qi">🏠</span><span class="qt">What's my home worth?</span></button>
+        <button class="qb" onclick="sendQ('How fast can you close on my house?')"><span class="qi">⚡</span><span class="qt">How fast can you close?</span></button>
+        <button class="qb" onclick="sendQ('My mom passed away and left me the house. What do I do now?')"><span class="qi">🏚️</span><span class="qt">I inherited a house</span></button>
+        <button class="qb" onclick="sendQ('I am behind on my mortgage and worried about foreclosure')"><span class="qi">⚠️</span><span class="qt">Behind on mortgage</span></button>
+        <button class="qb" onclick="sendQ('I already have a cash offer from another investor. Can you beat it?')"><span class="qi">💰</span><span class="qt">I have another offer</span></button>
+        <button class="qb" onclick="sendQ('Explain how the BKPP partnership program works')"><span class="qi">🐝</span><span class="qt">How does BKPP work?</span></button>
+      </div>
+    </div>
+    <div class="msgs" id="msgs"></div>
+  </div>
+
+  <div class="chat-inp">
+    <div class="inp-shell">
+      <textarea id="msg" rows="1" placeholder="Ask Cal anything about selling your home…"></textarea>
+      <button class="s-btn" id="sbtn" onclick="doSend()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+    <div class="inp-meta">
+      <div class="im-l"><span class="ai-dot"></span>Cal is AI &nbsp;·&nbsp; <a href="tel:18008580588" style="color:inherit;text-decoration:none">1-800-858-0588</a></div>
+      <div class="lang-sw">
+        <button class="lb on" id="ben" onclick="setL('en')">EN</button>
+        <button class="lb" id="bes" onclick="setL('es')">ES</button>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<script>
+// ═══ CHAT ═══
+// On Cloudflare Pages: API = '' (same origin, worker handles /stream /market etc.)
+// On Vercel: API = 'https://localhomebuyersusa.ai' (point to the worker domain)
+const API = window.__CAL_API__ || '';
+let sid = sessionStorage.getItem('c_s') || null;
+let uid = localStorage.getItem('c_u') || ('u_' + Math.random().toString(36).slice(2) + Date.now().toString(36));
+localStorage.setItem('c_u', uid);
+let lang = 'en', busy = false;
+
+function setL(l) {
+  lang = l;
+  document.getElementById('ben').classList.toggle('on', l==='en');
+  document.getElementById('bes').classList.toggle('on', l==='es');
+  document.getElementById('msg').placeholder = l==='es' ? 'Pregúntale a Cal sobre vender tu casa…' : 'Ask Cal anything about selling your home…';
+}
+
+const inp = document.getElementById('msg');
+const sBtn = document.getElementById('sbtn');
+inp.addEventListener('input', () => { inp.style.height='auto'; inp.style.height=Math.min(inp.scrollHeight,120)+'px'; sBtn.classList.toggle('live', inp.value.trim().length>0); });
+inp.addEventListener('keydown', e => { if (e.key==='Enter'&&!e.shiftKey) { e.preventDefault(); if (!busy&&inp.value.trim()) doSend(); } });
+
+function hideWelcome() {
+  const w=document.getElementById('welcome');
+  if (w&&w.style.display!=='none') {
+    w.style.transition='opacity .3s ease,transform .3s ease'; w.style.opacity='0'; w.style.transform='translateY(-6px)';
+    setTimeout(()=>w.style.display='none', 300);
+  }
+}
+
+function scrollBot() { const f=document.getElementById('feed'); f.scrollTo({top:f.scrollHeight,behavior:'smooth'}); }
+function esc(t) { return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function md(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/(https?:\/\/[^\s<>"]+)/g, u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`)
+    .split('\n\n').map(p=>p?`<p>${p.replace(/\n/g,'<br>')}</p>`:'').join('');
+}
+
+function addMsg(role, text, streaming=false) {
+  hideWelcome();
+  const msgs=document.getElementById('msgs');
+  const w=document.createElement('div'); w.className=`msg ${role}`;
+  const av=document.createElement('div'); av.className='m-avi'; av.textContent=role==='cal'?'🐝':'👤';
+  const bd=document.createElement('div'); bd.className='m-body';
+  const who=document.createElement('div'); who.className='m-who'; who.textContent=role==='cal'?'Cal':'You';
+  const bub=document.createElement('div'); bub.className='bub'+(streaming?' streaming':'');
+  bub.innerHTML=role==='cal'?md(text):esc(text);
+  bd.appendChild(who); bd.appendChild(bub); w.appendChild(av); w.appendChild(bd);
+  msgs.appendChild(w); scrollBot(); return bub;
+}
+
+function showTyping() {
+  const msgs=document.getElementById('msgs');
+  const el=document.createElement('div'); el.className='ty-row'; el.id='ty';
+  el.innerHTML=`<div class="m-avi" style="background:var(--blk3);border:1px solid var(--bdr-g);font-size:12px">🐝</div><div class="ty-bub"><div class="td"></div><div class="td"></div><div class="td"></div></div>`;
+  msgs.appendChild(el); scrollBot();
+}
+
+function hideTyping() { const e=document.getElementById('ty'); if(e) e.remove(); }
+function sendQ(t) { inp.value=t; inp.dispatchEvent(new Event('input')); doSend(); }
+
+async function doSend() {
+  const text=inp.value.trim(); if (!text||busy) return;
+  busy=true; inp.value=''; inp.style.height='auto'; sBtn.classList.remove('live');
+  addMsg('user',text); showTyping();
+  try {
+    const res=await fetch(`${API}/stream`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,session_id:sid,seller_id:uid,lang,source:'web'})});
+    if (!res.ok) throw new Error(res.status);
+    const reader=res.body.getReader(); const dec=new TextDecoder();
+    let buf='',bub=null,acc='',tGone=false;
+    while (true) {
+      const{done,value}=await reader.read(); if(done)break;
+      buf+=dec.decode(value,{stream:true}); const lines=buf.split('\n'); buf=lines.pop()||'';
+      for(const line of lines){
+        if(!line.startsWith('data: '))continue; const raw=line.slice(6).trim(); if(!raw)continue;
+        try{
+          const e=JSON.parse(raw);
+          if(e.type==='session'){sid=e.session_id;sessionStorage.setItem('c_s',sid);}
+          if(e.type==='text'){if(!tGone){hideTyping();tGone=true;} acc+=e.text; if(!bub)bub=addMsg('cal',acc,true); else bub.innerHTML=md(acc); scrollBot();}
+          if(e.type==='done'&&bub){bub.classList.remove('streaming');bub.innerHTML=md(acc);}
+        }catch{}
+      }
+    }
+    if(!bub){hideTyping();addMsg('cal',lang==='es'?'Estoy aquí.':'I\'m here 24/7. What would you like to know?');}
+  } catch {
+    hideTyping();
+    addMsg('cal',lang==='es'?'Error de conexión. Llama al 1-800-858-0588.':"Connection issue. Reach us at 1-800-858-0588.");
+  }
+  busy=false; inp.focus();
+}
+
+// ═══ MARKET DATA ═══
+
+// Fallback values shown while loading / if fetch fails
+const FALLBACK = {
+  rate30: { current: null, prev: null, delta: null, direction: 'flat', history: [] },
+  rate15: { current: null, history: [] },
+  fedFunds: { current: null },
+  inventory: { current: null, prev: null, delta: null, direction: 'flat', history: [] },
+  bkpp: { edge: 21000, arv: 325000, cashNet: 211250, agentNet: 254150, bkppNet: 259175 },
+  marketCondition: 'seller',
+};
+
+let mkt = FALLBACK;
+let insightIdx = 0;
+let insights = [
+  'Loading live market data from FRED…'
+];
+
+function fmt(v, dec=2) { return v != null ? v.toFixed(dec) : '—'; }
+function fmtK(v) { return v != null ? `$${Math.round(v/1000)}K` : '—'; }
+
+function setFreshness(state) {
+  const pip = document.getElementById('tf-pip');
+  const lbl = document.getElementById('tf-label');
+  pip.className = 'tf-pip ' + state;
+  if (state === 'live') {
+    const now = new Date();
+    lbl.textContent = `Live · Updated ${now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}`;
+  } else if (state === 'loading') {
+    lbl.textContent = 'Loading market data…';
+  } else if (state === 'error') {
+    lbl.textContent = 'Using cached data';
+  }
+}
+
+function spark(id, data, color, inv) {
+  const svg = document.getElementById(id);
+  if (!svg || !data || data.length < 2) return;
+  const vals = data.map(d => typeof d === 'object' ? d.value : d);
+  const W=64, H=26, p=3;
+  const mn=Math.min(...vals), mx=Math.max(...vals), rng=mx-mn||0.01;
+  const pts = vals.map((v,i) => {
+    const x = p + i/(vals.length-1)*(W-p*2);
+    const y = inv ? p+(v-mn)/rng*(H-p*2) : H-p-(v-mn)/rng*(H-p*2);
+    return `${x},${y}`;
+  }).join(' ');
+  const last = pts.split(' ').at(-1).split(',');
+  svg.innerHTML = `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linejoin="round" opacity="0.7"/><circle cx="${last[0]}" cy="${last[1]}" r="2.5" fill="${color}"/>`;
+}
+
+function buildChart(history) {
+  const svg = document.getElementById('ch-svg');
+  if (!history || history.length < 2) return;
+  const W=372, H=42, p={l:3,r:3,t:4,b:4};
+  const rates = history.map(d => d.value);
+  const dates = history.map(d => d.date);
+  const mn=Math.min(...rates)-0.06, mx=Math.max(...rates)+0.06, rng=mx-mn;
+  const xs = rates.map((_,i)=>p.l+(i/(rates.length-1))*(W-p.l-p.r));
+  const ys = rates.map(r=>H-p.b-((r-mn)/rng)*(H-p.t-p.b));
+  const pts = xs.map((x,i)=>`${x},${ys[i]}`).join(' ');
+  const fill = `${xs[0]},${H} ${pts} ${xs.at(-1)},${H}`;
+  const grid = [Math.round(mn*10)/10, Math.round((mn+rng/2)*10)/10, Math.round(mx*10)/10].map(gr=>{
+    const gy=H-p.b-((gr-mn)/rng)*(H-p.t-p.b);
+    return gy>=1&&gy<=H-1 ? `<line x1="${p.l}" y1="${gy}" x2="${W-p.r}" y2="${gy}" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>` : '';
+  }).join('');
+  svg.innerHTML = `
+    <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c49a3c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c49a3c" stop-opacity="0"/>
+    </linearGradient></defs>
+    ${grid}
+    <polygon points="${fill}" fill="url(#rg)"/>
+    <polyline points="${pts}" fill="none" stroke="#c49a3c" stroke-width="1.5" stroke-linejoin="round"/>
+    ${xs.map((x,i)=>`<circle cx="${x}" cy="${ys[i]}" r="${i===rates.length-1?2.5:1.5}" fill="${i===rates.length-1?'#c49a3c':'rgba(196,154,60,0.4)'}" data-i="${i}"/>`).join('')}
+  `;
+  // hit zones
+  xs.forEach((x,i) => {
+    const hw = (W-p.l-p.r) / Math.max(rates.length-1,1);
+    const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    r.setAttribute('x', x-hw/2); r.setAttribute('y', 0);
+    r.setAttribute('width', hw); r.setAttribute('height', H);
+    r.setAttribute('fill','transparent'); r.style.cursor='pointer';
+    const label = dates[i] ? new Date(dates[i]+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}) : `Wk ${i+1}`;
+    r.addEventListener('mouseenter', () => {
+      const tip=document.getElementById('c-tip');
+      const area=document.querySelector('.chart-area');
+      const rect=area.getBoundingClientRect();
+      tip.textContent=`${label} · ${rates[i].toFixed(2)}%`;
+      tip.style.left=(x/W*rect.width)+'px';
+      tip.style.top=(ys[i]/H*rect.height-4)+'px';
+      tip.classList.add('show');
+      document.getElementById('ch-val').textContent=`${rates[i].toFixed(2)}%`;
+    });
+    r.addEventListener('mouseleave', () => {
+      document.getElementById('c-tip').classList.remove('show');
+      document.getElementById('ch-val').textContent=`${rates.at(-1).toFixed(2)}%`;
+    });
+    svg.appendChild(r);
+  });
+  // week labels — show first, middle, last
+  const shown = [0, Math.floor(dates.length/2), dates.length-1];
+  const weeksEl = document.getElementById('ch-weeks');
+  weeksEl.innerHTML = dates.map((d,i) => {
+    if (!shown.includes(i)) return `<span></span>`;
+    const lbl = d ? new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}) : `Wk ${i+1}`;
+    return `<span>${lbl}</span>`;
+  }).join('');
+}
+
+function buildTape() {
+  const m = mkt;
+  const r30 = m.rate30.current;
+  const r15 = m.rate15?.current;
+  const fed = m.fedFunds?.current;
+  const inv = m.inventory.current;
+  const edge = m.bkpp.edge;
+  const items = [
+    {k:'FED RATE', v: fed ? `${fmt(fed,2)}%` : '—', c: fed>5?'dn':'', a: fed>5?'↑':''},
+    {k:'30YR FIXED', v: r30 ? `${fmt(r30,2)}%` : '—', c:'dn', a:'↑'},
+    {k:'15YR FIXED', v: r15 ? `${fmt(r15,2)}%` : '—', c:'dn', a:'↑'},
+    {k:'INVENTORY', v: inv ? `${fmt(inv,1)}mo` : '—', c:'', a:''},
+    {k:'BKPP EDGE', v: edge ? `+${fmtK(edge)} avg` : '—', c:'gd', a:'↑'},
+    {k:'LIST/SALE', v:'98.2%', c:'up', a:'↑'},
+    {k:'CASH BUYERS', v:'32%', c:'', a:''},
+    {k:'NEW LISTINGS', v:'−3.1%', c:'dn', a:'↓'},
+    {k:'MARKET', v: m.marketCondition==='seller'?"Seller's":m.marketCondition==='buyer'?"Buyer's":'Balanced', c: m.marketCondition==='seller'?'gd':'', a:''},
+  ];
+  const tape = document.getElementById('tape');
+  const all = [...items,...items];
+  tape.innerHTML = all.map(t=>`<span class="ti"><span class="ti-k">${t.k}</span><span class="ti-v ${t.c}">${t.v}</span>${t.a?`<span class="ti-a ${t.c}">${t.a}</span>`:''}</span>`).join('');
+}
+
+function populateCells() {
+  const m = mkt;
+  const r30 = m.rate30.current;
+  const r15 = m.rate15?.current;
+  const fed = m.fedFunds?.current;
+  const inv = m.inventory.current;
+
+  // Rate 30yr
+  const vRate = document.getElementById('v-rate');
+  if (r30) {
+    vRate.classList.remove('loading');
+    vRate.innerHTML = `${fmt(r30,2)}<span class="u">%</span>`;
+    const d = m.rate30.delta;
+    const dEl = document.getElementById('d-rate');
+    if (d != null) {
+      const sign = d > 0 ? '▲ +' : '▼ ';
+      dEl.textContent = `${sign}${Math.abs(d).toFixed(2)} wk`;
+      dEl.className = 'tc-delta ' + (d > 0 ? 'dn' : 'up');
+    }
+    const badge = document.getElementById('b-rate');
+    badge.textContent = d > 0 ? '↑ Rising' : d < 0 ? '↓ Falling' : '→ Flat';
+    badge.className = 'tc-badge ' + (d > 0 ? 'b-dn' : d < 0 ? 'b-up' : 'b-nt');
+    spark('sp-rate', m.rate30.history, '#e05c4a', false);
+  }
+
+  // Inventory
+  const vInv = document.getElementById('v-inv');
+  if (inv != null) {
+    vInv.classList.remove('loading');
+    vInv.innerHTML = `${fmt(inv,1)}<span class="u">mo</span>`;
+    const d = m.inventory.delta;
+    const dEl = document.getElementById('d-inv');
+    if (d != null) {
+      dEl.textContent = `${d > 0 ? '▲ +' : '▼ '}${Math.abs(d).toFixed(1)} mo`;
+      dEl.className = 'tc-delta ' + (d > 0 ? 'dn' : 'up');
+    }
+    const cond = inv < 3 ? 'Low' : inv < 5 ? 'Balanced' : 'High';
+    const bEl = document.getElementById('b-inv');
+    bEl.textContent = cond;
+    bEl.className = 'tc-badge ' + (inv < 3 ? 'b-dn' : inv < 5 ? 'b-nt' : 'b-up');
+    spark('sp-inv', m.inventory.history, '#c49a3c', false);
+  }
+
+  // Fed rate
+  const vFed = document.getElementById('v-fed');
+  if (fed != null) {
+    vFed.classList.remove('loading');
+    vFed.innerHTML = `${fmt(fed,2)}<span class="u">%</span>`;
+    const bFed = document.getElementById('b-fed');
+    bFed.textContent = fed > 5 ? 'Elevated' : fed > 4 ? 'Moderate' : 'Low';
+    bFed.className = 'tc-badge ' + (fed > 5 ? 'b-dn' : fed > 4 ? 'b-nt' : 'b-up');
+    document.getElementById('d-fed').textContent = 'Fed policy rate';
+    // Fed sparkline using same data repeated for shape (monthly data → 8 points)
+    const fedArr = Array(8).fill(fed);
+    spark('sp-fed', fedArr, '#6fa0ff', false);
+  }
+
+  // BKPP
+  const edge = m.bkpp.edge;
+  const vBkpp = document.getElementById('v-bkpp');
+  vBkpp.classList.remove('loading');
+  vBkpp.innerHTML = `+${fmtK(edge)}<span class="u">avg</span>`;
+  document.getElementById('d-bkpp').textContent = `vs cash · $${Math.round(m.bkpp.arv/1000)}K ARV`;
+  // Synthetic sparkline showing edge growing as rates rise
+  const edgeHx = m.rate30.history.length > 1
+    ? m.rate30.history.map(d => Math.round(edge * (0.8 + (d.value - 6.5) * 0.15)))
+    : [14000,16000,17000,18500,19000,20000,20500,edge];
+  spark('sp-bkpp', edgeHx, '#e2b55a', false);
+
+  // Chart
+  if (m.rate30.history.length >= 2) {
+    buildChart(m.rate30.history);
+    document.getElementById('ch-val').textContent = r30 ? `${fmt(r30,2)}%` : '—';
+  }
+
+  // Tape
+  buildTape();
+}
+
+// Detail drawer content — dynamically built from live data
+function getDetails(key) {
+  const m = mkt;
+  if (key === 'rate') return {
+    title: 'Mortgage rate conditions',
+    rows: [
+      {k:'30yr Fixed (current)', v: m.rate30.current ? `${fmt(m.rate30.current,2)}%` : '—', c: m.rate30.delta > 0 ? 'warn' : 'good'},
+      {k:'15yr Fixed', v: m.rate15?.current ? `${fmt(m.rate15.current,2)}%` : '—', c:''},
+      {k:'Fed Funds Rate', v: m.fedFunds?.current ? `${fmt(m.fedFunds.current,2)}%` : '—', c:''},
+      {k:'Weekly change', v: m.rate30.delta != null ? `${m.rate30.delta > 0 ? '+' : ''}${fmt(m.rate30.delta,2)}%` : '—', c: m.rate30.delta > 0 ? 'warn' : 'good'},
+      {k:'Cal read', v: m.rate30.current > 7 ? 'High rates mean buyers qualify for less — fast close offers have leverage' : m.rate30.current > 6.5 ? 'Elevated rates slow financing — BKPP avoids that risk entirely' : 'Moderate rates, active buyer pool — BKPP positioned well', c:'gd'},
+    ]
+  };
+  if (key === 'inv') return {
+    title: 'Housing supply',
+    rows: [
+      {k:'Months supply', v: m.inventory.current ? `${fmt(m.inventory.current,1)} mo` : '—', c: m.inventory.current < 3 ? 'warn' : ''},
+      {k:'Balanced market', v: '5–6 mo', c:''},
+      {k:'Monthly change', v: m.inventory.delta != null ? `${m.inventory.delta > 0 ? '+' : ''}${fmt(m.inventory.delta,1)} mo` : '—', c: m.inventory.delta > 0 ? '' : 'good'},
+      {k:'Market condition', v: m.marketCondition === 'seller' ? "Seller's market" : m.marketCondition === 'buyer' ? "Buyer's market" : 'Balanced', c: m.marketCondition === 'seller' ? 'gd' : ''},
+      {k:'Cal read', v: m.inventory.current < 3 ? 'Low supply means less competition — sellers have real leverage' : 'Supply rising — BKPP beats the wait time of traditional listing', c:'gd'},
+    ]
+  };
+  if (key === 'fed') return {
+    title: 'Federal Reserve rate',
+    rows: [
+      {k:'Fed Funds Rate', v: m.fedFunds?.current ? `${fmt(m.fedFunds.current,2)}%` : '—', c: m.fedFunds?.current > 5 ? 'warn' : ''},
+      {k:'Rate environment', v: m.rateContext === 'high' ? 'High' : m.rateContext === 'elevated' ? 'Elevated' : 'Moderate', c: m.rateContext === 'high' ? 'warn' : ''},
+      {k:'Effect on buyers', v: 'Higher rates reduce purchasing power', c:'warn'},
+      {k:'Effect on sellers', v: 'Cash offers and BKPP unaffected by rates', c:'good'},
+      {k:'Cal read', v: 'Rate environment favors sellers who can close without financing contingencies', c:'gd'},
+    ]
+  };
+  if (key === 'bkpp') return {
+    title: 'BKPP vs alternatives',
+    rows: [
+      {k:'Cash offer net', v: fmtK(m.bkpp.cashNet), c:'warn'},
+      {k:'Agent listing net', v: fmtK(m.bkpp.agentNet), c:''},
+      {k:'BKPP net', v: fmtK(m.bkpp.bkppNet), c:'gd'},
+      {k:'Edge vs cash', v: `+${fmtK(m.bkpp.edge)} avg`, c:'good'},
+      {k:'Cal read', v: 'BKPP wins on net when there\'s deferred maintenance — every time', c:'gd'},
+    ]
+  };
+  return null;
+}
+
+let activeKey = null;
+
+function tToggle(key) {
+  document.querySelectorAll('.t-cell').forEach(c=>c.classList.remove('on'));
+  if (activeKey===key) { tClose(); return; }
+  activeKey = key;
+  document.getElementById(`tc-${key}`).classList.add('on');
+  const d = getDetails(key);
+  if (!d) return;
+  document.getElementById('dt-title').textContent = d.title;
+  document.getElementById('dt-rows').innerHTML = d.rows.map(r=>`<div class="t-row"><span class="t-row-k">${r.k}</span><span class="t-row-v ${r.c}">${r.v}</span></div>`).join('');
+  document.getElementById('t-detail').classList.add('open');
+}
+
+function tClose() {
+  activeKey=null;
+  document.querySelectorAll('.t-cell').forEach(c=>c.classList.remove('on'));
+  document.getElementById('t-detail').classList.remove('open');
+}
+
+// Insights — generated dynamically from real data
+function buildInsights() {
+  const m = mkt;
+  const r = m.rate30.current;
+  const inv = m.inventory.current;
+  const edge = m.bkpp.edge;
+  insights = [
+    r ? `Rates at <strong>${fmt(r,2)}%</strong> mean buyers qualify for less — sellers who can close fast hold real leverage.` : 'Live rate data loaded from Freddie Mac PMMS via FRED.',
+    inv ? `Only <strong>${fmt(inv,1)} months</strong> of housing supply nationally. ${inv < 3 ? 'A seller\'s market — your home has real competition for buyers.' : 'Supply tightening — BKPP closes faster than a traditional listing.'}` : 'Inventory data sourced from Federal Reserve Economic Data (FRED).',
+    `The average cash offer discounts <strong>1.5–2× the repair cost</strong>. BKPP absorbs that risk so you don't have to.`,
+    r ? `When rates are <strong>${fmt(r,2)}%</strong>, financing contingencies fall through more often. BKPP eliminates that risk entirely.` : 'BKPP closes in 30–60 days without financing contingencies.',
+    edge ? `On a $325K ARV home, BKPP nets sellers <strong>${fmtK(edge)} more</strong> than a typical cash offer — and half the wait of a traditional listing.` : 'BKPP nets sellers significantly more than cash offers on average.',
+    `<strong>98.2%</strong> list-to-sale ratio means homes priced right are moving. BKPP positions you at retail without the friction.`,
+  ];
+  document.getElementById('ins-txt').innerHTML = insights[0];
+  insightIdx = 0;
+}
+
+function nextInsight() {
+  insightIdx = (insightIdx+1) % insights.length;
+  const el = document.getElementById('ins-txt');
+  const btn = document.getElementById('ins-btn');
+  el.style.opacity = '0'; btn.classList.add('spin');
+  setTimeout(() => { el.innerHTML=insights[insightIdx]; el.style.opacity='1'; btn.classList.remove('spin'); }, 260);
+}
+
+// ── FETCH REAL DATA ──
+async function loadMarketData() {
+  setFreshness('loading');
+  try {
+    const res = await fetch(`${API}/market`, { headers: { 'Accept': 'application/json' } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    mkt = data;
+    populateCells();
+    populateMobileStrip();
+    buildInsights();
+    setFreshness('live');
+  } catch (err) {
+    console.warn('Market data fetch failed:', err.message);
+    setFreshness('error');
+    // Still build insights with fallback
+    buildInsights();
+  }
+}
+
+
+// ── MOBILE STRIP ──
+function populateMobileStrip() {
+  const m = mkt;
+  const r30 = m.rate30.current;
+  const r15 = m.rate15?.current;
+  const fed = m.fedFunds?.current;
+  const inv = m.inventory.current;
+  const edge = m.bkpp.edge;
+  const fmt = (v, d=2) => v != null ? v.toFixed(d) : '—';
+
+  const rateEl = document.getElementById('ms-rate');
+  if (r30) { rateEl.textContent = fmt(r30) + '%'; rateEl.className = 'ms-item-v dn'; }
+
+  const rateDEl = document.getElementById('ms-rate-d');
+  if (m.rate30.delta != null) {
+    const d = m.rate30.delta;
+    rateDEl.textContent = (d > 0 ? '▲ +' : '▼ ') + Math.abs(d).toFixed(2);
+    rateDEl.className = 'ms-item-d ' + (d > 0 ? 'dn' : 'up');
+  }
+
+  const fedEl = document.getElementById('ms-fed');
+  if (fed) { fedEl.textContent = fmt(fed) + '%'; }
+
+  const invEl = document.getElementById('ms-inv');
+  if (inv) { invEl.textContent = fmt(inv, 1); invEl.className = 'ms-item-v ' + (inv < 3 ? 'dn' : inv > 5 ? 'up' : ''); }
+
+  const invDEl = document.getElementById('ms-inv-d');
+  if (m.inventory.delta != null) {
+    const d = m.inventory.delta;
+    invDEl.textContent = (d > 0 ? '▲ +' : '▼ ') + Math.abs(d).toFixed(1) + ' mo';
+    invDEl.className = 'ms-item-d ' + (d > 0 ? 'dn' : 'up');
+  }
+
+  const bkppEl = document.getElementById('ms-bkpp');
+  if (edge) { bkppEl.textContent = '+$' + Math.round(edge / 1000) + 'K'; }
+
+  const r15El = document.getElementById('ms-r15');
+  if (r15) { r15El.textContent = fmt(r15) + '%'; }
+}
+
+// Load on start, refresh every 4 hours
+loadMarketData();
+setInterval(loadMarketData, 4 * 60 * 60 * 1000);
+
+// Micro-fluctuation on rate (visual only — does not change the real value)
+let baseRate = null;
+setInterval(() => {
+  if (!mkt.rate30.current) return;
+  if (!baseRate) baseRate = mkt.rate30.current;
+  const el = document.getElementById('v-rate');
+  if (Math.random() < 0.1) {
+    const jitter = (Math.random() - 0.5) * 0.008;
+    const display = (baseRate + jitter).toFixed(2);
+    el.innerHTML = `${display}<span class="u">%</span>`;
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+  }
+}, 5000);
+</script>
+</body>
+</html>

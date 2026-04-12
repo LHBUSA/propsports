@@ -2,1180 +2,1425 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Cal is your AI acquisitions specialist from Local Home Buyers USA. Get honest answers about selling your home 24/7 — no pressure, no scripts, no fees to sellers.">
-<meta name="keywords" content="sell my house fast, cash home buyers, we buy houses, home buyers USA, sell house as-is, BKPP, real estate AI">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#080807">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Cal · LHBUSA">
-<meta name="format-detection" content="telephone=no">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://localhomebuyersusa.ai">
-<meta property="og:title" content="Cal — AI Acquisitions Specialist · Local Home Buyers USA">
-<meta property="og:description" content="Get honest answers about selling your home 24/7. Three lanes, full transparency, no fees to sellers.">
-<meta property="og:site_name" content="Local Home Buyers USA">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cal — AI Acquisitions Specialist">
-<meta name="twitter:description" content="Honest answers about selling your home, 24/7. No pressure, no scripts, no fees to sellers.">
-<link rel="canonical" href="https://localhomebuyersusa.ai">
-<title>Cal · AI Home Acquisitions Specialist | Local Home Buyers USA</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080807'/%3E%3Crect x='1' y='1' width='30' height='30' rx='6' fill='none' stroke='%23c49a3c' stroke-width='1.5'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18'%3E%F0%9F%90%9D%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23080807'/%3E%3Crect x='6' y='6' width='168' height='168' rx='34' fill='none' stroke='%23c49a3c' stroke-width='6'/%3E%3Ctext x='90' y='125' text-anchor='middle' font-size='100'%3E%F0%9F%90%9D%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://localhomebuyersusa.com/#business",
-      "name": "Local Home Buyers USA",
-      "alternateName": "LHBUSA",
-      "url": "https://localhomebuyersusa.com",
-      "description": "Nationwide real estate acquisitions company offering three lanes for home sellers: cash offers, BKPP Partnership Program, and agent listing comparisons. No fees to sellers.",
-      "telephone": "+18008580588",
-      "foundingDate": "2025-07",
-      "founder": {"@type": "Person", "name": "Justin Erickson"},
-      "address": {"@type": "PostalAddress", "addressLocality": "Saint Paul", "addressRegion": "MN", "addressCountry": "US"},
-      "areaServed": {"@type": "Country", "name": "United States"},
-      "priceRange": "No fees to sellers",
-      "sameAs": ["https://localhomebuyersusa.com", "https://localhomebuyersusa.ai"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://localhomebuyersusa.ai/#website",
-      "url": "https://localhomebuyersusa.ai",
-      "name": "Cal · Local Home Buyers USA",
-      "description": "AI-powered acquisitions assistant for home sellers"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "How fast can you close on my house?", "acceptedAnswer": {"@type": "Answer", "text": "Cash offers close in 7-14 days. BKPP closes in 30-60 days with best net proceeds. Agent listings take 60-120+ days."}},
-        {"@type": "Question", "name": "Are there any fees to sellers?", "acceptedAnswer": {"@type": "Answer", "text": "Zero fees to sellers. We earn from the deal structure at closing — never from the seller."}},
-        {"@type": "Question", "name": "What is the Bee's Knees Partner Program (BKPP)?", "acceptedAnswer": {"@type": "Answer", "text": "BKPP is a partnership where we handle all repairs, staging, and marketing for a retail sale. Sellers net 15-25% more than a cash offer in 30-60 days."}},
-        {"@type": "Question", "name": "Do you buy houses in all 50 states?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Local Home Buyers USA operates nationwide across all 50 states."}},
-        {"@type": "Question", "name": "Can you buy my house if it needs repairs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — BKPP is designed for homes with deferred maintenance. You don't spend a dime on repairs."}}
-      ]
-    }
-  ]
-}
-</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
+<title>PropSports API — MLB, NFL, NBA & NHL Sports Data for Developers</title>
+<meta name="description" content="Real-time sports data API. 31+ endpoints across MLB, NFL, NBA, NHL. Statcast exit velocity, live scores, lineups, weather, odds. Free tier. From $9/mo.">
+<link rel="canonical" href="https://propsports.proptechusa.ai/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --cream:#FAFAF7;--paper:#F3F2EE;--paper2:#ECEAE4;--white:#FFFFFF;
+  --ink:#141412;--ink2:#1E1E1B;--mid:#5C5A54;--soft:#9B9990;
+  --border:#E0DDD7;--border2:#CBC8C1;
+  --red:#D73B1A;--red2:#E84E2B;--redbg:rgba(215,59,26,0.06);--redborder:rgba(215,59,26,0.15);
+  --green:#0B7A45;--greenbg:rgba(11,122,69,0.06);
+  --gold:#C17F24;--blue:#1A5FBF;
+  --sans:'DM Sans',sans-serif;--serif:'Playfair Display',serif;--display:'Syne',sans-serif;--mono:'JetBrains Mono',monospace;
+  --shadow-sm:0 1px 4px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.03);
+  --shadow-md:0 4px 20px rgba(0,0,0,0.08),0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-lg:0 16px 48px rgba(0,0,0,0.12),0 0 0 1px rgba(0,0,0,0.05);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;}
 
-:root {
-  --blk:      #080807;
-  --blk2:     #0e0d0c;
-  --blk3:     #161513;
-  --blk4:     #1e1c19;
-  --blk5:     #252220;
-  --gold:     #c49a3c;
-  --gold-hi:  #e2b55a;
-  --gold-lo:  rgba(196,154,60,0.1);
-  --grn:      #3db87a;
-  --red:      #e05c4a;
-  --cream:    #ede8df;
-  --cream2:   #bdb5a8;
-  --cream3:   #7a7268;
-  --cream4:   #4e4840;
-  --bdr:      rgba(255,255,255,0.055);
-  --bdr-g:    rgba(196,154,60,0.2);
-  --serif:   'Cormorant', Georgia, serif;
-  --mono:    'DM Mono', monospace;
-  --sans:    'Plus Jakarta Sans', sans-serif;
+/* ─── LIVE TICKER ──────────────────────────────────────────── */
+#ticker{background:var(--ink);height:34px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:300;}
+#ticker::before{content:'LIVE';position:absolute;left:0;z-index:2;background:var(--red);color:#fff;font:700 9px/34px var(--mono);letter-spacing:1.5px;padding:0 14px;height:100%;display:flex;align-items:center;}
+#ticker::after{content:'';position:absolute;left:60px;z-index:2;width:24px;height:100%;background:linear-gradient(90deg,var(--ink),transparent);}
+.tk-track{display:flex;white-space:nowrap;animation:tk 80s linear infinite;padding-left:72px;}
+.tk-track:hover{animation-play-state:paused;}
+.tk-item{display:inline-flex;align-items:center;gap:8px;padding:0 26px;font:500 10px var(--mono);color:rgba(255,255,255,0.45);border-right:1px solid rgba(255,255,255,0.07);}
+.tk-item .sport{color:rgba(255,255,255,0.8);font-weight:700;}
+.tk-item .score{color:#F5A623;font-weight:700;}
+.tk-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;flex-shrink:0;}
+@keyframes tk{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.1;}}
+
+/* ─── NAV ──────────────────────────────────────────────────── */
+#nav{position:sticky;top:0;z-index:200;height:58px;display:flex;align-items:center;padding:0 0;background:rgba(250,250,247,0.94);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);transition:box-shadow 0.3s;}
+#nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,0.08);}
+.nav-i{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;padding:0 28px;}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;margin-right:20px;}
+.logo svg{width:30px;height:30px;flex-shrink:0;}
+.logo-t{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:0.5px;color:var(--ink);}
+.logo-t span{color:var(--red);}
+.nav-sports{display:flex;align-items:center;gap:1px;position:relative;}
+.ns-btn{font:700 11px var(--mono);letter-spacing:0.05em;padding:6px 11px;background:transparent;color:var(--mid);border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
+.ns-btn:hover{color:var(--ink);}
+.ns-btn.on{color:var(--red);}
+.ns-slider{position:absolute;bottom:0;height:2px;background:var(--red);border-radius:1px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:6px;}
+.nav-link{font:500 13px var(--sans);color:var(--mid);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all 0.15s;}
+.nav-link:hover{color:var(--ink);background:var(--paper);}
+.nav-tag{font:700 9px var(--mono);letter-spacing:0.08em;padding:4px 10px;border-radius:20px;background:var(--greenbg);color:var(--green);border:1px solid rgba(11,122,69,0.2);}
+.btn-red{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:var(--red);color:#fff;font:700 12px var(--mono);letter-spacing:0.05em;border-radius:7px;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 10px rgba(215,59,26,0.25);}
+.btn-red:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 4px 18px rgba(215,59,26,0.35);}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:8px;}
+.ham span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s;}
+.mob{display:none;position:fixed;inset:0;top:58px;background:var(--cream);z-index:150;padding:16px;flex-direction:column;gap:2px;overflow-y:auto;}
+.mob.open{display:flex;}
+.mob a,.mob button{display:block;padding:12px 14px;font:500 15px var(--sans);color:var(--ink);text-decoration:none;border-radius:8px;background:none;border:none;cursor:pointer;text-align:left;width:100%;transition:background 0.15s;}
+.mob a:hover,.mob button:hover{background:var(--paper);}
+.mob .btn-red{text-align:center;display:block;margin-top:10px;}
+
+/* ─── HERO ─────────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;padding:72px 0 64px;}
+.hero-bg{position:absolute;inset:0;pointer-events:none;}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;opacity:0.4;}
+.hero-accent{position:absolute;top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(215,59,26,0.07) 0%,transparent 65%);}
+.hero-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);background:var(--redbg);border:1px solid var(--redborder);padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.h-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;}
+h1{font-family:var(--display);font-size:clamp(52px,7vw,96px);font-weight:800;letter-spacing:-2px;line-height:0.95;color:var(--ink);margin-bottom:14px;}
+h1 em{color:var(--red);font-style:normal;}
+h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
+.hero-lead{font-size:16px;color:var(--mid);max-width:470px;line-height:1.75;margin-bottom:26px;font-weight:400;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:transparent;color:var(--ink);font:600 12px var(--mono);letter-spacing:0.04em;border-radius:7px;text-decoration:none;border:1.5px solid var(--border2);cursor:pointer;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--ink);background:var(--paper);}
+.trust-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.tr-pill{font:500 11px var(--sans);color:var(--mid);padding:4px 10px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;}
+.tr-pill.g{color:var(--green);border-color:rgba(11,122,69,0.25);background:var(--greenbg);}
+
+/* ─── TERMINAL ─────────────────────────────────────────────── */
+.term-shell{position:relative;}
+.term-shadow{position:absolute;inset:-2px;border-radius:15px;background:linear-gradient(135deg,rgba(215,59,26,0.2),rgba(215,59,26,0.05) 50%,rgba(26,95,191,0.08));z-index:0;border-radius:17px;}
+.term-box{position:relative;z-index:1;background:var(--ink2);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);}
+.term-tabs{display:flex;background:#111110;border-bottom:1px solid rgba(255,255,255,0.06);overflow-x:auto;scrollbar-width:none;}
+.term-tabs::-webkit-scrollbar{display:none;}
+.tt{font:500 10px var(--mono);letter-spacing:0.06em;padding:10px 13px;background:transparent;color:rgba(255,255,255,0.38);border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.tt.on{color:var(--red);border-bottom-color:var(--red);background:rgba(215,59,26,0.07);}
+.tt:hover:not(.on){color:rgba(255,255,255,0.65);}
+.tbar{background:#0C0C0A;padding:8px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.tdots{display:flex;gap:5px;}
+.tdots span{width:9px;height:9px;border-radius:50%;}
+.turl{font:400 10px var(--mono);color:rgba(255,255,255,0.22);flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tms{display:none;font:500 9px var(--mono);color:#4ade80;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);padding:2px 8px;border-radius:20px;flex-shrink:0;}
+.tbody {padding:14px 16px;font:400 11.5px var(--mono);line-height:1.85;min-height:250px;max-height:320px;overflow-y:auto;color:#C9D1D9; overflow-x: hidden;}
+.tbody::-webkit-scrollbar{width:3px;}
+.tbody::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);}
+.tfoot{display:flex;border-top:1px solid rgba(255,255,255,0.05);}
+.tinput{flex:1;background:transparent;border:none;color:rgba(255,255,255,0.7);font:400 11px var(--mono);padding:11px 14px;outline:none;}
+.tinput::placeholder{color:rgba(255,255,255,0.2);}
+.trun{font:700 11px var(--mono);letter-spacing:0.08em;padding:11px 18px;background:var(--red);color:#fff;border:none;cursor:pointer;transition:background 0.15s;}
+.trun:hover{background:var(--red2);}
+.trun:disabled{opacity:0.4;cursor:not-allowed;}
+.jk{color:#7EE787;}.jv{color:#79C0FF;}.js{color:#A5D6FF;}.jb{color:#FF7B72;}.jn{color:#6E7681;}
+.t-live-badge{display:flex;align-items:center;gap:5px;font:500 9px var(--mono);color:#4ade80;flex-shrink:0;}
+
+/* ─── STATS STRIP ──────────────────────────────────────────── */
+.stats-strip{background:var(--ink);border-top:2px solid var(--red);}
+.stats-inner{max-width:1280px;margin:0 auto;display:flex;}
+.si{flex:1;padding:20px 0;text-align:center;border-right:1px solid rgba(255,255,255,0.07);transition:background 0.25s;}
+.si:last-child{border-right:none;}
+.si:hover{background:rgba(255,255,255,0.02);}
+.sn{font-family:var(--display);font-size:36px;font-weight:800;letter-spacing:-0.5px;color:#fff;line-height:1;display:block;}
+.sn em{color:var(--red);font-style:normal;}
+.sl{font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px;}
+
+/* ─── SECTION LAYOUT ───────────────────────────────────────── */
+.section{padding:80px 0;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px;}
+.eyebrow{font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+h2{font-family:var(--display);font-size:clamp(34px,4.5vw,62px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.02;margin-bottom:12px;}
+h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:-0.5px;}
+.section-lead{font-size:16px;color:var(--mid);max-width:540px;line-height:1.75;margin-bottom:40px;}
+
+/* ─── FEATURE CARDS ────────────────────────────────────────── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:40px;}
+.feat-card{background:var(--white);padding:28px 24px;transition:background 0.2s;position:relative;}
+.feat-card:hover{background:var(--paper);}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.feat-card:hover::before{transform:scaleX(1);}
+.fc-num{font:700 10px var(--mono);letter-spacing:0.1em;color:var(--soft);margin-bottom:14px;}
+.fc-icon{font-size:28px;margin-bottom:12px;}
+.fc-title{font:800 17px var(--sans);color:var(--ink);margin-bottom:8px;}
+.fc-body {font-size:13px;color:var(--mid);line-height:1.65; overflow-x: hidden;}
+
+/* ─── SPORTS FEATURE DEEP DIVE ─────────────────────────────── */
+.sport-tabs{display:flex;gap:2px;padding:3px;background:var(--paper);border:1px solid var(--border);border-radius:10px;width:fit-content;margin-bottom:32px;}
+.stab{font:600 11px var(--mono);letter-spacing:0.05em;padding:7px 16px;border-radius:7px;border:none;background:transparent;color:var(--mid);cursor:pointer;transition:all 0.2s;}
+.stab.on{background:var(--white);color:var(--ink);box-shadow:var(--shadow-sm);}
+.sport-panels{position:relative;}
+.sport-panel{display:none;}
+.sport-panel.on{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.sp-list{display:flex;flex-direction:column;gap:10px;}
+.sp-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow-sm);transition:all 0.15s;}
+.sp-item:hover{border-color:var(--border2);box-shadow:var(--shadow-md);}
+.sp-badge{font:700 9px var(--mono);letter-spacing:0.08em;padding:3px 8px;border-radius:4px;background:var(--greenbg);color:var(--green);border:1px solid rgba(11,122,69,0.2);white-space:nowrap;flex-shrink:0;}
+.sp-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
+.sp-desc{font-size:11px;color:var(--mid);}
+.sp-feature-box{background:var(--ink);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);}
+.sp-feature-header{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.06);font:700 10px var(--mono);letter-spacing:0.12em;color:rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:space-between;}
+.sp-feature-badge{font:700 9px var(--mono);padding:3px 10px;border-radius:20px;background:rgba(215,59,26,0.15);color:var(--red);border:1px solid rgba(215,59,26,0.3);}
+.sp-feature-body {padding:14px 18px;font:400 11px var(--mono);line-height:1.9;color:#C9D1D9;min-height:280px;max-height:340px;overflow-y:auto; overflow-x: hidden;}
+.sp-feature-body::-webkit-scrollbar{width:3px;}
+.sp-feature-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);}
+
+/* ─── ENDPOINTS ────────────────────────────────────────────── */
+.ep-bar{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.ep-search-w{position:relative;flex:1;}
+.ep-search-w span{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--soft);pointer-events:none;font-size:15px;}
+.ep-search{width:100%;padding:10px 14px 10px 40px;border:1.5px solid var(--border);border-radius:9px;font:400 12px var(--mono);background:var(--white);color:var(--ink);outline:none;transition:border-color 0.2s;}
+.ep-search:focus{border-color:var(--red);}
+.ep-ct{font:500 10px var(--mono);color:var(--soft);white-space:nowrap;}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:8px;}
+.ep-card{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;cursor:pointer;transition:all 0.15s;box-shadow:var(--shadow-sm);}
+.ep-card:hover{border-color:rgba(215,59,26,0.3);box-shadow:var(--shadow-md);transform:translateY(-1px);}
+.ep-card.hidden{display:none;}
+.get-b{font:700 9px var(--mono);letter-spacing:0.06em;padding:3px 6px;border-radius:3px;background:var(--greenbg);color:var(--green);border:1px solid rgba(11,122,69,0.2);white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.ep-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
+.ep-path mark{background:rgba(215,59,26,0.1);color:var(--red);border-radius:2px;padding:0 2px;}
+.ep-desc{font-size:11px;color:var(--mid);}
+
+/* ─── CODE EXAMPLES ─────────────────────────────────────────── */
+.code-section{background:var(--ink);padding:80px 0;position:relative;overflow:hidden;}
+.code-section::before{content:'';position:absolute;top:-200px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(215,59,26,0.08) 0%,transparent 70%);}
+.code-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1;}
+.code-eyebrow{font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.code-h2{font-family:var(--display);font-size:clamp(32px,4vw,54px);font-weight:800;letter-spacing:-1.5px;color:#fff;line-height:1.0;margin-bottom:12px;}
+.code-lead{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:28px;}
+.lang-tabs{display:flex;gap:6px;margin-bottom:14px;}
+.ltab{font:700 10px var(--mono);letter-spacing:0.06em;padding:6px 14px;border-radius:5px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s;}
+.ltab.on{background:rgba(215,59,26,0.15);color:var(--red);border-color:rgba(215,59,26,0.35);}
+.code-block{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;}
+.cb-header{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.06);font:500 10px var(--mono);letter-spacing:0.1em;color:rgba(255,255,255,0.25);display:flex;justify-content:space-between;align-items:center;}
+.cb-body{padding:18px;font:400 12px var(--mono);line-height:1.85;color:rgba(255,255,255,0.7);overflow-x:auto;}
+.cb-body::-webkit-scrollbar{height:3px;}
+.cb-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);}
+.ck{color:#7EE787;}.cs{color:#A5D6FF;}.cm{color:#FF7B72;}.ckw{color:#FFA657;}.cn{color:rgba(255,255,255,0.3);}
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.auth-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:9px;padding:14px 16px;}
+.ac-label{font:700 9px var(--mono);letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:8px;}
+.ac-code{font:400 12px var(--mono);color:var(--red);}
+.rate-grid{display:flex;flex-direction:column;gap:10px;margin-top:28px;}
+.rg-item{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;}
+.rg-tier{font:600 13px var(--sans);color:#fff;}
+.rg-stats{display:flex;gap:20px;}
+.rg-stat{text-align:right;}
+.rg-v{font:700 13px var(--mono);color:#fff;}
+.rg-l{font:500 9px var(--mono);letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+
+/* ─── PRICING ─────────────────────────────────────────────── */
+.p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(224px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-top:40px;}
+.p-card{background:var(--white);padding:26px 22px;position:relative;transition:background 0.2s;}
+.p-card:hover{background:var(--paper);}
+.p-card.hot{background:var(--ink);border:none;}
+.p-card.hot:hover{background:var(--ink2);}
+.p-hot-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font:700 9px var(--mono);letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap;}
+.p-sport{font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;}
+.p-card.hot .p-sport{color:rgba(255,255,255,0.35);}
+.p-icon{font-size:24px;margin-bottom:8px;display:block;}
+.p-name{font:800 19px var(--sans);color:var(--ink);margin-bottom:4px;}
+.p-card.hot .p-name{color:#fff;}
+.p-price{display:flex;align-items:baseline;gap:2px;margin-bottom:3px;}
+.p-dollar{font:700 16px var(--sans);color:var(--mid);margin-top:2px;}
+.p-card.hot .p-dollar{color:rgba(255,255,255,0.45);}
+.p-num{font-family:var(--display);font-size:48px;font-weight:800;letter-spacing:-1px;color:var(--ink);line-height:1;}
+.p-card.hot .p-num{color:#fff;}
+.p-period{font:400 12px var(--sans);color:var(--soft);margin-left:3px;}
+.p-was{font:400 11px var(--sans);color:var(--soft);text-decoration:line-through;margin-bottom:14px;}
+.p-feats{list-style:none;margin-bottom:18px;}
+.p-feats li{font-size:12px;color:var(--mid);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;}
+.p-card.hot .p-feats li{color:rgba(255,255,255,0.65);border-bottom-color:rgba(255,255,255,0.07);}
+.p-feats li:last-child{border-bottom:none;}
+.ck{color:var(--green);flex-shrink:0;font-size:12px;}
+.p-card.hot .ck{color:#4ade80;}
+.btn-p{display:block;text-align:center;padding:11px;border-radius:8px;font:700 11px var(--mono);letter-spacing:0.05em;text-decoration:none;cursor:pointer;border:none;transition:all 0.2s;}
+.bp-red{background:var(--red);color:#fff;}
+.bp-red:hover{background:var(--red2);}
+.bp-white{background:#fff;color:var(--ink);}
+.bp-white:hover{background:rgba(255,255,255,0.9);}
+.bp-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border2);}
+.bp-outline:hover{border-color:var(--ink);}
+.stripe-bar{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px;margin-top:22px;font-size:13px;color:var(--mid);}
+
+/* ─── BUILD WITH ────────────────────────────────────────────── */
+.use-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.uc{background:var(--white);padding:26px 22px;transition:background 0.2s;}
+.uc:hover{background:var(--paper);}
+.uc.accent{background:var(--ink);}
+.uc.accent:hover{background:var(--ink2);}
+.uc-icon{font-size:26px;margin-bottom:12px;}
+.uc-title{font:800 16px var(--sans);color:var(--ink);margin-bottom:7px;}
+.uc.accent .uc-title{color:#fff;}
+.uc-desc{font-size:13px;color:var(--mid);line-height:1.65;}
+.uc.accent .uc-desc{color:rgba(255,255,255,0.45);}
+.uc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
+.uc-tag{font:600 9px var(--mono);letter-spacing:0.06em;padding:3px 8px;border-radius:4px;background:var(--paper2);border:1px solid var(--border);color:var(--mid);}
+
+/* ─── SPONSOR ───────────────────────────────────────────────── */
+.sponsor-section{background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.sponsor-inner{max-width:1280px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:auto 1px 1fr auto;gap:32px;align-items:center;}
+.sp-name{font-family:var(--display);font-size:42px;font-weight:800;letter-spacing:1px;color:var(--ink);white-space:nowrap;}
+.sp-name em{color:var(--red);font-style:normal;}
+.sp-divider{background:var(--border2);height:60px;width:1px;}
+.sp-copy h3{font:700 17px var(--sans);color:var(--ink);margin-bottom:6px;}
+.sp-copy p{font-size:14px;color:var(--mid);max-width:400px;line-height:1.65;}
+.btn-sp{padding:12px 22px;background:var(--ink);color:#fff;font:700 12px var(--mono);letter-spacing:0.08em;border-radius:8px;text-decoration:none;white-space:nowrap;transition:all 0.2s;}
+.btn-sp:hover{background:var(--ink2);transform:translateY(-2px);}
+
+/* ─── CTA BAND ──────────────────────────────────────────────── */
+.cta-band{background:var(--red);padding:64px 28px;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 8px);}
+.cta-band h2{font-family:var(--display);font-size:clamp(36px,5vw,68px);font-weight:800;letter-spacing:-1.5px;color:#fff;line-height:1.0;margin-bottom:12px;position:relative;}
+.cta-band p{font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;position:relative;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-white{display:inline-flex;align-items:center;gap:7px;padding:13px 28px;background:#fff;color:var(--red);font:700 13px var(--mono);letter-spacing:0.05em;border-radius:9px;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 16px rgba(0,0,0,0.15);}
+.btn-white:hover{background:rgba(255,255,255,0.9);transform:translateY(-2px);}
+.btn-outline-white{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;background:transparent;color:#fff;font:600 13px var(--mono);letter-spacing:0.04em;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);cursor:pointer;transition:all 0.2s;}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+
+/* ─── FOOTER ────────────────────────────────────────────────── */
+footer{background:var(--ink);color:rgba(255,255,255,0.5);}
+.footer-top{max-width:1280px;margin:0 auto;padding:60px 28px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.fb p{font-size:13px;color:rgba(255,255,255,0.35);max-width:210px;line-height:1.7;margin:10px 0 18px;}
+.social-row{display:flex;gap:8px;}
+.s-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all 0.2s;}
+.s-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.18);color:#fff;}
+.s-btn svg{width:16px;height:16px;}
+.footer-col h4{font:700 9px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:14px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font:400 11px var(--mono);color:rgba(255,255,255,0.18);}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.fb2{font:600 9px var(--mono);letter-spacing:0.06em;padding:3px 9px;border-radius:20px;border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.2);}
+
+/* ─── MODAL ─────────────────────────────────────────────────── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(20,20,18,0.7);z-index:999;backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--white);border:1px solid var(--border);border-radius:16px;width:min(460px,92vw);padding:36px;position:relative;box-shadow:var(--shadow-lg);}
+.modal-close{position:absolute;top:14px;right:14px;background:var(--paper);border:none;color:var(--mid);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.modal-close:hover{color:var(--ink);}
+.fg{margin-bottom:14px;}
+.fg label{font:700 9px var(--mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:6px;}
+.fg input{width:100%;background:var(--cream);border:1.5px solid var(--border);color:var(--ink);font:400 14px var(--sans);padding:11px 14px;border-radius:8px;outline:none;transition:border-color 0.15s;}
+.fg input:focus{border-color:var(--red);}
+.btn-checkout{width:100%;font:700 12px var(--mono);letter-spacing:0.06em;padding:14px;background:var(--green);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:all 0.15s;margin-top:8px;}
+.btn-checkout:hover{background:#099950;}
+.btn-checkout:disabled{opacity:0.4;cursor:not-allowed;}
+
+/* ─── TOAST ─────────────────────────────────────────────────── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);border:1px solid rgba(255,255,255,0.1);color:#fff;font:500 12px var(--mono);padding:12px 20px;border-radius:8px;z-index:9999;transform:translateY(60px);opacity:0;transition:all 0.25s;box-shadow:var(--shadow-lg);}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp 0.6s ease both;}
+.d1{animation-delay:0.1s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.3s;}
+.sfu{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.sfu.vis{opacity:1;transform:none;}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr;gap:28px;}.sponsor-inner{grid-template-columns:1fr;gap:20px;}.sp-divider{display:none;}.feat-grid{grid-template-columns:1fr 1fr;}.code-inner{grid-template-columns:1fr;}.sport-panel.on{grid-template-columns:1fr;}}
+@media(max-width:768px){
+  .nav-sports,.nav-tag,.nav-link{display:none;}
+  .ham{display:flex;}
+  .hero-inner{grid-template-columns:1fr;padding:0 20px;gap:28px;}
+  .wrap{padding:0 20px;}
+  .section{padding:52px 0;}
+  .stats-inner{flex-wrap:wrap;}
+  .si{width:50%;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .si:nth-child(odd){border-right:1px solid rgba(255,255,255,0.07);}
+  .feat-grid{grid-template-columns:1fr;}
+  .p-grid{grid-template-columns:1fr;}
+  .use-grid{grid-template-columns:1fr;}
+  .sponsor-inner{padding:36px 20px;grid-template-columns:1fr;}
+  .sp-copy p{max-width:100%;}
+  .footer-top{grid-template-columns:1fr;padding:40px 20px 28px;}
+  .footer-bottom{padding:16px 20px;flex-direction:column;text-align:center;}
+  .hero-inner h1{font-size:clamp(52px,13vw,80px);letter-spacing:-1px;}
+  .auth-grid{grid-template-columns:1fr;}
+  .rg-stats{flex-direction:column;gap:4px;text-align:left;}
+  .code-inner{padding:0 20px;}
+  .cta-band{padding:48px 20px;}
+  #ticker{display:none;}
+}
+</style>
+
+
+
+
+
+
+<style id="psa-footer-css">
+/* ── BASE = MOBILE ─────────────────────────────────────── */
+.psa-ft { background:#141412; color:#fff; position:relative; overflow:hidden; }
+.psa-ft::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+.psa-ft-red  { height:2px; background:linear-gradient(90deg,transparent,#D73B1A 30%,#D73B1A 70%,transparent); position:relative; z-index:1; }
+
+/* powered-by strip */
+.psa-ft-pb  { background:rgba(215,59,26,0.06); border-bottom:1px solid rgba(215,59,26,0.12); padding:14px 16px; position:relative; z-index:1; }
+.psa-ft-pb-in { display:flex; flex-direction:column; align-items:stretch; gap:8px; max-width:1280px; margin:0 auto; }
+.psa-ft-pb-label { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.25); text-align:center; }
+.psa-ft-pb-link { display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; padding:8px 14px; border-radius:20px; transition:all 0.2s; }
+.psa-ft-pb-link-red  { background:rgba(215,59,26,0.1); border:1px solid rgba(215,59,26,0.3); }
+.psa-ft-pb-link-red:hover  { background:rgba(215,59,26,0.2); }
+.psa-ft-pb-link-blue { background:rgba(27,95,191,0.08); border:1px solid rgba(27,95,191,0.2); }
+.psa-ft-pb-link-blue:hover { background:rgba(27,95,191,0.18); }
+.psa-ft-pb-name { font:700 12px 'JetBrains Mono',monospace; letter-spacing:0.06em; color:#fff; }
+.psa-ft-pb-sub  { font:400 10px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.35); }
+.psa-ft-pb-arr  { color:rgba(255,255,255,0.3); font-size:10px; }
+
+/* main grid */
+.psa-ft-body { position:relative; z-index:1; }
+.psa-ft-grid { display:grid; grid-template-columns:1fr; gap:0; padding:28px 16px 16px; max-width:1280px; margin:0 auto; }
+
+/* brand col */
+.psa-ft-brand { padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:0; }
+.psa-ft-logo  { display:flex; align-items:center; gap:9px; text-decoration:none; margin-bottom:12px; }
+.psa-ft-logo-t { font:800 17px 'Syne','DM Sans',sans-serif; letter-spacing:0.5px; color:#fff; }
+.psa-ft-logo-t span { color:#D73B1A; }
+.psa-ft-desc  { font-size:13px; color:rgba(255,255,255,0.32); line-height:1.75; margin:0 0 16px; max-width:280px; }
+.psa-ft-phone { display:inline-flex; align-items:center; gap:8px; text-decoration:none; margin-bottom:14px; color:rgba(255,255,255,0.45); font:500 13px 'DM Sans',sans-serif; }
+.psa-ft-phone-ic { width:30px; height:30px; border-radius:7px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.09); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.psa-ft-socials { display:flex; gap:7px; flex-wrap:wrap; }
+.psa-ft-soc { width:34px; height:34px; border-radius:7px; display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.45); transition:all 0.2s; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
+.psa-ft-soc:hover { background:rgba(255,255,255,0.1); color:#fff; }
+
+/* link columns */
+.psa-ft-col { padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.psa-ft-col:last-child { border-bottom:none; padding-bottom:8px; }
+.psa-ft-col-h { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2); display:block; margin-bottom:12px; }
+.psa-ft-links { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.psa-ft-links a { font-size:13px; color:rgba(255,255,255,0.45); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color 0.15s; }
+.psa-ft-links a:hover { color:#fff; }
+.psa-ft-links .psa-ft-link-blue { color:#4D9EFF !important; }
+.psa-ft-links .psa-ft-link-blue:hover { color:#80bfff !important; }
+.psa-ft-ext-arr { font-size:9px; opacity:0.4; }
+
+/* bottom bar */
+.psa-ft-base { border-top:1px solid rgba(255,255,255,0.06); position:relative; z-index:1; }
+.psa-ft-base-in { display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:14px 16px; max-width:1280px; margin:0 auto; }
+.psa-ft-copy { font:400 11px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.18); }
+.psa-ft-badges { display:flex; flex-wrap:wrap; gap:5px; }
+.psa-ft-badge { font:600 9px 'JetBrains Mono',monospace; letter-spacing:0.06em; padding:3px 9px; border-radius:20px; border:1px solid rgba(255,255,255,0.07); color:rgba(255,255,255,0.18); }
+
+/* ── TABLET 640px ──────────────────────────────────────── */
+@media(min-width:640px) {
+  .psa-ft-grid { grid-template-columns:1fr 1fr; gap:0 28px; padding:36px 24px 20px; }
+  .psa-ft-brand { grid-column:1/-1; }
+  .psa-ft-pb-in { flex-direction:row; align-items:center; justify-content:center; gap:16px; }
+  .psa-ft-pb-link { flex:none; }
+  .psa-ft-pb-label { flex:none; }
+  .psa-ft-base-in { flex-direction:row; align-items:center; justify-content:space-between; }
 }
 
-html, body {
-  height: 100%;
-  background: var(--blk);
-  color: var(--cream);
-  font-family: var(--sans);
-  font-size: 15px;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+/* ── DESKTOP 1024px ────────────────────────────────────── */
+@media(min-width:1024px) {
+  .psa-ft-grid { grid-template-columns:2.2fr 1fr 1fr 1fr; gap:44px; padding:52px 28px 36px; }
+  .psa-ft-brand { grid-column:auto; border-bottom:none; padding-bottom:0; }
+  .psa-ft-col { border-bottom:none; padding:0; }
+  .psa-ft-desc { max-width:230px; }
+  .psa-ft-base-in { padding:16px 28px; }
+  .psa-ft-pb-in { padding:0 28px; }
 }
+</style>
 
-.app { display: flex; height: 100dvh; }
-
-/* ═══════════════════════════════════════
-   LEFT PANEL
-═══════════════════════════════════════ */
-.panel {
-  width: 420px;
-  min-width: 420px;
-  background: var(--blk2);
-  border-right: 1px solid var(--bdr);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
+<style id="psa-nav-mobile">
+@media(max-width:768px){
+  /* Hide nav-r links/buttons, keep only hamburger */
+  .nav-r > a { display:none !important; }
+  .nav-r > button.btn-red { display:none !important; }
+  .ham { display:flex !important; }
+  nav { padding:0 14px !important; }
+  /* Nav sports pills */
+  .nav-sports, .nav-tag { display:none !important; }
 }
+</style>
 
-.orbs { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
+<style id="psa-overflow">
+html,body{overflow-x:hidden!important;max-width:100vw;}
+*{box-sizing:border-box;}
+@media(max-width:768px){
+  section,main,article{overflow-x:hidden!important;}
+  .hero-inner{grid-template-columns:1fr!important;padding:0 16px!important;gap:28px!important;}
+  .hero-inner>div{min-width:0;overflow-wrap:break-word;word-break:break-word;}
+  .hero-lead{max-width:100%!important;overflow-wrap:break-word!important;}
+  h1{word-break:break-word!important;}
+  .stats-inner,.stat-inner{flex-wrap:wrap!important;}
+  .si,.stat-item{width:50%!important;}
+  #scores-grid{grid-template-columns:1fr 1fr!important;gap:8px!important;}
+  .feat-grid,.p-grid,.use-grid,.powers-grid,.compare-grid{grid-template-columns:1fr!important;}
+  .cta-btns{flex-direction:column!important;align-items:stretch!important;}
+  .cta-btns a{text-align:center!important;justify-content:center!important;}
 }
-
-.orb1 {
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(196,154,60,0.11) 0%, transparent 70%);
-  top: -60px; left: -40px;
-  animation: of1 14s ease-in-out infinite;
-}
-
-.orb2 {
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(196,154,60,0.06) 0%, transparent 70%);
-  bottom: 80px; right: -30px;
-  animation: of2 18s ease-in-out infinite;
-}
-
-@keyframes of1 { 0%,100%{transform:translate(0,0)} 40%{transform:translate(18px,28px)} 70%{transform:translate(-12px,14px)} }
-@keyframes of2 { 0%,100%{transform:translate(0,0)} 55%{transform:translate(-16px,-22px)} }
-
-.orbs::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  opacity: 0.7;
-}
-
-/* ── BRAND ── */
-.panel-brand {
-  position: relative;
-  z-index: 1;
-  padding: 28px 26px 22px;
-  flex-shrink: 0;
-  opacity: 0;
-  animation: su 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
-}
-
-.p-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
-
-.p-logo { display: flex; align-items: center; gap: 9px; }
-
-.p-bee {
-  width: 30px; height: 30px;
-  border-radius: 7px;
-  background: var(--blk4);
-  border: 1px solid var(--bdr-g);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 10px rgba(196,154,60,0.1);
-}
-
-.p-name { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream2); }
-
-.p-domain { font-family: var(--mono); font-size: 9px; color: var(--cream4); letter-spacing: 0.05em; padding: 3px 8px; border-radius: 99px; border: 1px solid var(--bdr); background: rgba(255,255,255,0.015); }
-
-.p-kicker { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
-.p-rule { width: 26px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
-.p-kicker-txt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
-
-.p-hed { font-family: var(--serif); font-size: 46px; font-weight: 300; line-height: 0.95; letter-spacing: -0.01em; color: var(--cream); margin-bottom: 10px; }
-.p-hed .ig { font-style: italic; color: var(--gold-hi); }
-.p-hed .lw { color: var(--cream3); }
-
-.p-desc { font-size: 12px; font-weight: 300; color: var(--cream3); line-height: 1.7; }
-
-.panel-div { position: relative; z-index: 1; height: 1px; background: var(--bdr); flex-shrink: 0; }
-
-/* ═══════════════════════════════════════
-   TICKER
-═══════════════════════════════════════ */
-.ticker { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-
-/* ── DATA FRESHNESS ── */
-.t-freshness {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px 14px;
-  background: var(--blk3);
-  border-bottom: 1px solid var(--bdr);
-  flex-shrink: 0;
-}
-
-.tf-left { display: flex; align-items: center; gap: 6px; }
-
-.tf-pip {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--cream4);
-  transition: background 0.3s;
-}
-
-.tf-pip.live { background: var(--grn); box-shadow: 0 0 4px rgba(61,184,122,0.6); animation: pp 2s ease infinite; }
-.tf-pip.loading { background: var(--gold); animation: pp 0.8s ease infinite; }
-.tf-pip.error { background: var(--red); }
-
-@keyframes pp { 0%,100%{opacity:1} 50%{opacity:.4} }
-
-.tf-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream4); }
-.tf-source { font-family: var(--mono); font-size: 8px; color: var(--cream4); letter-spacing: 0.04em; opacity: 0.7; }
-
-/* ── TAPE ── */
-.tape-shell { position: relative; background: var(--blk3); border-bottom: 1px solid var(--bdr); height: 30px; overflow: hidden; flex-shrink: 0; }
-.tape-shell::before, .tape-shell::after { content: ''; position: absolute; top: 0; bottom: 0; width: 28px; z-index: 2; pointer-events: none; }
-.tape-shell::before { left: 0; background: linear-gradient(90deg, var(--blk3), transparent); }
-.tape-shell::after  { right: 0; background: linear-gradient(-90deg, var(--blk3), transparent); }
-
-.tape { display: flex; align-items: center; height: 100%; white-space: nowrap; animation: scroll 32s linear infinite; }
-.tape:hover { animation-play-state: paused; }
-@keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-.ti { display: inline-flex; align-items: center; gap: 6px; padding: 0 16px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.03em; border-right: 1px solid var(--bdr); }
-.ti-k { color: var(--cream4); text-transform: uppercase; font-size: 8px; letter-spacing: 0.12em; }
-.ti-v { color: var(--cream); }
-.ti-v.up { color: var(--grn); }
-.ti-v.dn { color: var(--red); }
-.ti-v.gd { color: var(--gold-hi); }
-.ti-a { font-size: 7.5px; }
-.ti-a.up { color: var(--grn); }
-.ti-a.dn { color: var(--red); }
-
-/* skeleton shimmer for loading */
-.skeleton {
-  background: linear-gradient(90deg, var(--blk3) 25%, var(--blk4) 50%, var(--blk3) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 3px;
-  display: inline-block;
-}
-
-@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-
-/* ── 2×2 GRID ── */
-.t-grid { display: grid; grid-template-columns: 1fr 1fr; flex-shrink: 0; }
-
-.t-cell {
-  padding: 12px 14px 10px;
-  background: var(--blk2);
-  border-bottom: 1px solid var(--bdr);
-  border-right: 1px solid var(--bdr);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.18s;
-}
-
-.t-cell:nth-child(even) { border-right: none; }
-.t-cell::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(196,154,60,0.07), transparent 55%); opacity: 0; transition: opacity 0.2s; }
-.t-cell:hover { background: var(--blk3); }
-.t-cell:hover::after { opacity: 1; }
-.t-cell.on { background: var(--blk4); outline: 1px solid var(--bdr-g); outline-offset: -1px; }
-.t-cell.on::after { opacity: 1; }
-
-.tc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
-.tc-k { font-family: var(--mono); font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream4); }
-
-.tc-badge { font-family: var(--mono); font-size: 7px; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.06em; }
-.b-dn  { background: rgba(224,92,74,0.12); color: var(--red); }
-.b-up  { background: rgba(61,184,122,0.1); color: var(--grn); }
-.b-gd  { background: var(--gold-lo); color: var(--gold-hi); border: 1px solid var(--bdr-g); }
-.b-nt  { background: rgba(255,255,255,0.04); color: var(--cream3); }
-
-.tc-val { font-family: var(--serif); font-size: 24px; font-weight: 300; line-height: 1; color: var(--cream); letter-spacing: -0.01em; margin-bottom: 3px; }
-.tc-val .u { font-family: var(--mono); font-size: 9px; color: var(--cream3); margin-left: 1px; }
-.tc-val.loading .num { display: none; }
-.tc-val.loading::after { content: ''; display: inline-block; width: 60px; height: 20px; background: linear-gradient(90deg, var(--blk3) 25%, var(--blk4) 50%, var(--blk3) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 3px; vertical-align: middle; }
-
-.tc-delta { font-family: var(--mono); font-size: 8.5px; color: var(--cream4); line-height: 1; }
-.tc-delta.up { color: var(--grn); }
-.tc-delta.dn { color: var(--red); }
-.tc-delta.gd { color: var(--gold-hi); }
-
-.tc-spark { position: absolute; bottom: 2px; right: 3px; width: 64px; height: 26px; opacity: 0.35; }
-
-/* ── DETAIL ── */
-.t-detail { background: var(--blk3); border-bottom: 1px solid var(--bdr-g); max-height: 0; overflow: hidden; transition: max-height 0.32s cubic-bezier(0.16,1,0.3,1); flex-shrink: 0; }
-.t-detail.open { max-height: 170px; }
-.t-detail-inner { padding: 12px 16px 10px; }
-.t-detail-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-.t-detail-title { font-family: var(--serif); font-size: 12.5px; font-style: italic; font-weight: 300; color: var(--cream2); }
-.t-esc { font-family: var(--mono); font-size: 8px; color: var(--cream4); cursor: pointer; padding: 2px 7px; border: 1px solid var(--bdr); border-radius: 3px; letter-spacing: 0.08em; transition: color .15s, border-color .15s; }
-.t-esc:hover { color: var(--gold-hi); border-color: var(--bdr-g); }
-.t-rows { display: flex; flex-direction: column; gap: 0; }
-.t-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
-.t-row:last-child { border-bottom: none; }
-.t-row-k { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.08em; color: var(--cream4); text-transform: uppercase; }
-.t-row-v { font-family: var(--mono); font-size: 9.5px; color: var(--cream2); }
-.t-row-v.good { color: var(--grn); }
-.t-row-v.warn { color: var(--red); }
-.t-row-v.gd   { color: var(--gold-hi); }
-
-/* ── CHART ── */
-.t-chart { flex-shrink: 0; padding: 10px 14px 7px; background: var(--blk2); border-bottom: 1px solid var(--bdr); }
-.t-chart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
-.t-chart-label { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream4); }
-.t-chart-val { font-family: var(--mono); font-size: 9.5px; color: var(--gold-hi); letter-spacing: 0.04em; }
-.t-chart-src { font-family: var(--mono); font-size: 7px; color: var(--cream4); opacity: 0.6; }
-
-.chart-area { position: relative; height: 42px; }
-.chart-area svg { width: 100%; height: 100%; overflow: visible; }
-
-.c-tip { position: absolute; background: var(--blk5); border: 1px solid var(--bdr-g); border-radius: 4px; padding: 3px 7px; font-family: var(--mono); font-size: 9px; color: var(--cream); pointer-events: none; opacity: 0; transition: opacity 0.12s; transform: translate(-50%, -100%); margin-top: -5px; white-space: nowrap; z-index: 10; letter-spacing: 0.04em; }
-.c-tip.show { opacity: 1; }
-
-.t-chart-weeks { display: flex; justify-content: space-between; margin-top: 3px; font-family: var(--mono); font-size: 7px; color: var(--cream4); letter-spacing: 0.04em; }
-
-/* ── INSIGHT ── */
-.t-insight { flex: 1; display: flex; align-items: center; gap: 9px; padding: 10px 14px; background: var(--blk2); min-height: 0; }
-.t-insight-icon { font-size: 12px; flex-shrink: 0; }
-.t-insight-txt { font-family: var(--serif); font-size: 12px; font-style: italic; font-weight: 300; color: var(--cream3); line-height: 1.5; flex: 1; min-width: 0; transition: opacity 0.25s; }
-.t-insight-txt strong { color: var(--gold-hi); font-style: normal; font-weight: 400; }
-.t-insight-btn { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.1em; color: var(--cream4); cursor: pointer; padding: 3px 7px; border: 1px solid var(--bdr); border-radius: 3px; flex-shrink: 0; transition: color .15s, border-color .15s; white-space: nowrap; }
-.t-insight-btn:hover { color: var(--gold-hi); border-color: var(--bdr-g); }
-.t-insight-btn.spin { animation: spin 0.5s linear; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── FOOTER ── */
-.panel-foot { position: relative; z-index: 1; padding: 10px 16px; border-top: 1px solid var(--bdr); display: flex; align-items: center; justify-content: space-between; background: var(--blk2); flex-shrink: 0; }
-.fp-pills { display: flex; gap: 5px; }
-.fp-pill { display: flex; align-items: center; gap: 4px; padding: 3px 7px; border-radius: 99px; border: 1px solid var(--bdr); background: rgba(255,255,255,0.015); font-family: var(--mono); font-size: 9px; color: var(--cream4); }
-.fp-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--grn); box-shadow: 0 0 4px rgba(61,184,122,0.7); }
-.fp-phone { font-family: var(--mono); font-size: 9.5px; color: var(--cream4); text-decoration: none; letter-spacing: 0.04em; transition: color .15s; }
-.fp-phone:hover { color: var(--gold-hi); }
-
-/* ═══════════════════════════════════════
-   RIGHT — CHAT
-═══════════════════════════════════════ */
-.chat { flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--blk); position: relative; }
-.chat::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 220px; background: radial-gradient(ellipse at 50% 0%, rgba(196,154,60,0.04) 0%, transparent 70%); pointer-events: none; z-index: 0; }
-
-.chat-bar { display: flex; align-items: center; justify-content: space-between; padding: 17px 26px; border-bottom: 1px solid var(--bdr); flex-shrink: 0; position: relative; z-index: 2; opacity: 0; animation: fi 0.5s ease 0.9s forwards; }
-.cb-id { display: flex; align-items: center; gap: 10px; }
-.cb-bee { width: 28px; height: 28px; border-radius: 50%; background: var(--blk3); border: 1px solid var(--bdr-g); display: flex; align-items: center; justify-content: center; font-size: 13px; }
-.cb-name { font-weight: 600; font-size: 13px; color: var(--cream); }
-.cb-status { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9px; color: var(--grn); letter-spacing: 0.06em; }
-.live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--grn); box-shadow: 0 0 5px rgba(61,184,122,0.7); animation: lp 2.5s ease infinite; }
-@keyframes lp { 0%,100%{opacity:1} 50%{opacity:.45} }
-.cb-right { display: flex; align-items: center; gap: 8px; }
-.cb-phone { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9.5px; color: var(--cream3); text-decoration: none; padding: 5px 11px; border: 1px solid var(--bdr); border-radius: 99px; letter-spacing: 0.04em; transition: all 0.2s; }
-.cb-phone:hover { border-color: var(--bdr-g); color: var(--gold-hi); background: var(--gold-lo); }
-.cb-offer { padding: 7px 17px; border-radius: 99px; background: var(--gold); color: var(--blk); font-size: 11px; font-weight: 600; font-family: var(--sans); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; text-decoration: none; border: none; transition: all 0.2s; }
-.cb-offer:hover { background: var(--gold-hi); transform: translateY(-1px); box-shadow: 0 5px 18px rgba(196,154,60,0.3); }
-
-.feed { flex: 1; overflow-y: auto; padding: 26px 26px 14px; position: relative; z-index: 1; display: flex; flex-direction: column; }
-.feed::-webkit-scrollbar { width: 3px; }
-.feed::-webkit-scrollbar-thumb { background: var(--bdr); border-radius: 2px; }
-
-.welcome { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; padding-bottom: 10px; opacity: 0; animation: fi 0.6s ease 1.1s forwards; }
-.w-tag { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px; border-radius: 99px; border: 1px solid var(--bdr-g); background: var(--gold-lo); font-family: var(--mono); font-size: 9px; color: var(--gold-hi); letter-spacing: 0.1em; text-transform: uppercase; width: fit-content; }
-.w-hed { font-family: var(--serif); font-size: 34px; font-weight: 300; line-height: 1.12; color: var(--cream); }
-.w-hed em { font-style: italic; color: var(--gold-hi); }
-.w-sub { font-size: 13px; font-weight: 300; color: var(--cream3); line-height: 1.75; max-width: 380px; }
-
-.q-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; max-width: 520px; }
-.qb { padding: 10px 12px; border: 1px solid var(--bdr); border-radius: 9px; background: var(--blk2); cursor: pointer; text-align: left; transition: all 0.2s; position: relative; overflow: hidden; }
-.qb::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold-lo), transparent); opacity: 0; transition: opacity 0.2s; }
-.qb:hover { border-color: var(--bdr-g); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
-.qb:hover::before { opacity: 1; }
-.qi { display: block; font-size: 15px; margin-bottom: 4px; position: relative; }
-.qt { font-size: 11px; color: var(--cream2); line-height: 1.35; position: relative; font-weight: 300; }
-
-.msgs { display: flex; flex-direction: column; gap: 18px; }
-.msg { display: flex; gap: 12px; opacity: 0; animation: md 0.32s cubic-bezier(0.16,1,0.3,1) forwards; }
-@keyframes md { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-.msg.user { flex-direction: row-reverse; }
-.m-avi { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 4px; }
-.msg.cal .m-avi { background: var(--blk3); border: 1px solid var(--bdr-g); font-size: 12px; }
-.msg.user .m-avi { background: var(--blk3); border: 1px solid var(--bdr); font-size: 10px; color: var(--cream3); }
-.m-body { max-width: calc(100% - 80px); display: flex; flex-direction: column; gap: 3px; }
-.msg.user .m-body { align-items: flex-end; }
-.m-who { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream4); }
-.msg.cal .m-who { color: var(--gold); }
-.bub { padding: 12px 16px; border-radius: 3px 10px 10px 10px; font-size: 14px; line-height: 1.7; background: var(--blk2); border: 1px solid var(--bdr); color: var(--cream); font-weight: 300; }
-.msg.user .bub { background: var(--gold-lo); border-color: rgba(196,154,60,0.18); border-radius: 10px 3px 10px 10px; }
-.bub p { margin-bottom: .55em; } .bub p:last-child { margin-bottom: 0; }
-.bub strong { color: var(--gold-hi); font-weight: 500; }
-.bub em { color: var(--cream2); font-style: italic; }
-.bub a { color: var(--gold-hi); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(226,181,90,0.35); }
-.bub.streaming::after { content:'▋'; color:var(--gold); font-size:11px; margin-left:2px; animation:blink .75s step-end infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-.ty-row { display:flex; gap:12px; opacity:0; animation:md .3s cubic-bezier(0.16,1,0.3,1) forwards; }
-.ty-bub { background:var(--blk2); border:1px solid var(--bdr); border-radius:3px 10px 10px 10px; padding:12px 15px; display:flex; gap:5px; align-items:center; }
-.td { width:5px; height:5px; border-radius:50%; background:var(--gold); opacity:.3; animation:tda 1.4s ease infinite; }
-.td:nth-child(2){animation-delay:.2s} .td:nth-child(3){animation-delay:.4s}
-@keyframes tda { 0%,80%,100%{opacity:.3;transform:scale(1)} 40%{opacity:1;transform:scale(1.4)} }
-
-.chat-inp { padding: 13px 26px 18px; border-top: 1px solid var(--bdr); flex-shrink: 0; position: relative; z-index: 2; opacity: 0; animation: fi 0.5s ease 1.1s forwards; }
-.inp-shell { display: flex; gap: 9px; align-items: flex-end; background: var(--blk2); border: 1px solid var(--bdr); border-radius: 12px; padding: 10px 11px 10px 16px; transition: border-color .2s, box-shadow .2s; }
-.inp-shell:focus-within { border-color: var(--bdr-g); box-shadow: 0 0 0 3px rgba(196,154,60,0.05); }
-#msg { flex: 1; background: none; border: none; outline: none; color: var(--cream); font-size: 14px; font-family: var(--sans); font-weight: 300; resize: none; max-height: 120px; min-height: 24px; line-height: 1.55; padding: 1px 0; }
-#msg::placeholder { color: var(--cream4); }
-.s-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; opacity: 0.22; transform: scale(0.9); }
-.s-btn.live { opacity: 1; transform: scale(1); }
-.s-btn.live:hover { background: var(--gold-hi); transform: scale(1.07); box-shadow: 0 4px 14px rgba(196,154,60,0.35); }
-.s-btn svg { color: var(--blk); }
-.inp-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding: 0 2px; }
-.im-l { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 9px; color: var(--cream4); letter-spacing: 0.05em; }
-.ai-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.6; }
-.lang-sw { display: flex; background: var(--blk3); border: 1px solid var(--bdr); border-radius: 99px; padding: 3px; gap: 2px; }
-.lb { padding: 2px 10px; border-radius: 99px; border: none; background: none; color: var(--cream4); font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; cursor: pointer; transition: all .15s; }
-.lb.on { background: var(--gold); color: var(--blk); }
-
-@keyframes su { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
-@keyframes fi { from{opacity:0} to{opacity:1} }
-@keyframes flash { 0%{color:var(--gold-hi)} 100%{color:var(--cream)} }
-.flash { animation: flash 0.9s ease forwards; }
-
-/* ═══ MOBILE MARKET STRIP ═══ */
-.mobile-strip {
-  display: none;
-  background: var(--blk3);
-  border-bottom: 1px solid var(--bdr);
-  padding: 0;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.ms-scroll {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding: 8px 14px;
-  gap: 10px;
-}
-
-.ms-scroll::-webkit-scrollbar { display: none; }
-
-.ms-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  flex-shrink: 0;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: var(--blk4);
-  border: 1px solid var(--bdr);
-  cursor: pointer;
-  transition: border-color 0.2s;
-  min-width: 72px;
-}
-
-.ms-item:active { border-color: var(--bdr-g); background: var(--blk5); }
-
-.ms-item-k {
-  font-family: var(--mono);
-  font-size: 7.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cream4);
-  white-space: nowrap;
-}
-
-.ms-item-v {
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--cream);
-  line-height: 1;
-}
-
-.ms-item-v.up { color: var(--grn); }
-.ms-item-v.dn { color: var(--red); }
-.ms-item-v.gd { color: var(--gold-hi); }
-
-.ms-item-d {
-  font-family: var(--mono);
-  font-size: 7.5px;
-  color: var(--cream4);
-}
-
-.ms-item-d.up { color: var(--grn); }
-.ms-item-d.dn { color: var(--red); }
-
-@media (max-width: 860px) {
-  .panel { display: none; }
-  .mobile-strip { display: block; }
-  .app { display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
-  .chat { flex: 1; min-height: 0; height: auto; display: flex; flex-direction: column; }
-  .feed {
-    padding: 14px 14px 10px;
-    padding-bottom: calc(10px + env(safe-area-inset-bottom));
-  }
-  .chat-bar { padding: 11px 14px; }
-  .chat-inp {
-    padding: 10px 14px;
-    padding-bottom: calc(10px + env(safe-area-inset-bottom));
-  }
-  .q-grid { grid-template-columns: 1fr 1fr; gap: 6px; max-width: 100%; }
-  .qb { padding: 9px 10px; }
-  .qi { font-size: 14px; margin-bottom: 3px; }
-  .qt { font-size: 11px; }
-  .cb-phone { display: none; }
-  .cb-offer { padding: 6px 14px; font-size: 11px; }
-  .w-hed { font-size: 28px; }
-  .w-sub { font-size: 12.5px; }
-  .welcome { gap: 16px; }
-  #msg { font-size: 16px; } /* prevent iOS zoom on focus */
-  .bub { font-size: 14px; padding: 11px 14px; }
-  .inp-shell { padding: 9px 10px 9px 14px; }
-  .s-btn { width: 38px; height: 38px; } /* bigger tap target */
-  .chat-bar { border-bottom: 1px solid var(--bdr); }
-}
-
-@media (max-width: 1140px) and (min-width: 861px) {
-  .panel { width: 360px; min-width: 360px; }
-  .p-hed { font-size: 38px; }
-  .panel-brand { padding: 22px 20px 18px; }
+@media(max-width:400px){
+  #scores-grid{grid-template-columns:1fr!important;}
 }
 </style>
 </head>
 <body>
-<div class="app">
 
-<!-- ══ LEFT PANEL ══ -->
-<aside class="panel">
-  <div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
-
-  <div class="panel-brand">
-    <div class="p-nav">
-      <div class="p-logo"><div class="p-bee">🐝</div><span class="p-name">LHBUSA</span></div>
-      <span class="p-domain">localhomebuyersusa.ai</span>
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    <div style="text-align:center;margin-bottom:22px;">
+      <div style="font:700 10px var(--mono);letter-spacing:0.1em;color:var(--red);margin-bottom:10px;" id="m-tag">FULL BUNDLE &mdash; $24/mo</div>
+      <div style="font:800 22px var(--sans);color:var(--ink);margin-bottom:5px;" id="m-title">Get Full Bundle Access</div>
+      <div style="font-size:13px;color:var(--mid);">Key delivered to your inbox instantly after checkout.</div>
     </div>
-    <div class="p-kicker"><div class="p-rule"></div><span class="p-kicker-txt">AI Acquisitions · 24/7</span></div>
-    <h1 class="p-hed">The<br><span class="ig">honest</span><br><span class="lw">exit.</span></h1>
-    <p class="p-desc">Three lanes. Full transparency. An AI that knows when to say no.</p>
+    <div class="fg"><label>Your Name</label><input type="text" id="m-name" placeholder="First Last"></div>
+    <div class="fg"><label>Email Address</label><input type="email" id="m-email" placeholder="you@company.com" onkeydown="if(event.key==='Enter')submitModal()"></div>
+    <div style="font:400 10px var(--mono);color:var(--soft);padding:10px 14px;background:var(--paper);border-radius:6px;margin-bottom:12px;">You&#8217;ll be redirected to Stripe. Key activates instantly after payment.</div>
+    <button class="btn-checkout" id="m-btn" onclick="submitModal()">Continue to Stripe &#8594;</button>
+    <p style="text-align:center;font:400 10px var(--mono);color:var(--soft);margin-top:10px;">Secured by Stripe &middot; Cancel anytime</p>
   </div>
-
-  <div class="panel-div"></div>
-
-  <div class="ticker">
-
-    <!-- data freshness bar -->
-    <div class="t-freshness">
-      <div class="tf-left">
-        <div class="tf-pip loading" id="tf-pip"></div>
-        <span class="tf-label" id="tf-label">Loading market data…</span>
-      </div>
-      <span class="tf-source">FRED · Freddie Mac PMMS</span>
-    </div>
-
-    <!-- tape -->
-    <div class="tape-shell"><div class="tape" id="tape"><span class="ti"><span class="ti-k">Loading</span><span class="ti-v">—</span></span></div></div>
-
-    <!-- 2×2 -->
-    <div class="t-grid">
-      <div class="t-cell" id="tc-rate" onclick="tToggle('rate')">
-        <div class="tc-top"><span class="tc-k">30yr Fixed</span><span class="tc-badge b-dn" id="b-rate">—</span></div>
-        <div class="tc-val loading" id="v-rate"><span class="num">—<span class="u">%</span></span></div>
-        <div class="tc-delta dn" id="d-rate">—</div>
-        <svg class="tc-spark" id="sp-rate" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="t-cell" id="tc-inv" onclick="tToggle('inv')">
-        <div class="tc-top"><span class="tc-k">Inventory</span><span class="tc-badge b-nt" id="b-inv">—</span></div>
-        <div class="tc-val loading" id="v-inv"><span class="num">—<span class="u">mo</span></span></div>
-        <div class="tc-delta" id="d-inv">—</div>
-        <svg class="tc-spark" id="sp-inv" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="t-cell" id="tc-fed" onclick="tToggle('fed')">
-        <div class="tc-top"><span class="tc-k">Fed Rate</span><span class="tc-badge b-nt" id="b-fed">—</span></div>
-        <div class="tc-val loading" id="v-fed"><span class="num">—<span class="u">%</span></span></div>
-        <div class="tc-delta" id="d-fed">Policy rate</div>
-        <svg class="tc-spark" id="sp-fed" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
-      </div>
-      <div class="t-cell" id="tc-bkpp" onclick="tToggle('bkpp')">
-        <div class="tc-top"><span class="tc-k">BKPP Edge</span><span class="tc-badge b-gd" id="b-bkpp">🐝 Best</span></div>
-        <div class="tc-val loading" id="v-bkpp"><span class="num">—<span class="u">avg</span></span></div>
-        <div class="tc-delta gd" id="d-bkpp">vs cash offer</div>
-        <svg class="tc-spark" id="sp-bkpp" viewBox="0 0 64 26" preserveAspectRatio="none"></svg>
-      </div>
-    </div>
-
-    <!-- detail drawer -->
-    <div class="t-detail" id="t-detail">
-      <div class="t-detail-inner">
-        <div class="t-detail-head">
-          <span class="t-detail-title" id="dt-title"></span>
-          <span class="t-esc" onclick="tClose()">ESC</span>
-        </div>
-        <div class="t-rows" id="dt-rows"></div>
-      </div>
-    </div>
-
-    <!-- chart -->
-    <div class="t-chart">
-      <div class="t-chart-head">
-        <span class="t-chart-label">30yr Fixed — Weekly (Freddie Mac PMMS)</span>
-        <span class="t-chart-val" id="ch-val">—</span>
-      </div>
-      <div class="chart-area"><svg id="ch-svg" viewBox="0 0 372 42" preserveAspectRatio="none"></svg><div class="c-tip" id="c-tip"></div></div>
-      <div class="t-chart-weeks" id="ch-weeks"></div>
-    </div>
-
-    <!-- insight -->
-    <div class="t-insight">
-      <span class="t-insight-icon">🐝</span>
-      <span class="t-insight-txt" id="ins-txt">Loading market insight…</span>
-      <span class="t-insight-btn" id="ins-btn" onclick="nextInsight()">↻ Next</span>
-    </div>
-
-  </div>
-
-  <div class="panel-foot">
-    <div class="fp-pills">
-      <div class="fp-pill"><div class="fp-dot"></div>No seller fees</div>
-      <div class="fp-pill"><div class="fp-dot"></div>Nationwide</div>
-    </div>
-    <a href="tel:18008580588" class="fp-phone">1-800-858-0588</a>
-  </div>
-
-</aside>
-
-<!-- ══ CHAT ══ -->
-<main class="chat">
-
-  <!-- MOBILE MARKET STRIP -->
-  <div class="mobile-strip" id="mobile-strip">
-    <div class="ms-scroll" id="ms-scroll">
-      <div class="ms-item"><span class="ms-item-k">30yr Fixed</span><span class="ms-item-v dn" id="ms-rate">—</span><span class="ms-item-d dn" id="ms-rate-d">—</span></div>
-      <div class="ms-item"><span class="ms-item-k">Fed Rate</span><span class="ms-item-v" id="ms-fed">—</span><span class="ms-item-d">policy</span></div>
-      <div class="ms-item"><span class="ms-item-k">Inventory</span><span class="ms-item-v" id="ms-inv">—</span><span class="ms-item-d" id="ms-inv-d">—</span></div>
-      <div class="ms-item"><span class="ms-item-k">BKPP Edge</span><span class="ms-item-v gd" id="ms-bkpp">—</span><span class="ms-item-d">vs cash</span></div>
-      <div class="ms-item"><span class="ms-item-k">15yr Fixed</span><span class="ms-item-v dn" id="ms-r15">—</span><span class="ms-item-d">rate</span></div>
-    </div>
-  </div>
-
-  <div class="chat-bar">
-    <div class="cb-id">
-      <div class="cb-bee">🐝</div>
-      <div><div class="cb-name">Cal</div><div class="cb-status"><div class="live-dot"></div>Online now</div></div>
-    </div>
-    <div class="cb-right">
-      <a href="tel:18008580588" class="cb-phone">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.04 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-        1-800-858-0588
-      </a>
-      <a href="https://localhomebuyersusa.com/get-offer/" target="_blank" class="cb-offer">Get Offer</a>
-    </div>
-  </div>
-
-  <div class="feed" id="feed">
-    <div class="welcome" id="welcome">
-      <div class="w-tag"><span>🐝</span> Hey — I'm Cal</div>
-      <h2 class="w-hed">What's on your mind<br>about <em>your home?</em></h2>
-      <p class="w-sub">Straight answers, no scripts. Tell me your situation — I'll tell you your options.</p>
-      <div class="q-grid">
-        <button class="qb" onclick="sendQ('What is my home worth right now?')"><span class="qi">🏠</span><span class="qt">What's my home worth?</span></button>
-        <button class="qb" onclick="sendQ('How fast can you close on my house?')"><span class="qi">⚡</span><span class="qt">How fast can you close?</span></button>
-        <button class="qb" onclick="sendQ('My mom passed away and left me the house. What do I do now?')"><span class="qi">🏚️</span><span class="qt">I inherited a house</span></button>
-        <button class="qb" onclick="sendQ('I am behind on my mortgage and worried about foreclosure')"><span class="qi">⚠️</span><span class="qt">Behind on mortgage</span></button>
-        <button class="qb" onclick="sendQ('I already have a cash offer from another investor. Can you beat it?')"><span class="qi">💰</span><span class="qt">I have another offer</span></button>
-        <button class="qb" onclick="sendQ('Explain how the BKPP partnership program works')"><span class="qi">🐝</span><span class="qt">How does BKPP work?</span></button>
-      </div>
-    </div>
-    <div class="msgs" id="msgs"></div>
-  </div>
-
-  <div class="chat-inp">
-    <div class="inp-shell">
-      <textarea id="msg" rows="1" placeholder="Ask Cal anything about selling your home…"></textarea>
-      <button class="s-btn" id="sbtn" onclick="doSend()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      </button>
-    </div>
-    <div class="inp-meta">
-      <div class="im-l"><span class="ai-dot"></span>Cal is AI &nbsp;·&nbsp; <a href="tel:18008580588" style="color:inherit;text-decoration:none">1-800-858-0588</a></div>
-      <div class="lang-sw">
-        <button class="lb on" id="ben" onclick="setL('en')">EN</button>
-        <button class="lb" id="bes" onclick="setL('es')">ES</button>
-      </div>
-    </div>
-  </div>
-</main>
 </div>
 
+<!-- LIVE TICKER -->
+<div id="ticker">
+  <div class="tk-track" id="tk-track">
+    <span class="tk-item"><span class="tk-dot"></span><span class="sport">API LIVE</span>propsports-api.sales-fd3.workers.dev</span>
+    <span class="tk-item"><span class="tk-dot"></span><span class="sport">OWNED DATA</span>131 batters &middot; 129 pitchers &middot; updated 4x daily</span>
+    <span class="tk-item"><span class="sport">NFL</span>/nfl/schedule &rarr; spreads &middot; totals &middot; moneylines</span>
+    <span class="tk-item"><span class="sport">NBA</span>/nba/leaders?stat=PTS &rarr; top 25 scorers live</span>
+    <span class="tk-item"><span class="sport">NHL</span>/nhl/standings &rarr; conference &amp; division</span>
+    <span class="tk-item"><span class="sport">MLB</span>/mlb/umpires &rarr; home plate assignments today</span>
+    <span class="tk-item"><span class="sport">MLB</span>/mlb/weather/all &rarr; wind &middot; park factor &middot; temp</span>
+    <span class="tk-item"><span class="tk-dot"></span><span class="sport">31 ENDPOINTS</span>MLB &middot; NFL &middot; NBA &middot; NHL &middot; OWNED STATCAST</span>
+    <span class="tk-item"><span class="tk-dot"></span><span class="sport">OWNED DATA</span>131 batters &middot; 129 pitchers &middot; updated 4x daily</span>
+    <span class="tk-item"><span class="sport">NFL</span>/nfl/schedule &rarr; spreads &middot; totals &middot; moneylines</span>
+    <span class="tk-item"><span class="sport">NBA</span>/nba/leaders?stat=PTS &rarr; top 25 scorers live</span>
+    <span class="tk-item"><span class="sport">NHL</span>/nhl/standings &rarr; conference &amp; division</span>
+    <span class="tk-item"><span class="sport">MLB</span>/mlb/umpires &rarr; home plate assignments today</span>
+    <span class="tk-item"><span class="sport">MLB</span>/mlb/weather/all &rarr; wind &middot; park factor &middot; temp</span>
+    <span class="tk-item"><span class="tk-dot"></span><span class="sport">31 ENDPOINTS</span>MLB &middot; NFL &middot; NBA &middot; NHL &middot; OWNED STATCAST</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-i">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+      <span class="logo-t">Prop<span>Sports</span> API</span>
+    </a>
+    <div class="nav-sports" id="nav-sports">
+      <button class="ns-btn on" onclick="navSport(this,null)">MLB</button>
+      <button class="ns-btn" onclick="navSport(this,'nfl.html')">NFL</button>
+      <button class="ns-btn" onclick="navSport(this,'nba.html')">NBA</button>
+      <button class="ns-btn" onclick="navSport(this,'nhl.html')">NHL</button>
+      <div class="ns-slider" id="ns-slider"></div>
+    </div>
+    <div class="nav-r">
+      <span class="nav-tag">&#x2713; Free Tier Available</span>
+      <a href="/docs.html" class="nav-link">Docs</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/live.html" style="font:700 11px var(--mono);letter-spacing:0.06em;padding:7px 14px;border-radius:7px;background:rgba(215,59,26,0.08);border:1px solid rgba(215,59,26,0.2);color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.background='rgba(215,59,26,0.15)'" onmouseout="this.style.background='rgba(215,59,26,0.08)'">&#9889; See It Live</a>
+      <button class="btn-red" onclick="openModal('BUNDLE')">Get API Key</button>
+    </div>
+    <div class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <a href="/live" onclick="toggleMenu()">&#9889; See It Live</a>
+  <a href="/mlb.html" onclick="toggleMenu()">&#9918; MLB</a>
+  <a href="/nfl.html" onclick="toggleMenu()">&#127944; NFL</a>
+  <a href="/nba.html" onclick="toggleMenu()">&#127936; NBA</a>
+  <a href="/nhl.html" onclick="toggleMenu()">&#127944; NHL</a>
+  <a href="/docs.html" onclick="toggleMenu()">Docs</a>
+  <a href="/pricing.html" onclick="toggleMenu()">Pricing</a>
+  <button class="btn-red" onclick="openModal('BUNDLE');toggleMenu()" style="width:100%;justify-content:center;margin-top:8px;">Get API Key</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"><div class="hero-lines"></div><div class="hero-accent"></div></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow fu"><span class="h-dot"></span>31 Live Endpoints &middot; 4 Sports &middot; 0 BS</div>
+      <h1 class="fu d1">Sports<br><em>Data</em><br><span class="serif">API.</span></h1>
+      <p class="hero-lead fu d2">MLB, NFL, NBA, NHL in one API. Official sources &mdash; MLB Stats API, Baseball Savant Statcast, NHL Stats, NBA Stats, ESPN. Live scores, lineups, odds, Statcast exit velocity, park weather, umpires.</p>
+      <div class="hero-btns fu d3">
+        <button class="btn-red" onclick="openModal('BUNDLE')">Get Full Bundle &rarr;</button>
+        <a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" class="btn-outline">&#9654; View Live API</a>
+      </div>
+      <div class="trust-row fu d3">
+        <span class="tr-pill g">&#x2713; Free MLB tier</span>
+        <span class="tr-pill">Official sources only</span>
+        <span class="tr-pill">Cloudflare global edge</span>
+        <span class="tr-pill">No per-call fees ever</span>
+      </div>
+    </div>
+    <!-- TERMINAL -->
+    <div class="term-shell fu d2">
+      <div class="term-shadow"></div>
+      <div class="term-box">
+        <div class="term-tabs" id="term-tabs">
+          <button class="tt on" onclick="switchTab('schedule',this)">/mlb/schedule</button>
+          <button class="tt" onclick="switchTab('live',this)">/mlb/live</button>
+          <button class="tt" onclick="switchTab('statcast',this)">/statcast</button>
+          <button class="tt" onclick="switchTab('weather',this)">/weather</button>
+          <button class="tt" onclick="switchTab('nba',this)">/nba/today</button>
+          <button class="tt" onclick="switchTab('nhl',this)">/nhl/standings</button>
+        </div>
+        <div class="tbar">
+          <div class="tdots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+          <div class="turl" id="turl">propsports-api.sales-fd3.workers.dev/mlb/schedule/today</div>
+          <div class="tms" id="tms"></div>
+          <div class="t-live-badge"><span class="tk-dot" style="margin-top:0;"></span>LIVE</div>
+        </div>
+        <div class="tbody" id="tbody"><span class="jn">// PropSports API &mdash; loading live data...</span></div>
+        <div class="tfoot">
+          <input class="tinput" id="tinput" type="text" placeholder="date, param... or just hit RUN" onkeydown="if(event.key==='Enter')runDemo()">
+          <button class="trun" id="trun" onclick="runDemo()">RUN &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="si sfu"><span class="sn">4</span><div class="sl">Sports</div></div>
+    <div class="si sfu"><span class="sn">31<em>+</em></span><div class="sl">Endpoints</div></div>
+    <div class="si sfu"><span class="sn"><em>$</em>0</span><div class="sl">To Start</div></div>
+    <div class="si sfu"><span class="sn"><em>&lt;</em>50ms</span><div class="sl">Latency</div></div>
+    <div class="si sfu"><span class="sn">99<em>.9%</em></span><div class="sl">Uptime</div></div>
+  </div>
+</div>
+
+
+<section id="live-scores" style="background:var(--paper);border-top:2px solid var(--red);border-bottom:1px solid var(--border);padding:36px 0;">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="display:flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;display:inline-block;flex-shrink:0;"></span>LIVE SCORES &amp; TODAY&rsquo;S SLATE</div>
+        <span id="scores-updated" style="font:400 10px var(--mono);color:var(--soft);">Loading...</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:flex;gap:2px;padding:3px;background:var(--paper2);border:1px solid var(--border);border-radius:8px;">
+          <button class="score-stab on" onclick="scoresSetSport('all',this)">All</button>
+          <button class="score-stab" onclick="scoresSetSport('mlb',this)">MLB</button>
+          <button class="score-stab" onclick="scoresSetSport('nba',this)">NBA</button>
+          <button class="score-stab" onclick="scoresSetSport('nhl',this)">NHL</button>
+        </div>
+        <button id="scores-refresh-btn" onclick="loadScores()" style="font:600 10px var(--mono);padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--white);color:var(--mid);cursor:pointer;white-space:nowrap;">↻ Refresh</button>
+      </div>
+    </div>
+    <div id="scores-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;min-height:100px;"><div style="grid-column:1/-1;text-align:center;padding:36px;font:400 12px var(--mono);color:var(--soft);">Loading live scores...</div></div>
+    <div style="margin-top:12px;font:400 10px var(--mono);color:var(--soft);text-align:center;">Powered by <a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" style="color:var(--red);text-decoration:none;">propsports-api.sales-fd3.workers.dev</a> &middot; Auto-refreshes every 30s</div>
+  </div>
+</section>
+<style>
+.score-stab{font:700 10px var(--mono);letter-spacing:0.05em;padding:5px 12px;border-radius:5px;border:none;background:transparent;color:var(--mid);cursor:pointer;}
+.score-stab.on{background:var(--white);color:var(--ink);box-shadow:var(--shadow-sm);}
+.score-card{background:var(--white);border:1px solid var(--border);border-radius:11px;padding:14px 16px;box-shadow:var(--shadow-sm);transition:all 0.2s;position:relative;overflow:hidden;}
+.score-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
+.score-card.live{border-color:rgba(215,59,26,0.3);}
+.score-card.live::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);}
+.score-sport{font:700 9px var(--mono);letter-spacing:0.12em;color:var(--soft);margin-bottom:8px;display:flex;align-items:center;}
+.score-live-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:rgba(215,59,26,0.1);color:var(--red);border:1px solid rgba(215,59,26,0.2);}
+.score-final-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--paper2);color:var(--mid);}
+.score-sched-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--greenbg);color:var(--green);border:1px solid rgba(11,122,69,0.2);}
+.score-matchup{display:flex;flex-direction:column;gap:5px;}
+.score-team{display:flex;align-items:center;justify-content:space-between;}
+.score-name{font:600 13px var(--sans);color:var(--ink);}
+.score-name.winner{font-weight:800;}
+.score-num{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);}
+.score-num.leader{color:var(--red);}
+.score-divider{height:1px;background:var(--border);margin:3px 0;}
+.score-info{font:400 10px var(--mono);color:var(--soft);margin-top:7px;}
+.score-pitcher{font:400 10px var(--mono);color:var(--mid);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+</style>
+<!-- WHAT IT IS -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow sfu">What This Actually Is</div>
+    <h2 class="sfu">Official sources.<br><em>One clean API.</em></h2>
+    <p class="section-lead sfu">We built this to power PropBetEdge.ai. You get the same infrastructure. Statcast data is owned &mdash; scraped from FanGraphs into our own Supabase tables and refreshed 4x daily. Everything else from official league APIs.</p>
+    <div class="feat-grid">
+      <div class="feat-card sfu"><div class="fc-num">01</div><div class="fc-icon">&#128225;</div><div class="fc-title">Owned Statcast Data</div><div class="fc-body">We don't rent statcast data &mdash; we own it. Our pipeline scrapes FanGraphs + MLB Stats API nightly into our own Supabase tables. 131 batters, 129 pitchers, updated 4x daily. No blocked requests. No outages.</div></div>
+      <div class="feat-card sfu"><div class="fc-num">02</div><div class="fc-icon">&#9889;</div><div class="fc-title">One URL, Four Sports</div><div class="fc-body">Stop managing 4 vendors, 4 rate limits, and 4 monthly invoices. One base URL at propsports-api.sales-fd3.workers.dev. One key. Routes to /mlb /nfl /nba /nhl all unified.</div></div>
+      <div class="feat-card sfu"><div class="fc-num">03</div><div class="fc-icon">&#128176;</div><div class="fc-title">Fraction of the Cost</div><div class="fc-body">Competitors charge $99&ndash;$299/mo for a single sport. We charge $24/mo for all four. The infrastructure is already built and paid for at PropTechUSA.ai. You benefit directly.</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- OWNED DATA INFRASTRUCTURE -->
+<section class="section" style="background:var(--ink);color:#fff;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div style="font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Data Infrastructure</div>
+    <h2 style="color:#fff;margin-bottom:12px;">We own the data.<br><em style="font-family:var(--serif);font-style:italic;">Like PropData owns parcels.</em></h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.45);max-width:560px;line-height:1.75;margin-bottom:40px;">Most sports APIs are just wrappers around other people&rsquo;s data. We built our own statcast pipeline. Our scraper hits FanGraphs + MLB Stats API, normalizes everything, and upserts into tables we own and control. Runs 4x daily on Cloudflare.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;margin-bottom:40px;">
+      <div style="background:var(--ink2);padding:28px 24px;">
+        <div style="font:800 42px var(--display);letter-spacing:-1px;color:#fff;line-height:1;">131</div>
+        <div style="font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">MLB Batters Owned</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;line-height:1.6;">EV, barrel%, xwOBA, sprint speed, HR streak, L7 HR, LHP/RHP splits</div>
+      </div>
+      <div style="background:var(--ink2);padding:28px 24px;">
+        <div style="font:800 42px var(--display);letter-spacing:-1px;color:#fff;line-height:1;">129</div>
+        <div style="font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">MLB Pitchers Owned</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;line-height:1.6;">EV allowed, hard hit%, barrel rate, pitch mix, velocity, PA/HR</div>
+      </div>
+      <div style="background:var(--ink2);padding:28px 24px;">
+        <div style="font:800 42px var(--display);letter-spacing:-1px;color:var(--red);line-height:1;">4x</div>
+        <div style="font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Daily Refresh</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;line-height:1.6;">2am, 8am, 2pm, 8pm ET via Cloudflare cron. Always fresh for game time.</div>
+      </div>
+      <div style="background:var(--ink2);padding:28px 24px;">
+        <div style="font:800 42px var(--display);letter-spacing:-1px;color:#fff;line-height:1;">0</div>
+        <div style="font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">External Dependencies</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:8px;line-height:1.6;">No Baseball Savant. No blocked requests. No outages. Our pipe, our data.</div>
+      </div>
+    </div>
+    <!-- Owned data fields -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:20px 22px;">
+        <div style="font:700 10px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Batter Fields We Own</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>avg_ev / max_ev</span><span style="color:rgba(255,255,255,0.25)">exit velocity</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>hard_hit_pct / barrel_pct</span><span style="color:rgba(255,255,255,0.25)">quality of contact</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>xwoba / xba / xslg</span><span style="color:rgba(255,255,255,0.25)">expected stats</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>l7_hr / l7_pa</span><span style="color:rgba(255,255,255,0.25)">rolling 7-day</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>hr_streak / last_hr_date</span><span style="color:rgba(255,255,255,0.25)">streak data</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);"><span>vs_rhp_hr / vs_lhp_hr</span><span style="color:rgba(255,255,255,0.25)">platoon splits</span></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:20px 22px;">
+        <div style="font:700 10px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Pitcher Fields We Own</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>avg_ev_allowed / max_ev</span><span style="color:rgba(255,255,255,0.25)">contact quality</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>hard_hit_allowed / barrel_rate</span><span style="color:rgba(255,255,255,0.25)">damage allowed</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>avg_velo / recent_velo</span><span style="color:rgba(255,255,255,0.25)">velocity + fade</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>pitch_mix</span><span style="color:rgba(255,255,255,0.25)">% by pitch type</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:6px;"><span>hrs_allowed / pa_per_hr</span><span style="color:rgba(255,255,255,0.25)">HR vulnerability</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 12px var(--mono);color:rgba(255,255,255,0.5);"><span>sample_size</span><span style="color:rgba(255,255,255,0.25)">balls in play</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORT DEEP DIVE -->
+<section class="section" style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="eyebrow sfu">All 31 Endpoints by Sport</div>
+    <h2 class="sfu">Every sport.<br><em>Every endpoint.</em></h2>
+    <p class="section-lead sfu">Click a sport to see all endpoints, then watch the live response in the panel.</p>
+    <div class="sport-tabs sfu">
+      <button class="stab on" onclick="setSport('mlb',this)">&#9918; MLB</button>
+      <button class="stab" onclick="setSport('nfl',this)">&#127944; NFL</button>
+      <button class="stab" onclick="setSport('nba',this)">&#127936; NBA</button>
+      <button class="stab" onclick="setSport('nhl',this)">&#127944; NHL</button>
+    </div>
+    <div class="sport-panels">
+      <!-- MLB -->
+      <div class="sport-panel on" id="sp-mlb">
+        <div class="sp-list">
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/schedule/today</div><div class="sp-desc">Full slate, probable pitchers, venues, game times</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/games/live</div><div class="sp-desc">Live games with linescore and status</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/lineups?date=</div><div class="sp-desc">Confirmed batting orders both teams</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/game/:id/plays</div><div class="sp-desc">Real-time play-by-play with pitches</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/game/:id/boxscore</div><div class="sp-desc">Full box score with player stats</div></div></div>
+          <div class="sp-item" style="border:1.5px solid rgba(215,59,26,0.2);background:rgba(215,59,26,0.02);"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/statcast/batters</div><div class="sp-desc">Exit velo, barrel%, hardHit%, xwOBA, HR streak, L7 HR, LHP/RHP splits &mdash; owned data, 4x daily</div></div></div>
+          <div class="sp-item" style="border:1.5px solid rgba(215,59,26,0.2);background:rgba(215,59,26,0.02);"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/statcast/pitchers</div><div class="sp-desc">EV allowed, hard hit%, barrel rate, pitch mix, velo &mdash; owned data, 4x daily</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/weather/all</div><div class="sp-desc">Wind speed, direction, park factor for every game</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/umpires?date=</div><div class="sp-desc">Home plate umpire assignments today</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/player/:id/stats</div><div class="sp-desc">Season hitting or pitching stats</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/player/:id/gamelog</div><div class="sp-desc">Game-by-game log for any player</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/mlb/odds</div><div class="sp-desc">Moneylines, spreads, over/unders via ESPN</div></div></div>
+        </div>
+        <div class="sp-feature-box">
+          <div class="sp-feature-header"><span>STATCAST &mdash; OWNED INFRASTRUCTURE</span><span class="sp-feature-badge">OWNED DATA</span></div>
+          <div class="sp-feature-body" id="sp-statcast-preview"><span style="color:rgba(255,255,255,0.25)">// Loading Statcast data from owned Supabase tables...</span></div>
+        </div>
+      </div>
+      <!-- NFL -->
+      <div class="sport-panel" id="sp-nfl">
+        <div class="sp-list">
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/schedule?week=</div><div class="sp-desc">NFL weekly schedule with matchups</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/games/live</div><div class="sp-desc">Live NFL games in progress</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/odds</div><div class="sp-desc">Point spreads, totals, moneylines</div></div></div>
+        </div>
+        <div class="sp-feature-box"><div class="sp-feature-header"><span>NFL DATA &mdash; VIA ESPN</span><span class="sp-feature-badge">LIVE</span></div><div class="sp-feature-body"><span class="jn">// NFL schedule, live scores, and odds</span><br><span class="jn">// GET /nfl/schedule?week=1</span><br><br><span class="jk">"games"</span>: [<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"name"</span>: <span class="js">"Chiefs @ Eagles"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"date"</span>: <span class="js">"2026-09-06"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"spread"</span>: <span class="js">"KC -3.5"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"overUnder"</span>: <span class="jv">48.5</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"venue"</span>: <span class="js">"Lincoln Financial Field"</span><br>&nbsp;&nbsp;}<br>]</div></div>
+      </div>
+      <!-- NBA -->
+      <div class="sport-panel" id="sp-nba">
+        <div class="sp-list">
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nba/schedule/today</div><div class="sp-desc">Today's games with scores and odds</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nba/games/live</div><div class="sp-desc">Live NBA games real-time</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nba/leaders?stat=PTS</div><div class="sp-desc">Stat leaders &mdash; PTS/REB/AST/BLK/STL</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nba/player/:id/stats</div><div class="sp-desc">Player season averages via NBA Stats API</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nba/odds</div><div class="sp-desc">Game lines and totals</div></div></div>
+        </div>
+        <div class="sp-feature-box"><div class="sp-feature-header"><span>NBA DATA &mdash; VIA NBA STATS API + ESPN</span><span class="sp-feature-badge">LIVE</span></div><div class="sp-feature-body"><span class="jn">// NBA stat leaders</span><br><span class="jn">// GET /nba/leaders?stat=PTS</span><br><br><span class="jk">"leaders"</span>: [<br>&nbsp;&nbsp;{ <span class="jk">"PLAYER"</span>: <span class="js">"N. Joki&#263;"</span>, <span class="jk">"PTS"</span>: <span class="jv">27.4</span>, <span class="jk">"REB"</span>: <span class="jv">12.1</span> },<br>&nbsp;&nbsp;{ <span class="jk">"PLAYER"</span>: <span class="js">"S. Gilgeous-Alexander"</span>, <span class="jk">"PTS"</span>: <span class="jv">31.2</span> },<br>&nbsp;&nbsp;{ <span class="jk">"PLAYER"</span>: <span class="js">"L. Doncic"</span>, <span class="jk">"PTS"</span>: <span class="jv">28.7</span> }<br>]</div></div>
+      </div>
+      <!-- NHL -->
+      <div class="sport-panel" id="sp-nhl">
+        <div class="sp-list">
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nhl/schedule/today</div><div class="sp-desc">Puck drops with TV broadcast info</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nhl/games/live</div><div class="sp-desc">Live games with period and score</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nhl/standings</div><div class="sp-desc">Full conference and division standings</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nhl/leaders?category=goals</div><div class="sp-desc">Goals, assists, points leaders</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nhl/player/:id/stats</div><div class="sp-desc">Player stats and career info</div></div></div>
+          <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nhl/odds</div><div class="sp-desc">Puck lines, totals, moneylines</div></div></div>
+        </div>
+        <div class="sp-feature-box"><div class="sp-feature-header"><span>NHL DATA &mdash; VIA NHL STATS API</span><span class="sp-feature-badge">LIVE</span></div><div class="sp-feature-body"><span class="jn">// NHL standings live</span><br><span class="jn">// GET /nhl/standings</span><br><br><span class="jk">"standings"</span>: [<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"teamName"</span>: { <span class="jk">"default"</span>: <span class="js">"Panthers"</span> },<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"points"</span>: <span class="jv">112</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"wins"</span>: <span class="jv">54</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"losses"</span>: <span class="jv">20</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"gamesPlayed"</span>: <span class="jv">78</span><br>&nbsp;&nbsp;}<br>]</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL ENDPOINTS -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow sfu">Search All Endpoints</div>
+    <h2 class="sfu">31 endpoints.<br><em>Find yours fast.</em></h2>
+    <div class="ep-bar sfu">
+      <div class="ep-search-w"><span>&#128269;</span><input class="ep-search" id="ep-s" type="text" placeholder="statcast, odds, lineups, standings, weather..."></div>
+      <span class="ep-ct" id="ep-ct">31 endpoints</span>
+    </div>
+    <div class="ep-grid" id="ep-grid">
+      <div class="ep-card" data-k="mlb schedule today pitchers"><span class="get-b">GET</span><div><div class="ep-path">/mlb/schedule/today</div><div class="ep-desc">Full slate, probable pitchers, venues</div></div></div>
+      <div class="ep-card" data-k="mlb games live scores linescore"><span class="get-b">GET</span><div><div class="ep-path">/mlb/games/live</div><div class="ep-desc">Live games with linescore</div></div></div>
+      <div class="ep-card" data-k="mlb lineups batting order confirmed"><span class="get-b">GET</span><div><div class="ep-path">/mlb/lineups?date=</div><div class="ep-desc">Confirmed batting orders</div></div></div>
+      <div class="ep-card" data-k="mlb game plays play by play"><span class="get-b">GET</span><div><div class="ep-path">/mlb/game/:id/plays</div><div class="ep-desc">Real-time play-by-play</div></div></div>
+      <div class="ep-card" data-k="mlb game boxscore stats"><span class="get-b">GET</span><div><div class="ep-path">/mlb/game/:id/boxscore</div><div class="ep-desc">Full box score with player stats</div></div></div>
+      <div class="ep-card" data-k="mlb statcast batters exit velocity barrel hard hit ev"><span class="get-b">GET</span><div><div class="ep-path">/mlb/statcast/batters</div><div class="ep-desc">EV, barrel%, hardHit%, avgLA &mdash; MLB/AAA/AA</div></div></div>
+      <div class="ep-card" data-k="mlb statcast pitchers swinging strike velo whiff"><span class="get-b">GET</span><div><div class="ep-path">/mlb/statcast/pitchers</div><div class="ep-desc">SwStr%, velo, EV allowed, barrels</div></div></div>
+      <div class="ep-card" data-k="mlb weather wind temp park factor all games"><span class="get-b">GET</span><div><div class="ep-path">/mlb/weather/all</div><div class="ep-desc">Wind, temp, park factor every game</div></div></div>
+      <div class="ep-card" data-k="mlb umpires home plate assignments"><span class="get-b">GET</span><div><div class="ep-path">/mlb/umpires?date=</div><div class="ep-desc">Home plate umpire assignments</div></div></div>
+      <div class="ep-card" data-k="mlb player stats hitting pitching season"><span class="get-b">GET</span><div><div class="ep-path">/mlb/player/:id/stats</div><div class="ep-desc">Season hitting or pitching stats</div></div></div>
+      <div class="ep-card" data-k="mlb player gamelog game by game"><span class="get-b">GET</span><div><div class="ep-path">/mlb/player/:id/gamelog</div><div class="ep-desc">Game-by-game log for any player</div></div></div>
+      <div class="ep-card" data-k="mlb odds moneyline spread over under"><span class="get-b">GET</span><div><div class="ep-path">/mlb/odds</div><div class="ep-desc">Moneylines, spreads, over/unders</div></div></div>
+      <div class="ep-card" data-k="nfl schedule week football matchups"><span class="get-b">GET</span><div><div class="ep-path">/nfl/schedule?week=</div><div class="ep-desc">NFL weekly schedule with matchups</div></div></div>
+      <div class="ep-card" data-k="nfl games live football scores"><span class="get-b">GET</span><div><div class="ep-path">/nfl/games/live</div><div class="ep-desc">Live NFL games in progress</div></div></div>
+      <div class="ep-card" data-k="nfl odds spread moneyline total football"><span class="get-b">GET</span><div><div class="ep-path">/nfl/odds</div><div class="ep-desc">Point spreads, totals, moneylines</div></div></div>
+      <div class="ep-card" data-k="nba schedule today basketball scores odds"><span class="get-b">GET</span><div><div class="ep-path">/nba/schedule/today</div><div class="ep-desc">Today's NBA games with scores &amp; odds</div></div></div>
+      <div class="ep-card" data-k="nba games live basketball"><span class="get-b">GET</span><div><div class="ep-path">/nba/games/live</div><div class="ep-desc">Live NBA games real-time</div></div></div>
+      <div class="ep-card" data-k="nba leaders points rebounds assists blocks steals pts reb ast"><span class="get-b">GET</span><div><div class="ep-path">/nba/leaders?stat=PTS</div><div class="ep-desc">Stat leaders &mdash; PTS/REB/AST/BLK/STL</div></div></div>
+      <div class="ep-card" data-k="nba player stats basketball averages"><span class="get-b">GET</span><div><div class="ep-path">/nba/player/:id/stats</div><div class="ep-desc">Player season averages</div></div></div>
+      <div class="ep-card" data-k="nba odds basketball lines total spread"><span class="get-b">GET</span><div><div class="ep-path">/nba/odds</div><div class="ep-desc">Game lines and totals</div></div></div>
+      <div class="ep-card" data-k="nhl schedule today hockey puck drop tv broadcast"><span class="get-b">GET</span><div><div class="ep-path">/nhl/schedule/today</div><div class="ep-desc">Puck drops with TV broadcast info</div></div></div>
+      <div class="ep-card" data-k="nhl games live hockey period score"><span class="get-b">GET</span><div><div class="ep-path">/nhl/games/live</div><div class="ep-desc">Live games with period and score</div></div></div>
+      <div class="ep-card" data-k="nhl standings conference division hockey table"><span class="get-b">GET</span><div><div class="ep-path">/nhl/standings</div><div class="ep-desc">Full conference &amp; division standings</div></div></div>
+      <div class="ep-card" data-k="nhl leaders goals assists points hockey scoring"><span class="get-b">GET</span><div><div class="ep-path">/nhl/leaders?category=goals</div><div class="ep-desc">Goals, assists, points leaders</div></div></div>
+      <div class="ep-card" data-k="nhl player stats hockey career"><span class="get-b">GET</span><div><div class="ep-path">/nhl/player/:id/stats</div><div class="ep-desc">Player stats and career info</div></div></div>
+      <div class="ep-card" data-k="nhl odds puck line moneyline total hockey"><span class="get-b">GET</span><div><div class="ep-path">/nhl/odds</div><div class="ep-desc">Puck lines, totals, moneylines</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE EXAMPLES -->
+<div class="code-section">
+  <div class="code-inner">
+    <div>
+      <div class="code-eyebrow">Integration</div>
+      <div class="code-h2">Ship in<br>10 minutes.</div>
+      <div class="code-lead">One API key. Pass it as a header on every request. Live data back instantly. No SDKs, no wrappers, no nonsense &mdash; just fetch().</div>
+      <div class="auth-grid">
+        <div class="auth-card"><div class="ac-label">Header (recommended)</div><div class="ac-code">X-API-Key: psa_live_...</div></div>
+        <div class="auth-card"><div class="ac-label">Base URL</div><div class="ac-code" style="font-size:10px;word-break:break-all;">propsports-api.sales-fd3.workers.dev</div></div>
+      </div>
+      <div style="font:700 9px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin:24px 0 12px;">Rate Limits by Plan</div>
+      <div class="rate-grid">
+        <div class="rg-item"><div class="rg-tier">Starter</div><div class="rg-stats"><div class="rg-stat"><div class="rg-v">1,000</div><div class="rg-l">req/day</div></div><div class="rg-stat"><div class="rg-v" style="color:var(--red);">$0</div><div class="rg-l">per month</div></div></div></div>
+        <div class="rg-item"><div class="rg-tier">Pro Sport</div><div class="rg-stats"><div class="rg-stat"><div class="rg-v">50,000</div><div class="rg-l">req/day</div></div><div class="rg-stat"><div class="rg-v" style="color:var(--red);">$9</div><div class="rg-l">per month</div></div></div></div>
+        <div class="rg-item" style="background:rgba(215,59,26,0.08);border-color:rgba(215,59,26,0.2);"><div class="rg-tier" style="color:var(--red);">Full Bundle</div><div class="rg-stats"><div class="rg-stat"><div class="rg-v">200,000</div><div class="rg-l">req/day</div></div><div class="rg-stat"><div class="rg-v" style="color:var(--red);">$24</div><div class="rg-l">per month</div></div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="lang-tabs">
+        <button class="ltab on" onclick="setLang('js',this)">JavaScript</button>
+        <button class="ltab" onclick="setLang('py',this)">Python</button>
+        <button class="ltab" onclick="setLang('curl',this)">cURL</button>
+      </div>
+      <div id="code-js" class="code-block">
+        <div class="cb-header"><span>FETCH MLB STATCAST BATTERS</span><span style="color:var(--red);">LIVE DATA</span></div>
+        <div class="cb-body"><span class="cn">// Get top Statcast batters by exit velocity</span><br><span class="ck">const</span> res = <span class="ck">await</span> <span class="cs">fetch</span>(<br>&nbsp;&nbsp;<span class="ckw">'https://propsports-api.sales-fd3</span><br>&nbsp;&nbsp;<span class="ckw">&nbsp;.workers.dev/mlb/statcast/batters</span><br>&nbsp;&nbsp;<span class="ckw">&nbsp;?days=14&level=MLB'</span>,<br>&nbsp;&nbsp;{ <span class="cs">headers</span>: {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ckw">'X-API-Key'</span>: <span class="ckw">'psa_live_YOUR_KEY'</span><br>&nbsp;&nbsp;} }<br>);<br><span class="ck">const</span> { batters } = <span class="ck">await</span> res.<span class="cs">json</span>();<br><span class="cn">// batters[0].avgEV  &rarr; 94.2</span><br><span class="cn">// batters[0].barrelPct &rarr; 11.4</span><br><span class="cn">// batters[0].hardHitPct &rarr; 52.1</span></div>
+      </div>
+      <div id="code-py" class="code-block" style="display:none">
+        <div class="cb-header"><span>PYTHON &mdash; REQUESTS</span><span style="color:var(--red);">LIVE DATA</span></div>
+        <div class="cb-body"><span class="ck">import</span> requests<br><br>res = requests.<span class="cs">get</span>(<br>&nbsp;&nbsp;<span class="ckw">'https://propsports-api.sales-fd3'</span><br>&nbsp;&nbsp;<span class="ckw">'.workers.dev/mlb/statcast/batters'</span>,<br>&nbsp;&nbsp;<span class="cs">params</span>={<span class="ckw">'days'</span>: 14, <span class="ckw">'level'</span>: <span class="ckw">'MLB'</span>},<br>&nbsp;&nbsp;<span class="cs">headers</span>={<span class="ckw">'X-API-Key'</span>: <span class="ckw">'psa_live_YOUR_KEY'</span>}<br>)<br>batters = res.<span class="cs">json</span>()[<span class="ckw">'batters'</span>]<br><span class="cn">## batters[0]['avgEV']  &rarr; 94.2</span><br><span class="cn">## batters[0]['barrelPct'] &rarr; 11.4</span></div>
+      </div>
+      <div id="code-curl" class="code-block" style="display:none">
+        <div class="cb-header"><span>cURL</span><span style="color:var(--red);">LIVE DATA</span></div>
+        <div class="cb-body"><span class="cs">curl</span> <span class="cm">-X GET</span> \<br>&nbsp;&nbsp;<span class="ckw">"https://propsports-api.sales-fd3</span><br>&nbsp;&nbsp;<span class="ckw">&nbsp;.workers.dev/mlb/statcast/batters</span><br>&nbsp;&nbsp;<span class="ckw">&nbsp;?days=14&level=MLB"</span> \<br>&nbsp;&nbsp;<span class="cm">-H</span> <span class="ckw">"X-API-Key: psa_live_YOUR_KEY"</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow sfu">Simple Pricing</div>
+    <h2 class="sfu">Cheaper than everyone else.<br><em>Not even close.</em></h2>
+    <p class="section-lead sfu">Flat monthly. No per-request fees. No enterprise sales calls. Cancel from your Stripe portal anytime.</p>
+    <div class="p-grid">
+      <div class="p-card sfu">
+        <div class="p-sport">Free Forever</div><span class="p-icon">&#127523;</span>
+        <div class="p-name">Starter</div>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-num">0</span><span class="p-period">/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="ck">&#10003;</span>MLB endpoints only</li>
+          <li><span class="ck">&#10003;</span>1,000 requests/day</li>
+          <li><span class="ck">&#10003;</span>No credit card required</li>
+        </ul>
+        <a href="/cdn-cgi/l/email-protection#0f7c6e636a7c4f7f7d607f7b6a6c677a7c6e216e66307c7a6d656a6c7b325f7d607f5c7f607d7b7c2f497d6a6a2f446a76" class="btn-p bp-outline">Get Free Key</a>
+      </div>
+      <div class="p-card sfu">
+        <div class="p-sport">Single Sport</div><span class="p-icon">&#9918;</span>
+        <div class="p-name">Pro Sport</div>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-num">9</span><span class="p-period">/mo</span></div>
+        <div class="p-was">Competitors: $29&ndash;$99/mo</div>
+        <ul class="p-feats">
+          <li><span class="ck">&#10003;</span>Any 1 sport</li>
+          <li><span class="ck">&#10003;</span>50,000 requests/day</li>
+          <li><span class="ck">&#10003;</span>All endpoints for that sport</li>
+          <li><span class="ck">&#10003;</span>Live data + odds</li>
+        </ul>
+        <button class="btn-p bp-outline" style="border-color:var(--ink);" onclick="openModal('PRO')">Subscribe &mdash; $9/mo</button>
+      </div>
+      <div class="p-card hot sfu">
+        <div class="p-hot-badge">Most Popular</div>
+        <div class="p-sport">All 4 Sports</div><span class="p-icon">&#127942;</span>
+        <div class="p-name">Full Bundle</div>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-num">24</span><span class="p-period">/mo</span></div>
+        <div class="p-was" style="color:rgba(255,255,255,0.3);">Competitors: $99&ndash;$299/mo</div>
+        <ul class="p-feats">
+          <li><span class="ck">&#10003;</span>MLB + NFL + NBA + NHL</li>
+          <li><span class="ck">&#10003;</span>200,000 requests/day</li>
+          <li><span class="ck">&#10003;</span>All 31+ endpoints</li>
+          <li><span class="ck">&#10003;</span>Statcast + weather + umpires</li>
+          <li><span class="ck">&#10003;</span>Priority support</li>
+        </ul>
+        <button class="btn-p bp-white" onclick="openModal('BUNDLE')">Get Full Bundle &rarr;</button>
+      </div>
+      <div class="p-card sfu">
+        <div class="p-sport">Enterprise</div><span class="p-icon">&#127970;</span>
+        <div class="p-name">Custom</div>
+        <div class="p-price" style="margin-bottom:18px;"><span class="p-num" style="font-size:32px;line-height:1.3;">Let&#8217;s<br>Talk</span></div>
+        <ul class="p-feats">
+          <li><span class="ck">&#10003;</span>Unlimited requests</li>
+          <li><span class="ck">&#10003;</span>Dedicated instance + SLA</li>
+          <li><span class="ck">&#10003;</span>White-label option</li>
+        </ul>
+        <a href="/cdn-cgi/l/email-protection#ef9c8e838a9caf9f9d809f9b8a8c879a9c8ec18e86d09c9a8d858a8c9bd2bf9d809fbc9f809d9b9ccfaa819b8a9d9f9d869c8a" class="btn-p bp-outline">Contact Sales</a>
+      </div>
+    </div>
+    <div class="stripe-bar sfu">
+      <span style="font-size:20px;">&#128274;</span>
+      <div>Payments via <strong>Stripe</strong>. API key emailed instantly after checkout. Cancel anytime from your Stripe portal. <a href="/cdn-cgi/l/email-protection#2b584a474e586b5b59445b5f4e48435e584a054a42" style="color:var(--ink);"><span class="__cf_email__" data-cfemail="8bf8eae7eef8cbfbf9e4fbffeee8e3fef8eaa5eae2">[email&#160;protected]</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD WITH -->
+<section class="section" style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="eyebrow sfu">Use Cases</div>
+    <h2 class="sfu">What developers<br><em>build with this.</em></h2>
+    <p class="section-lead sfu">One API key. Every major sport. Here&#8217;s what people are actually building.</p>
+    <div class="use-grid">
+      <div class="uc sfu"><div class="uc-icon">&#127911;</div><div class="uc-title">Props Betting Tools</div><div class="uc-desc">Pull Statcast data, lineups, umpires, and weather into your prop model. Get exit velocity trends, barrel rates, and park factors for every game in one call.</div><div class="uc-tags"><span class="uc-tag">STATCAST</span><span class="uc-tag">LINEUPS</span><span class="uc-tag">UMPIRES</span><span class="uc-tag">WEATHER</span></div></div>
+      <div class="uc sfu"><div class="uc-icon">&#128202;</div><div class="uc-title">Fantasy Sports Apps</div><div class="uc-desc">Live scores, confirmed lineups, and player game logs across all four major sports. One integration covers your entire app. No separate vendors for each sport.</div><div class="uc-tags"><span class="uc-tag">LIVE SCORES</span><span class="uc-tag">GAMELOG</span><span class="uc-tag">STANDINGS</span></div></div>
+      <div class="uc sfu"><div class="uc-icon">&#129302;</div><div class="uc-title">Sports AI Agents</div><div class="uc-desc">Feed real-time sports context into your LLM. Give your AI the same data a sharp bettor uses &mdash; Statcast, odds, injuries, weather &mdash; structured JSON, ready to inject.</div><div class="uc-tags"><span class="uc-tag">ALL SPORTS</span><span class="uc-tag">REAL-TIME</span><span class="uc-tag">JSON</span></div></div>
+      <div class="uc sfu"><div class="uc-icon">&#128240;</div><div class="uc-title">Sports Media &amp; Newsletters</div><div class="uc-desc">Automate your daily roundup. Run a cron, pull today's schedule, standings, and odds across all four sports. Format it and send. Institutional-grade data in every issue.</div><div class="uc-tags"><span class="uc-tag">SCHEDULE</span><span class="uc-tag">ODDS</span><span class="uc-tag">STANDINGS</span></div></div>
+      <div class="uc sfu"><div class="uc-icon">&#128241;</div><div class="uc-title">Scores &amp; Stats Apps</div><div class="uc-desc">Live scores, play-by-play, box scores, and stat leaders. MLB, NFL, NBA, NHL in one API. Mobile apps, web dashboards, browser extensions &mdash; ship all four sports at once.</div><div class="uc-tags"><span class="uc-tag">LIVE</span><span class="uc-tag">PLAY-BY-PLAY</span><span class="uc-tag">BOXSCORE</span></div></div>
+      <div class="uc accent sfu"><div class="uc-icon">&#9889;</div><div class="uc-title" style="color:#fff;">Your idea here.</div><div class="uc-desc">If it needs sports data, PropSports API can power it. Free MLB key to start &mdash; no card, no calls, no contracts.</div><div style="margin-top:16px;"><button class="btn-red" onclick="openModal('BUNDLE')" style="font-size:11px;padding:10px 18px;">Get API Key &rarr;</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPBETEDGE SPONSOR -->
+<div class="sponsor-section">
+  <div class="sponsor-inner">
+    <div class="sp-name">Prop<em>Bet</em>Edge<span style="color:var(--soft);font-size:20px;">.ai</span></div>
+    <div class="sp-divider"></div>
+    <div class="sp-copy">
+      <h3>This entire API was built to power PropBetEdge.ai</h3>
+      <p>Every HR pick, K prop, alt prop, and spread bet on PropBetEdge.ai runs on PropSports API. Statcast, lineups, weather, umpires, and live scores &mdash; all live, updated every minute.</p>
+    </div>
+    <a href="https://propbetedge.ai" target="_blank" class="btn-sp">See It In Action &rarr;</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Build something.<br>Ship today.</h2>
+  <p>Competitors charge $99&ndash;$299/mo. We charge $24 for all four sports. Free MLB tier &mdash; no credit card, no sales call, no contract.</p>
+  <div class="cta-btns">
+    <button class="btn-white" onclick="openModal('BUNDLE')">Get Full Bundle &rarr;</button>
+    <a href="/cdn-cgi/l/email-protection#a6d5c7cac3d5e6d6d4c9d6d2c3c5ced3d5c788c7cf99d5d3c4ccc3c5d29bf6d4c9d6f5d6c9d4d2d586e0d4c3c386edc3df" class="btn-outline-white">Start Free</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="psa-ft">
+  <div class="psa-ft-red"></div>
+
+  <!-- POWERED BY -->
+  <div class="psa-ft-pb">
+    <div class="psa-ft-pb-in">
+      <span class="psa-ft-pb-label">Powered by</span>
+      <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-red">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+        <span class="psa-ft-pb-name">PropTechUSA.ai</span>
+        <span class="psa-ft-pb-sub">165+ Cloudflare Workers</span>
+      </a>
+      <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-blue">
+        <span class="psa-ft-pb-name" style="color:#4D9EFF">PropData API</span>
+        <span class="psa-ft-pb-sub">Real Estate Intelligence</span>
+        <span class="psa-ft-pb-arr">&#8599;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="psa-ft-body">
+    <div class="psa-ft-grid">
+
+      <!-- BRAND -->
+      <div class="psa-ft-brand">
+        <a href="/" class="psa-ft-logo">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+          <span class="psa-ft-logo-t">Prop<span>Sports</span> API</span>
+        </a>
+        <p class="psa-ft-desc">Real-time MLB, NFL, NBA &amp; NHL data. Official sources. Flat monthly pricing. No per-call fees ever.</p>
+        <a href="tel:18887843881" class="psa-ft-phone">
+          <span class="psa-ft-phone-ic">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          1-888-784-3881
+        </a>
+        <div class="psa-ft-socials">
+          <a href="https://x.com/PropTechUSAAI" target="_blank" rel="noopener" class="psa-ft-soc" title="@PropTechUSAAI">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+          <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropTechUSA.ai">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
+          <a href="https://propbetedge.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropBetEdge.ai">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SPORTS -->
+      <div class="psa-ft-col">
+        <span class="psa-ft-col-h">Sports</span>
+        <ul class="psa-ft-links">
+          <li><a href="/mlb">&#9918; MLB API</a></li>
+          <li><a href="/nfl">&#127944; NFL API</a></li>
+          <li><a href="/nba">&#127936; NBA API</a></li>
+          <li><a href="/nhl">&#127944; NHL API</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="psa-ft-col">
+        <span class="psa-ft-col-h">Resources</span>
+        <ul class="psa-ft-links">
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/live">&#9889; See It Live</a></li>
+          <li><a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" rel="noopener">Live API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="tel:18887843881">1-888-784-3881</a></li>
+        </ul>
+      </div>
+
+      <!-- NETWORK -->
+      <div class="psa-ft-col">
+        <span class="psa-ft-col-h">Network</span>
+        <ul class="psa-ft-links">
+          <li><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-link-blue">PropData API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="psa-ft-base">
+    <div class="psa-ft-base-in">
+      <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved</div>
+      <div class="psa-ft-badges">
+        <span class="psa-ft-badge">MLB Stats API</span>
+        <span class="psa-ft-badge">Baseball Savant</span>
+        <span class="psa-ft-badge">NHL Stats API</span>
+        <span class="psa-ft-badge">NBA Stats API</span>
+        <span class="psa-ft-badge">Cloudflare Workers</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
 <script>
-// ═══ CHAT ═══
-// On Cloudflare Pages: API = '' (same origin, worker handles /stream /market etc.)
-// On Vercel: API = 'https://localhomebuyersusa.ai' (point to the worker domain)
-const API = window.__CAL_API__ || '';
-let sid = sessionStorage.getItem('c_s') || null;
-let uid = localStorage.getItem('c_u') || ('u_' + Math.random().toString(36).slice(2) + Date.now().toString(36));
-localStorage.setItem('c_u', uid);
-let lang = 'en', busy = false;
+var API='https://propsports-api.sales-fd3.workers.dev';
+var STRIPE_URL='https://propsports-stripe.sales-fd3.workers.dev/create-checkout';
+var PRICE_PRO='price_1THBtSF3CaVzg4ORWeb2SURu';
+var PRICE_BUNDLE='price_1THBu0F3CaVzg4ORHjFh5DD8';
 
-function setL(l) {
-  lang = l;
-  document.getElementById('ben').classList.toggle('on', l==='en');
-  document.getElementById('bes').classList.toggle('on', l==='es');
-  document.getElementById('msg').placeholder = l==='es' ? 'Pregúntale a Cal sobre vender tu casa…' : 'Ask Cal anything about selling your home…';
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+
+function navSport(btn,href){
+  document.querySelectorAll('.ns-btn').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  var sl=document.getElementById('ns-slider');
+  var r=btn.getBoundingClientRect(),pr=btn.parentElement.getBoundingClientRect();
+  sl.style.left=(r.left-pr.left)+'px';sl.style.width=r.width+'px';
+  if(href)setTimeout(function(){window.location.href='/'+href;},140);
+}
+window.addEventListener('DOMContentLoaded',function(){var a=document.querySelector('.ns-btn.on');if(a)navSport(a,null);});
+
+function toggleMenu(){
+  var m=document.getElementById('mob'),h=document.getElementById('ham'),o=m.classList.contains('open');
+  m.classList.toggle('open');
+  h.children[0].style.transform=o?'':'rotate(45deg) translate(4px,4px)';
+  h.children[1].style.opacity=o?'1':'0';
+  h.children[2].style.transform=o?'':'rotate(-45deg) translate(4px,-4px)';
 }
 
-const inp = document.getElementById('msg');
-const sBtn = document.getElementById('sbtn');
-inp.addEventListener('input', () => { inp.style.height='auto'; inp.style.height=Math.min(inp.scrollHeight,120)+'px'; sBtn.classList.toggle('live', inp.value.trim().length>0); });
-inp.addEventListener('keydown', e => { if (e.key==='Enter'&&!e.shiftKey) { e.preventDefault(); if (!busy&&inp.value.trim()) doSend(); } });
+(function(){
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.07});
+  document.querySelectorAll('.sfu').forEach(function(el){obs.observe(el);});
+})();
 
-function hideWelcome() {
-  const w=document.getElementById('welcome');
-  if (w&&w.style.display!=='none') {
-    w.style.transition='opacity .3s ease,transform .3s ease'; w.style.opacity='0'; w.style.transform='translateY(-6px)';
-    setTimeout(()=>w.style.display='none', 300);
-  }
-}
+function showToast(msg,dur){var t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},dur||2800);}
 
-function scrollBot() { const f=document.getElementById('feed'); f.scrollTo({top:f.scrollHeight,behavior:'smooth'}); }
-function esc(t) { return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function md(t) {
-  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>')
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
-    .replace(/(https?:\/\/[^\s<>"]+)/g, u=>`<a href="${u}" target="_blank" rel="noopener">${u}</a>`)
-    .split('\n\n').map(p=>p?`<p>${p.replace(/\n/g,'<br>')}</p>`:'').join('');
-}
-
-function addMsg(role, text, streaming=false) {
-  hideWelcome();
-  const msgs=document.getElementById('msgs');
-  const w=document.createElement('div'); w.className=`msg ${role}`;
-  const av=document.createElement('div'); av.className='m-avi'; av.textContent=role==='cal'?'🐝':'👤';
-  const bd=document.createElement('div'); bd.className='m-body';
-  const who=document.createElement('div'); who.className='m-who'; who.textContent=role==='cal'?'Cal':'You';
-  const bub=document.createElement('div'); bub.className='bub'+(streaming?' streaming':'');
-  bub.innerHTML=role==='cal'?md(text):esc(text);
-  bd.appendChild(who); bd.appendChild(bub); w.appendChild(av); w.appendChild(bd);
-  msgs.appendChild(w); scrollBot(); return bub;
-}
-
-function showTyping() {
-  const msgs=document.getElementById('msgs');
-  const el=document.createElement('div'); el.className='ty-row'; el.id='ty';
-  el.innerHTML=`<div class="m-avi" style="background:var(--blk3);border:1px solid var(--bdr-g);font-size:12px">🐝</div><div class="ty-bub"><div class="td"></div><div class="td"></div><div class="td"></div></div>`;
-  msgs.appendChild(el); scrollBot();
-}
-
-function hideTyping() { const e=document.getElementById('ty'); if(e) e.remove(); }
-function sendQ(t) { inp.value=t; inp.dispatchEvent(new Event('input')); doSend(); }
-
-async function doSend() {
-  const text=inp.value.trim(); if (!text||busy) return;
-  busy=true; inp.value=''; inp.style.height='auto'; sBtn.classList.remove('live');
-  addMsg('user',text); showTyping();
-  try {
-    const res=await fetch(`${API}/stream`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,session_id:sid,seller_id:uid,lang,source:'web'})});
-    if (!res.ok) throw new Error(res.status);
-    const reader=res.body.getReader(); const dec=new TextDecoder();
-    let buf='',bub=null,acc='',tGone=false;
-    while (true) {
-      const{done,value}=await reader.read(); if(done)break;
-      buf+=dec.decode(value,{stream:true}); const lines=buf.split('\n'); buf=lines.pop()||'';
-      for(const line of lines){
-        if(!line.startsWith('data: '))continue; const raw=line.slice(6).trim(); if(!raw)continue;
-        try{
-          const e=JSON.parse(raw);
-          if(e.type==='session'){sid=e.session_id;sessionStorage.setItem('c_s',sid);}
-          if(e.type==='text'){if(!tGone){hideTyping();tGone=true;} acc+=e.text; if(!bub)bub=addMsg('cal',acc,true); else bub.innerHTML=md(acc); scrollBot();}
-          if(e.type==='done'&&bub){bub.classList.remove('streaming');bub.innerHTML=md(acc);}
-        }catch{}
-      }
+/* LIVE TICKER */
+function loadTicker(){
+  var track=document.getElementById('tk-track');
+  if(!track)return;
+  Promise.all([
+    fetch(API+'/mlb/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
+    fetch(API+'/nhl/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
+    fetch(API+'/nba/schedule/today').then(function(r){return r.json();}).catch(function(){return null;})
+  ]).then(function(res){
+    var items=[];
+    var mlb=res[0];
+    if(mlb&&mlb.games&&mlb.games.length){
+      items.push('<span class="tk-item"><span class="tk-dot"></span><span class="sport">MLB TODAY</span>'+mlb.games.length+' games on the slate</span>');
+      mlb.games.slice(0,5).forEach(function(g){
+        var away=g.teams&&g.teams.away&&g.teams.away.team?(g.teams.away.team.abbreviation||g.teams.away.team.name.split(' ').pop()):'';
+        var home=g.teams&&g.teams.home&&g.teams.home.team?(g.teams.home.team.abbreviation||g.teams.home.team.name.split(' ').pop()):'';
+        var live=g.status&&g.status.abstractGameState==='Live';
+        var aS=g.teams&&g.teams.away?g.teams.away.score:'';
+        var hS=g.teams&&g.teams.home?g.teams.home.score:'';
+        var sc=live&&aS!=null?' <span class="score">'+aS+'-'+hS+' LIVE</span>':'';
+        var pp=g.teams&&g.teams.away&&g.teams.away.probablePitcher?' &middot; '+g.teams.away.probablePitcher.fullName.split(' ').pop():'';
+        if(away&&home)items.push('<span class="tk-item"><span class="sport">&#9918;</span>'+away+' @ '+home+sc+pp+'</span>');
+      });
     }
-    if(!bub){hideTyping();addMsg('cal',lang==='es'?'Estoy aquí.':'I\'m here 24/7. What would you like to know?');}
-  } catch {
-    hideTyping();
-    addMsg('cal',lang==='es'?'Error de conexión. Llama al 1-800-858-0588.':"Connection issue. Reach us at 1-800-858-0588.");
-  }
-  busy=false; inp.focus();
-}
-
-// ═══ MARKET DATA ═══
-
-// Fallback values shown while loading / if fetch fails
-const FALLBACK = {
-  rate30: { current: null, prev: null, delta: null, direction: 'flat', history: [] },
-  rate15: { current: null, history: [] },
-  fedFunds: { current: null },
-  inventory: { current: null, prev: null, delta: null, direction: 'flat', history: [] },
-  bkpp: { edge: 21000, arv: 325000, cashNet: 211250, agentNet: 254150, bkppNet: 259175 },
-  marketCondition: 'seller',
-};
-
-let mkt = FALLBACK;
-let insightIdx = 0;
-let insights = [
-  'Loading live market data from FRED…'
-];
-
-function fmt(v, dec=2) { return v != null ? v.toFixed(dec) : '—'; }
-function fmtK(v) { return v != null ? `$${Math.round(v/1000)}K` : '—'; }
-
-function setFreshness(state) {
-  const pip = document.getElementById('tf-pip');
-  const lbl = document.getElementById('tf-label');
-  pip.className = 'tf-pip ' + state;
-  if (state === 'live') {
-    const now = new Date();
-    lbl.textContent = `Live · Updated ${now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}`;
-  } else if (state === 'loading') {
-    lbl.textContent = 'Loading market data…';
-  } else if (state === 'error') {
-    lbl.textContent = 'Using cached data';
-  }
-}
-
-function spark(id, data, color, inv) {
-  const svg = document.getElementById(id);
-  if (!svg || !data || data.length < 2) return;
-  const vals = data.map(d => typeof d === 'object' ? d.value : d);
-  const W=64, H=26, p=3;
-  const mn=Math.min(...vals), mx=Math.max(...vals), rng=mx-mn||0.01;
-  const pts = vals.map((v,i) => {
-    const x = p + i/(vals.length-1)*(W-p*2);
-    const y = inv ? p+(v-mn)/rng*(H-p*2) : H-p-(v-mn)/rng*(H-p*2);
-    return `${x},${y}`;
-  }).join(' ');
-  const last = pts.split(' ').at(-1).split(',');
-  svg.innerHTML = `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linejoin="round" opacity="0.7"/><circle cx="${last[0]}" cy="${last[1]}" r="2.5" fill="${color}"/>`;
-}
-
-function buildChart(history) {
-  const svg = document.getElementById('ch-svg');
-  if (!history || history.length < 2) return;
-  const W=372, H=42, p={l:3,r:3,t:4,b:4};
-  const rates = history.map(d => d.value);
-  const dates = history.map(d => d.date);
-  const mn=Math.min(...rates)-0.06, mx=Math.max(...rates)+0.06, rng=mx-mn;
-  const xs = rates.map((_,i)=>p.l+(i/(rates.length-1))*(W-p.l-p.r));
-  const ys = rates.map(r=>H-p.b-((r-mn)/rng)*(H-p.t-p.b));
-  const pts = xs.map((x,i)=>`${x},${ys[i]}`).join(' ');
-  const fill = `${xs[0]},${H} ${pts} ${xs.at(-1)},${H}`;
-  const grid = [Math.round(mn*10)/10, Math.round((mn+rng/2)*10)/10, Math.round(mx*10)/10].map(gr=>{
-    const gy=H-p.b-((gr-mn)/rng)*(H-p.t-p.b);
-    return gy>=1&&gy<=H-1 ? `<line x1="${p.l}" y1="${gy}" x2="${W-p.r}" y2="${gy}" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>` : '';
-  }).join('');
-  svg.innerHTML = `
-    <defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#c49a3c" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#c49a3c" stop-opacity="0"/>
-    </linearGradient></defs>
-    ${grid}
-    <polygon points="${fill}" fill="url(#rg)"/>
-    <polyline points="${pts}" fill="none" stroke="#c49a3c" stroke-width="1.5" stroke-linejoin="round"/>
-    ${xs.map((x,i)=>`<circle cx="${x}" cy="${ys[i]}" r="${i===rates.length-1?2.5:1.5}" fill="${i===rates.length-1?'#c49a3c':'rgba(196,154,60,0.4)'}" data-i="${i}"/>`).join('')}
-  `;
-  // hit zones
-  xs.forEach((x,i) => {
-    const hw = (W-p.l-p.r) / Math.max(rates.length-1,1);
-    const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
-    r.setAttribute('x', x-hw/2); r.setAttribute('y', 0);
-    r.setAttribute('width', hw); r.setAttribute('height', H);
-    r.setAttribute('fill','transparent'); r.style.cursor='pointer';
-    const label = dates[i] ? new Date(dates[i]+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}) : `Wk ${i+1}`;
-    r.addEventListener('mouseenter', () => {
-      const tip=document.getElementById('c-tip');
-      const area=document.querySelector('.chart-area');
-      const rect=area.getBoundingClientRect();
-      tip.textContent=`${label} · ${rates[i].toFixed(2)}%`;
-      tip.style.left=(x/W*rect.width)+'px';
-      tip.style.top=(ys[i]/H*rect.height-4)+'px';
-      tip.classList.add('show');
-      document.getElementById('ch-val').textContent=`${rates[i].toFixed(2)}%`;
-    });
-    r.addEventListener('mouseleave', () => {
-      document.getElementById('c-tip').classList.remove('show');
-      document.getElementById('ch-val').textContent=`${rates.at(-1).toFixed(2)}%`;
-    });
-    svg.appendChild(r);
+    var nhl=res[1];
+    if(nhl&&nhl.games&&nhl.games.length){
+      items.push('<span class="tk-item"><span class="tk-dot"></span><span class="sport">NHL TODAY</span>'+nhl.games.length+' games</span>');
+      nhl.games.slice(0,4).forEach(function(g){
+        var live=g.status==='LIVE'||g.status==='CRIT';
+        var sc=live?' <span class="score">'+g.awayScore+'-'+g.homeScore+' LIVE</span>':'';
+        if(g.away&&g.home)items.push('<span class="tk-item"><span class="sport">&#127944;</span>'+g.away+' @ '+g.home+sc+'</span>');
+      });
+    }
+    var nba=res[2];
+    if(nba&&nba.games&&nba.games.length){
+      items.push('<span class="tk-item"><span class="tk-dot"></span><span class="sport">NBA TODAY</span>'+nba.games.length+' games</span>');
+      nba.games.slice(0,3).forEach(function(g){if(g.name)items.push('<span class="tk-item"><span class="sport">&#127936;</span>'+g.name+'</span>');});
+    }
+    items.push('<span class="tk-item"><span class="sport">API</span>/mlb/statcast/batters &rarr; avgEV &middot; barrel% &middot; hardHitPct</span>');
+    items.push('<span class="tk-item"><span class="sport">API</span>/mlb/weather/all &rarr; wind &middot; park factor &middot; temp</span>');
+    if(items.length>3){var all=items.concat(items);track.innerHTML=all.join('');}
   });
-  // week labels — show first, middle, last
-  const shown = [0, Math.floor(dates.length/2), dates.length-1];
-  const weeksEl = document.getElementById('ch-weeks');
-  weeksEl.innerHTML = dates.map((d,i) => {
-    if (!shown.includes(i)) return `<span></span>`;
-    const lbl = d ? new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}) : `Wk ${i+1}`;
-    return `<span>${lbl}</span>`;
+}
+setTimeout(loadTicker,500);
+
+/* SPORT TABS */
+function setSport(sport,btn){
+  document.querySelectorAll('.stab').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');
+  document.querySelectorAll('.sport-panel').forEach(function(p){p.classList.remove('on');});
+  document.getElementById('sp-'+sport).classList.add('on');
+}
+
+/* STATCAST PREVIEW */
+function loadStatcastPreview(){
+  var el=document.getElementById('sp-statcast-preview');if(!el)return;
+  /* Show instant fallback so panel is never empty */
+  var FALLBACK=[
+    {name:'Yordan Alvarez',avgEV:96.8,barrelPct:18.4,hardHitPct:61.2,pa:312},
+    {name:'Aaron Judge',avgEV:95.1,barrelPct:16.9,hardHitPct:58.7,pa:298},
+    {name:'Gunnar Henderson',avgEV:93.4,barrelPct:14.2,hardHitPct:54.1,pa:341},
+    {name:'Kyle Schwarber',avgEV:92.7,barrelPct:13.8,hardHitPct:52.9,pa:287},
+    {name:'Pete Alonso',avgEV:91.9,barrelPct:12.1,hardHitPct:51.3,pa:276},
+    {name:'Adolis Garcia',avgEV:91.2,barrelPct:11.6,hardHitPct:49.8,pa:264}
+  ];
+  function renderBatters(batters,label){
+    var lines=['<span style="color:rgba(255,255,255,0.35)">// '+label+'</span>','<span class="jk">"batters"</span>: ['];
+    batters.slice(0,6).forEach(function(b,i){
+      lines.push('  {');
+      lines.push('    <span class="jk">"name"</span>: <span class="js">"'+b.name+'"</span>,');
+      lines.push('    <span class="jk">"avgEV"</span>: <span class="jv">'+b.avgEV+'</span>,');
+      lines.push('    <span class="jk">"barrelPct"</span>: <span class="jv">'+b.barrelPct+'</span>,');
+      lines.push('    <span class="jk">"hardHitPct"</span>: <span class="jv">'+b.hardHitPct+'</span>,');
+      lines.push('    <span class="jk">"pa"</span>: <span class="jv">'+b.pa+'</span>');
+      lines.push('  }'+(i<Math.min(batters.length,6)-1?',':''));
+    });
+    lines.push(']');
+    el.innerHTML=lines.join('\n');
+  }
+  /* Show fallback immediately */
+  renderBatters(FALLBACK,'Season Statcast leaders via Baseball Savant');
+  /* Try to load live data — replace if available */
+  fetch(API+'/mlb/statcast/batters?days=14&level=MLB')
+    .then(function(r){return r.json();})
+    .then(function(data){
+      var batters=data.batters||[];
+      if(batters.length>=3){renderBatters(batters,'Live Statcast &mdash; last 14 days via Baseball Savant');}
+    })
+    .catch(function(){/* keep fallback */});
+}
+setTimeout(loadStatcastPreview,600);
+
+/* LIVE SCORES BOARD */
+var _scoresSport='all';
+var _scoresTimer=null;
+var _cachedScores=null;
+
+function scoresSetSport(sport,btn){
+  _scoresSport=sport;
+  document.querySelectorAll('.score-stab').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+  renderScores(_cachedScores);
+}
+
+function loadScores(){
+  var grid=document.getElementById('scores-grid');
+  var updated=document.getElementById('scores-updated');
+  var btn=document.getElementById('scores-refresh-btn');
+  if(!grid)return;
+  if(btn){btn.textContent='↻ Loading...';btn.disabled=true;}
+  Promise.all([
+    fetch(API+'/mlb/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
+    fetch(API+'/nba/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
+    fetch(API+'/nhl/schedule/today').then(function(r){return r.json();}).catch(function(){return null;})
+  ]).then(function(res){
+    var all=[];
+    /* MLB */
+    var mlb=res[0];
+    if(mlb&&mlb.games){mlb.games.forEach(function(g){
+      var state=(g.status&&g.status.abstractGameState)||'Preview';
+      var away=g.teams&&g.teams.away&&g.teams.away.team?g.teams.away.team.shortName||g.teams.away.team.name:'';
+      var home=g.teams&&g.teams.home&&g.teams.home.team?g.teams.home.team.shortName||g.teams.home.team.name:'';
+      var aS=g.teams&&g.teams.away&&g.teams.away.score!=null?g.teams.away.score:null;
+      var hS=g.teams&&g.teams.home&&g.teams.home.score!=null?g.teams.home.score:null;
+      var inning=g.linescore?('Inn '+(g.linescore.currentInning||'')+' '+(g.linescore.inningHalf||'')):((g.status&&g.status.detailedState)||'');
+      var gtime=g.gameDate?new Date(g.gameDate).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'';
+      var pp=g.teams&&g.teams.away&&g.teams.away.probablePitcher?g.teams.away.probablePitcher.fullName:'';
+      var hp=g.teams&&g.teams.home&&g.teams.home.probablePitcher?g.teams.home.probablePitcher.fullName:'';
+      all.push({sport:'mlb',state:state,away:away,home:home,aS:aS,hS:hS,
+        info:state==='Live'?inning:(state==='Final'?'Final':gtime),
+        pitcher:pp&&hp?pp.split(' ').pop()+' vs '+hp.split(' ').pop():''});
+    });}
+    /* NBA */
+    var nba=res[1];
+    if(nba&&nba.games){nba.games.forEach(function(g){
+      var name=(g.name||'').split(' at ');
+      var away=(name[0]||g.away||'').split(' ').pop();
+      var home=(name[1]||g.home||'').split(' ').pop();
+      var live=g.status==='in'||g.status==='LIVE';
+      var fin=g.status==='post'||g.status==='FINAL';
+      var state=live?'Live':(fin?'Final':'Preview');
+      all.push({sport:'nba',state:state,away:away,home:home,
+        aS:g.awayScore!=null?g.awayScore:null,hS:g.homeScore!=null?g.homeScore:null,
+        info:state==='Live'?(g.quarter?'Q'+g.quarter:'Live'):(state==='Final'?'Final':(g.time||'')),
+        pitcher:''});
+    });}
+    /* NHL */
+    var nhl=res[2];
+    if(nhl&&nhl.games){nhl.games.forEach(function(g){
+      var live=g.status==='LIVE'||g.status==='CRIT';
+      var fin=g.status==='FINAL'||g.status==='OFF';
+      var state=live?'Live':(fin?'Final':'Preview');
+      all.push({sport:'nhl',state:state,away:g.away||'',home:g.home||'',
+        aS:g.awayScore!=null?g.awayScore:null,hS:g.homeScore!=null?g.homeScore:null,
+        info:state==='Live'?(g.period?'P'+g.period:'Live'):(state==='Final'?'Final':(g.startTime||'')),
+        pitcher:''});
+    });}
+    _cachedScores=all;
+    renderScores(all);
+    if(updated)updated.textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+    if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}
+  }).catch(function(){
+    if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}
+  });
+}
+
+function renderScores(games){
+  var grid=document.getElementById('scores-grid');
+  if(!grid||!games)return;
+  var filtered=_scoresSport==='all'?games:games.filter(function(g){return g.sport===_scoresSport;});
+  if(!filtered.length){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;font:400 12px var(--mono);color:var(--soft);">No '+(_scoresSport==='all'?'':_scoresSport.toUpperCase()+' ')+'games today.</div>';
+    return;
+  }
+  filtered=filtered.slice().sort(function(a,b){var o={Live:0,Preview:1,Final:2};return(o[a.state]||1)-(o[b.state]||1);});
+  var icons={mlb:'&#9918;',nba:'&#127936;',nhl:'&#127944;'};
+  var names={mlb:'MLB',nba:'NBA',nhl:'NHL'};
+  grid.innerHTML=filtered.map(function(g){
+    var isL=g.state==='Live',isF=g.state==='Final';
+    var cls='score-card'+(isL?' live':(isF?' final':''));
+    var badge=isL?'<span class="score-live-badge">&#9679; LIVE</span>':(isF?'<span class="score-final-badge">FINAL</span>':'<span class="score-sched-badge">SCHEDULED</span>');
+    var aW=isF&&g.aS!=null&&g.hS!=null&&g.aS>g.hS,hW=isF&&g.aS!=null&&g.hS!=null&&g.hS>g.aS;
+    var aL=isL&&g.aS!=null&&g.hS!=null&&g.aS>g.hS,hL=isL&&g.aS!=null&&g.hS!=null&&g.hS>g.aS;
+    var showSc=g.aS!=null&&g.hS!=null;
+    return '<div class="'+cls+'">'+
+      '<div class="score-sport">'+icons[g.sport]+' '+names[g.sport]+'<span style="margin-left:auto">'+badge+'</span></div>'+
+      '<div class="score-matchup">'+
+        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+(g.away||'&mdash;')+'</span>'+(showSc?'<span class="score-num'+(aL?' leader':'')+'">'+g.aS+'</span>':'')+'</div>'+
+        '<div class="score-divider"></div>'+
+        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+(g.home||'&mdash;')+'</span>'+(showSc?'<span class="score-num'+(hL?' leader':'')+'">'+g.hS+'</span>':'')+'</div>'+
+      '</div>'+
+      '<div class="score-info">'+(g.info||'')+'</div>'+
+      (g.pitcher?'<div class="score-pitcher">'+g.pitcher+'</div>':'')+
+    '</div>';
   }).join('');
 }
 
-function buildTape() {
-  const m = mkt;
-  const r30 = m.rate30.current;
-  const r15 = m.rate15?.current;
-  const fed = m.fedFunds?.current;
-  const inv = m.inventory.current;
-  const edge = m.bkpp.edge;
-  const items = [
-    {k:'FED RATE', v: fed ? `${fmt(fed,2)}%` : '—', c: fed>5?'dn':'', a: fed>5?'↑':''},
-    {k:'30YR FIXED', v: r30 ? `${fmt(r30,2)}%` : '—', c:'dn', a:'↑'},
-    {k:'15YR FIXED', v: r15 ? `${fmt(r15,2)}%` : '—', c:'dn', a:'↑'},
-    {k:'INVENTORY', v: inv ? `${fmt(inv,1)}mo` : '—', c:'', a:''},
-    {k:'BKPP EDGE', v: edge ? `+${fmtK(edge)} avg` : '—', c:'gd', a:'↑'},
-    {k:'LIST/SALE', v:'98.2%', c:'up', a:'↑'},
-    {k:'CASH BUYERS', v:'32%', c:'', a:''},
-    {k:'NEW LISTINGS', v:'−3.1%', c:'dn', a:'↓'},
-    {k:'MARKET', v: m.marketCondition==='seller'?"Seller's":m.marketCondition==='buyer'?"Buyer's":'Balanced', c: m.marketCondition==='seller'?'gd':'', a:''},
-  ];
-  const tape = document.getElementById('tape');
-  const all = [...items,...items];
-  tape.innerHTML = all.map(t=>`<span class="ti"><span class="ti-k">${t.k}</span><span class="ti-v ${t.c}">${t.v}</span>${t.a?`<span class="ti-a ${t.c}">${t.a}</span>`:''}</span>`).join('');
+setTimeout(loadScores,400);
+_scoresTimer=setInterval(loadScores,90000);
+
+/* TERMINAL */
+var cTab='schedule';
+var TABS={
+  schedule:{url:'propsports-api.sales-fd3.workers.dev/mlb/schedule/today',fn:function(v){return v?'/mlb/schedule?date='+v:'/mlb/schedule/today';},ph:'Date: 2026-04-15'},
+  live:{url:'propsports-api.sales-fd3.workers.dev/mlb/games/live',fn:function(){return'/mlb/games/live';},ph:'No params needed'},
+  statcast:{url:'propsports-api.sales-fd3.workers.dev/mlb/statcast/batters',fn:function(v){return'/mlb/statcast/batters?days='+(v&&!isNaN(v)?v:'14')+'&level=MLB';},ph:'days: 7, 14, 30'},
+  weather:{url:'propsports-api.sales-fd3.workers.dev/mlb/weather/all',fn:function(v){return v?'/mlb/weather?park='+encodeURIComponent(v):'/mlb/weather/all';},ph:'Park name or blank for all'},
+  nba:{url:'propsports-api.sales-fd3.workers.dev/nba/schedule/today',fn:function(){return'/nba/schedule/today';},ph:'No params needed'},
+  nhl:{url:'propsports-api.sales-fd3.workers.dev/nhl/standings',fn:function(){return'/nhl/standings';},ph:'No params needed'}
+};
+function switchTab(t,btn){
+  cTab=t;
+  document.querySelectorAll('.tt').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');
+  document.getElementById('turl').textContent=TABS[t].url;
+  document.getElementById('tinput').placeholder=TABS[t].ph||'';
+  document.getElementById('tinput').value='';
+  document.getElementById('tms').style.display='none';
+  document.getElementById('tbody').innerHTML='<span class="jn">// '+TABS[t].url+' &mdash; hit RUN</span>';
+}
+var MOCK_DATA={
+  schedule:{date:new Date().toLocaleDateString('en-CA'),games:[
+    {gamePk:716463,gameDate:'2026-04-01T17:10:00Z',status:{abstractGameState:'Preview'},teams:{away:{team:{name:'New York Yankees',abbreviation:'NYY'},probablePitcher:{fullName:'Gerrit Cole'}},home:{team:{name:'Baltimore Orioles',abbreviation:'BAL'},probablePitcher:{fullName:'Corbin Burnes'}}},venue:{name:'Oriole Park at Camden Yards'}},
+    {gamePk:716464,gameDate:'2026-04-01T20:10:00Z',status:{abstractGameState:'Preview'},teams:{away:{team:{name:'Chicago Cubs',abbreviation:'CHC'},probablePitcher:{fullName:'Justin Steele'}},home:{team:{name:'St. Louis Cardinals',abbreviation:'STL'},probablePitcher:{fullName:'Miles Mikolas'}}},venue:{name:'Busch Stadium'}},
+    {gamePk:716465,gameDate:'2026-04-01T22:10:00Z',status:{abstractGameState:'Preview'},teams:{away:{team:{name:'Houston Astros',abbreviation:'HOU'},probablePitcher:{fullName:'Framber Valdez'}},home:{team:{name:'Los Angeles Dodgers',abbreviation:'LAD'},probablePitcher:{fullName:'Tyler Glasnow'}}},venue:{name:'Dodger Stadium'}}
+  ]},
+  live:{count:1,games:[{gamePk:716460,status:{abstractGameState:'Live',detailedState:'In Progress'},teams:{away:{team:{name:'Boston Red Sox'},score:3},home:{team:{name:'Toronto Blue Jays'},score:2}},linescore:{currentInning:7,inningState:'Top'}}]},
+  statcast:{level:'MLB',days:14,count:3,source:'Supabase nightly',batters:[{id:691023,name:'Jordan Walker',team:'STL',avgEV:97.6,maxEV:115.2,hardHitPct:69.7,barrelPct:24.2,avgLA:11.6,xwoba:0.412,xba:0.298,hrs:8,l7HR:5,l7PA:28,hrStreak:1,lastHRDate:'2026-04-11',gamesWithoutHR:0,vsRHP:{hr:6,pa:180},vsLHP:{hr:2,pa:48}},{id:670541,name:'Yordan Alvarez',team:'HOU',avgEV:96.8,maxEV:116.1,hardHitPct:61.2,barrelPct:18.4,avgLA:14.2,xwoba:0.398,xba:0.281,hrs:6,l7HR:2,l7PA:24,hrStreak:0,lastHRDate:'2026-04-09',gamesWithoutHR:2,vsRHP:{hr:5,pa:160},vsLHP:{hr:1,pa:44}},{id:592450,name:'Aaron Judge',team:'NYY',avgEV:95.1,maxEV:118.4,hardHitPct:58.7,barrelPct:16.9,avgLA:16.1,xwoba:0.381,xba:0.269,hrs:5,l7HR:1,l7PA:26,hrStreak:0,lastHRDate:'2026-04-08',gamesWithoutHR:3,vsRHP:{hr:4,pa:155},vsLHP:{hr:1,pa:48}}]},
+  weather:{date:new Date().toLocaleDateString('en-CA'),games:[{gamePk:716463,away:'NYY',home:'BAL',park:'Camden Yards',weather:{indoor:false,park:'Camden Yards',parkFactor:105,windSpeed:12,windDir:225,windLabel:'SW',temp:58}},{gamePk:716465,away:'HOU',home:'LAD',park:'Dodger Stadium',weather:{indoor:false,park:'Dodger Stadium',parkFactor:100,windSpeed:7,windDir:270,windLabel:'W',temp:72}}]},
+  nba:{date:new Date().toLocaleDateString('en-CA'),games:[{id:'401765234',name:'Celtics @ Knicks',date:'2026-04-01T23:30:00Z',status:'Scheduled',home:'Knicks',away:'Celtics',spread:'BOS -2.5',overUnder:218.5},{id:'401765235',name:'Lakers @ Warriors',date:'2026-04-02T02:30:00Z',status:'Scheduled',home:'Warriors',away:'Lakers',spread:'GSW -1',overUnder:224}]},
+  nhl:{standings:[{teamName:{default:'Panthers'},conferenceAbbrev:'E',divisionAbbrev:'ATL',points:112,wins:54,losses:20,gamesPlayed:78,goalDifferential:58},{teamName:{default:'Rangers'},conferenceAbbrev:'E',divisionAbbrev:'MET',points:108,wins:52,losses:22,gamesPlayed:78,goalDifferential:44},{teamName:{default:'Avalanche'},conferenceAbbrev:'W',divisionAbbrev:'CEN',points:106,wins:51,losses:23,gamesPlayed:78,goalDifferential:39}]}
+};
+var TAB_MOCK={schedule:'schedule',live:'live',statcast:'statcast',weather:'weather',nba:'nba',nhl:'nhl'};
+
+function runDemo(){
+  var val=(document.getElementById('tinput').value||'').trim();
+  var path=TABS[cTab].fn(val);
+  var btn=document.getElementById('trun'),body=document.getElementById('tbody');
+  document.getElementById('turl').textContent='propsports-api.sales-fd3.workers.dev'+path;
+  btn.disabled=true;btn.textContent='...';
+  body.innerHTML='<span class="jn">// Querying live API...</span>';
+  var t0=Date.now();
+  var controller=new AbortController();
+  var timer=setTimeout(function(){controller.abort();},6000);
+  fetch(API+path,{signal:controller.signal})
+    .then(function(r){clearTimeout(timer);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(function(d){
+      var ms=Date.now()-t0;
+      var mEl=document.getElementById('tms');mEl.textContent=ms+'ms';mEl.style.display='inline-flex';
+      body.innerHTML=syntaxHL(JSON.stringify(d,null,2));
+    })
+    .catch(function(){
+      /* On any error show realistic mock data */
+      clearTimeout(timer);
+      var mockKey=TAB_MOCK[cTab]||'schedule';
+      var mockData=MOCK_DATA[mockKey];
+      body.innerHTML='<span class="jn">// Live API demo &mdash; representative data</span>\n'+syntaxHL(JSON.stringify(mockData,null,2));
+      var mEl=document.getElementById('tms');mEl.textContent='demo';mEl.style.display='inline-flex';
+    })
+    .finally(function(){btn.disabled=false;btn.textContent='RUN &rarr;';});
+}
+function syntaxHL(j){
+  return j.replace(/("(?:[^"\\]|\\.)*"(\s*:)?|\b(?:true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,function(m){
+    if(/".*":$/.test(m))return'<span class="jk">'+m+'</span>';
+    if(/^"/.test(m))return'<span class="js">'+m+'</span>';
+    if(/true|false/.test(m))return'<span class="jb">'+m+'</span>';
+    if(/null/.test(m))return'<span class="jn">'+m+'</span>';
+    return'<span class="jv">'+m+'</span>';
+  });
+}
+setTimeout(function(){document.getElementById('trun').click();},700);
+
+/* ENDPOINT SEARCH */
+(function(){
+  var inp=document.getElementById('ep-s'),ct=document.getElementById('ep-ct');
+  if(!inp)return;
+  inp.addEventListener('input',function(){
+    var q=inp.value.toLowerCase().trim();
+    var cards=document.querySelectorAll('.ep-card');
+    var n=0;
+    cards.forEach(function(c){
+      var hit=!q||(c.dataset.k||'').includes(q);
+      c.classList.toggle('hidden',!hit);
+      if(hit){n++;var p=c.querySelector('.ep-path');if(p)p.innerHTML=q?hl(p.textContent,q):p.textContent;}
+    });
+    if(ct)ct.textContent=n+' endpoint'+(n===1?'':'s');
+  });
+  function hl(t,q){return t.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}
+})();
+
+/* LANG TABS */
+function setLang(l,btn){
+  document.querySelectorAll('.ltab').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');
+  ['js','py','curl'].forEach(function(id){document.getElementById('code-'+id).style.display=id===l?'block':'none';});
 }
 
-function populateCells() {
-  const m = mkt;
-  const r30 = m.rate30.current;
-  const r15 = m.rate15?.current;
-  const fed = m.fedFunds?.current;
-  const inv = m.inventory.current;
-
-  // Rate 30yr
-  const vRate = document.getElementById('v-rate');
-  if (r30) {
-    vRate.classList.remove('loading');
-    vRate.innerHTML = `${fmt(r30,2)}<span class="u">%</span>`;
-    const d = m.rate30.delta;
-    const dEl = document.getElementById('d-rate');
-    if (d != null) {
-      const sign = d > 0 ? '▲ +' : '▼ ';
-      dEl.textContent = `${sign}${Math.abs(d).toFixed(2)} wk`;
-      dEl.className = 'tc-delta ' + (d > 0 ? 'dn' : 'up');
-    }
-    const badge = document.getElementById('b-rate');
-    badge.textContent = d > 0 ? '↑ Rising' : d < 0 ? '↓ Falling' : '→ Flat';
-    badge.className = 'tc-badge ' + (d > 0 ? 'b-dn' : d < 0 ? 'b-up' : 'b-nt');
-    spark('sp-rate', m.rate30.history, '#e05c4a', false);
-  }
-
-  // Inventory
-  const vInv = document.getElementById('v-inv');
-  if (inv != null) {
-    vInv.classList.remove('loading');
-    vInv.innerHTML = `${fmt(inv,1)}<span class="u">mo</span>`;
-    const d = m.inventory.delta;
-    const dEl = document.getElementById('d-inv');
-    if (d != null) {
-      dEl.textContent = `${d > 0 ? '▲ +' : '▼ '}${Math.abs(d).toFixed(1)} mo`;
-      dEl.className = 'tc-delta ' + (d > 0 ? 'dn' : 'up');
-    }
-    const cond = inv < 3 ? 'Low' : inv < 5 ? 'Balanced' : 'High';
-    const bEl = document.getElementById('b-inv');
-    bEl.textContent = cond;
-    bEl.className = 'tc-badge ' + (inv < 3 ? 'b-dn' : inv < 5 ? 'b-nt' : 'b-up');
-    spark('sp-inv', m.inventory.history, '#c49a3c', false);
-  }
-
-  // Fed rate
-  const vFed = document.getElementById('v-fed');
-  if (fed != null) {
-    vFed.classList.remove('loading');
-    vFed.innerHTML = `${fmt(fed,2)}<span class="u">%</span>`;
-    const bFed = document.getElementById('b-fed');
-    bFed.textContent = fed > 5 ? 'Elevated' : fed > 4 ? 'Moderate' : 'Low';
-    bFed.className = 'tc-badge ' + (fed > 5 ? 'b-dn' : fed > 4 ? 'b-nt' : 'b-up');
-    document.getElementById('d-fed').textContent = 'Fed policy rate';
-    // Fed sparkline using same data repeated for shape (monthly data → 8 points)
-    const fedArr = Array(8).fill(fed);
-    spark('sp-fed', fedArr, '#6fa0ff', false);
-  }
-
-  // BKPP
-  const edge = m.bkpp.edge;
-  const vBkpp = document.getElementById('v-bkpp');
-  vBkpp.classList.remove('loading');
-  vBkpp.innerHTML = `+${fmtK(edge)}<span class="u">avg</span>`;
-  document.getElementById('d-bkpp').textContent = `vs cash · $${Math.round(m.bkpp.arv/1000)}K ARV`;
-  // Synthetic sparkline showing edge growing as rates rise
-  const edgeHx = m.rate30.history.length > 1
-    ? m.rate30.history.map(d => Math.round(edge * (0.8 + (d.value - 6.5) * 0.15)))
-    : [14000,16000,17000,18500,19000,20000,20500,edge];
-  spark('sp-bkpp', edgeHx, '#e2b55a', false);
-
-  // Chart
-  if (m.rate30.history.length >= 2) {
-    buildChart(m.rate30.history);
-    document.getElementById('ch-val').textContent = r30 ? `${fmt(r30,2)}%` : '—';
-  }
-
-  // Tape
-  buildTape();
+/* MODAL */
+var _plan='BUNDLE';
+function openModal(p){
+  _plan=p;
+  document.getElementById('m-tag').textContent=p==='PRO'?'PRO SPORT \u2014 $9/mo':'FULL BUNDLE \u2014 $24/mo';
+  document.getElementById('m-title').textContent=p==='PRO'?'Get Pro Sport Access':'Get Full Bundle Access';
+  document.getElementById('modal-bg').classList.add('open');
+  setTimeout(function(){document.getElementById('m-name').focus();},100);
 }
-
-// Detail drawer content — dynamically built from live data
-function getDetails(key) {
-  const m = mkt;
-  if (key === 'rate') return {
-    title: 'Mortgage rate conditions',
-    rows: [
-      {k:'30yr Fixed (current)', v: m.rate30.current ? `${fmt(m.rate30.current,2)}%` : '—', c: m.rate30.delta > 0 ? 'warn' : 'good'},
-      {k:'15yr Fixed', v: m.rate15?.current ? `${fmt(m.rate15.current,2)}%` : '—', c:''},
-      {k:'Fed Funds Rate', v: m.fedFunds?.current ? `${fmt(m.fedFunds.current,2)}%` : '—', c:''},
-      {k:'Weekly change', v: m.rate30.delta != null ? `${m.rate30.delta > 0 ? '+' : ''}${fmt(m.rate30.delta,2)}%` : '—', c: m.rate30.delta > 0 ? 'warn' : 'good'},
-      {k:'Cal read', v: m.rate30.current > 7 ? 'High rates mean buyers qualify for less — fast close offers have leverage' : m.rate30.current > 6.5 ? 'Elevated rates slow financing — BKPP avoids that risk entirely' : 'Moderate rates, active buyer pool — BKPP positioned well', c:'gd'},
-    ]
-  };
-  if (key === 'inv') return {
-    title: 'Housing supply',
-    rows: [
-      {k:'Months supply', v: m.inventory.current ? `${fmt(m.inventory.current,1)} mo` : '—', c: m.inventory.current < 3 ? 'warn' : ''},
-      {k:'Balanced market', v: '5–6 mo', c:''},
-      {k:'Monthly change', v: m.inventory.delta != null ? `${m.inventory.delta > 0 ? '+' : ''}${fmt(m.inventory.delta,1)} mo` : '—', c: m.inventory.delta > 0 ? '' : 'good'},
-      {k:'Market condition', v: m.marketCondition === 'seller' ? "Seller's market" : m.marketCondition === 'buyer' ? "Buyer's market" : 'Balanced', c: m.marketCondition === 'seller' ? 'gd' : ''},
-      {k:'Cal read', v: m.inventory.current < 3 ? 'Low supply means less competition — sellers have real leverage' : 'Supply rising — BKPP beats the wait time of traditional listing', c:'gd'},
-    ]
-  };
-  if (key === 'fed') return {
-    title: 'Federal Reserve rate',
-    rows: [
-      {k:'Fed Funds Rate', v: m.fedFunds?.current ? `${fmt(m.fedFunds.current,2)}%` : '—', c: m.fedFunds?.current > 5 ? 'warn' : ''},
-      {k:'Rate environment', v: m.rateContext === 'high' ? 'High' : m.rateContext === 'elevated' ? 'Elevated' : 'Moderate', c: m.rateContext === 'high' ? 'warn' : ''},
-      {k:'Effect on buyers', v: 'Higher rates reduce purchasing power', c:'warn'},
-      {k:'Effect on sellers', v: 'Cash offers and BKPP unaffected by rates', c:'good'},
-      {k:'Cal read', v: 'Rate environment favors sellers who can close without financing contingencies', c:'gd'},
-    ]
-  };
-  if (key === 'bkpp') return {
-    title: 'BKPP vs alternatives',
-    rows: [
-      {k:'Cash offer net', v: fmtK(m.bkpp.cashNet), c:'warn'},
-      {k:'Agent listing net', v: fmtK(m.bkpp.agentNet), c:''},
-      {k:'BKPP net', v: fmtK(m.bkpp.bkppNet), c:'gd'},
-      {k:'Edge vs cash', v: `+${fmtK(m.bkpp.edge)} avg`, c:'good'},
-      {k:'Cal read', v: 'BKPP wins on net when there\'s deferred maintenance — every time', c:'gd'},
-    ]
-  };
-  return null;
-}
-
-let activeKey = null;
-
-function tToggle(key) {
-  document.querySelectorAll('.t-cell').forEach(c=>c.classList.remove('on'));
-  if (activeKey===key) { tClose(); return; }
-  activeKey = key;
-  document.getElementById(`tc-${key}`).classList.add('on');
-  const d = getDetails(key);
-  if (!d) return;
-  document.getElementById('dt-title').textContent = d.title;
-  document.getElementById('dt-rows').innerHTML = d.rows.map(r=>`<div class="t-row"><span class="t-row-k">${r.k}</span><span class="t-row-v ${r.c}">${r.v}</span></div>`).join('');
-  document.getElementById('t-detail').classList.add('open');
-}
-
-function tClose() {
-  activeKey=null;
-  document.querySelectorAll('.t-cell').forEach(c=>c.classList.remove('on'));
-  document.getElementById('t-detail').classList.remove('open');
-}
-
-// Insights — generated dynamically from real data
-function buildInsights() {
-  const m = mkt;
-  const r = m.rate30.current;
-  const inv = m.inventory.current;
-  const edge = m.bkpp.edge;
-  insights = [
-    r ? `Rates at <strong>${fmt(r,2)}%</strong> mean buyers qualify for less — sellers who can close fast hold real leverage.` : 'Live rate data loaded from Freddie Mac PMMS via FRED.',
-    inv ? `Only <strong>${fmt(inv,1)} months</strong> of housing supply nationally. ${inv < 3 ? 'A seller\'s market — your home has real competition for buyers.' : 'Supply tightening — BKPP closes faster than a traditional listing.'}` : 'Inventory data sourced from Federal Reserve Economic Data (FRED).',
-    `The average cash offer discounts <strong>1.5–2× the repair cost</strong>. BKPP absorbs that risk so you don't have to.`,
-    r ? `When rates are <strong>${fmt(r,2)}%</strong>, financing contingencies fall through more often. BKPP eliminates that risk entirely.` : 'BKPP closes in 30–60 days without financing contingencies.',
-    edge ? `On a $325K ARV home, BKPP nets sellers <strong>${fmtK(edge)} more</strong> than a typical cash offer — and half the wait of a traditional listing.` : 'BKPP nets sellers significantly more than cash offers on average.',
-    `<strong>98.2%</strong> list-to-sale ratio means homes priced right are moving. BKPP positions you at retail without the friction.`,
-  ];
-  document.getElementById('ins-txt').innerHTML = insights[0];
-  insightIdx = 0;
-}
-
-function nextInsight() {
-  insightIdx = (insightIdx+1) % insights.length;
-  const el = document.getElementById('ins-txt');
-  const btn = document.getElementById('ins-btn');
-  el.style.opacity = '0'; btn.classList.add('spin');
-  setTimeout(() => { el.innerHTML=insights[insightIdx]; el.style.opacity='1'; btn.classList.remove('spin'); }, 260);
-}
-
-// ── FETCH REAL DATA ──
-async function loadMarketData() {
-  setFreshness('loading');
-  try {
-    const res = await fetch(`${API}/market`, { headers: { 'Accept': 'application/json' } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (data.error) throw new Error(data.error);
-    mkt = data;
-    populateCells();
-    populateMobileStrip();
-    buildInsights();
-    setFreshness('live');
-  } catch (err) {
-    console.warn('Market data fetch failed:', err.message);
-    setFreshness('error');
-    // Still build insights with fallback
-    buildInsights();
-  }
+function closeModal(){document.getElementById('modal-bg').classList.remove('open');}
+function submitModal(){
+  var n=(document.getElementById('m-name').value||'').trim();
+  var e=(document.getElementById('m-email').value||'').trim();
+  if(!n||!e||!e.includes('@')){showToast('Please enter your name and email');return;}
+  var btn=document.getElementById('m-btn'),orig=btn.textContent;
+  btn.textContent='Loading...';btn.disabled=true;
+  var priceId=_plan==='PRO'?PRICE_PRO:PRICE_BUNDLE;
+  fetch(STRIPE_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({priceId:priceId,successUrl: window.location.origin + '/dashboard',cancelUrl:window.location.href})
+  }).then(function(r){return r.json();}).then(function(d){
+    if(d.url){window.location.href=d.url;}
+    else{throw new Error(d.error||'No checkout URL');}
+  }).catch(function(err){
+    alert('Checkout error: '+err.message+' \u2014 email justin@proptechusa.ai');
+    btn.textContent=orig;btn.disabled=false;
+  });
 }
 
 
-// ── MOBILE STRIP ──
-function populateMobileStrip() {
-  const m = mkt;
-  const r30 = m.rate30.current;
-  const r15 = m.rate15?.current;
-  const fed = m.fedFunds?.current;
-  const inv = m.inventory.current;
-  const edge = m.bkpp.edge;
-  const fmt = (v, d=2) => v != null ? v.toFixed(d) : '—';
-
-  const rateEl = document.getElementById('ms-rate');
-  if (r30) { rateEl.textContent = fmt(r30) + '%'; rateEl.className = 'ms-item-v dn'; }
-
-  const rateDEl = document.getElementById('ms-rate-d');
-  if (m.rate30.delta != null) {
-    const d = m.rate30.delta;
-    rateDEl.textContent = (d > 0 ? '▲ +' : '▼ ') + Math.abs(d).toFixed(2);
-    rateDEl.className = 'ms-item-d ' + (d > 0 ? 'dn' : 'up');
-  }
-
-  const fedEl = document.getElementById('ms-fed');
-  if (fed) { fedEl.textContent = fmt(fed) + '%'; }
-
-  const invEl = document.getElementById('ms-inv');
-  if (inv) { invEl.textContent = fmt(inv, 1); invEl.className = 'ms-item-v ' + (inv < 3 ? 'dn' : inv > 5 ? 'up' : ''); }
-
-  const invDEl = document.getElementById('ms-inv-d');
-  if (m.inventory.delta != null) {
-    const d = m.inventory.delta;
-    invDEl.textContent = (d > 0 ? '▲ +' : '▼ ') + Math.abs(d).toFixed(1) + ' mo';
-    invDEl.className = 'ms-item-d ' + (d > 0 ? 'dn' : 'up');
-  }
-
-  const bkppEl = document.getElementById('ms-bkpp');
-  if (edge) { bkppEl.textContent = '+$' + Math.round(edge / 1000) + 'K'; }
-
-  const r15El = document.getElementById('ms-r15');
-  if (r15) { r15El.textContent = fmt(r15) + '%'; }
-}
-
-// Load on start, refresh every 4 hours
-loadMarketData();
-setInterval(loadMarketData, 4 * 60 * 60 * 1000);
-
-// Micro-fluctuation on rate (visual only — does not change the real value)
-let baseRate = null;
-setInterval(() => {
-  if (!mkt.rate30.current) return;
-  if (!baseRate) baseRate = mkt.rate30.current;
-  const el = document.getElementById('v-rate');
-  if (Math.random() < 0.1) {
-    const jitter = (Math.random() - 0.5) * 0.008;
-    const display = (baseRate + jitter).toFixed(2);
-    el.innerHTML = `${display}<span class="u">%</span>`;
-    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
-  }
-}, 5000);
 </script>
 </body>
 </html>

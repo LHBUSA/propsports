@@ -319,6 +319,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <a href="/docs.html" class="nav-link">Docs</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
       <a href="https://rapidapi.com/proptechusa/api/propsports1" target="_blank" class="nav-link">RapidAPI</a>
+      <a href="/live.html" style="font:700 11px var(--mono);letter-spacing:0.06em;padding:7px 14px;border-radius:7px;background:rgba(215,59,26,0.08);border:1px solid rgba(215,59,26,0.2);color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.background='rgba(215,59,26,0.15)'" onmouseout="this.style.background='rgba(215,59,26,0.08)'">&#9889; See It Live</a>
       <a href="/pricing.html" class="btn-red">Get API Key →</a>
     </div>
     <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">
@@ -330,6 +331,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <a href="/docs.html">Documentation</a>
   <a href="/pricing.html">Pricing</a>
   <a href="https://rapidapi.com/proptechusa/api/propsports1" target="_blank">RapidAPI</a>
+  <a href="/live.html">&#9889; See It Live</a>
   <a href="/pricing.html" class="btn-red" style="margin-top:12px;text-align:center;">Get API Key →</a>
 </div>
 
@@ -502,6 +504,51 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
     <div class="si"><span class="sn">0</span><span class="sl">Sportsbook Deps</span></div>
   </div>
 </div>
+
+
+<style>
+.score-stab{font:700 10px var(--mono);letter-spacing:0.05em;padding:5px 12px;border-radius:5px;border:none;background:transparent;color:var(--mid);cursor:pointer;}
+.score-stab.on{background:var(--white);color:var(--ink);box-shadow:var(--sh-sm);}
+.score-card{background:var(--white);border:1px solid var(--border);border-radius:11px;padding:14px 16px;box-shadow:var(--sh-sm);transition:all 0.2s;position:relative;overflow:hidden;}
+.score-card:hover{box-shadow:var(--sh-md);transform:translateY(-1px);}
+.score-card.live{border-color:rgba(215,59,26,0.3);}
+.score-card.live::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);}
+.score-sport{font:700 9px var(--mono);letter-spacing:0.12em;color:var(--soft);margin-bottom:8px;display:flex;align-items:center;}
+.score-live-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:rgba(215,59,26,0.1);color:var(--red);border:1px solid rgba(215,59,26,0.2);}
+.score-final-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--paper2);color:var(--mid);}
+.score-sched-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--greenbg);color:var(--green);border:1px solid rgba(11,122,69,0.2);}
+.score-matchup{display:flex;flex-direction:column;gap:5px;}
+.score-team{display:flex;align-items:center;justify-content:space-between;}
+.score-name{font:600 13px var(--sans);color:var(--ink);}
+.score-name.winner{font-weight:800;}
+.score-num{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);}
+.score-num.leader{color:var(--red);}
+.score-divider{height:1px;background:var(--border);margin:3px 0;}
+.score-info{font:400 10px var(--mono);color:var(--soft);margin-top:7px;}
+.score-pitcher{font:400 10px var(--mono);color:var(--mid);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+</style>
+<!-- LIVE SCORES -->
+<section id="live-scores" style="background:var(--paper);border-top:2px solid var(--red);border-bottom:1px solid var(--border);padding:36px 0;">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="display:flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;display:inline-block;flex-shrink:0;"></span>LIVE SCORES &amp; TODAY&#8217;S SLATE</div>
+        <span id="scores-updated" style="font:400 10px var(--mono);color:var(--soft);">Loading...</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:flex;gap:2px;padding:3px;background:var(--paper2);border:1px solid var(--border);border-radius:8px;">
+          <button class="score-stab on" onclick="scoresSetSport('all',this)">All</button>
+          <button class="score-stab" onclick="scoresSetSport('mlb',this)">MLB</button>
+          <button class="score-stab" onclick="scoresSetSport('nba',this)">NBA</button>
+          <button class="score-stab" onclick="scoresSetSport('nhl',this)">NHL</button>
+        </div>
+        <button id="scores-refresh-btn" onclick="loadScores()" style="font:600 10px var(--mono);padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--white);color:var(--mid);cursor:pointer;white-space:nowrap;">&#8635; Refresh</button>
+      </div>
+    </div>
+    <div id="scores-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;min-height:100px;"><div style="grid-column:1/-1;text-align:center;padding:36px;font:400 12px var(--mono);color:var(--soft);">Loading live scores...</div></div>
+    <div style="margin-top:12px;font:400 10px var(--mono);color:var(--soft);text-align:center;">Powered by <a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" style="color:var(--red);text-decoration:none;">propsports-api.sales-fd3.workers.dev</a> &middot; Auto-refreshes every 90s</div>
+  </div>
+</section>
 
 <!-- FEATURES -->
 <section class="section">
@@ -1136,6 +1183,120 @@ async function updateTicker(){
   }catch(e){}
 }
 document.addEventListener('DOMContentLoaded',updateTicker);
+
+// ── LIVE SCORES ─────────────────────────────────────────────────────
+var API = 'https://propsports-api.sales-fd3.workers.dev';
+var _scoresSport = 'all';
+var _scoresTimer = null;
+var _cachedScores = null;
+
+function scoresSetSport(sport, btn) {
+  _scoresSport = sport;
+  document.querySelectorAll('.score-stab').forEach(function(b){ b.classList.remove('on'); });
+  if (btn) btn.classList.add('on');
+  renderScores(_cachedScores);
+}
+
+function loadScores() {
+  var grid = document.getElementById('scores-grid');
+  var updated = document.getElementById('scores-updated');
+  var btn = document.getElementById('scores-refresh-btn');
+  if (!grid) return;
+  if (btn) { btn.textContent = '↻ Loading...'; btn.disabled = true; }
+  Promise.all([
+    fetch(API + '/mlb/schedule/today').then(function(r){ return r.json(); }).catch(function(){ return null; }),
+    fetch(API + '/nba/schedule/today').then(function(r){ return r.json(); }).catch(function(){ return null; }),
+    fetch(API + '/nhl/schedule/today').then(function(r){ return r.json(); }).catch(function(){ return null; })
+  ]).then(function(res) {
+    var all = [];
+    /* MLB */
+    var mlb = res[0];
+    if (mlb && mlb.games) { mlb.games.forEach(function(g) {
+      var state = (g.status && g.status.abstractGameState) || 'Preview';
+      var away = g.teams && g.teams.away && g.teams.away.team ? g.teams.away.team.shortName || g.teams.away.team.name : '';
+      var home = g.teams && g.teams.home && g.teams.home.team ? g.teams.home.team.shortName || g.teams.home.team.name : '';
+      var aS = g.teams && g.teams.away && g.teams.away.score != null ? g.teams.away.score : null;
+      var hS = g.teams && g.teams.home && g.teams.home.score != null ? g.teams.home.score : null;
+      var inning = g.linescore ? ('Inn ' + (g.linescore.currentInning || '') + ' ' + (g.linescore.inningHalf || '')) : ((g.status && g.status.detailedState) || '');
+      var gtime = g.gameDate ? new Date(g.gameDate).toLocaleTimeString('en-US', {hour:'numeric',minute:'2-digit',timeZoneName:'short'}) : '';
+      var pp = g.teams && g.teams.away && g.teams.away.probablePitcher ? g.teams.away.probablePitcher.fullName : '';
+      var hp = g.teams && g.teams.home && g.teams.home.probablePitcher ? g.teams.home.probablePitcher.fullName : '';
+      all.push({ sport:'mlb', state:state, away:away, home:home, aS:aS, hS:hS,
+        info: state === 'Live' ? inning : (state === 'Final' ? 'Final' : gtime),
+        pitcher: pp && hp ? pp.split(' ').pop() + ' vs ' + hp.split(' ').pop() : '' });
+    }); }
+    /* NBA */
+    var nba = res[1];
+    if (nba && nba.games) { nba.games.forEach(function(g) {
+      var name = (g.name || '').split(' at ');
+      var away = (name[0] || g.away || '').split(' ').pop();
+      var home = (name[1] || g.home || '').split(' ').pop();
+      var live = g.status === 'in' || g.status === 'LIVE';
+      var fin = g.status === 'post' || g.status === 'FINAL';
+      var state = live ? 'Live' : (fin ? 'Final' : 'Preview');
+      all.push({ sport:'nba', state:state, away:away, home:home,
+        aS: g.awayScore != null ? g.awayScore : null,
+        hS: g.homeScore != null ? g.homeScore : null,
+        info: state === 'Live' ? (g.quarter ? 'Q' + g.quarter : 'Live') : (state === 'Final' ? 'Final' : (g.time || '')),
+        pitcher: '' });
+    }); }
+    /* NHL */
+    var nhl = res[2];
+    if (nhl && nhl.games) { nhl.games.forEach(function(g) {
+      var live = g.status === 'LIVE' || g.status === 'CRIT';
+      var fin = g.status === 'FINAL' || g.status === 'OFF';
+      var state = live ? 'Live' : (fin ? 'Final' : 'Preview');
+      all.push({ sport:'nhl', state:state, away:g.away||'', home:g.home||'',
+        aS: g.awayScore != null ? g.awayScore : null,
+        hS: g.homeScore != null ? g.homeScore : null,
+        info: state === 'Live' ? (g.period ? 'P' + g.period : 'Live') : (state === 'Final' ? 'Final' : (g.startTime || '')),
+        pitcher: '' });
+    }); }
+    _cachedScores = all;
+    renderScores(all);
+    if (updated) updated.textContent = 'Updated ' + new Date().toLocaleTimeString('en-US', {hour:'numeric',minute:'2-digit'});
+    if (btn) { btn.textContent = '↻ Refresh'; btn.disabled = false; }
+  }).catch(function() {
+    if (btn) { btn.textContent = '↻ Refresh'; btn.disabled = false; }
+  });
+}
+
+function renderScores(games) {
+  var grid = document.getElementById('scores-grid');
+  if (!grid || !games) return;
+  var filtered = _scoresSport === 'all' ? games : games.filter(function(g){ return g.sport === _scoresSport; });
+  if (!filtered.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:32px;font:400 12px var(--mono);color:var(--soft);">No ' + (_scoresSport === 'all' ? '' : _scoresSport.toUpperCase() + ' ') + 'games today.</div>';
+    return;
+  }
+  filtered = filtered.slice().sort(function(a,b){ var o={Live:0,Preview:1,Final:2}; return (o[a.state]||1)-(o[b.state]||1); });
+  var icons = { mlb:'&#9918;', nba:'&#127936;', nhl:'&#127944;' };
+  var names = { mlb:'MLB', nba:'NBA', nhl:'NHL' };
+  grid.innerHTML = filtered.map(function(g) {
+    var isL = g.state === 'Live', isF = g.state === 'Final';
+    var cls = 'score-card' + (isL ? ' live' : (isF ? ' final' : ''));
+    var badge = isL ? '<span class="score-live-badge">&#9679; LIVE</span>' : (isF ? '<span class="score-final-badge">FINAL</span>' : '<span class="score-sched-badge">SCHEDULED</span>');
+    var aW = isF && g.aS != null && g.hS != null && g.aS > g.hS;
+    var hW = isF && g.aS != null && g.hS != null && g.hS > g.aS;
+    var aL = isL && g.aS != null && g.hS != null && g.aS > g.hS;
+    var hL = isL && g.aS != null && g.hS != null && g.hS > g.aS;
+    var showSc = g.aS != null && g.hS != null;
+    return '<div class="' + cls + '">' +
+      '<div class="score-sport">' + icons[g.sport] + ' ' + names[g.sport] + '<span style="margin-left:auto">' + badge + '</span></div>' +
+      '<div class="score-matchup">' +
+        '<div class="score-team"><span class="score-name' + (aW ? ' winner' : '') + '">' + (g.away || '&mdash;') + '</span>' + (showSc ? '<span class="score-num' + (aL ? ' leader' : '') + '">' + g.aS + '</span>' : '') + '</div>' +
+        '<div class="score-divider"></div>' +
+        '<div class="score-team"><span class="score-name' + (hW ? ' winner' : '') + '">' + (g.home || '&mdash;') + '</span>' + (showSc ? '<span class="score-num' + (hL ? ' leader' : '') + '">' + g.hS + '</span>' : '') + '</div>' +
+      '</div>' +
+      '<div class="score-info">' + (g.info || '') + '</div>' +
+      (g.pitcher ? '<div class="score-pitcher">' + g.pitcher + '</div>' : '') +
+    '</div>';
+  }).join('');
+}
+
+setTimeout(loadScores, 400);
+_scoresTimer = setInterval(loadScores, 90000);
+
 </script>
 </body>
 </html>

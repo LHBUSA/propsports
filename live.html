@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
 <title>See It In Action — PropSports API powers PropBetEdge.ai</title>
-<meta name="description" content="Watch PropSports API work in production. PropBetEdge.ai uses all 31 endpoints live — Statcast, lineups, weather, umpires, odds — every day during the MLB season.">
+<meta name="description" content="Watch PropSports API work in production. PropBetEdge.ai uses all 37 endpoints live — Statcast, lineups, weather, umpires, odds — every day during the MLB season.">
 <link rel="canonical" href="https://propsports.proptechusa.ai/live.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -316,7 +316,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
   <div class="hero-inner">
     <div class="eyebrow fu"><span class="live-dot"></span>Production deployment &mdash; live right now</div>
     <h1 class="fu d1">This API<br><em>runs in production.</em></h1>
-    <p class="hero-lead fu d2">PropBetEdge.ai uses every endpoint in this API — live, every day during the MLB season. Statcast exit velocity, confirmed lineups, park weather, umpires, and real-time odds all wired through PropSports API. Scroll down and see it running.</p>
+    <p class="hero-lead fu d2">PropBetEdge.ai uses every endpoint in this API — live, every day during the MLB season. Statcast exit velocity, confirmed lineups, park weather, umpires, book odds — and now our own <strong>Poisson model odds engine</strong> — all wired through PropSports API. Scroll down and see it running.</p>
     <div class="hero-btns fu d3">
       <a href="https://propbetedge.ai" target="_blank" rel="noopener" class="btn-red">Open PropBetEdge.ai &rarr;</a>
       <a href="/pricing.html" class="btn-outline">Get the API &rarr;</a>
@@ -324,7 +324,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
     <div class="proof-strip fu d3">
       <div class="proof-item"><span class="proof-icon">&#9918;</span> MLB Season 2026</div>
       <div class="proof-dot"></div>
-      <div class="proof-item"><span class="proof-icon">&#9889;</span> 31 endpoints active</div>
+      <div class="proof-item"><span class="proof-icon">&#9889;</span> 37 endpoints active</div>
       <div class="proof-dot"></div>
       <div class="proof-item"><span class="proof-icon">&#128200;</span> Statcast &middot; Weather &middot; Umpires</div>
       <div class="proof-dot"></div>
@@ -336,7 +336,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
 <!-- STAT STRIP -->
 <div class="stat-strip">
   <div class="stat-inner">
-    <div class="stat-item sfu"><span class="stat-n">31<em>+</em></span><div class="stat-l">Live Endpoints</div></div>
+    <div class="stat-item sfu"><span class="stat-n">37<em>+</em></span><div class="stat-l">Live Endpoints</div></div>
     <div class="stat-item sfu"><span class="stat-n"><em>&lt;</em>50ms</span><div class="stat-l">API Latency</div></div>
     <div class="stat-item sfu"><span class="stat-n">165<em>+</em></span><div class="stat-l">CF Workers</div></div>
     <div class="stat-item sfu"><span class="stat-n">4</span><div class="stat-l">Sports Covered</div></div>
@@ -391,7 +391,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
         <span style="font:600 10px var(--mono);letter-spacing:0.06em;padding:3px 10px;border-radius:20px;background:var(--paper2);border:1px solid var(--border);color:var(--mid);">Lineups</span>
         <span style="font:600 10px var(--mono);letter-spacing:0.06em;padding:3px 10px;border-radius:20px;background:var(--paper2);border:1px solid var(--border);color:var(--mid);">Weather</span>
         <span style="font:600 10px var(--mono);letter-spacing:0.06em;padding:3px 10px;border-radius:20px;background:var(--paper2);border:1px solid var(--border);color:var(--mid);">Umpires</span>
-        <span style="font:600 10px var(--mono);letter-spacing:0.06em;padding:3px 10px;border-radius:20px;background:var(--paper2);border:1px solid var(--border);color:var(--mid);">Odds</span>
+        <span style="font:600 10px var(--mono);letter-spacing:0.06em;padding:3px 10px;border-radius:20px;background:rgba(215,59,26,0.06);border:1px solid rgba(215,59,26,0.2);color:var(--red);">&#9889; Model Odds</span>
         <span style="font:600 10px var(--mono);letter-spacing:0.06em;padding:3px 10px;border-radius:20px;background:var(--paper2);border:1px solid var(--border);color:var(--mid);">Live Scores</span>
       </div>
     </div>
@@ -403,7 +403,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
   <div class="powers-inner">
     <div class="section-eyebrow sfu">Under the Hood</div>
     <h2 class="sfu">Every feature on PropBetEdge.ai<br><em>calls this API.</em></h2>
-    <p style="font-size:16px;color:var(--mid);max-width:560px;line-height:1.75;margin-top:4px;" class="sfu">Here's exactly which PropSports API endpoints power each section of the app — so you can see what you'd be getting access to.</p>
+    <p style="font-size:16px;color:var(--mid);max-width:560px;line-height:1.75;margin-top:4px;" class="sfu">Here's exactly which PropSports API endpoints power each section of the app — including the new Poisson model odds engine that no other sports API offers.</p>
     <div class="powers-grid">
       <div class="power-card sfu">
         <div class="pc-endpoint">/mlb/statcast/batters</div>
@@ -453,6 +453,24 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
         <div class="pc-desc">The Best Line section compares moneylines, run lines, and totals from the odds endpoint to surface the sharpest lines for each game.</div>
         <div class="pc-result">&#10003; ML &middot; Run line &middot; O/U</div>
       </div>
+      <div class="power-card sfu" style="border-top:2px solid rgba(215,59,26,0.3);">
+        <div class="pc-endpoint" style="background:rgba(215,59,26,0.1);border-color:rgba(215,59,26,0.25);">/mlb/odds/model &#9889; NEW</div>
+        <div class="pc-title">Poisson Model Odds Engine</div>
+        <div class="pc-desc">PropBetEdge's pick explainer and value plays are now driven by our own Poisson model — built on owned Statcast, no DraftKings or FanDuel dependency. Zero sportsbook reliance.</div>
+        <div class="pc-result">&#10003; expected_stat &middot; implied_prob &middot; odds_fmt</div>
+      </div>
+      <div class="power-card sfu" style="border-top:2px solid rgba(215,59,26,0.3);">
+        <div class="pc-endpoint" style="background:rgba(215,59,26,0.1);border-color:rgba(215,59,26,0.25);">/mlb/odds/model/top &#9889; NEW</div>
+        <div class="pc-title">Top Value Plays Feed</div>
+        <div class="pc-desc">The daily top OVER plays section ranks props by expected stat from our Poisson model. Refreshed 6&times; daily — 8AM, 10AM, 12PM, 2PM, 5PM, 8PM CT. Always fresh before first pitch.</div>
+        <div class="pc-result">&#10003; Ranked by edge &middot; 6&times; daily refresh</div>
+      </div>
+      <div class="power-card sfu" style="border-top:2px solid rgba(215,59,26,0.3);">
+        <div class="pc-endpoint" style="background:rgba(215,59,26,0.1);border-color:rgba(215,59,26,0.25);">/mlb/odds/model/player &#9889; NEW</div>
+        <div class="pc-title">Per-Player Model Sheet</div>
+        <div class="pc-desc">Player profile pages pull all model markets for one player — HR, total bases, hits, strikeouts — with fair-value odds, expected stat, and implied probability per line.</div>
+        <div class="pc-result">&#10003; HR &middot; TB &middot; Hits &middot; K props per player</div>
+      </div>
     </div>
   </div>
 </div>
@@ -467,6 +485,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
       <div class="compare-col">
         <div class="col-header them">Without PropSports API</div>
         <div class="col-body">
+          <div class="compare-row"><span class="cr-icon">&#128293;</span><span class="cr-text">Build your own Poisson odds model from raw Statcast</span></div>
           <div class="compare-row"><span class="cr-icon">&#128293;</span><span class="cr-text">Reverse-engineer 4 different API formats</span></div>
           <div class="compare-row"><span class="cr-icon">&#128293;</span><span class="cr-text">Maintain separate wrappers for MLB, NBA, NHL, ESPN</span></div>
           <div class="compare-row"><span class="cr-icon">&#128293;</span><span class="cr-text">Build your own Baseball Savant CSV parser</span></div>
@@ -483,6 +502,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
           <div class="compare-row"><span class="cr-icon">&#10003;</span><span class="cr-text good">Statcast already parsed and structured for you</span></div>
           <div class="compare-row"><span class="cr-icon">&#10003;</span><span class="cr-text good">Edge caching, CORS, error handling all handled</span></div>
           <div class="compare-row"><span class="cr-icon">&#10003;</span><span class="cr-text good">Park factors + weather merged into one endpoint</span></div>
+          <div class="compare-row"><span class="cr-icon">&#10003;</span><span class="cr-text good">Poisson model odds included — no sportsbook feed</span></div>
           <div class="compare-row"><span class="cr-icon">&#10003;</span><span class="cr-text good" style="color:#4ade80;font-weight:700;">Ship this afternoon</span></div>
         </div>
       </div>
@@ -494,7 +514,7 @@ html,body{overflow-x:hidden!important;max-width:100vw;}
 <div class="quote-section">
   <div class="quote-inner">
     <blockquote class="sfu">
-      &ldquo;We built PropBetEdge.ai&nbsp;&mdash; the Statcast picks engine, the live scores, the weather, the umpires&nbsp;&mdash; all on PropSports API. Same infrastructure that runs 165+ Cloudflare Workers across PropTechUSA.ai. What took months to build from scratch is yours for $24/mo.&rdquo;
+      &ldquo;We built PropBetEdge.ai&nbsp;&mdash; the Statcast picks engine, the live scores, the weather, the umpires&nbsp;&mdash; all on PropSports API. Same infrastructure that runs 165+ Cloudflare Workers across PropTechUSA.ai. Including the Poisson model odds engine that generates its own fair-value odds from owned Statcast — no sportsbook dependency. What took months to build from scratch is yours for $24/mo.&rdquo;
     </blockquote>
     <div class="quote-attr sfu">
       <a href="https://justinerickson.co" target="_blank" rel="noopener" class="qa-logo">

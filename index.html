@@ -269,21 +269,21 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 }
 
 /* ── PRODUCTS DROPDOWN ── */
-.nav-dropdown{position:relative;}
-.nav-dropdown-btn{font:500 13px var(--sans);color:var(--mid);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover{color:var(--ink);background:var(--paper);}
-.nav-dropdown-btn svg{transition:transform .2s;}
-.nav-dropdown:hover .nav-dropdown-btn svg{transform:rotate(180deg);}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:500;}
-.nav-dropdown:hover .nav-dropdown-menu{display:block;}
-.nav-dd-section{font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);padding:8px 10px 4px;}
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-btn{font-size:13px;font-weight:500;color:var(--muted);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:3px;white-space:nowrap;font-family:inherit;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);background:var(--off);}
+.nav-dropdown-btn svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown-btn.open svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:9999;}
+.nav-dropdown-menu.open{display:block;}
+.nav-dd-section{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9B9990;padding:8px 10px 4px;display:block;}
 .nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
-.nav-dd-item:hover{background:var(--paper);}
+.nav-dd-item:hover{background:#F7F6F3;}
 .nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
-.nav-dd-name{font:600 13px var(--sans);color:var(--ink);margin-bottom:2px;}
-.nav-dd-desc{font:400 11px var(--sans);color:var(--mid);line-height:1.4;}
-.nav-dd-price{font:700 10px var(--mono);color:var(--red);margin-top:3px;}
-.nav-dd-divider{height:1px;background:var(--border);margin:4px 0;}
+.nav-dd-name{font-size:13px;font-weight:600;color:#0D0D0D;margin-bottom:2px;}
+.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;}
+.nav-dd-price{font-size:10px;font-weight:700;font-family:monospace;color:#E8321A;margin-top:3px;}
+.nav-dd-divider{height:1px;background:#E2E1DC;margin:4px 0;}
 </style>
 </head>
 <body>
@@ -327,11 +327,11 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <span class="nav-tag">⚡ Model Odds Live</span>
       <!-- PRODUCTS DROPDOWN -->
       <div class="nav-dropdown">
-        <button class="nav-dropdown-btn">
+        <button class="nav-dropdown-btn" id="products-btn">
           Products
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
         </button>
-        <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu" id="products-menu">
           <div class="nav-dd-section">⚾ Sports</div>
           <a href="/pricing.html" class="nav-dd-item">
             <span class="nav-dd-icon">⚡</span>
@@ -351,6 +351,10 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
           </a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-section">🏘️ Real Estate</div>
+          <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127968;</span>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels &middot; address lookup &middot; AVM &middot; leads &middot; 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+          </a>
           <a href="/propdata-core.html" class="nav-dd-item">
             <span class="nav-dd-icon">🏘️</span>
             <div>
@@ -1303,5 +1307,24 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 
+
+<script>
+(function(){
+  var btn = document.getElementById('products-btn');
+  var menu = document.getElementById('products-menu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = menu.classList.contains('open');
+    menu.classList.toggle('open', !open);
+    btn.classList.toggle('open', !open);
+  });
+  document.addEventListener('click', function(){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  });
+  menu.addEventListener('click', function(e){ e.stopPropagation(); });
+})();
+</script>
 </body>
 </html>

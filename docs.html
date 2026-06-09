@@ -158,6 +158,23 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
   .hamburger{display:flex;}
   .breadcrumb-bar{padding:11px 16px;}
 }
+
+/* ── PRODUCTS DROPDOWN ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown-btn{font:500 13px 'Instrument Sans',sans-serif;color:var(--muted);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:4px;font-weight:500;}
+.nav-dropdown-btn:hover{color:var(--ink);background:var(--off);}
+.nav-dropdown-btn svg{transition:transform .2s;}
+.nav-dropdown:hover .nav-dropdown-btn svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);padding:8px;width:340px;z-index:500;}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dd-section{font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 10px 4px;opacity:.6;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
+.nav-dd-item:hover{background:var(--off);}
+.nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
+.nav-dd-name{font:600 13px 'Instrument Sans',sans-serif;color:var(--ink);margin-bottom:2px;}
+.nav-dd-desc{font:400 11px 'Instrument Sans',sans-serif;color:var(--muted);line-height:1.4;}
+.nav-dd-price{font:700 10px 'JetBrains Mono',monospace;color:var(--red);margin-top:3px;}
+.nav-dd-divider{height:1px;background:var(--border);margin:4px 0;}
 </style>
 </head>
 <body>
@@ -173,6 +190,44 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
       <a href="/nfl.html">NFL</a>
       <a href="/nba.html">NBA</a>
       <a href="/nhl.html">NHL</a>
+
+      <!-- PRODUCTS DROPDOWN -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">
+          Products
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dd-section">&#9918; Sports</div>
+          <a href="/pricing.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#9889;</span>
+            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">47 endpoints · MLB · NFL · NBA · NHL · Poisson model odds</div><div class="nav-dd-price">From $49/mo</div></div>
+          </a>
+          <a href="/mlb-edge.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#9918;</span>
+            <div><div class="nav-dd-name">MLB Edge Suite</div><div class="nav-dd-desc">Almost Bomb · Pitcher Intel · Lucky Bombs · Ball Flight · MLB Intelligence</div><div class="nav-dd-price">From $29/mo</div></div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <div class="nav-dd-section">&#127968; Real Estate</div>
+          <a href="/propdata-core.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127968;</span>
+            <div><div class="nav-dd-name">PropData Core</div><div class="nav-dd-desc">ZIP · Flood · Crime · Census · Business · Address — 6 APIs</div><div class="nav-dd-price">From $49/mo</div></div>
+          </a>
+          <a href="/propdata-pro.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127942;</span>
+            <div><div class="nav-dd-name">PropData Pro Stack</div><div class="nav-dd-desc">Core + Tax · Phone · AVM · Motivated Seller Leads — 10 APIs</div><div class="nav-dd-price">From $149/mo</div></div>
+          </a>
+          <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127968;</span>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · address lookup · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">&#128279;</span>
+            <div><div class="nav-dd-name">All 18 APIs on RapidAPI</div><div class="nav-dd-desc">Browse every PropTechUSA.ai API on the marketplace</div></div>
+          </a>
+        </div>
+      </div>
       <a href="/docs.html" class="active">Docs</a>
       <a href="/pricing.html">Pricing</a>
     </div>
@@ -188,6 +243,15 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
   <a href="/nfl.html" onclick="toggleMenu()">&#127944; NFL API</a>
   <a href="/nba.html" onclick="toggleMenu()">&#127936; NBA API</a>
   <a href="/nhl.html" onclick="toggleMenu()">&#127944; NHL API</a>
+  <div style="padding:8px 14px 4px;font:700 9px monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);opacity:.6;">Sports APIs</div>
+  <a href="/pricing.html" onclick="toggleMenu()">&#9889; PropSports API — From $49/mo</a>
+  <a href="/mlb-edge.html" onclick="toggleMenu()">&#9918; MLB Edge Suite — From $29/mo</a>
+  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
+  <div style="padding:8px 14px 4px;font:700 9px monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);opacity:.6;">Real Estate APIs</div>
+  <a href="/propdata-core.html" onclick="toggleMenu()">&#127968; PropData Core — From $49/mo</a>
+  <a href="/propdata-pro.html" onclick="toggleMenu()">&#127942; PropData Pro Stack — From $149/mo</a>
+  <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" onclick="toggleMenu()">&#127968; PropData API &#8599;</a>
+  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
   <a href="/docs.html" onclick="toggleMenu()">&#128214; Docs</a>
   <a href="/pricing.html" onclick="toggleMenu()">&#128179; Pricing</a>
   <a href="/pricing.html" class="btn-nav" style="text-align:center;display:block;margin-top:12px;" onclick="toggleMenu()">Get API Key &rarr;</a>

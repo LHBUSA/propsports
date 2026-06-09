@@ -267,6 +267,23 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   .hero-inner{padding:0 18px;}
   .pricing-grid{grid-template-columns:1fr;}
 }
+
+/* ── PRODUCTS DROPDOWN ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown-btn{font:500 13px var(--sans);color:var(--mid);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover{color:var(--ink);background:var(--paper);}
+.nav-dropdown-btn svg{transition:transform .2s;}
+.nav-dropdown:hover .nav-dropdown-btn svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:500;}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;}
+.nav-dd-section{font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);padding:8px 10px 4px;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
+.nav-dd-item:hover{background:var(--paper);}
+.nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
+.nav-dd-name{font:600 13px var(--sans);color:var(--ink);margin-bottom:2px;}
+.nav-dd-desc{font:400 11px var(--sans);color:var(--mid);line-height:1.4;}
+.nav-dd-price{font:700 10px var(--mono);color:var(--red);margin-top:3px;}
+.nav-dd-divider{height:1px;background:var(--border);margin:4px 0;}
 </style>
 </head>
 <body>
@@ -308,9 +325,65 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
     <button class="ns-btn">NHL</button>
     <div class="nav-r">
       <span class="nav-tag">⚡ Model Odds Live</span>
+      <!-- PRODUCTS DROPDOWN -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn">
+          Products
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dd-section">⚾ Sports</div>
+          <a href="/pricing.html" class="nav-dd-item">
+            <span class="nav-dd-icon">⚡</span>
+            <div>
+              <div class="nav-dd-name">PropSports API</div>
+              <div class="nav-dd-desc">47 endpoints · MLB · NFL · NBA · NHL · Poisson model odds</div>
+              <div class="nav-dd-price">From $49/mo</div>
+            </div>
+          </a>
+          <a href="/mlb-edge.html" class="nav-dd-item">
+            <span class="nav-dd-icon">⚾</span>
+            <div>
+              <div class="nav-dd-name">MLB Edge Suite</div>
+              <div class="nav-dd-desc">Almost Bomb + Pitcher Intel + Lucky Bombs + Ball Flight + MLB Intelligence</div>
+              <div class="nav-dd-price">From $29/mo</div>
+            </div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <div class="nav-dd-section">🏘️ Real Estate</div>
+          <a href="/propdata-core.html" class="nav-dd-item">
+            <span class="nav-dd-icon">🏘️</span>
+            <div>
+              <div class="nav-dd-name">PropData Core</div>
+              <div class="nav-dd-desc">ZIP · Flood Zone · Crime · Census · Business · Address — 6 APIs bundled</div>
+              <div class="nav-dd-price">From $49/mo</div>
+            </div>
+          </a>
+          <a href="/propdata-pro.html" class="nav-dd-item">
+            <span class="nav-dd-icon">🏆</span>
+            <div>
+              <div class="nav-dd-name">PropData Pro Stack</div>
+              <div class="nav-dd-desc">Everything in Core + Tax · Phone · AVM · Motivated Seller Leads</div>
+              <div class="nav-dd-price">From $149/mo</div>
+            </div>
+          </a>
+  <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">&#127968; PropData API &#8599;</a>
+          <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127968;</span>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · address lookup · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">🔗</span>
+            <div>
+              <div class="nav-dd-name">All 18 APIs on RapidAPI</div>
+              <div class="nav-dd-desc">Browse every PropTechUSA.ai API on the RapidAPI marketplace</div>
+            </div>
+          </a>
+        </div>
+      </div>
       <a href="/docs.html" class="nav-link">Docs</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
-      <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" class="nav-link">RapidAPI</a>
       <a href="/live.html" style="font:700 11px var(--mono);letter-spacing:0.06em;padding:7px 14px;border-radius:7px;background:rgba(215,59,26,0.08);border:1px solid rgba(215,59,26,0.2);color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.background='rgba(215,59,26,0.15)'" onmouseout="this.style.background='rgba(215,59,26,0.08)'">&#9889; See It Live</a>
       <a href="/pricing.html" class="btn-red">Get API Key →</a>
     </div>
@@ -320,9 +393,16 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   </div>
 </nav>
 <div class="mob">
-  <a href="/docs.html">Documentation</a>
-  <a href="/pricing.html">Pricing</a>
-  <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank">RapidAPI</a>
+  <div style="padding:8px 14px 4px;font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">&#9918; Sports APIs</div>
+  <a href="/pricing.html">&#9889; PropSports API — From $49/mo</a>
+  <a href="/mlb-edge.html">&#9918; MLB Edge Suite — From $29/mo</a>
+  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
+  <div style="padding:8px 14px 4px;font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">&#127968; Real Estate APIs</div>
+  <a href="/propdata-core.html">&#127968; PropData Core — From $49/mo</a>
+  <a href="/propdata-pro.html">&#127942; PropData Pro Stack — From $149/mo</a>
+  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
+  <a href="/docs.html">&#128214; Documentation</a>
+  <a href="/pricing.html">&#128179; Pricing</a>
   <a href="/live.html">&#9889; See It Live</a>
   <a href="/pricing.html" class="btn-red" style="margin-top:12px;text-align:center;">Get API Key →</a>
 </div>
@@ -908,6 +988,119 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   </div>
 </section>
 
+<!-- RELATED APIS FROM THE SAME TEAM -->
+<section style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0;">
+  <div class="wrap">
+    <div class="eyebrow">Also on RapidAPI</div>
+    <h2>More from the<br><em>same pipeline.</em></h2>
+    <p class="section-lead">Every API below is built on the same Cloudflare Workers + Supabase stack. Government-sourced data. Flat monthly pricing. No per-call fees.</p>
+
+    <!-- SPORTS ROW -->
+    <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">&#9918; MLB Intelligence Suite</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:36px;">
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">LIVE NOW</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">PropSports API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">47 endpoints. MLB · NFL · NBA · NHL. Owned Statcast. Poisson model odds. The full bundle.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-almost-bomb-streak-detector" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">EDGE SIGNAL</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Almost Bomb Streak Detector</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Players hitting the ball hard enough to homer — but not clearing the fence yet. 2, 3, 4+ consecutive days. The market prices the box score. You price the Statcast reality.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-pitcher-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">FADE SIGNAL</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Pitcher Intelligence API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Last 5 starts profiled by Statcast contact quality. Hard hit %, barrel %, EV, K9 trend. Punishment score 0–100. Know who to stack against and who to fade.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-lucky-bombs" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">FADE SIGNAL</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Lucky Bombs API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Every HR from yesterday flagged by Statcast quality. Weak EV, bad launch angle, short distance. Public hammers the player. You see the 91mph 340ft gift that wouldn't leave 25 parks.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-ball-flight-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">ATMOSPHERIC</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Ball Flight Intelligence API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Tonight's games scored by real atmospheric physics. Air density from temp, humidity, altitude. Estimated extra carry distance in feet. Coors at 45°F is not the same park as Coors at 85°F.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">COMPOSITE</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Intelligence API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Park factor + wind + temperature → 0–100 HR score per game. Umpire grades A–F. Statcast leaderboards. Three analytics APIs in one.</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- PROP NEWS -->
+    <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">&#9889; News &amp; Intelligence</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:36px;">
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/propbetedge-sports-news" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">AI ENRICHED</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">PropBetEdge Sports News API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">AI-enriched sports news with prop-bet impact scores. MLB · NFL · NBA · NHL. Sentiment, signal score, and player relevance on every article.</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- REAL ESTATE ROW -->
+    <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">&#127968; PropData Real Estate Suite</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:32px;">
+
+      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">165M+ PARCELS</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">PropData Real Estate Market Intelligence</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">The real estate API ATTOM doesn't want you to find. 166M+ parcels, 16 live sources, $49/mo flat. Motivated seller leads, AVM, address autocomplete, flood zones, tax data, and more.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/us-zip-code-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">ZIP INTELLIGENCE</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">US ZIP Code Intelligence API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Demographics, income, housing market, investment signals, flood risk, crime, opportunity zone status, and urban/rural class — all in one call per ZIP.</div>
+        </div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/us-flood-zone-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">FEMA DATA</div>
+          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">US Flood Zone Intelligence API</div>
+          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Pass an address. Get the FEMA flood zone, risk level, SFHA flag, insurance requirement, and plain-English advisory. Every US property.</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center;padding-top:8px;">
+      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:var(--ink);color:#fff;font:700 13px var(--mono);letter-spacing:.05em;border-radius:9px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='#2A2A2A'" onmouseout="this.style.background='var(--ink)'">
+        View All 18 APIs on RapidAPI &rarr;
+      </a>
+      <p style="font:400 12px var(--sans);color:var(--soft);margin-top:12px;">All APIs built by PropTechUSA.ai &middot; Saint Paul, MN &middot; <a href="tel:18887843881" style="color:var(--red);text-decoration:none;">1-888-784-3881</a></p>
+    </div>
+  </div>
+</section>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -1109,5 +1302,6 @@ document.addEventListener('DOMContentLoaded',function(){
   _scoresTimer=setInterval(loadScores,90000);
 });
 </script>
+
 </body>
 </html>

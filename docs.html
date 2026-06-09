@@ -3,485 +3,1076 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Documentation — PropSports API</title>
-<meta name="description" content="Full API documentation for PropSports API. MLB, NFL, NBA, NHL endpoints, authentication, rate limits, response formats, and code examples.">
+<title>Documentation — PropSports API | 47 Endpoints · MLB · NFL · NBA · NHL</title>
+<meta name="description" content="Full API documentation for PropSports API. 47 endpoints covering MLB, NFL, NBA, NHL. Statcast, model odds, live scores, weather, umpires, player props. Authentication, rate limits, and code examples.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://propsports.proptechusa.ai/docs.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-  {"@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},
-    {"@type":"ListItem","position":2,"name":"Documentation","item":"https://propsports.proptechusa.ai/docs.html"}
-  ]},
-  {"@type":"TechArticle","headline":"PropSports API Documentation","description":"Complete developer documentation for PropSports API covering MLB, NFL, NBA, and NHL data endpoints.","url":"https://propsports.proptechusa.ai/docs.html"}
-]}
-</script>
-<link rel="stylesheet" href="/shared.css">
 <style>
-.docs-layout{display:grid;grid-template-columns:240px 1fr;gap:0;max-width:var(--max);margin:0 auto;padding:0 48px;}
-.docs-sidebar{position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;padding:32px 24px 32px 0;border-right:1px solid var(--border);}
-.sidebar-section{margin-bottom:24px;}
-.sidebar-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-.sidebar-link{display:block;padding:6px 10px;font-size:13px;color:var(--muted);text-decoration:none;border-radius:6px;transition:all 0.15s;}
-.sidebar-link:hover,.sidebar-link.active{color:var(--ink);background:var(--off);}
-.docs-content{padding:40px 0 80px 48px;}
-.doc-section{margin-bottom:56px;padding-top:8px;}
-.doc-section h2{font-size:28px;letter-spacing:-0.5px;margin-bottom:12px;}
-.doc-section h3{font-size:18px;font-weight:700;margin-bottom:8px;margin-top:24px;}
-.param-table{width:100%;border-collapse:collapse;margin:16px 0;}
-.param-table th{text-align:left;padding:8px 12px;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);}
-.param-table td{padding:10px 12px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top;}
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{
+  --white:#fff;--off:#F7F6F3;--paper:#EFEFEB;
+  --ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--border:#E2E1DC;
+  --red:#E8321A;--red2:#FF4429;--green:#0BAA5C;--blue:#1B65F0;--gold:#E8A020;
+  --max:1280px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--white);color:var(--ink);font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 24px;}
+.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:8px;}
+.logo-wrap{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);letter-spacing:-0.3px;}
+.logo-text span{color:var(--red);}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all 0.15s;}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);background:var(--off);}
+.btn-nav{padding:7px 16px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;border-radius:7px;text-decoration:none;margin-left:8px;transition:all 0.2s;}
+.btn-nav:hover{background:var(--ink2);}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;margin-left:auto;}
+.hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;inset:0;top:60px;background:white;z-index:150;padding:16px;flex-direction:column;gap:2px;overflow-y:auto;}
+.mobile-menu a{display:block;padding:12px 14px;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border-radius:8px;}
+.mobile-menu a:hover{background:var(--off);}
+
+/* BREADCRUMB */
+.breadcrumb-bar{background:var(--off);border-bottom:1px solid var(--border);padding:11px 28px;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);max-width:var(--max);margin:0 auto;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--ink);}
+
+/* DOCS LAYOUT */
+.docs-wrap{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 100px);}
+
+/* SIDEBAR */
+.docs-sidebar{position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;padding:28px 20px 40px;border-right:1px solid var(--border);scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.docs-sidebar::-webkit-scrollbar{width:3px;}
+.docs-sidebar::-webkit-scrollbar-thumb{background:var(--border);}
+.sb-section{margin-bottom:22px;}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;padding:0 8px;display:block;}
+.sb-link{display:block;padding:5px 8px;font-size:13px;color:var(--muted);text-decoration:none;border-radius:5px;transition:all 0.12s;}
+.sb-link:hover{color:var(--ink);background:var(--off);}
+.sb-link.active{color:var(--ink);background:var(--off);font-weight:600;}
+.sb-link.model{color:var(--red);}
+.sb-link.model:hover,.sb-link.model.active{background:rgba(232,50,26,0.06);}
+
+/* CONTENT */
+.docs-content{padding:40px 52px 100px;min-width:0;}
+.doc-section{margin-bottom:64px;scroll-margin-top:72px;}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+h2{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);margin-bottom:10px;}
+h3{font:700 17px 'Syne',sans-serif;color:var(--ink);margin:22px 0 8px;}
+h4{font:700 14px 'Instrument Sans',sans-serif;color:var(--ink);margin:16px 0 6px;text-transform:uppercase;letter-spacing:0.5px;font-size:11px;color:var(--muted);}
+p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:12px;}
+
+/* CODE BLOCKS */
+.code-block{background:#0D1117;border-radius:10px;overflow:hidden;margin:14px 0;}
+.code-header{padding:9px 16px;background:#161B22;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);}
+.dot{width:9px;height:9px;border-radius:50%;}
+pre{padding:16px 18px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.8;color:#e6edf3;-webkit-overflow-scrolling:touch;}
+pre::-webkit-scrollbar{height:3px;}
+pre::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);}
+.kw{color:#FF7B72;}.str{color:#A5D6FF;}.cm{color:#6E7681;}.fn{color:#D2A8FF;}.url{color:#F2CC60;}.num{color:#79C0FF;}.key{color:#7EE787;}.hl{color:#E6EDF3;font-weight:600;}
+
+/* INLINE CODE */
+code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off);padding:2px 6px;border-radius:4px;color:var(--ink);border:1px solid var(--border);}
+
+/* ALERTS */
+.alert{padding:13px 16px;border-radius:8px;font-size:13px;margin:14px 0;line-height:1.65;}
+.alert-blue{background:rgba(27,101,240,0.05);border-left:3px solid var(--blue);color:var(--ink2);}
+.alert-green{background:rgba(11,170,92,0.05);border-left:3px solid var(--green);color:var(--ink2);}
+.alert-red{background:rgba(232,50,26,0.05);border-left:3px solid var(--red);color:var(--ink2);}
+.alert-gold{background:rgba(232,160,32,0.06);border-left:3px solid var(--gold);color:var(--ink2);}
+
+/* TABLES */
+.param-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;}
+.param-table th{text-align:left;padding:9px 12px;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);background:var(--off);}
+.param-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
 .param-table tr:last-child td{border-bottom:none;}
-.param-name{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue);}
-.param-type{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);}
-.param-req{font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(232,50,26,0.08);color:var(--red);}
-.param-opt{font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;background:var(--off);color:var(--muted);}
-.alert{padding:14px 16px;border-radius:8px;font-size:13px;margin:16px 0;line-height:1.6;}
-.alert-blue{background:rgba(27,101,240,0.06);border-left:3px solid var(--blue);}
-.alert-green{background:rgba(11,170,92,0.06);border-left:3px solid var(--green);}
-@media(max-width:900px){.docs-layout{grid-template-columns:1fr;padding:0 20px;}.docs-sidebar{display:none;}.docs-content{padding:32px 0 60px;}}
-</style>
+.param-table tr:hover td{background:rgba(232,50,26,0.01);}
+.pn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue);}
+.pt{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);}
+.pr{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(232,50,26,0.08);color:var(--red);}
+.po{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:var(--off);color:var(--muted);}
 
+/* ENDPOINT BADGE */
+.ep-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:var(--off);border:1px solid var(--border);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink);margin:8px 0 14px;}
+.get-tag{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(11,170,92,0.1);color:var(--green);border:1px solid rgba(11,170,92,0.25);}
+.get-tag.model{background:rgba(232,50,26,0.08);color:var(--red);border-color:rgba(232,50,26,0.2);}
 
+/* TABS */
+.lang-tabs{display:flex;gap:2px;margin-bottom:0;border-bottom:none;}
+.lang-tab{padding:6px 14px;font-size:11px;font-weight:600;border:none;background:transparent;color:rgba(255,255,255,0.35);cursor:pointer;font-family:'Instrument Sans',sans-serif;border-radius:6px 6px 0 0;transition:all 0.15s;}
+.lang-tab.on{background:#161B22;color:rgba(255,255,255,0.8);}
+.tab-panel{display:none;}
+.tab-panel.on{display:block;}
 
-<style id="psa-footer-css">
-/* ── BASE = MOBILE ─────────────────────────────────────── */
-.psa-ft { background:#141412; color:#fff; position:relative; overflow:hidden; }
-.psa-ft::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
-.psa-ft-red  { height:2px; background:linear-gradient(90deg,transparent,#D73B1A 30%,#D73B1A 70%,transparent); position:relative; z-index:1; }
+/* RESPONSE CHIPS */
+.resp-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+.resp-chip{font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.06em;padding:4px 10px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:var(--off);}
+.resp-chip.green{border-color:rgba(11,170,92,0.25);color:var(--green);background:rgba(11,170,92,0.05);}
+.resp-chip.red{border-color:rgba(232,50,26,0.25);color:var(--red);background:rgba(232,50,26,0.05);}
 
-/* powered-by strip */
-.psa-ft-pb  { background:rgba(215,59,26,0.06); border-bottom:1px solid rgba(215,59,26,0.12); padding:14px 16px; position:relative; z-index:1; }
-.psa-ft-pb-in { display:flex; flex-direction:column; align-items:stretch; gap:8px; max-width:1280px; margin:0 auto; }
-.psa-ft-pb-label { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.25); text-align:center; }
-.psa-ft-pb-link { display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; padding:8px 14px; border-radius:20px; transition:all 0.2s; }
-.psa-ft-pb-link-red  { background:rgba(215,59,26,0.1); border:1px solid rgba(215,59,26,0.3); }
-.psa-ft-pb-link-red:hover  { background:rgba(215,59,26,0.2); }
-.psa-ft-pb-link-blue { background:rgba(27,95,191,0.08); border:1px solid rgba(27,95,191,0.2); }
-.psa-ft-pb-link-blue:hover { background:rgba(27,95,191,0.18); }
-.psa-ft-pb-name { font:700 12px 'JetBrains Mono',monospace; letter-spacing:0.06em; color:#fff; }
-.psa-ft-pb-sub  { font:400 10px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.35); }
-.psa-ft-pb-arr  { color:rgba(255,255,255,0.3); font-size:10px; }
+/* CTA BOX */
+.cta-box{padding:32px;background:var(--off);border:1px solid var(--border);border-radius:16px;text-align:center;margin-top:48px;}
+.cta-box h3{font:800 22px 'Syne',sans-serif;margin-bottom:8px;}
+.cta-box p{color:var(--muted);font-size:14px;margin:0 0 20px;}
+.btn-red{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--red);color:white;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(232,50,26,0.25);}
+.btn-red:hover{background:var(--red2);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:transparent;color:var(--ink);font-weight:600;font-size:13px;border-radius:10px;text-decoration:none;border:1.5px solid var(--border);transition:all 0.2s;}
+.btn-outline:hover{border-color:#aaa;background:var(--off);}
 
-/* main grid */
-.psa-ft-body { position:relative; z-index:1; }
-.psa-ft-grid { display:grid; grid-template-columns:1fr; gap:0; padding:28px 16px 16px; max-width:1280px; margin:0 auto; }
+/* FOOTER */
+.psa-ft{background:#141412;color:#fff;position:relative;overflow:hidden;}
+.psa-ft::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.psa-ft-red{height:2px;background:linear-gradient(90deg,transparent,#D73B1A 30%,#D73B1A 70%,transparent);position:relative;z-index:1;}
+.psa-ft-body{position:relative;z-index:1;}
+.psa-ft-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:44px;padding:52px 28px 36px;max-width:1280px;margin:0 auto;}
+.psa-ft-logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-bottom:12px;}
+.psa-ft-logo-t{font:800 17px 'Syne',sans-serif;letter-spacing:0.5px;color:#fff;}
+.psa-ft-logo-t span{color:#D73B1A;}
+.psa-ft-desc{font-size:13px;color:rgba(255,255,255,0.32);line-height:1.75;margin:0 0 16px;max-width:230px;}
+.psa-ft-col-h{font:700 9px 'JetBrains Mono',monospace;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);display:block;margin-bottom:12px;}
+.psa-ft-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.psa-ft-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.15s;}
+.psa-ft-links a:hover{color:#fff;}
+.psa-ft-base{border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:1;}
+.psa-ft-base-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:16px 28px;max-width:1280px;margin:0 auto;}
+.psa-ft-copy{font:400 11px 'JetBrains Mono',monospace;color:rgba(255,255,255,0.18);}
+.psa-ft-badges{display:flex;flex-wrap:wrap;gap:5px;}
+.psa-ft-badge{font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.06em;padding:3px 9px;border-radius:20px;border:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.18);}
 
-/* brand col */
-.psa-ft-brand { padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:0; }
-.psa-ft-logo  { display:flex; align-items:center; gap:9px; text-decoration:none; margin-bottom:12px; }
-.psa-ft-logo-t { font:800 17px 'Syne','DM Sans',sans-serif; letter-spacing:0.5px; color:#fff; }
-.psa-ft-logo-t span { color:#D73B1A; }
-.psa-ft-desc  { font-size:13px; color:rgba(255,255,255,0.32); line-height:1.75; margin:0 0 16px; max-width:280px; }
-.psa-ft-phone { display:inline-flex; align-items:center; gap:8px; text-decoration:none; margin-bottom:14px; color:rgba(255,255,255,0.45); font:500 13px 'DM Sans',sans-serif; }
-.psa-ft-phone-ic { width:30px; height:30px; border-radius:7px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.09); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.psa-ft-socials { display:flex; gap:7px; flex-wrap:wrap; }
-.psa-ft-soc { width:34px; height:34px; border-radius:7px; display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.45); transition:all 0.2s; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
-.psa-ft-soc:hover { background:rgba(255,255,255,0.1); color:#fff; }
-
-/* link columns */
-.psa-ft-col { padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
-.psa-ft-col:last-child { border-bottom:none; padding-bottom:8px; }
-.psa-ft-col-h { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2); display:block; margin-bottom:12px; }
-.psa-ft-links { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
-.psa-ft-links a { font-size:13px; color:rgba(255,255,255,0.45); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color 0.15s; }
-.psa-ft-links a:hover { color:#fff; }
-.psa-ft-links .psa-ft-link-blue { color:#4D9EFF !important; }
-.psa-ft-links .psa-ft-link-blue:hover { color:#80bfff !important; }
-.psa-ft-ext-arr { font-size:9px; opacity:0.4; }
-
-/* bottom bar */
-.psa-ft-base { border-top:1px solid rgba(255,255,255,0.06); position:relative; z-index:1; }
-.psa-ft-base-in { display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:14px 16px; max-width:1280px; margin:0 auto; }
-.psa-ft-copy { font:400 11px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.18); }
-.psa-ft-badges { display:flex; flex-wrap:wrap; gap:5px; }
-.psa-ft-badge { font:600 9px 'JetBrains Mono',monospace; letter-spacing:0.06em; padding:3px 9px; border-radius:20px; border:1px solid rgba(255,255,255,0.07); color:rgba(255,255,255,0.18); }
-
-/* ── TABLET 640px ──────────────────────────────────────── */
-@media(min-width:640px) {
-  .psa-ft-grid { grid-template-columns:1fr 1fr; gap:0 28px; padding:36px 24px 20px; }
-  .psa-ft-brand { grid-column:1/-1; }
-  .psa-ft-pb-in { flex-direction:row; align-items:center; justify-content:center; gap:16px; }
-  .psa-ft-pb-link { flex:none; }
-  .psa-ft-pb-label { flex:none; }
-  .psa-ft-base-in { flex-direction:row; align-items:center; justify-content:space-between; }
+/* RESPONSIVE */
+@media(max-width:960px){
+  .docs-wrap{grid-template-columns:1fr;}
+  .docs-sidebar{display:none;}
+  .docs-content{padding:28px 20px 80px;}
+  .psa-ft-grid{grid-template-columns:1fr;gap:20px;padding:28px 16px;}
+  .psa-ft-base-in{flex-direction:column;text-align:center;padding:14px 16px;}
 }
-
-/* ── DESKTOP 1024px ────────────────────────────────────── */
-@media(min-width:1024px) {
-  .psa-ft-grid { grid-template-columns:2.2fr 1fr 1fr 1fr; gap:44px; padding:52px 28px 36px; }
-  .psa-ft-brand { grid-column:auto; border-bottom:none; padding-bottom:0; }
-  .psa-ft-col { border-bottom:none; padding:0; }
-  .psa-ft-desc { max-width:230px; }
-  .psa-ft-base-in { padding:16px 28px; }
-  .psa-ft-pb-in { padding:0 28px; }
-}
-</style>
-
-<style id="psa-nav-mobile">
 @media(max-width:768px){
-  /* Hide nav-r links/buttons, keep only hamburger */
-  .nav-r > a { display:none !important; }
-  .nav-r > button.btn-red { display:none !important; }
-  .ham { display:flex !important; }
-  nav { padding:0 14px !important; }
-  /* Nav sports pills */
-  .nav-sports, .nav-tag { display:none !important; }
-}
-</style>
-
-<style id="psa-overflow">
-html,body{overflow-x:hidden!important;max-width:100vw;}
-*{box-sizing:border-box;}
-@media(max-width:768px){
-  section,main,article{overflow-x:hidden!important;}
-  .hero-inner{grid-template-columns:1fr!important;padding:0 16px!important;gap:28px!important;}
-  .hero-inner>div{min-width:0;overflow-wrap:break-word;word-break:break-word;}
-  .hero-lead{max-width:100%!important;overflow-wrap:break-word!important;}
-  h1{word-break:break-word!important;}
-  .stats-inner,.stat-inner{flex-wrap:wrap!important;}
-  .si,.stat-item{width:50%!important;}
-  #scores-grid{grid-template-columns:1fr 1fr!important;gap:8px!important;}
-  .feat-grid,.p-grid,.use-grid,.powers-grid,.compare-grid{grid-template-columns:1fr!important;}
-  .cta-btns{flex-direction:column!important;align-items:stretch!important;}
-  .cta-btns a{text-align:center!important;justify-content:center!important;}
-}
-@media(max-width:400px){
-  #scores-grid{grid-template-columns:1fr!important;}
+  nav{padding:0 16px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .breadcrumb-bar{padding:11px 16px;}
 }
 </style>
 </head>
 <body>
-<div class="balls-bg" id="balls-bg"></div>
+
 <nav>
-  <a href="/" class="logo-wrap"><svg class="logo-icon" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E8321A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg><span class="logo-text">Prop<span>Sports</span> API</span></a>
-  <ul class="nav-menu">
-    <li><a href="/mlb.html">MLB</a></li><li><a href="/nfl.html">NFL</a></li><li><a href="/nba.html">NBA</a></li><li><a href="/nhl.html">NHL</a></li>
-    <li><a href="/docs.html" class="active">Docs</a></li><li><a href="/pricing.html">Pricing</a></li>
-    <li><a href="/pricing.html" class="btn-nav">Get API Key</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <div class="nav-inner">
+    <a href="/" class="logo-wrap">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E8321A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+      <span class="logo-text">Prop<span>Sports</span> API</span>
+    </a>
+    <div class="nav-links">
+      <a href="/mlb.html">MLB</a>
+      <a href="/nfl.html">NFL</a>
+      <a href="/nba.html">NBA</a>
+      <a href="/nhl.html">NHL</a>
+      <a href="/docs.html" class="active">Docs</a>
+      <a href="/pricing.html">Pricing</a>
+    </div>
+    <a href="/pricing.html" class="btn-nav">Get API Key</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/" onclick="toggleMenu()">← Home</a>
-  <a href="/mlb.html" onclick="toggleMenu()">⚾ MLB API</a><a href="/nfl.html" onclick="toggleMenu()">🏈 NFL API</a>
-  <a href="/nba.html" onclick="toggleMenu()">🏀 NBA API</a><a href="/nhl.html" onclick="toggleMenu()">🏒 NHL API</a>
-  <a href="/docs.html" onclick="toggleMenu()">📖 Docs</a><a href="/pricing.html" onclick="toggleMenu()">💳 Pricing</a>
-  <a href="/pricing.html" class="btn-nav" onclick="toggleMenu()">Get API Key →</a>
+  <a href="/" onclick="toggleMenu()">&#8592; Home</a>
+  <a href="/mlb.html" onclick="toggleMenu()">&#9918; MLB API</a>
+  <a href="/nfl.html" onclick="toggleMenu()">&#127944; NFL API</a>
+  <a href="/nba.html" onclick="toggleMenu()">&#127936; NBA API</a>
+  <a href="/nhl.html" onclick="toggleMenu()">&#127944; NHL API</a>
+  <a href="/docs.html" onclick="toggleMenu()">&#128214; Docs</a>
+  <a href="/pricing.html" onclick="toggleMenu()">&#128179; Pricing</a>
+  <a href="/pricing.html" class="btn-nav" style="text-align:center;display:block;margin-top:12px;" onclick="toggleMenu()">Get API Key &rarr;</a>
 </div>
 
-<div style="background:var(--off);border-bottom:1px solid var(--border);padding:14px 48px;position:relative;z-index:1;">
-  <nav class="breadcrumb" style="padding:0;"><a href="/">Home</a><span class="bc-sep">›</span><span>Documentation</span></nav>
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb">
+    <a href="/">Home</a>
+    <span style="opacity:0.4;">&rsaquo;</span>
+    <span>Documentation</span>
+    <span style="opacity:0.4;">&rsaquo;</span>
+    <span>v4.2</span>
+  </nav>
 </div>
 
-<div class="docs-layout">
+<div class="docs-wrap">
+
+  <!-- SIDEBAR -->
   <aside class="docs-sidebar">
-    <div class="sidebar-section">
-      <div class="sidebar-label">Getting Started</div>
-      <a href="#overview" class="sidebar-link active">Overview</a>
-      <a href="#auth" class="sidebar-link">Authentication</a>
-      <a href="#base-url" class="sidebar-link">Base URL</a>
-      <a href="#rate-limits" class="sidebar-link">Rate Limits</a>
-      <a href="#errors" class="sidebar-link">Error Handling</a>
+    <div class="sb-section">
+      <span class="sb-label">Getting Started</span>
+      <a href="#overview" class="sb-link active">Overview</a>
+      <a href="#auth" class="sb-link">Authentication</a>
+      <a href="#base-url" class="sb-link">Base URL &amp; Headers</a>
+      <a href="#rate-limits" class="sb-link">Rate Limits</a>
+      <a href="#errors" class="sb-link">Errors &amp; Status Codes</a>
+      <a href="#demo-key" class="sb-link">Demo Key</a>
+      <a href="#rapidapi" class="sb-link">RapidAPI</a>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">⚾ MLB</div>
-      <a href="#mlb-schedule" class="sidebar-link">Schedule</a>
-      <a href="#mlb-lineups" class="sidebar-link">Lineups</a>
-      <a href="#mlb-statcast" class="sidebar-link">Statcast</a>
-      <a href="#mlb-weather" class="sidebar-link">Weather</a>
-      <a href="#mlb-umpires" class="sidebar-link">Umpires</a>
+    <div class="sb-section">
+      <span class="sb-label">&#9889; Model Odds</span>
+      <a href="#model-all" class="sb-link model">GET /mlb/odds/model</a>
+      <a href="#model-top" class="sb-link model">GET /mlb/odds/model/top</a>
+      <a href="#model-player" class="sb-link model">GET /mlb/odds/model/player</a>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">🏈 NFL</div>
-      <a href="#nfl-schedule" class="sidebar-link">Schedule</a>
-      <a href="#nfl-odds" class="sidebar-link">Odds</a>
+    <div class="sb-section">
+      <span class="sb-label">&#9918; MLB — Odds</span>
+      <a href="#mlb-odds-hr" class="sb-link">GET /mlb/odds/hr</a>
+      <a href="#mlb-odds-tb" class="sb-link">GET /mlb/odds/totalbases</a>
+      <a href="#mlb-odds-hits" class="sb-link">GET /mlb/odds/hits</a>
+      <a href="#mlb-odds-ks" class="sb-link">GET /mlb/odds/strikeouts</a>
+      <a href="#mlb-odds-rbi" class="sb-link">GET /mlb/odds/rbi</a>
+      <a href="#mlb-odds-all" class="sb-link">GET /mlb/odds/all</a>
+      <a href="#mlb-odds-player" class="sb-link">GET /mlb/odds/player</a>
+      <a href="#mlb-odds-game" class="sb-link">GET /mlb/odds</a>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">🏀 NBA</div>
-      <a href="#nba-schedule" class="sidebar-link">Schedule</a>
-      <a href="#nba-leaders" class="sidebar-link">Leaders</a>
+    <div class="sb-section">
+      <span class="sb-label">&#9918; MLB — Schedule</span>
+      <a href="#mlb-schedule-today" class="sb-link">GET /mlb/schedule/today</a>
+      <a href="#mlb-schedule" class="sb-link">GET /mlb/schedule</a>
+      <a href="#mlb-live" class="sb-link">GET /mlb/games/live</a>
+      <a href="#mlb-lineups" class="sb-link">GET /mlb/lineups</a>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">🏒 NHL</div>
-      <a href="#nhl-schedule" class="sidebar-link">Schedule</a>
-      <a href="#nhl-standings" class="sidebar-link">Standings</a>
+    <div class="sb-section">
+      <span class="sb-label">&#9918; MLB — Game</span>
+      <a href="#mlb-linescore" class="sb-link">GET /mlb/game/:id/linescore</a>
+      <a href="#mlb-boxscore" class="sb-link">GET /mlb/game/:id/boxscore</a>
+      <a href="#mlb-plays" class="sb-link">GET /mlb/game/:id/plays</a>
+    </div>
+    <div class="sb-section">
+      <span class="sb-label">&#9918; MLB — Player &amp; Data</span>
+      <a href="#mlb-player-stats" class="sb-link">GET /mlb/player/:id/stats</a>
+      <a href="#mlb-player-gamelog" class="sb-link">GET /mlb/player/:id/gamelog</a>
+      <a href="#mlb-statcast-batters" class="sb-link">GET /mlb/statcast/batters</a>
+      <a href="#mlb-statcast-pitchers" class="sb-link">GET /mlb/statcast/pitchers</a>
+      <a href="#mlb-weather" class="sb-link">GET /mlb/weather</a>
+      <a href="#mlb-weather-all" class="sb-link">GET /mlb/weather/all</a>
+      <a href="#mlb-umpires" class="sb-link">GET /mlb/umpires</a>
+    </div>
+    <div class="sb-section">
+      <span class="sb-label">&#127944; NFL</span>
+      <a href="#nfl-schedule" class="sb-link">GET /nfl/schedule</a>
+      <a href="#nfl-live" class="sb-link">GET /nfl/games/live</a>
+      <a href="#nfl-odds" class="sb-link">GET /nfl/odds</a>
+    </div>
+    <div class="sb-section">
+      <span class="sb-label">&#127936; NBA</span>
+      <a href="#nba-schedule" class="sb-link">GET /nba/schedule/today</a>
+      <a href="#nba-live" class="sb-link">GET /nba/games/live</a>
+      <a href="#nba-boxscore" class="sb-link">GET /nba/game/:id/boxscore</a>
+      <a href="#nba-plays" class="sb-link">GET /nba/game/:id/plays</a>
+      <a href="#nba-lineup" class="sb-link">GET /nba/game/:id/lineup</a>
+      <a href="#nba-shotchart" class="sb-link">GET /nba/game/:id/shotchart</a>
+      <a href="#nba-winprob" class="sb-link">GET /nba/game/:id/winprob</a>
+      <a href="#nba-leaders" class="sb-link">GET /nba/leaders</a>
+      <a href="#nba-odds" class="sb-link">GET /nba/odds</a>
+    </div>
+    <div class="sb-section">
+      <span class="sb-label">&#127944; NHL</span>
+      <a href="#nhl-schedule" class="sb-link">GET /nhl/schedule/today</a>
+      <a href="#nhl-live" class="sb-link">GET /nhl/games/live</a>
+      <a href="#nhl-standings" class="sb-link">GET /nhl/standings</a>
+      <a href="#nhl-leaders" class="sb-link">GET /nhl/leaders</a>
+      <a href="#nhl-player" class="sb-link">GET /nhl/player/:id/stats</a>
+      <a href="#nhl-odds" class="sb-link">GET /nhl/odds</a>
     </div>
   </aside>
 
+  <!-- MAIN CONTENT -->
   <div class="docs-content">
+
+    <!-- OVERVIEW -->
     <div class="doc-section" id="overview">
-      <div class="eyebrow">Getting Started</div>
+      <div class="eyebrow">v4.2 &mdash; Updated June 2026</div>
       <h2>Overview</h2>
-      <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:16px;">PropSports API is a REST API providing real-time sports data for MLB, NFL, NBA, and NHL. All responses are JSON. All endpoints use GET requests. No API key required on the free tier.</p>
-      <div class="alert alert-green">✅ The free tier (MLB, 1,000 req/day) requires no authentication. Just make requests directly.</div>
+      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, and NHL. 47 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
+      <p>What makes PropSports different from every other sports API: we own our Statcast data pipeline and we generate our own Poisson model odds from it. No DraftKings. No FanDuel. No sportsbook dependency. The <code>/mlb/odds/model/*</code> family of endpoints has no equivalent anywhere else at this price point.</p>
+      <div class="resp-chips">
+        <span class="resp-chip green">47 endpoints</span>
+        <span class="resp-chip green">MLB &middot; NFL &middot; NBA &middot; NHL</span>
+        <span class="resp-chip">JSON only</span>
+        <span class="resp-chip">GET requests</span>
+        <span class="resp-chip">CORS enabled</span>
+        <span class="resp-chip">Cloudflare edge</span>
+      </div>
+      <div class="alert alert-gold">&#9889; <strong>New in v4.2:</strong> No free tier. RapidAPI tiers now map to correct daily limits (Basic 50K, Pro 200K, Ultra 500K). Demo key is evaluation-only MLB, 20 req/hr global cap.</div>
     </div>
 
+    <!-- AUTH -->
     <div class="doc-section" id="auth">
       <h2>Authentication</h2>
-      <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Pass your API key as a header on paid plans:</p>
+      <p>Pass your API key in the <code>X-API-Key</code> request header or as a <code>?key=</code> query param. The demo key works without any header for MLB evaluation.</p>
       <div class="code-block">
-        <div class="code-header"><div class="dot" style="background:#ff5f57"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#28c840"></div><span style="margin-left:6px">Request</span></div>
-        <pre><span class="cm"># With API key (paid plans)</span>
-curl https://propsports-api.sales-fd3.workers.dev<span class="url">/mlb/schedule/today</span> \
+        <div class="code-header"><div class="dot" style="background:#ff5f57"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#28c840"></div><span>cURL — authenticated</span></div>
+        <pre><span class="cm"># Header auth (recommended)</span>
+curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today</span> \
   -H <span class="str">"X-API-Key: your_api_key_here"</span>
 
-<span class="cm"># Free tier — no auth needed</span>
-curl https://propsports-api.sales-fd3.workers.dev<span class="url">/mlb/schedule/today</span></pre>
+<span class="cm"># Query param auth (also works)</span>
+curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today?key=your_api_key_here</span>
+
+<span class="cm"># Demo key — MLB eval only, 20 req/hr global cap</span>
+curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today?key=psa_demo_propsports2026</span></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-header"><span>JavaScript</span></div>
+        <pre><span class="kw">const</span> BASE = <span class="str">'https://propsports-api.sales-fd3.workers.dev'</span>;
+<span class="kw">const</span> KEY  = <span class="str">'your_api_key_here'</span>;
+
+<span class="kw">const</span> data = <span class="kw">await</span> <span class="fn">fetch</span>(`${BASE}/mlb/schedule/today`, {
+  headers: { <span class="str">'X-API-Key'</span>: KEY }
+}).then(r => r.json());
+
+<span class="fn">console</span>.log(data.games);</pre>
+      </div>
+      <div class="code-block">
+        <div class="code-header"><span>Python</span></div>
+        <pre><span class="kw">import</span> requests
+
+BASE = <span class="str">"https://propsports-api.sales-fd3.workers.dev"</span>
+KEY  = <span class="str">"your_api_key_here"</span>
+
+r = requests.get(f<span class="str">"{BASE}/mlb/schedule/today"</span>, headers={<span class="str">"X-API-Key"</span>: KEY})
+data = r.json()
+<span class="fn">print</span>(data[<span class="str">"games"</span>])</pre>
       </div>
     </div>
 
+    <!-- BASE URL -->
     <div class="doc-section" id="base-url">
-      <h2>Base URL</h2>
+      <h2>Base URL &amp; Headers</h2>
       <div class="code-block">
-        <div class="code-header"><div class="dot" style="background:#ff5f57"></div><span style="margin-left:6px">Base URL</span></div>
+        <div class="code-header"><span>Base URL</span></div>
         <pre><span class="url">https://propsports-api.sales-fd3.workers.dev</span></pre>
       </div>
-      <div class="alert alert-blue">💡 All endpoints are prefixed by sport: /mlb/, /nfl/, /nba/, /nhl/</div>
+      <table class="param-table">
+        <thead><tr><th>Header</th><th>Value</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">X-API-Key</td><td><code>your_key</code></td><td>Required for NFL, NBA, NHL and paid MLB access</td></tr>
+          <tr><td class="pn">Content-Type</td><td>Not required</td><td>All responses are JSON regardless</td></tr>
+          <tr><td class="pn">Origin</td><td>Any</td><td>CORS enabled &mdash; all origins allowed</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-blue">&#128161; All endpoints return <code>Cache-Control: public, max-age=N</code>. Live game endpoints cache for 10&ndash;30s. Statcast leaderboards cache for 900s. Factor this into polling intervals.</div>
     </div>
 
+    <!-- RATE LIMITS -->
     <div class="doc-section" id="rate-limits">
       <h2>Rate Limits</h2>
       <table class="param-table">
-        <thead><tr><th>Plan</th><th>Requests/Day</th><th>Sports</th></tr></thead>
+        <thead><tr><th>Plan</th><th>Daily Requests</th><th>Sports</th><th>API Keys</th><th>Price</th></tr></thead>
         <tbody>
-          <tr><td>Starter (Free)</td><td>1,000</td><td>MLB only</td></tr>
-          <tr><td>Pro Sport ($9)</td><td>50,000</td><td>1 sport</td></tr>
-          <tr><td>Full Bundle ($24)</td><td>200,000</td><td>All 4 sports</td></tr>
-          <tr><td>Enterprise</td><td>Unlimited</td><td>All + custom</td></tr>
+          <tr><td>Demo</td><td>20 req/hr (global cap)</td><td>MLB only</td><td>Shared public key</td><td>$0</td></tr>
+          <tr><td>Basic</td><td>50,000</td><td>All 4</td><td>1</td><td>$49/mo</td></tr>
+          <tr><td>Pro</td><td>200,000</td><td>All 4</td><td>3</td><td>$99/mo</td></tr>
+          <tr><td>Ultra</td><td>500,000</td><td>All 4</td><td>10</td><td>$249/mo</td></tr>
+          <tr><td>Mega/Enterprise</td><td>Unmetered</td><td>All 4 + custom</td><td>Unlimited</td><td>$1,500+/mo</td></tr>
+        </tbody>
+      </table>
+      <p>Daily limits reset at midnight UTC. Rate limit exceeded returns <code>429</code> with a JSON error body.</p>
+      <div class="alert alert-red">&#128683; <strong>No free tier.</strong> The demo key (<code>psa_demo_propsports2026</code>) is a shared evaluation key subject to a global 20 req/hr cap across all callers. It is not suitable for production. Subscribe at Basic $49/mo for your own key with 50K req/day.</div>
+    </div>
+
+    <!-- ERRORS -->
+    <div class="doc-section" id="errors">
+      <h2>Errors &amp; Status Codes</h2>
+      <p>All errors return a JSON body with an <code>error</code> field, an optional <code>hint</code>, and links to docs and pricing.</p>
+      <div class="code-block">
+        <div class="code-header"><span>Error response shape</span></div>
+        <pre>{
+  <span class="key">"error"</span>:   <span class="str">"Active paid RapidAPI subscription required."</span>,
+  <span class="key">"hint"</span>:    <span class="str">"Subscribe at rapidapi.com/team/propdata-propdata-default"</span>,
+  <span class="key">"docs"</span>:    <span class="str">"https://propsports.proptechusa.ai/docs.html"</span>,
+  <span class="key">"pricing"</span>: <span class="str">"https://propsports.proptechusa.ai/pricing.html"</span>
+}</pre>
+      </div>
+      <table class="param-table">
+        <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">200</td><td>OK</td></tr>
+          <tr><td class="pn">400</td><td>Bad request &mdash; missing or invalid parameter</td></tr>
+          <tr><td class="pn">401</td><td>Invalid or missing API key</td></tr>
+          <tr><td class="pn">402</td><td>No active paid subscription (RapidAPI callers)</td></tr>
+          <tr><td class="pn">403</td><td>Your plan does not include this sport or endpoint</td></tr>
+          <tr><td class="pn">404</td><td>Endpoint not found &mdash; check the path</td></tr>
+          <tr><td class="pn">429</td><td>Daily rate limit or demo hourly cap exceeded</td></tr>
+          <tr><td class="pn">500</td><td>Internal server error &mdash; upstream API failure</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="doc-section" id="errors">
-      <h2>Error Handling</h2>
-      <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">All errors return JSON with an <code style="font-family:'JetBrains Mono',monospace;background:var(--off);padding:1px 6px;border-radius:3px;">error</code> field:</p>
+    <!-- DEMO KEY -->
+    <div class="doc-section" id="demo-key">
+      <h2>Demo Key</h2>
+      <p>The shared demo key lets you evaluate MLB response shapes before subscribing. It is intentionally limited.</p>
       <div class="code-block">
-        <div class="code-header"><div class="dot" style="background:#ff5f57"></div><span style="margin-left:6px">Error Response</span></div>
-        <pre>{
-  <span class="str">"error"</span>: <span class="str">"park param required"</span>
-}
+        <div class="code-header"><span>Demo key</span></div>
+        <pre>psa_demo_propsports2026</pre>
+      </div>
+      <table class="param-table">
+        <thead><tr><th>Constraint</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Sports covered</td><td>MLB only</td></tr>
+          <tr><td>Rate limit</td><td>20 req/hr &mdash; global across all demo callers</td></tr>
+          <tr><td>SLA</td><td>None &mdash; shared key may be exhausted at peak hours</td></tr>
+          <tr><td>Production use</td><td>Not allowed</td></tr>
+          <tr><td>Attribution</td><td>PropSports API must be credited</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-<span class="cm">// HTTP Status Codes:</span>
-<span class="num">200</span> OK
-<span class="num">400</span> Bad Request (missing param)
-<span class="num">404</span> Not Found (endpoint doesn't exist)
-<span class="num">429</span> Rate Limit Exceeded
-<span class="num">500</span> Internal Server Error</pre>
+    <!-- RAPIDAPI -->
+    <div class="doc-section" id="rapidapi">
+      <h2>RapidAPI</h2>
+      <p>PropSports API is also available on RapidAPI. Subscription tier maps directly to your daily limit.</p>
+      <div class="code-block">
+        <div class="code-header"><span>RapidAPI links</span></div>
+        <pre><span class="cm"># Team / Hub page</span>
+<span class="url">https://rapidapi.com/team/propdata-propdata-default</span>
+
+<span class="cm"># Direct API listing</span>
+<span class="url">https://rapidapi.com/propdata-propdata-default/api/propsports</span></pre>
+      </div>
+      <table class="param-table">
+        <thead><tr><th>RapidAPI Tier</th><th>Daily Requests</th><th>Maps To</th></tr></thead>
+        <tbody>
+          <tr><td>BASIC</td><td>50,000</td><td>Basic plan</td></tr>
+          <tr><td>PRO</td><td>200,000</td><td>Pro plan</td></tr>
+          <tr><td>ULTRA</td><td>500,000</td><td>Ultra plan</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-blue">&#128161; RapidAPI callers are authenticated via <code>X-RapidAPI-User</code> and <code>X-RapidAPI-Subscription</code> headers injected by RapidAPI's proxy. Your <code>X-API-Key</code> header is not required when calling through RapidAPI. Any unauthenticated or unpaid caller receives <code>402</code>.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- MODEL ODDS                                      -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="doc-section" id="model-all">
+      <div class="eyebrow">&#9889; Proprietary &mdash; No Competitor Offers This</div>
+      <h2>GET /mlb/odds/model</h2>
+      <div class="ep-badge"><span class="get-tag model">GET</span>/mlb/odds/model</div>
+      <p>All PropBetEdge Poisson model odds for today. Grouped by market. Generated from owned Statcast data &mdash; no DraftKings, no FanDuel dependency. Refreshed 6&times; daily: 8AM, 10AM, 12PM, 2PM, 5PM, 8PM CT.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">market</td><td class="pt">string</td><td><span class="po">optional</span></td><td>Filter by market: <code>hr</code>, <code>totalbases</code>, <code>hits</code>, <code>strikeouts</code>, <code>rbi</code>, <code>runs</code></td></tr>
+          <tr><td class="pn">player</td><td class="pt">string</td><td><span class="po">optional</span></td><td>Filter by player name substring. e.g. <code>Soto</code></td></tr>
+          <tr><td class="pn">direction</td><td class="pt">string</td><td><span class="po">optional</span></td><td><code>OVER</code> or <code>UNDER</code></td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-header"><div class="dot" style="background:#ff5f57"></div><span>Response</span></div>
+        <pre>{
+  <span class="key">"date"</span>: <span class="str">"2026-06-09"</span>,
+  <span class="key">"source"</span>: <span class="str">"PropBetEdge Poisson Model"</span>,
+  <span class="key">"model"</span>: <span class="str">"Statcast xSLG + barrel% + EV allowed + park factor"</span>,
+  <span class="key">"total"</span>: <span class="num">184</span>,
+  <span class="key">"markets"</span>: {
+    <span class="key">"hr"</span>: [ ... ],
+    <span class="key">"totalbases"</span>: [ ... ],
+    <span class="key">"hits"</span>: [ ... ]
+  },
+  <span class="key">"top_value"</span>: [
+    {
+      <span class="key">"player_name"</span>: <span class="str">"Aaron Judge"</span>,
+      <span class="key">"market"</span>: <span class="str">"hr"</span>,
+      <span class="key">"line"</span>: <span class="num">0.5</span>,
+      <span class="key">"direction"</span>: <span class="str">"OVER"</span>,
+      <span class="key">"expected_stat"</span>: <span class="num">0.38</span>,
+      <span class="key">"implied_prob"</span>: <span class="num">0.314</span>,
+      <span class="key">"odds_fmt"</span>: <span class="str">"+310"</span>
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+
+    <div class="doc-section" id="model-top">
+      <h2>GET /mlb/odds/model/top</h2>
+      <div class="ep-badge"><span class="get-tag model">GET</span>/mlb/odds/model/top</div>
+      <p>Top OVER value plays for today ranked by expected stat. Returns only positive-odds plays (implied prob &lt; 50%). The fastest way to surface model edges.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">limit</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>Max results. Default: 20. Max: 200.</td></tr>
+          <tr><td class="pn">market</td><td class="pt">string</td><td><span class="po">optional</span></td><td>Filter to one market. Default: all markets.</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-header"><span>JavaScript</span></div>
+        <pre><span class="kw">const</span> plays = <span class="kw">await</span> <span class="fn">fetch</span>(
+  <span class="str">'https://propsports-api.sales-fd3.workers.dev/mlb/odds/model/top?limit=10'</span>,
+  { headers: { <span class="str">'X-API-Key'</span>: KEY } }
+).then(r => r.json());
+
+plays.plays.forEach(p => {
+  <span class="fn">console</span>.log(`${p.player_name} ${p.market} OVER ${p.line} → ${p.odds_fmt}`);
+});</pre>
+      </div>
+    </div>
+
+    <div class="doc-section" id="model-player">
+      <h2>GET /mlb/odds/model/player</h2>
+      <div class="ep-badge"><span class="get-tag model">GET</span>/mlb/odds/model/player</div>
+      <p>All model markets for a single player. Returns HR, total bases, hits, strikeouts, RBI, and runs in one call.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">name</td><td class="pt">string</td><td><span class="pr">required</span></td><td>Player name substring. e.g. <code>Soto</code> or <code>Aaron Judge</code></td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-header"><span>cURL</span></div>
+        <pre>curl "<span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/odds/model/player?name=Soto</span>" \
+  -H <span class="str">"X-API-Key: your_key"</span></pre>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- MLB BOOK ODDS                                   -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="doc-section" id="mlb-odds-hr">
+      <h2>GET /mlb/odds/hr</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/hr</div>
+      <p>Home run props from DraftKings and FanDuel, merged and ranked by best line. No sportsbook key required.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">name</td><td class="pt">string</td><td><span class="po">optional</span></td><td>Filter by player name substring</td></tr>
+          <tr><td class="pn">direction</td><td class="pt">string</td><td><span class="po">optional</span></td><td><code>OVER</code> or <code>UNDER</code></td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-header"><span>Response</span></div>
+        <pre>{
+  <span class="key">"date"</span>: <span class="str">"2026-06-09"</span>,
+  <span class="key">"market"</span>: <span class="str">"home_runs"</span>,
+  <span class="key">"dk_count"</span>: <span class="num">72</span>,
+  <span class="key">"fd_count"</span>: <span class="num">68</span>,
+  <span class="key">"count"</span>: <span class="num">86</span>,
+  <span class="key">"source"</span>: <span class="str">"DraftKings + FanDuel"</span>,
+  <span class="key">"results"</span>: [
+    {
+      <span class="key">"player"</span>: <span class="str">"Aaron Judge"</span>,
+      <span class="key">"market"</span>: <span class="str">"hr"</span>,
+      <span class="key">"line"</span>: <span class="num">0.5</span>,
+      <span class="key">"direction"</span>: <span class="str">"OVER"</span>,
+      <span class="key">"best_book"</span>: <span class="str">"DraftKings"</span>,
+      <span class="key">"best_odds"</span>: <span class="num">310</span>,
+      <span class="key">"best_odds_fmt"</span>: <span class="str">"+310"</span>,
+      <span class="key">"all_books"</span>: {
+        <span class="key">"DraftKings"</span>: { <span class="key">"odds"</span>: <span class="num">310</span>, <span class="key">"odds_fmt"</span>: <span class="str">"+310"</span> },
+        <span class="key">"FanDuel"</span>:   { <span class="key">"odds"</span>: <span class="num">290</span>, <span class="key">"odds_fmt"</span>: <span class="str">"+290"</span> }
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-tb">
+      <h2>GET /mlb/odds/totalbases</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/totalbases</div>
+      <p>Total bases props. DK + FanDuel merged. Same response shape as <code>/mlb/odds/hr</code>. Params: <code>name</code>, <code>direction</code>.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-hits">
+      <h2>GET /mlb/odds/hits</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/hits</div>
+      <p>Hits props. DK + FanDuel merged. Params: <code>name</code>, <code>direction</code>.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-ks">
+      <h2>GET /mlb/odds/strikeouts</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/strikeouts</div>
+      <p>Pitcher strikeout props. DK + FanDuel merged. Params: <code>name</code>, <code>direction</code>.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-rbi">
+      <h2>GET /mlb/odds/rbi</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/rbi</div>
+      <p>RBI props. DK + FanDuel merged. Params: <code>name</code>, <code>direction</code>.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-all">
+      <h2>GET /mlb/odds/all</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/all</div>
+      <p>All book prop markets (HR, total bases, hits, strikeouts) in a single response. Grouped by market key. Optional <code>name</code> filter applies to all markets.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-player">
+      <h2>GET /mlb/odds/player</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds/player</div>
+      <p>All book markets for a single player. <code>?name=Soto</code> returns HR, total bases, hits, and strikeouts from DK + FanDuel.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">name</td><td class="pt">string</td><td><span class="pr">required</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="mlb-odds-game">
+      <h2>GET /mlb/odds</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/odds</div>
+      <p>Game-level MLB odds from ESPN. Spread, over/under, moneyline for each game today.</p>
+    </div>
+
+    <!-- MLB SCHEDULE -->
+    <div class="doc-section" id="mlb-schedule-today">
+      <h2>GET /mlb/schedule/today</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/schedule/today</div>
+      <p>Full MLB slate for today. Hydrated with probable pitchers, venue, teams, and linescore. Source: MLB Stats API.</p>
+      <div class="code-block">
+        <div class="code-header"><span>Response shape</span></div>
+        <pre>{
+  <span class="key">"date"</span>: <span class="str">"2026-06-09"</span>,
+  <span class="key">"games"</span>: [
+    {
+      <span class="key">"gamePk"</span>: <span class="num">747892</span>,
+      <span class="key">"gameDate"</span>: <span class="str">"2026-06-09T18:10:00Z"</span>,
+      <span class="key">"status"</span>: { <span class="key">"abstractGameState"</span>: <span class="str">"In Progress"</span> },
+      <span class="key">"teams"</span>: {
+        <span class="key">"away"</span>: { <span class="key">"team"</span>: { <span class="key">"name"</span>: <span class="str">"New York Yankees"</span> }, <span class="key">"score"</span>: <span class="num">4</span>,
+                  <span class="key">"probablePitcher"</span>: { <span class="key">"fullName"</span>: <span class="str">"Gerrit Cole"</span> } },
+        <span class="key">"home"</span>:  { <span class="key">"team"</span>: { <span class="key">"name"</span>: <span class="str">"Boston Red Sox"</span> }, <span class="key">"score"</span>: <span class="num">2</span>,
+                  <span class="key">"probablePitcher"</span>: { <span class="key">"fullName"</span>: <span class="str">"Brayan Bello"</span> } }
+      },
+      <span class="key">"venue"</span>: { <span class="key">"name"</span>: <span class="str">"Fenway Park"</span> }
+    }
+  ]
+}</pre>
       </div>
     </div>
 
     <div class="doc-section" id="mlb-schedule">
-      <h2>⚾ MLB — Schedule</h2>
-      <div class="code-block">
-        <div class="code-header"><span>GET /mlb/schedule/today</span></div>
-        <pre><span class="fn">fetch</span>(<span class="str">'https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today'</span>)
-  .then(r => r.json())
-  .then(({ games }) => <span class="fn">console</span>.log(games))</pre>
-      </div>
-      <h3>Parameters — /mlb/schedule</h3>
+      <h2>GET /mlb/schedule</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/schedule</div>
+      <p>Schedule for any date.</p>
       <table class="param-table">
         <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td class="param-name">date</td><td class="param-type">string</td><td><span class="param-opt">optional</span></td><td>YYYY-MM-DD format. Defaults to today.</td></tr>
+          <tr><td class="pn">date</td><td class="pt">string</td><td><span class="po">optional</span></td><td>YYYY-MM-DD. Defaults to today ET.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="doc-section" id="mlb-statcast">
-      <h2>⚾ Statcast</h2>
-      <div class="code-block">
-        <div class="code-header"><span>GET /mlb/statcast/batters</span></div>
-        <pre><span class="fn">fetch</span>(<span class="str">'https://propsports-api.sales-fd3.workers.dev/mlb/statcast/batters?days=14&level=MLB'</span>)
-  .then(r => r.json())
-  .then(({ batters }) => {
-    <span class="kw">const</span> elite = batters.filter(b => b.barrelPct > <span class="num">15</span>)
-    <span class="fn">console</span>.log(elite)
-  })</pre>
-      </div>
-      <h3>Parameters</h3>
+    <div class="doc-section" id="mlb-live">
+      <h2>GET /mlb/games/live</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/games/live</div>
+      <p>All MLB games currently in progress with live linescore. Returns an empty array when no games are live.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-lineups">
+      <h2>GET /mlb/lineups</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/lineups</div>
+      <p>Confirmed batting lineups when posted. Probable pitcher + lineup array for both teams.</p>
       <table class="param-table">
         <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td class="param-name">days</td><td class="param-type">integer</td><td><span class="param-opt">optional</span></td><td>Rolling window in days. Default: 14.</td></tr>
-          <tr><td class="param-name">level</td><td class="param-type">string</td><td><span class="param-opt">optional</span></td><td>MLB, AAA, or AA. Default: MLB.</td></tr>
+          <tr><td class="pn">date</td><td class="pt">string</td><td><span class="po">optional</span></td><td>YYYY-MM-DD. Defaults to today ET.</td></tr>
         </tbody>
       </table>
-      <h3>Response Fields</h3>
+    </div>
+
+    <!-- MLB GAME -->
+    <div class="doc-section" id="mlb-linescore">
+      <h2>GET /mlb/game/:gamePk/linescore</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/game/:gamePk/linescore</div>
+      <p>Inning-by-inning linescore for any game. <code>gamePk</code> from <code>/mlb/schedule</code>.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-boxscore">
+      <h2>GET /mlb/game/:gamePk/boxscore</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/game/:gamePk/boxscore</div>
+      <p>Full boxscore. Hitting and pitching lines for both teams including all standard stats.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-plays">
+      <h2>GET /mlb/game/:gamePk/plays</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/game/:gamePk/plays</div>
+      <p>Play-by-play. Returns most recent N plays.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">limit</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>Number of recent plays to return. Default: 20.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MLB PLAYER + STATCAST -->
+    <div class="doc-section" id="mlb-player-stats">
+      <h2>GET /mlb/player/:id/stats</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/player/:id/stats</div>
+      <p>Season stats by MLB player ID.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">group</td><td class="pt">string</td><td><span class="po">optional</span></td><td><code>hitting</code> (default) or <code>pitching</code></td></tr>
+          <tr><td class="pn">season</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>4-digit year. Defaults to current season.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="mlb-player-gamelog">
+      <h2>GET /mlb/player/:id/gamelog</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/player/:id/gamelog</div>
+      <p>Game-by-game log for any player. Full split history per appearance.</p>
+    </div>
+
+    <div class="doc-section" id="mlb-statcast-batters">
+      <h2>GET /mlb/statcast/batters</h2>
+      <div class="ep-badge"><span class="get-tag model">GET</span>/mlb/statcast/batters</div>
+      <p>PropTechUSA owned Statcast leaderboard. 150 active batters aggregated nightly from Baseball Savant. The most comprehensive public Statcast endpoint available at any price point.</p>
       <table class="param-table">
         <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td class="param-name">avgEV</td><td class="param-type">float</td><td>Average exit velocity (mph)</td></tr>
-          <tr><td class="param-name">l7EV</td><td class="param-type">float</td><td>Average EV last 7 days</td></tr>
-          <tr><td class="param-name">evSpike</td><td class="param-type">float</td><td>l7EV minus avgEV — positive = trending up</td></tr>
-          <tr><td class="param-name">barrelPct</td><td class="param-type">float</td><td>Barrel rate percentage</td></tr>
-          <tr><td class="param-name">hardHitPct</td><td class="param-type">float</td><td>Hard hit rate (95+ mph) percentage</td></tr>
-          <tr><td class="param-name">avgLA</td><td class="param-type">float</td><td>Average launch angle (degrees)</td></tr>
-          <tr><td class="param-name">maxEV</td><td class="param-type">float</td><td>Maximum exit velocity in period</td></tr>
+          <tr><td class="pn">avgEV</td><td class="pt">float</td><td>Average exit velocity (mph)</td></tr>
+          <tr><td class="pn">maxEV</td><td class="pt">float</td><td>Maximum exit velocity in season</td></tr>
+          <tr><td class="pn">hardHitPct</td><td class="pt">float</td><td>Hard hit rate &mdash; 95+ mph</td></tr>
+          <tr><td class="pn">barrelPct</td><td class="pt">float</td><td>Barrel rate percentage</td></tr>
+          <tr><td class="pn">xBA / xSLG / xwOBA</td><td class="pt">float</td><td>Expected BA, SLG, wOBA from Statcast</td></tr>
+          <tr><td class="pn">sprintSpeed</td><td class="pt">float</td><td>Sprint speed ft/s</td></tr>
+          <tr><td class="pn">l7HR / l7EV</td><td class="pt">float</td><td>Last-7-day HR count and average EV</td></tr>
+          <tr><td class="pn">evSpike</td><td class="pt">float</td><td>l7EV minus season avgEV &mdash; positive = trending up</td></tr>
+          <tr><td class="pn">hrStreak</td><td class="pt">integer</td><td>Consecutive games with HR</td></tr>
+          <tr><td class="pn">gamesWithoutHR</td><td class="pt">integer</td><td>Consecutive games without HR</td></tr>
+          <tr><td class="pn">vsRHP</td><td class="pt">object</td><td>HR, PA, avgEV vs right-handed pitchers</td></tr>
+          <tr><td class="pn">vsLHP</td><td class="pt">object</td><td>HR, PA, avgEV vs left-handed pitchers</td></tr>
+          <tr><td class="pn">bats</td><td class="pt">string</td><td>L, R, or S</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-green">&#128200; TTL: 900s. This endpoint caches for 15 minutes. Statcast data is updated nightly from Baseball Savant.</div>
+    </div>
+
+    <div class="doc-section" id="mlb-statcast-pitchers">
+      <h2>GET /mlb/statcast/pitchers</h2>
+      <div class="ep-badge"><span class="get-tag model">GET</span>/mlb/statcast/pitchers</div>
+      <p>PropTechUSA owned Statcast for 200+ qualified pitchers. EV allowed, barrel rate, hard hit rate, average and recent velo, velo drop detection, pitch mix, HR rate, and sample size.</p>
+      <table class="param-table">
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">avgEVAllowed</td><td class="pt">float</td><td>Average EV allowed this season</td></tr>
+          <tr><td class="pn">barrelRateAllowed</td><td class="pt">float</td><td>Barrel rate allowed %</td></tr>
+          <tr><td class="pn">hrsAllowed</td><td class="pt">integer</td><td>HR allowed this season</td></tr>
+          <tr><td class="pn">paPerHR</td><td class="pt">float</td><td>PA per HR allowed &mdash; lower = more homer-prone</td></tr>
+          <tr><td class="pn">avgVelo</td><td class="pt">float</td><td>Average fastball velocity</td></tr>
+          <tr><td class="pn">recentVelo</td><td class="pt">float</td><td>Recent 3-start velo average</td></tr>
+          <tr><td class="pn">veloDown</td><td class="pt">boolean</td><td>True if recent velo significantly below season avg</td></tr>
+          <tr><td class="pn">pitchMix</td><td class="pt">object</td><td>Pitch type percentages</td></tr>
+          <tr><td class="pn">sampleSize</td><td class="pt">integer</td><td>PA in dataset</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="doc-section" id="mlb-weather">
-      <h2>⚾ Weather</h2>
-      <div class="code-block">
-        <div class="code-header"><span>GET /mlb/weather/all</span></div>
-        <pre><span class="fn">fetch</span>(<span class="str">'https://propsports-api.sales-fd3.workers.dev/mlb/weather/all'</span>)
-  .then(r => r.json())
-  .then(({ games }) => {
-    <span class="kw">const</span> windy = games.filter(g => g.weather.windSpeed > <span class="num">12</span>)
-    <span class="fn">console</span>.log(windy)
-  })</pre>
-      </div>
-    </div>
-
-    <div class="doc-section" id="nfl-schedule">
-      <h2>🏈 NFL — Schedule</h2>
-      <div class="code-block">
-        <div class="code-header"><span>GET /nfl/schedule</span></div>
-        <pre><span class="fn">fetch</span>(<span class="str">'https://propsports-api.sales-fd3.workers.dev/nfl/schedule?week=1&season=2026'</span>)
-  .then(r => r.json())</pre>
-      </div>
-    </div>
-
-    <div class="doc-section" id="nba-leaders">
-      <h2>🏀 NBA — Leaders</h2>
-      <div class="code-block">
-        <div class="code-header"><span>GET /nba/leaders</span></div>
-        <pre><span class="fn">fetch</span>(<span class="str">'https://propsports-api.sales-fd3.workers.dev/nba/leaders?stat=PTS'</span>)
-  .then(r => r.json())
-  .then(({ leaders }) => <span class="fn">console</span>.log(leaders))</pre>
-      </div>
-      <h3>Parameters</h3>
+      <h2>GET /mlb/weather</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/weather</div>
+      <p>Real-time weather for a single ballpark. Indoor parks (Tropicana, Rogers Centre, Globe Life, Chase, LoanDepot, Minute Maid, American Family) return <code>"indoor": true</code>.</p>
       <table class="param-table">
-        <thead><tr><th>Param</th><th>Values</th></tr></thead>
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td class="param-name">stat</td><td>PTS, REB, AST, BLK, STL, FG_PCT, FT_PCT, FG3_PCT</td></tr>
+          <tr><td class="pn">park</td><td class="pt">string</td><td><span class="pr">required</span></td><td>Exact park name e.g. <code>Fenway Park</code>, <code>Yankee Stadium</code></td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-header"><span>Response</span></div>
+        <pre>{
+  <span class="key">"indoor"</span>: <span class="kw">false</span>,
+  <span class="key">"park"</span>: <span class="str">"Fenway Park"</span>,
+  <span class="key">"parkFactor"</span>: <span class="num">104</span>,
+  <span class="key">"windSpeed"</span>: <span class="num">12.4</span>,
+  <span class="key">"windDir"</span>: <span class="num">220</span>,
+  <span class="key">"windLabel"</span>: <span class="str">"SW"</span>,
+  <span class="key">"temp"</span>: <span class="num">71</span>
+}</pre>
+      </div>
+    </div>
+
+    <div class="doc-section" id="mlb-weather-all">
+      <h2>GET /mlb/weather/all</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/weather/all</div>
+      <p>Weather for every ballpark hosting a game today (or on the specified date). One call for all parks.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">date</td><td class="pt">string</td><td><span class="po">optional</span> &mdash; YYYY-MM-DD</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="doc-section" id="nhl-standings">
-      <h2>🏒 NHL — Standings</h2>
+    <div class="doc-section" id="mlb-umpires">
+      <h2>GET /mlb/umpires</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/mlb/umpires</div>
+      <p>Home plate umpire assignments for today's games. Combine with your own K-rate data for umpire angle plays.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">date</td><td class="pt">string</td><td><span class="po">optional</span> &mdash; YYYY-MM-DD</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══════ NFL ═══════ -->
+    <div class="doc-section" id="nfl-schedule">
+      <h2>GET /nfl/schedule</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nfl/schedule</div>
+      <p>NFL schedule. Defaults to current week. Returns spread, over/under, venue, and score for each game. Source: ESPN.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">week</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>Week number 1&ndash;18</td></tr>
+          <tr><td class="pn">season</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>4-digit year</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="nfl-live">
+      <h2>GET /nfl/games/live</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nfl/games/live</div>
+      <p>All NFL games currently in progress.</p>
+    </div>
+
+    <div class="doc-section" id="nfl-odds">
+      <h2>GET /nfl/odds</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nfl/odds</div>
+      <p>Game-level NFL odds. Spread, over/under, home and away moneyline. Filters out games without odds.</p>
+    </div>
+
+    <!-- ═══════ NBA ═══════ -->
+    <div class="doc-section" id="nba-schedule">
+      <h2>GET /nba/schedule/today</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/schedule/today</div>
+      <p>Today's NBA games. Playoff-aware &mdash; tries the playoff schedule first, falls back to regular season. Returns status, score, period, clock, team logos, spread, and over/under.</p>
+    </div>
+
+    <div class="doc-section" id="nba-live">
+      <h2>GET /nba/games/live</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/games/live</div>
+      <p>All NBA games with <code>status.type.state === "in"</code>.</p>
+    </div>
+
+    <div class="doc-section" id="nba-boxscore">
+      <h2>GET /nba/game/:id/boxscore</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/game/:id/boxscore</div>
+      <p>Full boxscore with <strong>computed True Shooting % (TS%) and Usage Rate (USG%)</strong> per player. Most APIs return raw stats and leave the math to you. We do the math.</p>
       <div class="code-block">
-        <div class="code-header"><span>GET /nhl/standings</span></div>
-        <pre><span class="fn">fetch</span>(<span class="str">'https://propsports-api.sales-fd3.workers.dev/nhl/standings'</span>)
-  .then(r => r.json())
-  .then(({ standings }) => <span class="fn">console</span>.log(standings))</pre>
+        <div class="code-header"><span>Response shape (player)</span></div>
+        <pre>{
+  <span class="key">"name"</span>: <span class="str">"Jayson Tatum"</span>,
+  <span class="key">"points"</span>: <span class="num">34</span>, <span class="key">"rebounds"</span>: <span class="num">9</span>, <span class="key">"assists"</span>: <span class="num">6</span>,
+  <span class="key">"fgMade"</span>: <span class="num">12</span>, <span class="key">"fgAttempts"</span>: <span class="num">22</span>, <span class="key">"fgPct"</span>: <span class="num">54.5</span>,
+  <span class="key">"tsPct"</span>: <span class="num">68.4</span>,   <span class="cm">// True Shooting % — computed</span>
+  <span class="key">"usgPct"</span>: <span class="num">34.1</span>,  <span class="cm">// Usage Rate % — computed</span>
+  <span class="key">"minutes"</span>: <span class="num">38</span>, <span class="key">"plusMinus"</span>: <span class="num">12</span>
+}</pre>
       </div>
     </div>
 
-    <div style="padding:32px;background:var(--off);border-radius:16px;text-align:center;margin-top:40px;">
-      <h3>Ready to build?</h3>
-      <p style="color:var(--muted);font-size:14px;margin:8px 0 20px;">Get your free API key and start making requests in minutes.</p>
-      <a href="/pricing.html" class="btn-red">Get Free API Key →</a>
+    <div class="doc-section" id="nba-plays">
+      <h2>GET /nba/game/:id/plays</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/game/:id/plays</div>
+      <p>Play-by-play with event classification: <code>score</code>, <code>miss</code>, <code>rebound</code>, <code>turnover</code>, <code>foul</code>, <code>block</code>, <code>steal</code>, <code>sub</code>, <code>timeout</code>.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">limit</td><td class="pt">integer</td><td><span class="po">optional</span> &mdash; default 50</td></tr>
+        </tbody>
+      </table>
     </div>
+
+    <div class="doc-section" id="nba-lineup">
+      <h2>GET /nba/game/:id/lineup</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/game/:id/lineup</div>
+      <p>Current 5-man lineup via substitution walk through the play-by-play. ~95% accurate during live games. Returns both teams' current on-court players with headshots and jerseys.</p>
+    </div>
+
+    <div class="doc-section" id="nba-shotchart">
+      <h2>GET /nba/game/:id/shotchart</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/game/:id/shotchart</div>
+      <p>Shot chart with x/y coordinates. Made/missed indicator, player, team, period, and clock. Coordinate system: ESPN-native, x 0&ndash;50, y 0&ndash;47.</p>
+    </div>
+
+    <div class="doc-section" id="nba-winprob">
+      <h2>GET /nba/game/:id/winprob</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/game/:id/winprob</div>
+      <p>Live win probability curve by play. <code>homeWinPct</code> at each play event.</p>
+    </div>
+
+    <div class="doc-section" id="nba-leaders">
+      <h2>GET /nba/leaders</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/leaders</div>
+      <p>League leaders by stat category. Top 25 returned.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Values</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">stat</td><td class="pt">string</td><td><span class="po">optional</span></td><td><code>PTS</code>, <code>REB</code>, <code>AST</code>, <code>STL</code>, <code>BLK</code>, <code>FG_PCT</code>, <code>FT_PCT</code>, <code>FG3_PCT</code>. Default: <code>PTS</code></td></tr>
+          <tr><td class="pn">season</td><td class="pt">string</td><td><span class="po">optional</span></td><td>Format: <code>2025-26</code>. Default: current.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="nba-odds">
+      <h2>GET /nba/odds</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nba/odds</div>
+      <p>Game-level NBA odds. Spread, over/under, moneyline.</p>
+    </div>
+
+    <!-- ═══════ NHL ═══════ -->
+    <div class="doc-section" id="nhl-schedule">
+      <h2>GET /nhl/schedule/today</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nhl/schedule/today</div>
+      <p>Today's NHL games with TV broadcast info, venue, scores, and game state. Source: NHL Stats API.</p>
+    </div>
+
+    <div class="doc-section" id="nhl-live">
+      <h2>GET /nhl/games/live</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nhl/games/live</div>
+      <p>All NHL games with <code>gameState</code> of <code>LIVE</code> or <code>CRIT</code> (overtime/close game).</p>
+    </div>
+
+    <div class="doc-section" id="nhl-standings">
+      <h2>GET /nhl/standings</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nhl/standings</div>
+      <p>Full conference and division standings. Source: NHL Stats API.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">date</td><td class="pt">string</td><td><span class="po">optional</span> &mdash; YYYY-MM-DD</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="nhl-leaders">
+      <h2>GET /nhl/leaders</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nhl/leaders</div>
+      <p>Skater leaders by category. Top 25 returned.</p>
+      <table class="param-table">
+        <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Values</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">category</td><td class="pt">string</td><td><span class="po">optional</span></td><td><code>goals</code> (default), <code>assists</code>, <code>points</code></td></tr>
+          <tr><td class="pn">season</td><td class="pt">string</td><td><span class="po">optional</span></td><td>Format: <code>20252026</code>. Default: current.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="nhl-player">
+      <h2>GET /nhl/player/:id/stats</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nhl/player/:id/stats</div>
+      <p>Season stats for any NHL player by NHL Stats API player ID. Returns <code>goals</code>, <code>assists</code>, <code>points</code>, <code>plusMinus</code>, <code>pim</code>, <code>shots</code>, <code>shootingPctg</code>, and more.</p>
+    </div>
+
+    <div class="doc-section" id="nhl-odds">
+      <h2>GET /nhl/odds</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nhl/odds</div>
+      <p>Game-level NHL odds. Puck line, over/under, moneyline from ESPN.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3>Ready to build?</h3>
+      <p>Subscribe to Basic at $49/mo. Key in your inbox in 60 seconds. Cancel anytime.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="/pricing.html" class="btn-red">Get API Key &mdash; From $49/mo &rarr;</a>
+        <a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener" class="btn-outline">Also on RapidAPI &#8599;</a>
+      </div>
+      <p style="margin-top:16px;font-size:12px;">Questions? <a href="mailto:support@proptechusa.ai" style="color:var(--red);">support@proptechusa.ai</a> &middot; <a href="tel:18887843881" style="color:var(--red);">1-888-784-3881</a></p>
+    </div>
+
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="psa-ft">
   <div class="psa-ft-red"></div>
-
-  <!-- POWERED BY -->
-  <div class="psa-ft-pb">
-    <div class="psa-ft-pb-in">
-      <span class="psa-ft-pb-label">Powered by</span>
-      <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-red">
-        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
-        <span class="psa-ft-pb-name">PropTechUSA.ai</span>
-        <span class="psa-ft-pb-sub">165+ Cloudflare Workers</span>
-      </a>
-      <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-blue">
-        <span class="psa-ft-pb-name" style="color:#4D9EFF">PropData API</span>
-        <span class="psa-ft-pb-sub">Real Estate Intelligence</span>
-        <span class="psa-ft-pb-arr">&#8599;</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- MAIN GRID -->
   <div class="psa-ft-body">
     <div class="psa-ft-grid">
-
-      <!-- BRAND -->
-      <div class="psa-ft-brand">
+      <div>
         <a href="/" class="psa-ft-logo">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
           <span class="psa-ft-logo-t">Prop<span>Sports</span> API</span>
         </a>
-        <p class="psa-ft-desc">Real-time MLB, NFL, NBA &amp; NHL data. Official sources. Flat monthly pricing. No per-call fees ever.</p>
-        <a href="tel:18887843881" class="psa-ft-phone">
-          <span class="psa-ft-phone-ic">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </span>
-          1-888-784-3881
-        </a>
-        <div class="psa-ft-socials">
-          <a href="https://x.com/PropTechUSAAI" target="_blank" rel="noopener" class="psa-ft-soc" title="@PropTechUSAAI">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
-          </a>
-          <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropTechUSA.ai">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </a>
-          <a href="https://propbetedge.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropBetEdge.ai">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </a>
-        </div>
+        <p class="psa-ft-desc">Real-time MLB, NFL, NBA &amp; NHL. Owned Statcast. Owned Poisson model odds. Flat monthly. No per-call fees. Featured in The Globe and Mail.</p>
       </div>
-
-      <!-- SPORTS -->
-      <div class="psa-ft-col">
+      <div>
         <span class="psa-ft-col-h">Sports</span>
         <ul class="psa-ft-links">
-          <li><a href="/mlb">&#9918; MLB API</a></li>
-          <li><a href="/nfl">&#127944; NFL API</a></li>
-          <li><a href="/nba">&#127936; NBA API</a></li>
-          <li><a href="/nhl">&#127944; NHL API</a></li>
+          <li><a href="/mlb.html">&#9918; MLB API</a></li>
+          <li><a href="/nfl.html">&#127944; NFL API</a></li>
+          <li><a href="/nba.html">&#127936; NBA API</a></li>
+          <li><a href="/nhl.html">&#127944; NHL API</a></li>
         </ul>
       </div>
-
-      <!-- RESOURCES -->
-      <div class="psa-ft-col">
+      <div>
         <span class="psa-ft-col-h">Resources</span>
         <ul class="psa-ft-links">
-          <li><a href="/docs">Documentation</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/live">&#9889; See It Live</a></li>
-          <li><a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" rel="noopener">Live API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
+          <li><a href="/docs.html">Documentation</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener">RapidAPI Hub &#8599;</a></li>
+          <li><a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener">API Listing &#8599;</a></li>
           <li><a href="tel:18887843881">1-888-784-3881</a></li>
         </ul>
       </div>
-
-      <!-- NETWORK -->
-      <div class="psa-ft-col">
+      <div>
         <span class="psa-ft-col-h">Network</span>
         <ul class="psa-ft-links">
-          <li><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-link-blue">PropData API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/terms">Terms</a></li>
+          <li><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai &#8599;</a></li>
+          <li><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai &#8599;</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
         </ul>
       </div>
-
     </div>
   </div>
-
-  <!-- BOTTOM BAR -->
   <div class="psa-ft-base">
     <div class="psa-ft-base-in">
-      <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved</div>
+      <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved &middot; Saint Paul, MN</div>
       <div class="psa-ft-badges">
+        <span class="psa-ft-badge">v4.2.0</span>
+        <span class="psa-ft-badge">47 endpoints</span>
+        <span class="psa-ft-badge">Cloudflare Workers</span>
         <span class="psa-ft-badge">MLB Stats API</span>
         <span class="psa-ft-badge">Baseball Savant</span>
-        <span class="psa-ft-badge">NHL Stats API</span>
-        <span class="psa-ft-badge">NBA Stats API</span>
-        <span class="psa-ft-badge">Cloudflare Workers</span>
       </div>
     </div>
   </div>
 </footer>
-<script src="/shared.js"></script>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var ham = document.getElementById('hamburger');
+  if (!menu) return;
+  var open = menu.style.display === 'flex';
+  menu.style.display = open ? 'none' : 'flex';
+  if (ham) {
+    ham.children[0].style.transform = open ? '' : 'rotate(45deg) translate(4px,4px)';
+    ham.children[1].style.opacity = open ? '1' : '0';
+    ham.children[2].style.transform = open ? '' : 'rotate(-45deg) translate(4px,-4px)';
+  }
+}
+
+// Active sidebar link on scroll
+var sections = document.querySelectorAll('.doc-section[id]');
+var sbLinks = document.querySelectorAll('.sb-link');
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY + 80;
+  var current = '';
+  sections.forEach(function(s) {
+    if (s.offsetTop <= scrollY) current = s.id;
+  });
+  sbLinks.forEach(function(l) {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+</script>
 </body>
 </html>

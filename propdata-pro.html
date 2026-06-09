@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>PropData Pro Stack — Full Real Estate Intelligence · $149/mo Direct</title>
+<meta name="description" content="The full PropData stack: 10 APIs including Property Tax, Phone Intelligence, Address AVM, and Motivated Seller Leads. One key. $149/mo direct.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{
+  --white:#fff;--off:#F7F6F3;--ink:#0D0D0D;--ink2:#2A2A2A;
+  --muted:#6B6B6B;--border:#E2E1DC;
+  --red:#E8321A;--green:#0BAA5C;--gold:#E8A020;--blue:#1B65F0;
+  --purple:#7C3AED;--max:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--white);color:var(--ink);font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 24px;}
+.nav-i{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:8px;}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-t{font:800 17px 'Syne',sans-serif;color:var(--ink);}
+.logo-t span{color:var(--purple);}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .15s;}
+.nav-link:hover{color:var(--ink);background:var(--off);}
+.btn-purple{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:var(--purple);color:#fff;font:700 13px 'Instrument Sans',sans-serif;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;box-shadow:0 3px 12px rgba(124,58,237,.25);}
+.btn-purple:hover{background:#6d28d9;transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:transparent;color:var(--ink);font:600 13px 'Instrument Sans',sans-serif;border-radius:8px;text-decoration:none;border:1.5px solid var(--border);transition:all .2s;}
+.btn-outline:hover{border-color:#aaa;background:var(--off);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.eyebrow{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;}
+h1{font:800 clamp(44px,6vw,82px) 'Syne',sans-serif;letter-spacing:-2.5px;color:var(--ink);line-height:.95;margin-bottom:16px;}
+h1 em{color:var(--purple);font-style:normal;}
+h2{font:800 clamp(28px,4vw,52px) 'Syne',sans-serif;letter-spacing:-1.5px;color:var(--ink);line-height:1.02;margin-bottom:12px;}
+p.lead{font-size:16px;color:var(--muted);line-height:1.75;max-width:540px;margin-bottom:28px;}
+.hero{padding:80px 0 72px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.25;pointer-events:none;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;position:relative;z-index:1;}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.trust-pill{font-size:12px;color:var(--muted);padding:4px 10px;border-radius:20px;border:1px solid var(--border);}
+.trust-pill.g{color:var(--green);border-color:rgba(11,170,92,.25);background:rgba(11,170,92,.05);}
+.trust-pill.p{color:var(--purple);border-color:rgba(124,58,237,.25);background:rgba(124,58,237,.05);}
+.price-card{background:var(--ink);border-radius:18px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,.18);}
+.price-card-tier{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
+.price-big{font:800 64px 'Syne',sans-serif;color:#fff;letter-spacing:-3px;line-height:1;}
+.price-big sup{font-size:28px;letter-spacing:0;vertical-align:top;margin-top:10px;}
+.price-big sub{font:500 16px 'Instrument Sans',sans-serif;letter-spacing:0;color:rgba(255,255,255,.4);vertical-align:bottom;}
+.price-desc{font-size:13px;color:rgba(255,255,255,.45);margin:8px 0 18px;line-height:1.6;}
+.price-apis{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.price-api-item{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(255,255,255,.75);}
+.price-api-item::before{content:'✓';color:#4ade80;font-weight:700;flex-shrink:0;}
+.price-api-item.new{color:#c4b5fd;}
+.price-api-item.new::before{content:'★';color:#c4b5fd;}
+.price-was{font-size:11px;color:rgba(255,255,255,.3);margin-bottom:14px;font-family:'JetBrains Mono',monospace;}
+.btn-white{display:block;text-align:center;padding:13px;background:#fff;color:var(--ink);font:700 14px 'Instrument Sans',sans-serif;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;width:100%;}
+.btn-white:hover{background:var(--off);}
+.price-note{font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;font-family:'JetBrains Mono',monospace;}
+.apis-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:40px;}
+.api-card{background:var(--white);padding:24px 22px;transition:background .2s;position:relative;}
+.api-card:hover{background:var(--off);}
+.api-card.new-badge::before{content:'NEW TO PRO';position:absolute;top:14px;right:14px;font:700 8px 'JetBrains Mono',monospace;letter-spacing:.1em;padding:2px 8px;border-radius:20px;background:rgba(124,58,237,.1);color:var(--purple);border:1px solid rgba(124,58,237,.2);}
+.api-num{font:700 10px 'JetBrains Mono',monospace;color:rgba(0,0,0,.2);letter-spacing:.1em;margin-bottom:10px;}
+.api-title{font:700 15px 'Syne',sans-serif;color:var(--ink);margin-bottom:7px;}
+.api-body{font-size:12px;color:var(--muted);line-height:1.6;}
+.tier-table{width:100%;border-collapse:collapse;margin-top:32px;font-size:13px;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+.tier-table th{padding:11px 16px;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--off);border-bottom:2px solid var(--border);}
+.tier-table td{padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.tier-table tr:last-child td{border-bottom:none;}
+.rapid-note{background:var(--off);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;align-items:flex-start;gap:14px;margin-top:32px;}
+.rapid-note-body{font-size:13px;color:var(--muted);line-height:1.7;}
+.rapid-note-body a{color:var(--purple);text-decoration:none;}
+.cta-section{background:var(--ink);padding:72px 0;}
+.cta-inner{text-align:center;max-width:600px;margin:0 auto;}
+.cta-inner h2{color:#fff;margin-bottom:12px;}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;}
+.ft{background:#141412;padding:32px 0 20px;}
+.ft-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.ft-logo{font:800 16px 'Syne',sans-serif;color:#fff;}
+.ft-links{display:flex;gap:18px;}
+.ft-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;}
+.ft-links a:hover{color:rgba(255,255,255,.8);}
+.ft-copy{font:400 11px 'JetBrains Mono',monospace;color:rgba(255,255,255,.18);}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;gap:36px;}.apis-grid{grid-template-columns:1fr;}.wrap{padding:0 16px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-i">
+    <a href="/" class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#7C3AED"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+      <span class="logo-t">PropData <span>Pro Stack</span></span>
+    </a>
+    <div class="nav-r">
+      <a href="/propdata-core.html" class="nav-link">Core Bundle</a>
+      <a href="https://propsports.proptechusa.ai" class="nav-link">PropSports</a>
+      <a href="mailto:support@proptechusa.ai" class="btn-outline">Contact</a>
+      <button class="btn-purple" onclick="doCheckout('BASIC')">Get Access — $149/mo</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">PropData Pro Stack &mdash; Direct Access</div>
+        <h1>10 APIs. Full<br>investor <em>stack.</em></h1>
+        <p class="lead">Everything in Core — ZIP, Flood, Crime, Census, Business, Address — plus Property Tax, Phone Intelligence, Address AVM, and Motivated Seller Leads. The complete PropData stack for real estate investors, wholesalers, and data teams. $149/mo direct.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+          <button class="btn-purple" onclick="doCheckout('BASIC')">Get Access — $149/mo &rarr;</button>
+          <a href="#apis" class="btn-outline">See All 10 APIs &darr;</a>
+        </div>
+        <div class="trust-row">
+          <span class="trust-pill g">✓ Instant key delivery</span>
+          <span class="trust-pill g">✓ Cancel anytime</span>
+          <span class="trust-pill p">★ Motivated Seller Leads included</span>
+          <span class="trust-pill">165M+ parcels</span>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-tier">PropData Pro Stack — Basic</div>
+        <div class="price-big"><sup>$</sup>149<sub>/mo</sub></div>
+        <div class="price-desc">All 10 PropData APIs. 10,000 req/day. One key. Delivered in 60 seconds.</div>
+        <div class="price-was">RapidAPI separately: $170+ /mo across 10 subscriptions</div>
+        <div class="price-apis">
+          <div class="price-api-item">US ZIP Code Intelligence</div>
+          <div class="price-api-item">US Flood Zone Intelligence</div>
+          <div class="price-api-item">US Crime Index</div>
+          <div class="price-api-item">US Census Intelligence</div>
+          <div class="price-api-item">US Business Intelligence</div>
+          <div class="price-api-item">US Address Validator &amp; Standardizer</div>
+          <div class="price-api-item new">US Property Tax Intelligence</div>
+          <div class="price-api-item new">US Phone Number Intelligence</div>
+          <div class="price-api-item new">PropData Address Autocomplete &amp; AVM</div>
+          <div class="price-api-item new">PropData Motivated Seller Leads</div>
+        </div>
+        <button class="btn-white" onclick="doCheckout('BASIC')">Subscribe — $149/mo &rarr;</button>
+        <div class="price-note">&#128274; Stripe &middot; cancel anytime &middot; key in 60 seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apis" style="padding:72px 0;background:var(--off);border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="eyebrow">What's Included</div>
+    <h2>Ten data layers.<br>One subscription.</h2>
+    <p class="lead">The six Core APIs plus four high-value layers that make the difference between a list and a deal-ready lead.</p>
+    <div class="apis-grid">
+
+      <div class="api-card">
+        <div class="api-num">01–06</div>
+        <div class="api-title">Everything in PropData Core</div>
+        <div class="api-body">ZIP Intelligence · Flood Zone · Crime Index · Census · Business Intelligence · Address Validator. All six utility APIs included. Same functionality, same government sources, same bulk endpoints. <a href="/propdata-core.html" style="color:var(--blue);">See Core details &rarr;</a></div>
+      </div>
+
+      <div class="api-card new-badge">
+        <div class="api-num">07</div>
+        <div class="api-title">US Property Tax Intelligence</div>
+        <div class="api-body">Assessed value, market value, annual tax bill, effective tax rate, mill rate, exemption amount, delinquency flag, owner name, year built, and building sqft from PropData's 165M+ assessor database. Bulk: up to 25 addresses per call. State-level reference fallback for any address not yet in database.</div>
+      </div>
+
+      <div class="api-card new-badge">
+        <div class="api-num">08</div>
+        <div class="api-title">US Phone Number Intelligence</div>
+        <div class="api-body">Carrier, line type (mobile/landline/VoIP/toll-free), caller name, DNC status, and whether the number is associated with a property in active foreclosure. Powered by Twilio. Self-improving: every lookup cached permanently — you pay once per number, every future call is instant. Bulk: up to 50 numbers per call.</div>
+      </div>
+
+      <div class="api-card new-badge">
+        <div class="api-num">09</div>
+        <div class="api-title">PropData Address Autocomplete &amp; AVM</div>
+        <div class="api-body">Address typeahead that returns the street name plus automated valuation, deal signal, rental yield, neighborhood income, vacancy rate, and whether the property is undervalued vs its ZIP median. One endpoint. Instant. Built on 165M+ government-sourced parcels. v7.0 — the most enriched autocomplete available.</div>
+      </div>
+
+      <div class="api-card new-badge">
+        <div class="api-num">10</div>
+        <div class="api-title">PropData Motivated Seller Leads</div>
+        <div class="api-body">Pre-scored leads ranked A–D on 7 motivation signals. Owner phones (up to 5, with DNC flags), email addresses, equity position, loan data, foreclosure status, and market intel in one call. Claude-generated outreach strategy on grade-A leads. Delta endpoint for CRM sync. Built by the acquisitions team behind Local Home Buyers USA.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding:72px 0;">
+  <div class="wrap">
+    <div class="eyebrow">Direct Pricing</div>
+    <h2>Three tiers.<br>All 10 APIs included.</h2>
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Plan</th>
+          <th>Daily Requests</th>
+          <th>Support</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Basic</strong></td>
+          <td style="text-align:center;">10,000 / day</td>
+          <td style="text-align:center;">Email ~48hr</td>
+          <td style="text-align:center;font-weight:700;">$149/mo</td>
+          <td style="text-align:center;"><button class="btn-purple" style="padding:7px 16px;font-size:12px;" onclick="doCheckout('BASIC')">Subscribe &rarr;</button></td>
+        </tr>
+        <tr>
+          <td><strong>Pro</strong></td>
+          <td style="text-align:center;">50,000 / day</td>
+          <td style="text-align:center;">Priority email 24hr</td>
+          <td style="text-align:center;font-weight:700;">$299/mo</td>
+          <td style="text-align:center;"><button class="btn-purple" style="padding:7px 16px;font-size:12px;" onclick="doCheckout('PRO')">Subscribe &rarr;</button></td>
+        </tr>
+        <tr>
+          <td><strong>Ultra</strong></td>
+          <td style="text-align:center;">200,000 / day</td>
+          <td style="text-align:center;">Email + Slack 4hr</td>
+          <td style="text-align:center;font-weight:700;">$599/mo</td>
+          <td style="text-align:center;"><button class="btn-purple" style="padding:7px 16px;font-size:12px;" onclick="doCheckout('ULTRA')">Subscribe &rarr;</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:13px;color:var(--muted);">Want just the 6 utility APIs without Leads and Tax? <a href="/propdata-core.html" style="color:var(--blue);font-weight:600;">See PropData Core at $49/mo &rarr;</a></p>
+    <div class="rapid-note">
+      <div style="font-size:24px;flex-shrink:0;margin-top:2px;">&#9888;&#65039;</div>
+      <div class="rapid-note-body">
+        <strong>Why subscribe direct?</strong> RapidAPI holds payouts 60 days and takes a platform cut. Here you get your key in 60 seconds and deal directly with PropTechUSA.ai. The individual RapidAPI listings still exist at <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener">rapidapi.com/team/propdata-propdata-default</a> if you prefer that flow.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="eyebrow" style="color:rgba(255,255,255,.4);">Ready?</div>
+      <h2 style="color:#fff;">Ten data layers.<br>$149 a month.</h2>
+      <p>Key in your inbox in 60 seconds. Cancel anytime. No contracts. Government-sourced data only.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-purple" style="font-size:15px;padding:13px 28px;" onclick="doCheckout('BASIC')">Get PropData Pro Stack — $149/mo &rarr;</button>
+        <a href="mailto:support@proptechusa.ai" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,.25);">Talk to us</a>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;">support@proptechusa.ai &middot; 1-888-784-3881 &middot; Saint Paul, MN</p>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ft-inner">
+    <div class="ft-logo">PropData Pro Stack</div>
+    <div class="ft-links">
+      <a href="/propdata-core.html">PropData Core</a>
+      <a href="https://propsports.proptechusa.ai">PropSports API</a>
+      <a href="https://proptechusa.ai">PropTechUSA.ai</a>
+      <a href="mailto:support@proptechusa.ai">Support</a>
+    </div>
+    <div class="ft-copy">&copy; 2026 PropTechUSA.ai &middot; Saint Paul, MN</div>
+  </div>
+</footer>
+
+<script>
+var PRO_PRICE_IDS = {
+  BASIC: 'price_1TgVtYF3CaVzg4ORPRVM5rV9',
+  PRO:   'price_1TgVu5F3CaVzg4ORtSBjza4g',
+  ULTRA: 'price_1TgVueF3CaVzg4ORMu9JZFzq'
+};
+function doCheckout(tier) {
+  var priceId = PRO_PRICE_IDS[tier];
+  var btns = document.querySelectorAll('button');
+  btns.forEach(function(b){ if(b.onclick){ b.disabled = true; } });
+  fetch('https://propsports-stripe.sales-fd3.workers.dev/create-checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      priceId: priceId,
+      successUrl: window.location.origin + '/propdata-pro.html?success=1',
+      cancelUrl: window.location.href
+    })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if (d.url) { window.location.href = d.url; }
+    else { throw new Error(d.error || 'Checkout failed'); }
+  })
+  .catch(function(e){
+    alert(e.message + ' — email support@proptechusa.ai or call 1-888-784-3881');
+    location.reload();
+  });
+}
+if (window.location.search.includes('success=1')) {
+  var b = document.createElement('div');
+  b.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#0BAA5C;color:#fff;text-align:center;padding:14px;font:700 14px sans-serif;z-index:999;';
+  b.textContent = '✓ Subscription confirmed! Check your email for your API key (arrives within 60 seconds).';
+  document.body.prepend(b);
+  setTimeout(function(){ b.remove(); }, 8000);
+}
+</script>
+</body>
+</html>

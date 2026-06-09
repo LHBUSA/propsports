@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>MLB Edge Suite — 5 MLB Intelligence APIs · $29/mo Direct</title>
+<meta name="description" content="MLB Almost Bomb Streak Detector, Pitcher Intelligence, Lucky Bombs, Ball Flight Intelligence, and MLB Intelligence — bundled. One key. $29/mo direct. No RapidAPI 60-day hold.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{
+  --white:#fff;--off:#F7F6F3;--ink:#0D0D0D;--ink2:#2A2A2A;
+  --muted:#6B6B6B;--border:#E2E1DC;
+  --red:#E8321A;--red2:#FF4429;--green:#0BAA5C;--gold:#E8A020;--blue:#1B65F0;
+  --max:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--white);color:var(--ink);font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 24px;}
+.nav-i{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:8px;}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-t{font:800 17px 'Syne',sans-serif;color:var(--ink);letter-spacing:-0.3px;}
+.logo-t span{color:var(--red);}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .15s;}
+.nav-link:hover{color:var(--ink);background:var(--off);}
+.btn-red{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:var(--red);color:#fff;font:700 13px 'Instrument Sans',sans-serif;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;box-shadow:0 3px 12px rgba(232,50,26,.25);}
+.btn-red:hover{background:var(--red2);transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:transparent;color:var(--ink);font:600 13px 'Instrument Sans',sans-serif;border-radius:8px;text-decoration:none;border:1.5px solid var(--border);transition:all .2s;}
+.btn-outline:hover{border-color:#aaa;background:var(--off);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.eyebrow{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+h1{font:800 clamp(44px,6vw,82px) 'Syne',sans-serif;letter-spacing:-2.5px;color:var(--ink);line-height:.95;margin-bottom:16px;}
+h1 em{color:var(--red);font-style:normal;}
+h2{font:800 clamp(28px,4vw,52px) 'Syne',sans-serif;letter-spacing:-1.5px;color:var(--ink);line-height:1.02;margin-bottom:12px;}
+h3{font:700 18px 'Syne',sans-serif;color:var(--ink);margin-bottom:8px;}
+p.lead{font-size:16px;color:var(--muted);line-height:1.75;max-width:540px;margin-bottom:28px;}
+code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off);padding:2px 7px;border-radius:4px;border:1px solid var(--border);}
+.tag{font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
+.tag-red{background:rgba(232,50,26,.08);color:var(--red);border:1px solid rgba(232,50,26,.2);}
+.tag-green{background:rgba(11,170,92,.08);color:var(--green);border:1px solid rgba(11,170,92,.2);}
+.tag-gold{background:rgba(232,160,32,.08);color:var(--gold);border:1px solid rgba(232,160,32,.2);}
+.tag-blue{background:rgba(27,101,240,.08);color:var(--blue);border:1px solid rgba(27,101,240,.2);}
+
+/* HERO */
+.hero{padding:80px 0 72px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.25;pointer-events:none;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;position:relative;z-index:1;}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.trust-pill{font-size:12px;color:var(--muted);padding:4px 10px;border-radius:20px;border:1px solid var(--border);}
+.trust-pill.g{color:var(--green);border-color:rgba(11,170,92,.25);background:rgba(11,170,92,.05);}
+
+/* PRICE CARD */
+.price-card{background:var(--ink);border-radius:18px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,.18);}
+.price-card-tier{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
+.price-big{font:800 64px 'Syne',sans-serif;color:#fff;letter-spacing:-3px;line-height:1;}
+.price-big sup{font-size:28px;letter-spacing:0;vertical-align:top;margin-top:10px;}
+.price-big sub{font:500 16px 'Instrument Sans',sans-serif;letter-spacing:0;color:rgba(255,255,255,.4);vertical-align:bottom;}
+.price-desc{font-size:13px;color:rgba(255,255,255,.45);margin:8px 0 22px;line-height:1.6;}
+.price-apis{display:flex;flex-direction:column;gap:9px;margin-bottom:24px;}
+.price-api-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.75);}
+.price-api-item::before{content:'✓';color:#4ade80;font-weight:700;flex-shrink:0;}
+.price-was{font-size:12px;color:rgba(255,255,255,.3);margin-bottom:16px;font-family:'JetBrains Mono',monospace;}
+.btn-white{display:block;text-align:center;padding:13px;background:#fff;color:var(--ink);font:700 14px 'Instrument Sans',sans-serif;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;width:100%;}
+.btn-white:hover{background:var(--off);}
+.price-note{font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;font-family:'JetBrains Mono',monospace;}
+
+/* APIs GRID */
+.apis-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:40px;}
+.api-card{background:var(--white);padding:28px 26px;transition:background .2s;}
+.api-card:hover{background:var(--off);}
+.api-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.api-num{font:700 10px 'JetBrains Mono',monospace;color:rgba(0,0,0,.2);letter-spacing:.1em;}
+.api-title{font:700 17px 'Syne',sans-serif;color:var(--ink);margin-bottom:8px;}
+.api-body{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;}
+.api-signals{display:flex;flex-wrap:wrap;gap:6px;}
+.signal{font:700 9px 'JetBrains Mono',monospace;letter-spacing:.08em;padding:3px 9px;border-radius:20px;}
+.signal-inferno{background:rgba(232,50,26,.1);color:var(--red);border:1px solid rgba(232,50,26,.25);}
+.signal-hot{background:rgba(232,160,32,.1);color:var(--gold);border:1px solid rgba(232,160,32,.25);}
+.signal-fade{background:rgba(11,170,92,.1);color:var(--green);border:1px solid rgba(11,170,92,.25);}
+.signal-blue{background:rgba(27,101,240,.1);color:var(--blue);border:1px solid rgba(27,101,240,.25);}
+
+/* MATH BAR */
+.math-bar{background:rgba(232,50,26,.05);border:1px solid rgba(232,50,26,.15);border-radius:12px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:20px;}
+.math-label{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+.math-line{font:600 15px 'Instrument Sans',sans-serif;color:var(--ink);}
+.math-sub{font-size:12px;color:var(--muted);margin-top:3px;}
+
+/* PRICING TIER TABLE */
+.tier-table{width:100%;border-collapse:collapse;margin-top:32px;font-size:13px;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+.tier-table th{padding:11px 16px;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--off);border-bottom:2px solid var(--border);}
+.tier-table td{padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.tier-table tr:last-child td{border-bottom:none;}
+.tier-table tr:hover td{background:rgba(232,50,26,.02);}
+.tier-table td:first-child{font-weight:600;}
+
+/* RAPIDAPI NOTE */
+.rapid-note{background:var(--off);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;align-items:flex-start;gap:14px;margin-top:36px;}
+.rapid-note-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+.rapid-note-body{font-size:13px;color:var(--muted);line-height:1.7;}
+.rapid-note-body a{color:var(--red);text-decoration:none;}
+.rapid-note-body a:hover{text-decoration:underline;}
+.rapid-note-body strong{color:var(--ink);}
+
+/* CTA SECTION */
+.cta-section{background:var(--ink);padding:72px 0;}
+.cta-inner{text-align:center;max-width:600px;margin:0 auto;}
+.cta-inner h2{color:#fff;margin-bottom:12px;}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;line-height:1.75;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* FOOTER */
+.ft{background:#141412;padding:32px 0 20px;}
+.ft-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.ft-logo{font:800 16px 'Syne',sans-serif;color:#fff;}
+.ft-logo span{color:var(--red);}
+.ft-links{display:flex;gap:18px;}
+.ft-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s;}
+.ft-links a:hover{color:rgba(255,255,255,.8);}
+.ft-copy{font:400 11px 'JetBrains Mono',monospace;color:rgba(255,255,255,.18);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:36px;}
+  .apis-grid{grid-template-columns:1fr;}
+  nav{padding:0 16px;}
+  .wrap{padding:0 16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-i">
+    <a href="/" class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E8321A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+      <span class="logo-t">Prop<span>Tech</span>USA.ai</span>
+    </a>
+    <div class="nav-r">
+      <a href="https://propsports.proptechusa.ai" class="nav-link">PropSports API</a>
+      <a href="https://propdata.proptechusa.ai" class="nav-link">PropData API</a>
+      <a href="mailto:support@proptechusa.ai" class="btn-outline">Contact</a>
+      <button class="btn-red" onclick="doCheckout('BASIC')">Get Access — $29/mo</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">MLB Edge Suite &mdash; Direct Access</div>
+        <h1>5 MLB intelligence<br>APIs. One <em>key.</em></h1>
+        <p class="lead">Almost Bomb Streak Detector. Pitcher Intelligence. Lucky Bombs. Ball Flight Intelligence. MLB Intelligence. Every edge signal you need before first pitch — bundled at $29/mo direct.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+          <button class="btn-red" onclick="doCheckout('BASIC')">Get Access — $29/mo &rarr;</button>
+          <a href="#apis" class="btn-outline">See All 5 APIs &darr;</a>
+        </div>
+        <div class="trust-row">
+          <span class="trust-pill g">✓ Instant key delivery</span>
+          <span class="trust-pill g">✓ Cancel anytime</span>
+          <span class="trust-pill">Powered by Stripe</span>
+          <span class="trust-pill">PropTechUSA.ai</span>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-tier">MLB Edge Suite — Basic</div>
+        <div class="price-big"><sup>$</sup>29<sub>/mo</sub></div>
+        <div class="price-desc">All 5 MLB intelligence APIs. 10K req/day. One API key. Key delivered in 60 seconds.</div>
+        <div class="price-was">RapidAPI combined: $13.95–$134.95/mo across 5 separate subscriptions</div>
+        <div class="price-apis">
+          <div class="price-api-item">MLB Almost Bomb Streak Detector</div>
+          <div class="price-api-item">MLB Pitcher Intelligence API</div>
+          <div class="price-api-item">MLB Lucky Bombs API</div>
+          <div class="price-api-item">MLB Ball Flight Intelligence API</div>
+          <div class="price-api-item">MLB Intelligence API</div>
+        </div>
+        <button class="btn-white" onclick="doCheckout('BASIC')">Subscribe — $29/mo &rarr;</button>
+        <div class="price-note">&#128274; Stripe &middot; cancel anytime &middot; key in 60 seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APIS -->
+<section id="apis" style="padding:72px 0;background:var(--off);border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="eyebrow">What's Included</div>
+    <h2>Five signals.<br>One subscription.</h2>
+    <p class="lead">Each API targets a different edge. Together they cover the full pre-game picture from the Statcast layer most bettors never see.</p>
+    <div class="apis-grid">
+
+      <div class="api-card">
+        <div class="api-card-head">
+          <span class="api-num">01</span>
+          <span class="tag tag-red">STREAK DETECTOR</span>
+        </div>
+        <div class="api-title">MLB Almost Bomb Streak Detector</div>
+        <div class="api-body">Players hitting the ball hard enough to homer — EV &ge;95mph, LA 18&ndash;52°, dist &ge;285ft — but not clearing the fence. Track who's been doing it for 2, 3, or 4+ consecutive days. The market prices yesterday's box score. You price the Statcast reality. Streak score formula: <code>(days × 25) + (avg_xBA × 30) + (avg_park_count × 1.2) + (total_bombs × 3)</code>. Plain-English betting angle per player on every tier.</div>
+        <div class="api-signals">
+          <span class="signal signal-inferno">INFERNO: 4+ days</span>
+          <span class="signal signal-hot">HOT: 3 days</span>
+          <span class="signal signal-fade">WARMING: 2 days</span>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-card-head">
+          <span class="api-num">02</span>
+          <span class="tag tag-red">FADE SIGNAL</span>
+        </div>
+        <div class="api-title">MLB Pitcher Intelligence API</div>
+        <div class="api-body">Last 5 starts profiled by Statcast contact quality. Hard hit %, barrel %, average exit velocity, K/9 trend. Punishment score 0&ndash;100: 70+ = getting_smoked, 50+ = leaking, under 30 = cruising. Every probable starter today ranked highest punishment score first. Filtered endpoint returns only today's starters scoring 50+ — the arms to stack against. Cached 1 hour.</div>
+        <div class="api-signals">
+          <span class="signal signal-inferno">70+ GETTING SMOKED</span>
+          <span class="signal signal-hot">50+ LEAKING</span>
+          <span class="signal signal-fade">UNDER 30 CRUISING</span>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-card-head">
+          <span class="api-num">03</span>
+          <span class="tag tag-gold">FADE SIGNAL</span>
+        </div>
+        <div class="api-title">MLB Lucky Bombs API</div>
+        <div class="api-body">Every HR from yesterday's completed games analyzed against three Statcast thresholds: EV below 95mph, launch angle below 18° or above 40°, hit distance below 360ft. Any HR triggering at least one flag returned with a luck score and fade angle. Public sees a HR and hammers the player's odds. You see the 91mph 340ft gift that wouldn't leave 25 parks. Cron ingests at 8AM UTC automatically.</div>
+        <div class="api-signals">
+          <span class="signal signal-inferno">GIFT 30+: hard fade</span>
+          <span class="signal signal-hot">LUCKY 15+: lean fade</span>
+          <span class="signal signal-fade">BORDERLINE: monitor</span>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-card-head">
+          <span class="api-num">04</span>
+          <span class="tag tag-blue">ATMOSPHERIC</span>
+        </div>
+        <div class="api-title">MLB Ball Flight Intelligence API</div>
+        <div class="api-body">Tonight's games scored by real atmospheric physics. Temperature + humidity + altitude = air density (rho kg/m³). Every MLB game tonight ranked by estimated extra carry distance in feet vs sea-level baseline. Heat delta: tonight's Open-Meteo forecast vs each park's NOAA 1991&ndash;2020 seasonal normal. A game 12°F+ above the park's normal is a leveraged HR environment most models miss completely. 34 venues. Indoor detection built in.</div>
+        <div class="api-signals">
+          <span class="signal signal-inferno">12°F+ ABOVE NORMAL</span>
+          <span class="signal signal-blue">AIR DENSITY RANKED</span>
+          <span class="signal signal-fade">EXTRA CARRY IN FEET</span>
+        </div>
+      </div>
+
+      <div class="api-card" style="grid-column:1/-1;">
+        <div class="api-card-head">
+          <span class="api-num">05</span>
+          <span class="tag tag-green">COMPOSITE</span>
+        </div>
+        <div class="api-title">MLB Intelligence API</div>
+        <div class="api-body">Three analytics layers in one endpoint. Park factor + real-time wind + temperature → 0&ndash;100 HR score per game. Every game tiered BOMB / WARM / NEUTRAL / COLD. 20 home plate umpires graded A&ndash;F with K-rate boost/drag, walk rate, HR impact, and over/under percentage — today's assignments live with instant OVER/UNDER signals. Baseball Savant Statcast leaderboard: barrel %, exit velocity, xwOBA, sprint speed, HR spray charts per player. Cached 30 minutes.</div>
+        <div class="api-signals">
+          <span class="signal signal-inferno">BOMB ENVIRONMENT</span>
+          <span class="signal signal-hot">WARM ENVIRONMENT</span>
+          <span class="signal signal-fade">UMPIRE GRADES A–F</span>
+          <span class="signal signal-blue">HR SCORE 0–100</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The math -->
+    <div class="math-bar">
+      <div>
+        <div class="math-label">The Math</div>
+        <div class="math-line">RapidAPI separately: <span style="text-decoration:line-through;color:var(--muted);">$13.95–$134.95/mo across 5 subscriptions</span> &nbsp;·&nbsp; MLB Edge Suite: <strong style="color:var(--red);">$29/mo</strong></div>
+        <div class="math-sub">One key. One bill. Instant delivery. No 60-day RapidAPI payout hold.</div>
+      </div>
+      <button class="btn-red" onclick="doCheckout('BASIC')">Get Access — $29/mo &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TIERS -->
+<section style="padding:72px 0;">
+  <div class="wrap">
+    <div class="eyebrow">Direct Pricing</div>
+    <h2>Simple tiers.<br>Instant access.</h2>
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Plan</th>
+          <th>Daily Requests</th>
+          <th>Support</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Basic</td>
+          <td style="text-align:center;">10,000 / day</td>
+          <td style="text-align:center;">Email ~48hr</td>
+          <td style="text-align:center;font-weight:700;">$29/mo</td>
+          <td style="text-align:center;"><button class="btn-red" style="padding:7px 16px;font-size:12px;" onclick="doCheckout('BASIC')">Subscribe &rarr;</button></td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td style="text-align:center;">50,000 / day</td>
+          <td style="text-align:center;">Priority email 24hr</td>
+          <td style="text-align:center;font-weight:700;">$59/mo</td>
+          <td style="text-align:center;"><button class="btn-red" style="padding:7px 16px;font-size:12px;" onclick="doCheckout('PRO')">Subscribe &rarr;</button></td>
+        </tr>
+        <tr>
+          <td>Ultra</td>
+          <td style="text-align:center;">200,000 / day</td>
+          <td style="text-align:center;">Email + Slack 4hr</td>
+          <td style="text-align:center;font-weight:700;">$99/mo</td>
+          <td style="text-align:center;"><button class="btn-red" style="padding:7px 16px;font-size:12px;" onclick="doCheckout('ULTRA')">Subscribe &rarr;</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- RapidAPI note -->
+    <div class="rapid-note">
+      <div class="rapid-note-icon">&#9888;&#65039;</div>
+      <div class="rapid-note-body">
+        <strong>Why subscribe direct instead of RapidAPI?</strong> RapidAPI holds payouts for 60 days and takes a platform fee on every transaction. Subscribing here means your key arrives in 60 seconds, you deal directly with PropTechUSA.ai for support, and you can manage your subscription in the Stripe portal. The APIs are identical. The experience is better.
+        The individual RapidAPI listings still exist at <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener">rapidapi.com/team/propdata-propdata-default</a> if you prefer that flow.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="eyebrow" style="color:rgba(255,255,255,.4);">Ready?</div>
+      <h2 style="color:#fff;">Five MLB edge signals.<br>$29 a month.</h2>
+      <p>Key in your inbox in 60 seconds. Cancel anytime from your Stripe portal. No contracts.</p>
+      <div class="cta-btns">
+        <button class="btn-red" style="font-size:15px;padding:13px 28px;" onclick="doCheckout('BASIC')">Get MLB Edge Suite — $29/mo &rarr;</button>
+        <a href="mailto:support@proptechusa.ai" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,.25);">Talk to us</a>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;">support@proptechusa.ai &middot; 1-888-784-3881 &middot; Saint Paul, MN</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-inner">
+    <div class="ft-logo">Prop<span>Tech</span>USA.ai</div>
+    <div class="ft-links">
+      <a href="https://propsports.proptechusa.ai">PropSports API</a>
+      <a href="https://propdata.proptechusa.ai">PropData API</a>
+      <a href="https://propbetedge.ai">PropBetEdge</a>
+      <a href="mailto:support@proptechusa.ai">Support</a>
+    </div>
+    <div class="ft-copy">&copy; 2026 PropTechUSA.ai &middot; Saint Paul, MN</div>
+  </div>
+</footer>
+
+<script>
+// Stripe Price IDs for MLB Edge Suite
+// REPLACE these with real IDs after creating Stripe products
+var MLB_PRICE_IDS = {
+  BASIC: 'price_1TgVoxF3CaVzg4ORm5niMmar',
+  PRO:   'price_1TgVpYF3CaVzg4ORBTywn1gR',
+  ULTRA: 'price_1TgVqWF3CaVzg4OR3cxGnuAx'
+};
+
+var MLB_LABELS = {
+  BASIC: 'Subscribe — $29/mo →',
+  PRO:   'Subscribe — $59/mo →',
+  ULTRA: 'Subscribe — $99/mo →'
+};
+
+function doCheckout(tier) {
+  var priceId = MLB_PRICE_IDS[tier];
+
+  if (priceId.indexOf('REPLACE') !== -1) {
+    // Placeholder — send to email instead
+    window.location.href = 'mailto:support@proptechusa.ai?subject=MLB Edge Suite ' + tier + ' Subscription&body=I want to subscribe to the MLB Edge Suite ' + tier + ' plan ($' + (tier === 'BASIC' ? '29' : tier === 'PRO' ? '59' : '99') + '/mo). Please send me a payment link.';
+    return;
+  }
+
+  var btns = document.querySelectorAll('button');
+  btns.forEach(function(b) {
+    if (b.textContent.includes('→') && !b.classList.contains('nav-btn')) {
+      b.disabled = true;
+      b.textContent = 'Loading...';
+    }
+  });
+
+  fetch('https://propsports-stripe.sales-fd3.workers.dev/create-checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      priceId: priceId,
+      successUrl: window.location.origin + '/mlb-edge.html?success=1',
+      cancelUrl: window.location.href
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.url) { window.location.href = d.url; }
+    else { throw new Error(d.error || 'Checkout failed'); }
+  })
+  .catch(function(e) {
+    alert(e.message + ' — email support@proptechusa.ai or call 1-888-784-3881');
+    location.reload();
+  });
+}
+
+// Success message
+if (window.location.search.includes('success=1')) {
+  var banner = document.createElement('div');
+  banner.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#0BAA5C;color:#fff;text-align:center;padding:14px;font:700 14px sans-serif;z-index:999;';
+  banner.textContent = '✓ Subscription confirmed! Check your email for your API key (arrives within 60 seconds).';
+  document.body.prepend(banner);
+  setTimeout(function() { banner.remove(); }, 8000);
+}
+</script>
+</body>
+</html>

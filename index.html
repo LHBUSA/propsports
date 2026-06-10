@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
-<title>PropSports API — MLB Prop Odds, Statcast & Live Sports Data | From $49/mo</title>
-<meta name="description" content="47 endpoints. Owned Statcast data. The only sports API that generates its own Poisson model odds — no DraftKings, no FanDuel dependency. MLB, NFL, NBA, NHL. From $49/mo. Featured in The Globe and Mail.">
+<title>PropSports API — MLB Prop Odds, Statcast & Live Sports Data | From $19/mo</title>
+<meta name="description" content="47 endpoints. Owned Statcast data. The only sports API that generates its own Poisson model odds — no DraftKings, no FanDuel dependency. MLB, NFL, NBA, NHL. Single sport from $19/mo · All sports $49/mo. Featured in The Globe and Mail.">
 <link rel="canonical" href="https://propsports.proptechusa.ai/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#D73B1A">
@@ -274,14 +274,15 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 .nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);background:var(--off);}
 .nav-dropdown-btn svg{transition:transform .2s;flex-shrink:0;}
 .nav-dropdown-btn.open svg{transform:rotate(180deg);}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:9999;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;left:auto;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:400px;z-index:9999;}
 .nav-dropdown-menu.open{display:block;}
 .nav-dd-section{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9B9990;padding:8px 10px 4px;display:block;}
-.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;min-width:0;}
 .nav-dd-item:hover{background:#F7F6F3;}
 .nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
+.nav-dd-item>div{min-width:0;flex:1;overflow:hidden;}
 .nav-dd-name{font-size:13px;font-weight:600;color:#0D0D0D;margin-bottom:2px;}
-.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;}
+.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;white-space:normal;word-break:normal;overflow-wrap:break-word;}
 .nav-dd-price{font-size:10px;font-weight:700;font-family:monospace;color:#E8321A;margin-top:3px;}
 .nav-dd-divider{height:1px;background:#E2E1DC;margin:4px 0;}
 </style>
@@ -327,9 +328,8 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <span class="nav-tag">⚡ Model Odds Live</span>
       <!-- PRODUCTS DROPDOWN -->
       <div class="nav-dropdown">
-        <button class="nav-dropdown-btn" id="products-btn">
-          Products
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        <button class="nav-dropdown-btn" id="products-btn" title="Products">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </button>
         <div class="nav-dropdown-menu" id="products-menu">
           <div class="nav-dd-section">⚾ Sports</div>
@@ -337,15 +337,15 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
             <span class="nav-dd-icon">⚡</span>
             <div>
               <div class="nav-dd-name">PropSports API</div>
-              <div class="nav-dd-desc">47 endpoints · MLB · NFL · NBA · NHL · Poisson model odds</div>
-              <div class="nav-dd-price">From $49/mo</div>
+              <div class="nav-dd-desc">MLB · NFL · NBA · NHL · 47 endpoints · Poisson model odds</div>
+              <div class="nav-dd-price">From $19/mo · All sports $49/mo</div>
             </div>
           </a>
           <a href="/mlb-edge.html" class="nav-dd-item">
             <span class="nav-dd-icon">⚾</span>
             <div>
               <div class="nav-dd-name">MLB Edge Suite</div>
-              <div class="nav-dd-desc">Almost Bomb + Pitcher Intel + Lucky Bombs + Ball Flight + MLB Intelligence</div>
+              <div class="nav-dd-desc">Almost Bomb · Pitcher Intel · Lucky Bombs · Ball Flight</div>
               <div class="nav-dd-price">From $29/mo</div>
             </div>
           </a>
@@ -353,13 +353,13 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
           <div class="nav-dd-section">🏘️ Real Estate</div>
           <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
             <span class="nav-dd-icon">&#127968;</span>
-            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels &middot; address lookup &middot; AVM &middot; leads &middot; 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
           </a>
           <a href="/propdata-core.html" class="nav-dd-item">
             <span class="nav-dd-icon">🏘️</span>
             <div>
               <div class="nav-dd-name">PropData Core</div>
-              <div class="nav-dd-desc">ZIP · Flood Zone · Crime · Census · Business · Address — 6 APIs bundled</div>
+              <div class="nav-dd-desc">ZIP · Flood · Crime · Census · Business · Address</div>
               <div class="nav-dd-price">From $49/mo</div>
             </div>
           </a>
@@ -367,7 +367,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
             <span class="nav-dd-icon">🏆</span>
             <div>
               <div class="nav-dd-name">PropData Pro Stack</div>
-              <div class="nav-dd-desc">Everything in Core + Tax · Phone · AVM · Motivated Seller Leads</div>
+              <div class="nav-dd-desc">Core + Tax · Phone · AVM · Motivated Seller Leads</div>
               <div class="nav-dd-price">From $149/mo</div>
             </div>
           </a>
@@ -381,7 +381,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
             <span class="nav-dd-icon">🔗</span>
             <div>
               <div class="nav-dd-name">All 18 APIs on RapidAPI</div>
-              <div class="nav-dd-desc">Browse every PropTechUSA.ai API on the RapidAPI marketplace</div>
+              <div class="nav-dd-desc">All PropTechUSA.ai APIs on RapidAPI</div>
             </div>
           </a>
         </div>
@@ -398,7 +398,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 </nav>
 <div class="mob">
   <div style="padding:8px 14px 4px;font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">&#9918; Sports APIs</div>
-  <a href="/pricing.html">&#9889; PropSports API — From $49/mo</a>
+  <a href="/pricing.html">&#9889; PropSports API — From $19/mo</a>
   <a href="/mlb-edge.html">&#9918; MLB Edge Suite — From $29/mo</a>
   <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
   <div style="padding:8px 14px 4px;font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">&#127968; Real Estate APIs</div>
@@ -426,12 +426,12 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
         Live scores, Statcast, player props, weather, umpires — and the only sports API that <strong>generates its own odds</strong> from a Poisson model built on owned data. No DraftKings. No FanDuel. No dependency.
       </p>
       <div class="hero-btns">
-        <a href="/pricing.html" class="btn-red">Get API Key — From $49/mo →</a>
+        <a href="/pricing.html" class="btn-red">Get API Key — From $19/mo →</a>
         <a href="/docs.html" class="btn-outline">View All 47 Endpoints</a>
       </div>
       <div class="trust-row">
         <span class="tr-pill g">✓ Demo key for evaluation</span>
-        <span class="tr-pill g">✓ Basic from $49/mo</span>
+        <span class="tr-pill g">✓ Single sport from $19/mo</span>
         <span class="tr-pill r">⚡ Poisson model odds</span>
         <span class="tr-pill">Listed on RapidAPI</span>
         <span class="tr-pill">Featured in The Globe and Mail</span>
@@ -623,10 +623,10 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
         <span class="odds-pill green">✓ 6× Daily Updates</span>
         <span class="odds-pill">xSLG + Barrel% + EV Allowed</span>
         <span class="odds-pill">Park Factor Adjusted</span>
-        <span class="odds-pill hot">Basic from $49/mo</span>
+        <span class="odds-pill hot">From $19/mo</span>
       </div>
       <div class="odds-cta">
-        <a href="/pricing.html" class="btn-white">Get Started — From $49/mo →</a>
+        <a href="/pricing.html" class="btn-white">Get Started — From $19/mo →</a>
         <a href="/docs.html" class="btn-ghost-white">See the Endpoints</a>
       </div>
     </div>
@@ -651,8 +651,8 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
         <div class="sell-item">
           <div class="sell-icon">💰</div>
           <div>
-            <div class="sell-title">Included at $49/mo. SportRadar Starts at $2,000+.</div>
-            <div class="sell-body">You get MLB, NFL, NBA, NHL, Statcast, prop odds, AND our Poisson model odds starting at $49/mo. SportRadar starts at $2,000+/mo. Nobody else is close.</div>
+            <div class="sell-title">Single sport from $19/mo. All sports $49/mo. SportRadar starts at $2,000+.</div>
+            <div class="sell-body">Pick one sport for $19/mo or get all four — MLB, NFL, NBA, NHL, Statcast, prop odds, and Poisson model odds — for $49/mo. SportRadar starts at $2,000+/mo. Nobody else is close.</div>
             <span class="sell-badge exclusive">BEST VALUE IN THE MARKET</span>
           </div>
         </div>
@@ -674,7 +674,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <div class="wrap">
     <div class="eyebrow">API Reference</div>
     <h2>47 endpoints.<br><em>All documented.</em></h2>
-    <p class="section-lead">Search all 47 endpoints. Model odds highlighted — no competitor ships a working Poisson model at $49/mo.</p>
+    <p class="section-lead">Search all 47 endpoints. Model odds highlighted — no competitor ships a working Poisson model at $19/mo.</p>
     <div class="ep-bar">
       <div class="ep-search-w">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -899,7 +899,44 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <div class="wrap">
     <div class="eyebrow">Simple Pricing</div>
     <h2>Flat rate.<br><em>No surprises.</em></h2>
-    <p class="section-lead">No per-call fees. No usage tiers that sneak up on you. SportRadar starts at $2,000+/mo for less. PropSports starts at $49. The math isn't complicated.</p>
+    <p class="section-lead">No per-call fees. No usage tiers that sneak up on you. Single sport from $19/mo. All four sports $49/mo. SportRadar starts at $2,000+/mo. The math isn't complicated.</p>
+      <!-- Single sport entry points -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 10px">
+        <a href="/pricing.html" class="sport-pick-card" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-decoration:none;transition:border-color .15s,background .15s" onmouseover="this.style.borderColor='rgba(212,43,43,0.5)';this.style.background='rgba(212,43,43,0.06)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)'">
+          <span style="font-size:32px;line-height:1">⚾</span>
+          <div>
+            <div style="font-family:var(--font-d);font-size:15px;color:var(--white);letter-spacing:.5px">MLB Only</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px">Statcast · Poisson odds · HR props</div>
+          </div>
+          <div style="font-family:var(--font-d);font-size:20px;color:var(--red);margin-top:auto">$19<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.35)">/mo</span></div>
+        </a>
+        <a href="/pricing.html" class="sport-pick-card" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-decoration:none;transition:border-color .15s,background .15s" onmouseover="this.style.borderColor='rgba(212,43,43,0.5)';this.style.background='rgba(212,43,43,0.06)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)'">
+          <span style="font-size:32px;line-height:1">🏈</span>
+          <div>
+            <div style="font-family:var(--font-d);font-size:15px;color:var(--white);letter-spacing:.5px">NFL Only</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px">Player props · game lines · scores</div>
+          </div>
+          <div style="font-family:var(--font-d);font-size:20px;color:var(--red);margin-top:auto">$19<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.35)">/mo</span></div>
+        </a>
+        <a href="/pricing.html" class="sport-pick-card" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-decoration:none;transition:border-color .15s,background .15s" onmouseover="this.style.borderColor='rgba(212,43,43,0.5)';this.style.background='rgba(212,43,43,0.06)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)'">
+          <span style="font-size:32px;line-height:1">🏀</span>
+          <div>
+            <div style="font-family:var(--font-d);font-size:15px;color:var(--white);letter-spacing:.5px">NBA Only</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px">Advanced box scores · props · lines</div>
+          </div>
+          <div style="font-family:var(--font-d);font-size:20px;color:var(--red);margin-top:auto">$19<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.35)">/mo</span></div>
+        </a>
+        <a href="/pricing.html" class="sport-pick-card" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;text-decoration:none;transition:border-color .15s,background .15s" onmouseover="this.style.borderColor='rgba(212,43,43,0.5)';this.style.background='rgba(212,43,43,0.06)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)'">
+          <span style="font-size:32px;line-height:1">🏒</span>
+          <div>
+            <div style="font-family:var(--font-d);font-size:15px;color:var(--white);letter-spacing:.5px">NHL Only</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px">Player props · puck line · scores</div>
+          </div>
+          <div style="font-family:var(--font-d);font-size:20px;color:var(--red);margin-top:auto">$19<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.35)">/mo</span></div>
+        </a>
+      </div>
+      <p style="text-align:center;font-size:12px;color:var(--mid);margin:10px 0 32px">Pick one sport at $19/mo &mdash; or get all four for $49/mo with the plans below</p>
+
     <div class="pricing-grid">
       <!-- DEMO -->
       <div class="pricing-card">
@@ -979,10 +1016,10 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
     <div style="margin-top:20px;padding:16px 22px;background:var(--redbg);border:1px solid var(--redborder);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div>
         <div style="font:700 11px var(--mono);letter-spacing:.1em;color:var(--red);margin-bottom:4px;">THE MATH</div>
-        <div style="font:600 15px var(--sans);color:var(--ink);">SportRadar: <span style="text-decoration:line-through;color:var(--mid);">$24,000+/year</span> &nbsp;·&nbsp; PropSports Basic: <strong style="color:var(--red);">$588/year</strong></div>
-        <div style="font:400 12px var(--sans);color:var(--mid);margin-top:3px;">47 endpoints. 4 leagues. Owned Statcast. Owned Poisson model. Under 3% of the SportRadar minimum.</div>
+        <div style="font:600 15px var(--sans);color:var(--ink);">SportRadar: <span style="text-decoration:line-through;color:var(--mid);">$24,000+/year</span> &nbsp;·&nbsp; PropSports MLB-only: <strong style="color:var(--red);">$228/year</strong></div>
+        <div style="font:400 12px var(--sans);color:var(--mid);margin-top:3px;">MLB-only from $19/mo ($228/yr). All 4 sports from $49/mo ($588/yr). Under 3% of the SportRadar minimum.</div>
       </div>
-      <a href="/pricing.html" class="btn-red">Start for $49 →</a>
+      <a href="/pricing.html" class="btn-red">Start for $19/mo →</a>
     </div>
     <p style="text-align:center;margin-top:20px;font:400 13px var(--sans);color:var(--soft);">
       Also on <a href="https://rapidapi.com/proptechusa/api/propsports-api" style="color:var(--red);text-decoration:none;font-weight:600;" target="_blank">RapidAPI</a>

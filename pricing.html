@@ -211,6 +211,23 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
   .psa-ft-pb-in{flex-direction:column;gap:8px;}
   h1{font-size:clamp(34px,8vw,56px) !important;letter-spacing:-1.5px;}
 }
+
+/* ── PRODUCTS DROPDOWN ── */
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-btn{font-size:13px;font-weight:500;color:var(--muted);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:3px;white-space:nowrap;font-family:inherit;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);background:var(--off);}
+.nav-dropdown-btn svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown-btn.open svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;left:auto;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:9999;}
+.nav-dropdown-menu.open{display:block;}
+.nav-dd-section{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9B9990;padding:8px 10px 4px;display:block;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
+.nav-dd-item:hover{background:#F7F6F3;}
+.nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
+.nav-dd-name{font-size:13px;font-weight:600;color:#0D0D0D;margin-bottom:2px;}
+.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;}
+.nav-dd-price{font-size:10px;font-weight:700;font-family:monospace;color:#E8321A;margin-top:3px;}
+.nav-dd-divider{height:1px;background:#E2E1DC;margin:4px 0;}
 </style>
 </head>
 <body>
@@ -253,6 +270,42 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
       <a href="/nfl.html">NFL</a>
       <a href="/nba.html">NBA</a>
       <a href="/nhl.html">NHL</a>
+      <!-- PRODUCTS DROPDOWN -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="products-btn" title="Products">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="products-menu">
+          <div class="nav-dd-section">&#9918; Sports</div>
+          <a href="/pricing.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#9889;</span>
+            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">47 endpoints &middot; MLB &middot; NFL &middot; NBA &middot; NHL &middot; Poisson model odds</div><div class="nav-dd-price">From $19/mo · All sports $49/mo</div></div>
+          </a>
+          <a href="/mlb-edge.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#9918;</span>
+            <div><div class="nav-dd-name">MLB Edge Suite</div><div class="nav-dd-desc">Almost Bomb &middot; Pitcher Intel &middot; Lucky Bombs &middot; Ball Flight &middot; MLB Intelligence</div><div class="nav-dd-price">From $29/mo</div></div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <div class="nav-dd-section">&#127968; Real Estate</div>
+          <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127968;</span>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels &middot; address lookup &middot; AVM &middot; leads &middot; 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+          </a>
+          <a href="/propdata-core.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#128218;</span>
+            <div><div class="nav-dd-name">PropData Core Bundle</div><div class="nav-dd-desc">ZIP &middot; Flood &middot; Crime &middot; Census &middot; Business &middot; Address &mdash; 6 APIs</div><div class="nav-dd-price">From $49/mo</div></div>
+          </a>
+          <a href="/propdata-pro.html" class="nav-dd-item">
+            <span class="nav-dd-icon">&#127942;</span>
+            <div><div class="nav-dd-name">PropData Pro Stack</div><div class="nav-dd-desc">Core + Tax &middot; Phone &middot; AVM &middot; Motivated Seller Leads &mdash; 10 APIs</div><div class="nav-dd-price">From $149/mo</div></div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">&#128279;</span>
+            <div><div class="nav-dd-name">All 18 APIs on RapidAPI</div><div class="nav-dd-desc">Browse every PropTechUSA.ai API on the marketplace</div></div>
+          </a>
+        </div>
+      </div>
       <a href="/docs.html">Docs</a>
       <a href="/pricing.html" class="active">Pricing</a>
     </div>
@@ -267,6 +320,15 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
   <a href="/nfl.html" onclick="toggleMenu()">&#127944; NFL</a>
   <a href="/nba.html" onclick="toggleMenu()">&#127936; NBA</a>
   <a href="/nhl.html" onclick="toggleMenu()">&#127944; NHL</a>
+  <div style="padding:8px 14px 4px;font:700 9px monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);opacity:.6;">Sports APIs</div>
+  <a href="/pricing.html" onclick="toggleMenu()">&#9889; PropSports API — From $49/mo</a>
+  <a href="/mlb-edge.html" onclick="toggleMenu()">&#9918; MLB Edge Suite — From $29/mo</a>
+  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
+  <div style="padding:8px 14px 4px;font:700 9px monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);opacity:.6;">Real Estate APIs</div>
+  <a href="/propdata-core.html" onclick="toggleMenu()">&#127968; PropData Core — From $49/mo</a>
+  <a href="/propdata-pro.html" onclick="toggleMenu()">&#127942; PropData Pro Stack — From $149/mo</a>
+  <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" onclick="toggleMenu()">&#127968; PropData API &#8599;</a>
+  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
   <a href="/docs.html" onclick="toggleMenu()">&#128214; Docs</a>
   <a href="/pricing.html" class="btn-nav" onclick="toggleMenu()">Get API Key &rarr;</a>
 </div>
@@ -486,7 +548,48 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
   </div>
 </section>
 
-<!-- FAQ -->
+
+    <!-- SINGLE SPORT -->
+    <section style="padding:64px 0 0;border-top:1px solid var(--border)">
+      <div class="wrap">
+        <div class="eyebrow">Single Sport Access</div>
+        <h2 style="font:800 clamp(28px,4vw,48px) 'Syne',sans-serif;letter-spacing:-1.5px;color:var(--ink);margin-bottom:10px">One sport. $19/mo.</h2>
+        <p style="font-size:15px;color:var(--muted);margin-bottom:36px;max-width:520px">Only care about MLB props? Only need NFL data? Pick your sport — all endpoints for that sport, 50K req/day, same API key system. Upgrade to all-sports anytime.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:24px">
+          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
+            <div style="font-size:36px;margin-bottom:10px">⚾</div>
+            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">MLB Only</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Statcast · Poisson model · HR props · K props · live scores</div>
+            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-mlb" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('MLB')">Get MLB Access &rarr;</button>
+          </div>
+          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
+            <div style="font-size:36px;margin-bottom:10px">🏈</div>
+            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">NFL Only</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Player props · game lines · spreads · live scores</div>
+            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-nfl" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('NFL')">Get NFL Access &rarr;</button>
+          </div>
+          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
+            <div style="font-size:36px;margin-bottom:10px">🏀</div>
+            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">NBA Only</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Player props · game lines · live scores · Poisson model</div>
+            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-nba" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('NBA')">Get NBA Access &rarr;</button>
+          </div>
+          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
+            <div style="font-size:36px;margin-bottom:10px">🏒</div>
+            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">NHL Only</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Player props · game lines · live scores</div>
+            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-nhl" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('NHL')">Get NHL Access &rarr;</button>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);text-align:center">Want all 4 sports? <a href="#plans" style="color:var(--ink);font-weight:600">See the $49/mo All Sports plan &uarr;</a> — better value at $30 more.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
 <section style="background:var(--off);padding:72px 0;">
   <div class="wrap">
     <div class="eyebrow">FAQ</div>
@@ -529,6 +632,54 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
 </section>
 
 <!-- FOOTER -->
+<!-- RELATED APIS -->
+<section style="padding:56px 0;background:var(--off);border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="eyebrow">Also on RapidAPI</div>
+    <h2 style="font-size:clamp(24px,3.5vw,40px);">More from the same team</h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:32px;max-width:520px;line-height:1.75;">Every API below runs on the same Cloudflare Workers + Supabase stack. Government-sourced data. Flat monthly pricing. No per-call fees.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:28px;">
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-almost-bomb-streak-detector" target="_blank" rel="noopener" style="text-decoration:none;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:block;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:7px;">EDGE SIGNAL</div>
+        <div style="font:700 14px 'Instrument Sans',sans-serif;color:var(--ink);margin-bottom:4px;">MLB Almost Bomb Streak Detector</div>
+        <div style="font:400 12px 'Instrument Sans',sans-serif;color:var(--muted);line-height:1.5;">Players hitting the ball hard enough to homer but not clearing the fence. 2–4+ consecutive days.</div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-pitcher-intelligence" target="_blank" rel="noopener" style="text-decoration:none;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:block;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:7px;">PITCHER FADE</div>
+        <div style="font:700 14px 'Instrument Sans',sans-serif;color:var(--ink);margin-bottom:4px;">MLB Pitcher Intelligence API</div>
+        <div style="font:400 12px 'Instrument Sans',sans-serif;color:var(--muted);line-height:1.5;">Last 5 starts. Hard hit %, barrel %, EV, K9 trend. Punishment score 0–100.</div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-lucky-bombs" target="_blank" rel="noopener" style="text-decoration:none;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:block;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;">FADE SIGNAL</div>
+        <div style="font:700 14px 'Instrument Sans',sans-serif;color:var(--ink);margin-bottom:4px;">MLB Lucky Bombs API</div>
+        <div style="font:400 12px 'Instrument Sans',sans-serif;color:var(--muted);line-height:1.5;">Yesterday's HRs flagged by Statcast quality. 91mph 340ft gifts. Fade before the market corrects.</div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-ball-flight-intelligence" target="_blank" rel="noopener" style="text-decoration:none;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:block;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:7px;">ATMOSPHERIC</div>
+        <div style="font:700 14px 'Instrument Sans',sans-serif;color:var(--ink);margin-bottom:4px;">MLB Ball Flight Intelligence API</div>
+        <div style="font:400 12px 'Instrument Sans',sans-serif;color:var(--muted);line-height:1.5;">Air density physics. Extra carry in feet per park tonight. Coors at 45°F ≠ Coors at 85°F.</div>
+      </a>
+
+      <a href="https://rapidapi.com/propdata-propdata-default/api/propbetedge-sports-news" target="_blank" rel="noopener" style="text-decoration:none;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:block;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:7px;">AI ENRICHED</div>
+        <div style="font:700 14px 'Instrument Sans',sans-serif;color:var(--ink);margin-bottom:4px;">PropBetEdge Sports News API</div>
+        <div style="font:400 12px 'Instrument Sans',sans-serif;color:var(--muted);line-height:1.5;">Sports news with prop-bet impact scores. Sentiment, signal score, player relevance per article.</div>
+      </a>
+
+      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" style="text-decoration:none;background:var(--ink);border:1px solid var(--ink);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;transition:all .2s;" onmouseover="this.style.background='#2A2A2A'" onmouseout="this.style.background='var(--ink)'">
+        <div style="font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:7px;">18 TOTAL APIS</div>
+        <div style="font:700 14px 'Instrument Sans',sans-serif;color:#fff;margin-bottom:4px;">View Full Team Hub &rarr;</div>
+        <div style="font:400 12px 'Instrument Sans',sans-serif;color:rgba(255,255,255,0.45);line-height:1.5;">PropData real estate suite + all 6 MLB intelligence APIs on RapidAPI.</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <footer class="psa-ft">
   <div class="psa-ft-red"></div>
   <div class="psa-ft-pb">
@@ -637,12 +788,16 @@ function initBalls() {
 // Stripe Price IDs — update these when you create Stripe products
 var PRICE_IDS = {
   BASIC: 'price_1TgVGEF3CaVzg4ORwIgccsLq',   // $49/mo
-  PRO:   'price_1TgVIFF3CaVzg4ORBLnm7oV3',     // $99/mo
-  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5'   // $249/mo
+  PRO:   'price_1TgVIFF3CaVzg4ORBLnm7oV3',   // $99/mo
+  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5',   // $249/mo
+  MLB:   'price_1Tgl7SF3CaVzg4OROnbVwkJn',   // $19/mo
+  NFL:   'price_1TglBvF3CaVzg4ORiqx6QDne',   // $19/mo
+  NBA:   'price_1TglD6F3CaVzg4ORolvfntBE',   // $19/mo
+  NHL:   'price_1TglEDF3CaVzg4ORkrqBkQSf'    // $19/mo
 };
 
-var BTN_IDS = { BASIC: 'btn-basic', PRO: 'btn-pro', ULTRA: 'btn-ultra' };
-var BTN_LABELS = { BASIC: 'Subscribe — $49/mo →', PRO: 'Subscribe — $99/mo →', ULTRA: 'Subscribe — $249/mo →' };
+var BTN_IDS = { BASIC: 'btn-basic', PRO: 'btn-pro', ULTRA: 'btn-ultra', MLB: 'btn-mlb', NFL: 'btn-nfl', NBA: 'btn-nba', NHL: 'btn-nhl' };
+var BTN_LABELS = { BASIC: 'Subscribe — $49/mo →', PRO: 'Subscribe — $99/mo →', ULTRA: 'Subscribe — $249/mo →', MLB: 'Subscribe — $19/mo →', NFL: 'Subscribe — $19/mo →', NBA: 'Subscribe — $19/mo →', NHL: 'Subscribe — $19/mo →' };
 
 function doCheckout(tier) {
   var priceId = PRICE_IDS[tier];
@@ -682,5 +837,25 @@ function doCheckout(tier) {
 document.addEventListener('DOMContentLoaded', initBalls);
 </script>
 
+
+
+<script>
+(function(){
+  var btn = document.getElementById('products-btn');
+  var menu = document.getElementById('products-menu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = menu.classList.contains('open');
+    menu.classList.toggle('open', !open);
+    btn.classList.toggle('open', !open);
+  });
+  document.addEventListener('click', function(){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  });
+  menu.addEventListener('click', function(e){ e.stopPropagation(); });
+})();
+</script>
 </body>
 </html>

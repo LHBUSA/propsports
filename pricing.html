@@ -218,14 +218,15 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
 .nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);background:var(--off);}
 .nav-dropdown-btn svg{transition:transform .2s;flex-shrink:0;}
 .nav-dropdown-btn.open svg{transform:rotate(180deg);}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;left:auto;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:9999;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;left:auto;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:400px;z-index:9999;}
 .nav-dropdown-menu.open{display:block;}
 .nav-dd-section{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9B9990;padding:8px 10px 4px;display:block;}
-.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;min-width:0;}
 .nav-dd-item:hover{background:#F7F6F3;}
 .nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
+.nav-dd-item>div{min-width:0;flex:1;overflow:hidden;}
 .nav-dd-name{font-size:13px;font-weight:600;color:#0D0D0D;margin-bottom:2px;}
-.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;}
+.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;white-space:normal;word-break:normal;overflow-wrap:break-word;}
 .nav-dd-price{font-size:10px;font-weight:700;font-family:monospace;color:#E8321A;margin-top:3px;}
 .nav-dd-divider{height:1px;background:#E2E1DC;margin:4px 0;}
 </style>
@@ -283,13 +284,13 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
           </a>
           <a href="/mlb-edge.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9918;</span>
-            <div><div class="nav-dd-name">MLB Edge Suite</div><div class="nav-dd-desc">Almost Bomb &middot; Pitcher Intel &middot; Lucky Bombs &middot; Ball Flight &middot; MLB Intelligence</div><div class="nav-dd-price">From $29/mo</div></div>
+            <div><div class="nav-dd-name">MLB Edge Suite</div><div class="nav-dd-desc">Almost Bomb · Pitcher Intel · Lucky Bombs · Ball Flight</div><div class="nav-dd-price">From $29/mo</div></div>
           </a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-section">&#127968; Real Estate</div>
           <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
             <span class="nav-dd-icon">&#127968;</span>
-            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels &middot; address lookup &middot; AVM &middot; leads &middot; 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
           </a>
           <a href="/propdata-core.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#128218;</span>
@@ -550,42 +551,65 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
 
 
     <!-- SINGLE SPORT -->
-    <section style="padding:64px 0 0;border-top:1px solid var(--border)">
+    <section id="single-sport" style="padding:64px 0 0;border-top:1px solid var(--border)">
       <div class="wrap">
         <div class="eyebrow">Single Sport Access</div>
-        <h2 style="font:800 clamp(28px,4vw,48px) 'Syne',sans-serif;letter-spacing:-1.5px;color:var(--ink);margin-bottom:10px">One sport. $19/mo.</h2>
-        <p style="font-size:15px;color:var(--muted);margin-bottom:36px;max-width:520px">Only care about MLB props? Only need NFL data? Pick your sport — all endpoints for that sport, 50K req/day, same API key system. Upgrade to all-sports anytime.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:24px">
-          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
-            <div style="font-size:36px;margin-bottom:10px">⚾</div>
-            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">MLB Only</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Statcast · Poisson model · HR props · K props · live scores</div>
-            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
-            <button id="btn-mlb" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('MLB')">Get MLB Access &rarr;</button>
+        <h2 style="font:800 clamp(28px,4vw,48px) 'Syne',sans-serif;letter-spacing:-1.5px;color:var(--ink);margin-bottom:10px">One sport.<br>$19/mo.</h2>
+        <p style="font-size:15px;color:var(--muted);margin-bottom:36px;max-width:520px;line-height:1.75">Only betting MLB? Only building with NFL data? Pick your sport — every endpoint for that sport, 50,000 req/day, same instant key system. Upgrade to all four sports anytime for $49/mo.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:28px">
+
+          <div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:40px;line-height:1">⚾</span>
+            <div>
+              <div style="font:800 20px 'Syne',sans-serif;color:var(--ink);letter-spacing:-.3px">MLB Only</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7">Statcast · Poisson model odds<br>HR props · K props · live scores<br>Park factors · umpire ratings</div>
+            </div>
+            <div style="font:800 38px 'Syne',sans-serif;color:var(--ink);letter-spacing:-1.5px;margin-top:auto">$19<span style="font-size:16px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-mlb" class="btn-plan btn-plan-red" style="width:100%;padding:12px;font-size:13px" onclick="doCheckout('MLB')">Get MLB Access &rarr;</button>
+            <div style="font-size:10px;color:var(--muted);text-align:center">50,000 req/day · cancel anytime</div>
           </div>
-          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
-            <div style="font-size:36px;margin-bottom:10px">🏈</div>
-            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">NFL Only</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Player props · game lines · spreads · live scores</div>
-            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
-            <button id="btn-nfl" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('NFL')">Get NFL Access &rarr;</button>
+
+          <div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:40px;line-height:1">🏈</span>
+            <div>
+              <div style="font:800 20px 'Syne',sans-serif;color:var(--ink);letter-spacing:-.3px">NFL Only</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7">Player props · spreads · totals<br>Moneylines · team stats<br>Live scores · standings</div>
+            </div>
+            <div style="font:800 38px 'Syne',sans-serif;color:var(--ink);letter-spacing:-1.5px;margin-top:auto">$19<span style="font-size:16px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-nfl" class="btn-plan btn-plan-red" style="width:100%;padding:12px;font-size:13px" onclick="doCheckout('NFL')">Get NFL Access &rarr;</button>
+            <div style="font-size:10px;color:var(--muted);text-align:center">50,000 req/day · cancel anytime</div>
           </div>
-          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
-            <div style="font-size:36px;margin-bottom:10px">🏀</div>
-            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">NBA Only</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Player props · game lines · live scores · Poisson model</div>
-            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
-            <button id="btn-nba" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('NBA')">Get NBA Access &rarr;</button>
+
+          <div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:40px;line-height:1">🏀</span>
+            <div>
+              <div style="font:800 20px 'Syne',sans-serif;color:var(--ink);letter-spacing:-.3px">NBA Only</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7">Advanced box scores · TS%/USG%<br>Player props · spreads · totals<br>Live scores · standings</div>
+            </div>
+            <div style="font:800 38px 'Syne',sans-serif;color:var(--ink);letter-spacing:-1.5px;margin-top:auto">$19<span style="font-size:16px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-nba" class="btn-plan btn-plan-red" style="width:100%;padding:12px;font-size:13px" onclick="doCheckout('NBA')">Get NBA Access &rarr;</button>
+            <div style="font-size:10px;color:var(--muted);text-align:center">50,000 req/day · cancel anytime</div>
           </div>
-          <div style="background:var(--off);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center">
-            <div style="font-size:36px;margin-bottom:10px">🏒</div>
-            <div style="font:700 16px 'Syne',sans-serif;color:var(--ink);margin-bottom:4px">NHL Only</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Player props · game lines · live scores</div>
-            <div style="font:800 28px 'Syne',sans-serif;color:var(--ink);margin-bottom:16px">$19<span style="font-size:14px;font-weight:500;color:var(--muted)">/mo</span></div>
-            <button id="btn-nhl" class="btn-plan btn-plan-ink" style="width:100%;padding:10px;font-size:13px" onclick="doCheckout('NHL')">Get NHL Access &rarr;</button>
+
+          <div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:40px;line-height:1">🏒</span>
+            <div>
+              <div style="font:800 20px 'Syne',sans-serif;color:var(--ink);letter-spacing:-.3px">NHL Only</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7">Player props · puck line<br>Game totals · moneylines<br>Live scores · goalie stats</div>
+            </div>
+            <div style="font:800 38px 'Syne',sans-serif;color:var(--ink);letter-spacing:-1.5px;margin-top:auto">$19<span style="font-size:16px;font-weight:500;color:var(--muted)">/mo</span></div>
+            <button id="btn-nhl" class="btn-plan btn-plan-red" style="width:100%;padding:12px;font-size:13px" onclick="doCheckout('NHL')">Get NHL Access &rarr;</button>
+            <div style="font-size:10px;color:var(--muted);text-align:center">50,000 req/day · cancel anytime</div>
           </div>
+
         </div>
-        <p style="font-size:12px;color:var(--muted);text-align:center">Want all 4 sports? <a href="#plans" style="color:var(--ink);font-weight:600">See the $49/mo All Sports plan &uarr;</a> — better value at $30 more.</p>
+        <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
+          <div>
+            <div style="font:700 14px 'Syne',sans-serif;color:var(--ink)">Want all 4 sports?</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:3px">$49/mo gets you MLB + NFL + NBA + NHL. $30 more than one sport, 4x the data.</div>
+          </div>
+          <a href="#plans" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--ink);color:#fff;font:700 13px 'Syne',sans-serif;border-radius:8px;text-decoration:none">See All Sports Plans &uarr;</a>
+        </div>
       </div>
     </section>
 

@@ -165,14 +165,15 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
 .nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);background:var(--off);}
 .nav-dropdown-btn svg{transition:transform .2s;flex-shrink:0;}
 .nav-dropdown-btn.open svg{transform:rotate(180deg);}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:340px;z-index:9999;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;left:auto;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:400px;z-index:9999;}
 .nav-dropdown-menu.open{display:block;}
 .nav-dd-section{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9B9990;padding:8px 10px 4px;display:block;}
-.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;min-width:0;}
 .nav-dd-item:hover{background:#F7F6F3;}
 .nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
+.nav-dd-item>div{min-width:0;flex:1;overflow:hidden;}
 .nav-dd-name{font-size:13px;font-weight:600;color:#0D0D0D;margin-bottom:2px;}
-.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;}
+.nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;white-space:normal;word-break:normal;overflow-wrap:break-word;}
 .nav-dd-price{font-size:10px;font-weight:700;font-family:monospace;color:#E8321A;margin-top:3px;}
 .nav-dd-divider{height:1px;background:#E2E1DC;margin:4px 0;}
 </style>
@@ -193,25 +194,24 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
 
       <!-- PRODUCTS DROPDOWN -->
       <div class="nav-dropdown">
-        <button class="nav-dropdown-btn" id="products-btn">
-          Products
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        <button class="nav-dropdown-btn" id="products-btn" title="Products">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </button>
         <div class="nav-dropdown-menu" id="products-menu">
           <div class="nav-dd-section">&#9918; Sports</div>
           <a href="/pricing.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9889;</span>
-            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">47 endpoints · MLB · NFL · NBA · NHL · Poisson model odds</div><div class="nav-dd-price">From $49/mo</div></div>
+            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · NHL · 47 endpoints · Poisson model odds</div><div class="nav-dd-price">From $19/mo · All sports $49/mo</div></div>
           </a>
           <a href="/mlb-edge.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9918;</span>
-            <div><div class="nav-dd-name">MLB Edge Suite</div><div class="nav-dd-desc">Almost Bomb · Pitcher Intel · Lucky Bombs · Ball Flight · MLB Intelligence</div><div class="nav-dd-price">From $29/mo</div></div>
+            <div><div class="nav-dd-name">MLB Edge Suite</div><div class="nav-dd-desc">Almost Bomb · Pitcher Intel · Lucky Bombs · Ball Flight</div><div class="nav-dd-price">From $29/mo</div></div>
           </a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-section">&#127968; Real Estate</div>
           <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
             <span class="nav-dd-icon">&#127968;</span>
-            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels &middot; address lookup &middot; AVM &middot; leads &middot; 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
           </a>
           <a href="/propdata-core.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#127968;</span>

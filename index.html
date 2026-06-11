@@ -642,6 +642,92 @@ body.nav-open{
     display:none !important;
   }
 }
+   /* MOBILE NAV UNSQUISH FINAL — Logo | Key | Menu */
+
+@media(max-width:899px){
+  #nav{ height:58px; }
+
+  .nav-i{
+    min-height:58px;
+    padding-left:12px;
+    padding-right:8px;
+    gap:8px;
+  }
+
+  .logo{
+    flex:1 1 auto;
+    min-width:0;
+    gap:7px;
+  }
+
+  .logo svg{
+    width:26px;
+    height:26px;
+    flex:0 0 auto;
+  }
+
+  .logo-t{
+    max-width:none;
+    min-width:0;
+    font-size:14px;
+    letter-spacing:.2px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .nav-r{
+    margin-left:auto;
+    flex:0 0 auto;
+    gap:6px;
+  }
+
+  /* removes the mobile Live pill that is squishing the nav */
+  .nav-see-live{
+    display:none !important;
+  }
+
+  .nav-key-btn{
+    display:inline-flex !important;
+    min-height:38px;
+    padding:8px 11px;
+    border-radius:8px;
+    font-size:10px;
+    letter-spacing:.03em;
+    white-space:nowrap;
+  }
+
+  .ham{
+    margin-left:2px;
+    min-width:42px;
+    width:42px;
+    min-height:42px;
+    height:42px;
+    padding:8px;
+    flex:0 0 42px;
+  }
+
+  .ham span{ width:19px; }
+
+  .mob{
+    top:calc(var(--ticker-h) + 58px);
+  }
+}
+
+@media(max-width:360px){
+  .logo-t{ font-size:13px; }
+
+  .nav-key-btn{
+    padding:8px 9px;
+    font-size:9px;
+  }
+
+  .ham{
+    width:40px;
+    min-width:40px;
+    flex-basis:40px;
+  }
+}
 </style>
 
 </head>
@@ -746,7 +832,6 @@ body.nav-open{
       <a href="/live.html" class="nav-link" style="color:var(--red);background:rgba(215,59,26,.08);border:1px solid rgba(215,59,26,.2);font-weight:700;">⚡ See It Live</a>
       <a href="/pricing.html" class="btn-red">Get API Key →</a>
       <!-- mobile-only compact buttons -->
-      <a href="/live.html" class="nav-see-live">⚡ Live</a>
       <a href="/pricing.html" class="nav-key-btn">Key →</a>
     </div>
     <button class="ham" onclick="toggleMob()" aria-label="Menu">

@@ -443,8 +443,207 @@ h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
 
 @media(min-width:1100px){
   .pricing-grid{grid-template-columns:repeat(4,1fr);}
+}   /* ─────────────────────────────────────────────────────────────────
+   NAV HARDENING — MOBILE FIRST FINAL PATCH
+───────────────────────────────────────────────────────────────── */
+
+:root{
+  --ticker-h:34px;
+  --nav-h:56px;
+}
+
+/* make anchor jumps not hide under sticky nav */
+html{
+  scroll-padding-top:calc(var(--ticker-h) + var(--nav-h) + 12px);
+}
+
+body.nav-open{
+  overflow:hidden;
+  touch-action:none;
+}
+
+/* keep ticker + nav layered correctly */
+#ticker{
+  position:relative;
+  z-index:1000;
+}
+
+#nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  height:var(--nav-h);
+}
+
+.nav-i{
+  min-height:var(--nav-h);
+}
+
+/* mobile logo should never crush the CTA/buttons */
+.logo{
+  min-width:0;
+}
+
+.logo-t{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:42vw;
+}
+
+/* mobile right side */
+.nav-r{
+  min-width:0;
+}
+
+.nav-see-live,
+.nav-key-btn{
+  min-height:40px;
+  touch-action:manipulation;
+}
+
+/* hide Live chip on very small phones so hamburger/key never wrap */
+@media(max-width:390px){
+  .nav-see-live{
+    display:none;
+  }
+  .logo-t{
+    max-width:48vw;
+    font-size:14px;
+  }
+  .nav-key-btn{
+    padding:8px 11px;
+  }
+}
+
+/* hamburger animation + proper tap target */
+.ham{
+  position:relative;
+  z-index:1002;
+  border-radius:10px;
+  touch-action:manipulation;
+}
+
+.ham:hover{
+  background:var(--paper);
+}
+
+.ham.open span:nth-child(1){
+  transform:translateY(6px) rotate(45deg);
+}
+
+.ham.open span:nth-child(2){
+  opacity:0;
+}
+
+.ham.open span:nth-child(3){
+  transform:translateY(-6px) rotate(-45deg);
+}
+
+/* mobile drawer: fixed below ticker + nav, reliable on iOS */
+.mob{
+  display:flex;
+  position:fixed;
+  left:0;
+  right:0;
+  top:calc(var(--ticker-h) + var(--nav-h));
+  bottom:0;
+  z-index:998;
+  background:rgba(250,250,247,.98);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  padding:14px var(--px) max(32px,env(safe-area-inset-bottom));
+  flex-direction:column;
+  gap:2px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  transform:translateY(-8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+  border-top:1px solid var(--border);
+}
+
+.mob.open{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+/* fix selector robustness */
+.mob a,
+.mob button{
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-height:50px;
+  padding:14px;
+  font:600 15px var(--sans);
+  color:var(--ink);
+  text-decoration:none;
+  border-radius:12px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+  transition:background .15s, transform .15s;
+  touch-action:manipulation;
+}
+
+.mob a:hover,
+.mob button:hover{
+  background:var(--paper);
+}
+
+.mob a:active,
+.mob button:active{
+  transform:scale(.99);
+}
+
+.mob-cta{
+  justify-content:center;
+  background:var(--red) !important;
+  color:#fff !important;
+  font:700 13px var(--mono) !important;
+  margin-top:12px;
+  box-shadow:0 4px 16px rgba(215,59,26,.22);
+}
+
+/* desktop dropdown hardening */
+.nav-dropdown-menu{
+  max-height:min(72vh,620px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+.nav-dropdown-btn{
+  min-width:44px;
+  justify-content:center;
+}
+
+/* desktop reset */
+@media(min-width:900px){
+  :root{
+    --nav-h:54px;
+  }
+
+  body.nav-open{
+    overflow:auto;
+    touch-action:auto;
+  }
+
+  .logo-t{
+    max-width:none;
+  }
+
+  .mob{
+    display:none !important;
+  }
 }
 </style>
+
 </head>
 <body>
 
@@ -1267,12 +1466,71 @@ h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
 
 <script>
 /* NAV */
-window.addEventListener('scroll',function(){
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
-});
-function toggleMob(){
-  document.getElementById('mob').classList.toggle('open');
-}
+/* NAV — mobile first hardened */
+(function(){
+  var nav = document.getElementById('nav');
+  var mob = document.getElementById('mob');
+  var ham = document.querySelector('.ham');
+
+  function setScrolled(){
+    if(nav) nav.classList.toggle('scrolled', window.scrollY > 10);
+  }
+
+  function setMobileMenu(open){
+    if(!mob || !ham) return;
+
+    mob.classList.toggle('open', open);
+    ham.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    ham.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  window.toggleMob = function(){
+    setMobileMenu(!(mob && mob.classList.contains('open')));
+  };
+
+  window.addEventListener('scroll', setScrolled, { passive:true });
+  setScrolled();
+
+  if(ham){
+    ham.setAttribute('aria-expanded','false');
+    ham.setAttribute('aria-controls','mob');
+    ham.setAttribute('aria-label','Open menu');
+  }
+
+  if(mob){
+    mob.addEventListener('click', function(e){
+      var link = e.target.closest('a');
+      if(link) setMobileMenu(false);
+    });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      setMobileMenu(false);
+      closeProductsDropdown();
+    }
+  });
+
+  window.addEventListener('resize', function(){
+    if(window.innerWidth >= 900){
+      setMobileMenu(false);
+    }
+  });
+
+  function closeProductsDropdown(){
+    var btn = document.getElementById('products-btn');
+    var menu = document.getElementById('products-menu');
+    if(!btn || !menu) return;
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+
+  window.closeProductsDropdown = closeProductsDropdown;
+})();
 
 /* TERMINAL */
 function switchTab(btn,panelId){
@@ -1459,22 +1717,44 @@ function renderScores(games){
   }).join('');
 }
 
-/* PRODUCTS DROPDOWN */
+/* PRODUCTS DROPDOWN — desktop hardened */
 (function(){
-  var btn=document.getElementById('products-btn');
-  var menu=document.getElementById('products-menu');
-  if(!btn||!menu)return;
-  btn.addEventListener('click',function(e){
+  var btn = document.getElementById('products-btn');
+  var menu = document.getElementById('products-menu');
+  if(!btn || !menu) return;
+
+  btn.setAttribute('aria-haspopup','true');
+  btn.setAttribute('aria-expanded','false');
+
+  function setOpen(open){
+    menu.classList.toggle('open', open);
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
     e.stopPropagation();
-    var open=menu.classList.contains('open');
-    menu.classList.toggle('open',!open);
-    btn.classList.toggle('open',!open);
+    setOpen(!menu.classList.contains('open'));
   });
-  document.addEventListener('click',function(){
-    menu.classList.remove('open');
-    btn.classList.remove('open');
+
+  menu.addEventListener('click', function(e){
+    e.stopPropagation();
   });
-  menu.addEventListener('click',function(e){e.stopPropagation();});
+
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      setOpen(false);
+    });
+  });
+
+  document.addEventListener('click', function(){
+    setOpen(false);
+  });
+
+  window.addEventListener('resize', function(){
+    setOpen(false);
+  });
 })();
 
 /* INIT */

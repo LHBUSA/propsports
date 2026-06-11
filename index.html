@@ -11,228 +11,176 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+/* ─────────────────────────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────────────────────────── */
 :root{
-  --cream:#FAFAF7;--paper:#F3F2EE;--paper2:#ECEAE4;--white:#fff;
-  --ink:#141412;--ink2:#1E1E1B;--mid:#5C5A54;--soft:#9B9990;
-  --border:#E0DDD7;--border2:#CBC8C1;
-  --red:#D73B1A;--red2:#E84E2B;--redbg:rgba(215,59,26,.06);--redborder:rgba(215,59,26,.15);
-  --green:#0B7A45;--greenbg:rgba(11,122,69,.06);--greenborder:rgba(11,122,69,.2);
-  --gold:#C17F24;--blue:#1A5FBF;
-  --sans:'DM Sans',sans-serif;--serif:'Playfair Display',serif;
-  --display:'Syne',sans-serif;--mono:'JetBrains Mono',monospace;
+  --cream:#FAFAF7; --paper:#F3F2EE; --paper2:#ECEAE4; --white:#fff;
+  --ink:#141412; --ink2:#1E1E1B; --mid:#5C5A54; --soft:#9B9990;
+  --border:#E0DDD7; --border2:#CBC8C1;
+  --red:#D73B1A; --red2:#E84E2B; --redbg:rgba(215,59,26,.06); --redborder:rgba(215,59,26,.15);
+  --green:#0B7A45; --greenbg:rgba(11,122,69,.06); --greenborder:rgba(11,122,69,.2);
+  --gold:#C17F24; --blue:#1A5FBF;
+  --sans:'DM Sans',sans-serif; --serif:'Playfair Display',serif;
+  --display:'Syne',sans-serif; --mono:'JetBrains Mono',monospace;
   --sh-sm:0 1px 4px rgba(0,0,0,.06),0 0 0 1px rgba(0,0,0,.03);
   --sh-md:0 4px 20px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.04);
   --sh-lg:0 16px 48px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.05);
+  /* layout */
+  --px:18px;
+  --max:1280px;
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   RESET + BASE
+───────────────────────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;overflow-x:hidden;}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;}
+
+/* ─────────────────────────────────────────────────────────────────
+   TICKER
+───────────────────────────────────────────────────────────────── */
 #ticker{background:var(--ink);height:34px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:300;}
-#ticker::before{content:'LIVE';position:absolute;left:0;z-index:2;background:var(--red);color:#fff;font:700 9px/34px var(--mono);letter-spacing:1.5px;padding:0 14px;}
-#ticker::after{content:'';position:absolute;left:60px;z-index:2;width:24px;height:100%;background:linear-gradient(90deg,var(--ink),transparent);}
-.tk-track{display:flex;white-space:nowrap;animation:tk 80s linear infinite;padding-left:80px;}
+#ticker::before{content:'LIVE';position:absolute;left:0;z-index:2;background:var(--red);color:#fff;font:700 9px/34px var(--mono);letter-spacing:1.5px;padding:0 12px;}
+#ticker::after{content:'';position:absolute;left:52px;z-index:2;width:20px;height:100%;background:linear-gradient(90deg,var(--ink),transparent);}
+.tk-track{display:flex;white-space:nowrap;animation:tk 80s linear infinite;padding-left:72px;}
 .tk-track:hover{animation-play-state:paused;}
-.tk-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font:500 10px var(--mono);color:rgba(255,255,255,.4);border-right:1px solid rgba(255,255,255,.07);}
+.tk-item{display:inline-flex;align-items:center;gap:6px;padding:0 20px;font:500 10px var(--mono);color:rgba(255,255,255,.4);border-right:1px solid rgba(255,255,255,.07);}
 .tk-item .sport{color:rgba(255,255,255,.75);font-weight:700;}
 .tk-item .score{color:#F5A623;font-weight:700;}
 .tk-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;flex-shrink:0;}
 @keyframes tk{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.1;}}
-#nav{position:sticky;top:0;z-index:200;height:58px;display:flex;align-items:center;background:rgba(250,250,247,.94);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
+
+/* ─────────────────────────────────────────────────────────────────
+   NAV — mobile first
+───────────────────────────────────────────────────────────────── */
+#nav{position:sticky;top:0;z-index:200;height:54px;display:flex;align-items:center;background:rgba(250,250,247,.95);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
 #nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08);}
-.nav-i{max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;padding:0 28px;gap:6px;}
-.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;margin-right:16px;}
-.logo-t{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:.5px;color:var(--ink);}
+.nav-i{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;padding:0 var(--px);gap:0;}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;}
+.logo-t{font-family:var(--display);font-size:16px;font-weight:800;letter-spacing:.5px;color:var(--ink);}
 .logo-t span{color:var(--red);}
-.ns-btn{font:700 11px var(--mono);letter-spacing:.05em;padding:6px 11px;background:transparent;color:var(--mid);border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .18s;white-space:nowrap;}
-.ns-btn:hover{color:var(--ink);}
-.ns-btn.on{color:var(--red);border-bottom-color:var(--red);}
+
+/* desktop sport tabs — hidden on mobile */
+.ns-btn{display:none;}
+
 .nav-r{margin-left:auto;display:flex;align-items:center;gap:6px;}
+/* hide most nav-r items on mobile */
+.nav-r .nav-link{display:none;}
+.nav-r .nav-tag{display:none;}
+.nav-r .btn-red{display:none;}
+.nav-r .nav-dropdown{display:none;}
+/* always show live + key CTA on mobile but compact */
+.nav-see-live{font:700 10px var(--mono);letter-spacing:.05em;padding:7px 12px;border-radius:7px;background:rgba(215,59,26,.08);border:1px solid rgba(215,59,26,.2);color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+.nav-key-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;background:var(--red);color:#fff;font:700 11px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;border:none;cursor:pointer;white-space:nowrap;}
+
+.ham{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:none;border:none;margin-left:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
+.ham span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;}
+
+/* mobile drawer */
+.mob{display:none;position:fixed;inset:0;top:88px;background:var(--cream);z-index:150;padding:12px var(--px) 32px;flex-direction:column;gap:2px;overflow-y:auto;}
+.mob.open{display:flex;}
+.mob-section{font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);padding:12px 14px 4px;}
+.mob a,.mob button{display:block;padding:14px;font:500 15px var(--sans);color:var(--ink);text-decoration:none;border-radius:10px;background:none;border:none;cursor:pointer;text-align:left;width:100%;transition:background .15s;min-height:48px;display:flex;align-items:center;}
+.mob a:hover,.mob button:hover{background:var(--paper);}
+.mob-divider{height:1px;background:var(--border);margin:4px 8px;}
+.mob-cta{display:block;text-align:center;padding:14px;background:var(--red);color:#fff;font:700 13px var(--mono);border-radius:10px;text-decoration:none;margin-top:10px;}
+
+/* nav-link for desktop */
 .nav-link{font:500 13px var(--sans);color:var(--mid);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all .15s;}
 .nav-link:hover{color:var(--ink);background:var(--paper);}
 .nav-tag{font:700 9px var(--mono);letter-spacing:.08em;padding:4px 10px;border-radius:20px;background:var(--greenbg);color:var(--green);border:1px solid var(--greenborder);}
 .btn-red{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:var(--red);color:#fff;font:700 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;box-shadow:0 2px 10px rgba(215,59,26,.25);}
 .btn-red:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 4px 18px rgba(215,59,26,.35);}
-.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;margin-left:8px;}
-.ham span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;}
-.mob{display:none;position:fixed;inset:0;top:92px;background:var(--cream);z-index:150;padding:16px;flex-direction:column;gap:2px;overflow-y:auto;}
-.mob.open{display:flex;}
-.mob a,.mob button{display:block;padding:12px 14px;font:500 15px var(--sans);color:var(--ink);text-decoration:none;border-radius:8px;background:none;border:none;cursor:pointer;text-align:left;width:100%;transition:background .15s;}
-.mob a:hover,.mob button:hover{background:var(--paper);}
-.mob .btn-red{text-align:center;display:block;margin-top:10px;}
-.hero{position:relative;overflow:hidden;padding:80px 0 72px;}
+
+/* ─────────────────────────────────────────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────────────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--px);}
+.section{padding:52px 0;}
+.eyebrow{font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+h2{font-family:var(--display);font-size:clamp(28px,7vw,62px);font-weight:800;letter-spacing:-1px;color:var(--ink);line-height:1.03;margin-bottom:12px;}
+h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:-.5px;}
+.section-lead{font-size:15px;color:var(--mid);line-height:1.75;margin-bottom:32px;}
+
+/* ─────────────────────────────────────────────────────────────────
+   HERO — mobile first, 1 col
+───────────────────────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;padding:40px 0 36px;}
 .hero-lines{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;opacity:.35;pointer-events:none;}
-.hero-glow{position:absolute;top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(215,59,26,.07) 0%,transparent 65%);pointer-events:none;}
-.hero-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;position:relative;z-index:1;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);background:var(--redbg);border:1px solid var(--redborder);padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.hero-glow{position:absolute;top:-80px;right:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(215,59,26,.07) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{max-width:var(--max);margin:0 auto;padding:0 var(--px);display:flex;flex-direction:column;gap:32px;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);background:var(--redbg);border:1px solid var(--redborder);padding:5px 12px;border-radius:20px;margin-bottom:14px;}
 .h-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;}
-h1{font-family:var(--display);font-size:clamp(52px,7vw,96px);font-weight:800;letter-spacing:-2px;line-height:.95;color:var(--ink);margin-bottom:14px;}
+h1{font-family:var(--display);font-size:clamp(44px,11vw,96px);font-weight:800;letter-spacing:-2px;line-height:.95;color:var(--ink);margin-bottom:14px;}
 h1 em{color:var(--red);font-style:normal;}
 h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
-.hero-lead{font-size:16px;color:var(--mid);max-width:470px;line-height:1.75;margin-bottom:26px;}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;background:transparent;color:var(--ink);font:600 12px var(--mono);letter-spacing:.04em;border-radius:7px;text-decoration:none;border:1.5px solid var(--border2);cursor:pointer;transition:all .2s;}
+.hero-lead{font-size:15px;color:var(--mid);line-height:1.75;margin-bottom:22px;}
+.hero-btns{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.hero-btns a{text-align:center;justify-content:center;}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:transparent;color:var(--ink);font:600 12px var(--mono);letter-spacing:.04em;border-radius:7px;text-decoration:none;border:1.5px solid var(--border2);cursor:pointer;transition:all .2s;}
 .btn-outline:hover{border-color:var(--ink);background:var(--paper);}
-.trust-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.trust-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .tr-pill{font:500 11px var(--sans);color:var(--mid);padding:4px 10px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;}
 .tr-pill.g{color:var(--green);border-color:var(--greenborder);background:var(--greenbg);}
 .tr-pill.r{color:var(--red);border-color:var(--redborder);background:var(--redbg);}
+
+/* terminal */
 .term-wrap{position:relative;}
 .term-glow{position:absolute;inset:-2px;border-radius:17px;background:linear-gradient(135deg,rgba(215,59,26,.2),rgba(215,59,26,.05) 50%,rgba(26,95,191,.08));z-index:0;}
 .term-box{position:relative;z-index:1;background:var(--ink2);border-radius:14px;overflow:hidden;box-shadow:var(--sh-lg);}
-.term-tabs{display:flex;background:#111110;border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto;scrollbar-width:none;}
+.term-tabs{display:flex;background:#111110;border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .term-tabs::-webkit-scrollbar{display:none;}
-.tt{font:500 10px var(--mono);letter-spacing:.06em;padding:10px 13px;background:transparent;color:rgba(255,255,255,.38);border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;}
+.tt{font:500 10px var(--mono);letter-spacing:.06em;padding:10px 12px;background:transparent;color:rgba(255,255,255,.38);border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;min-height:40px;}
 .tt.on{color:var(--red);border-bottom-color:var(--red);background:rgba(215,59,26,.07);}
 .tt:hover:not(.on){color:rgba(255,255,255,.65);}
-.tbar{background:#0C0C0A;padding:8px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05);}
+.tbar{background:#0C0C0A;padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.05);}
 .tdots{display:flex;gap:5px;}
 .tdots span{width:9px;height:9px;border-radius:50%;}
 .turl{font:400 10px var(--mono);color:rgba(255,255,255,.22);flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.tbody{padding:16px 18px;font:400 11.5px var(--mono);line-height:1.85;min-height:260px;max-height:320px;overflow-y:auto;color:#C9D1D9;overflow-x:hidden;}
-.tbody::-webkit-scrollbar{width:3px;}
+.tbody{padding:14px 16px;font:400 11px var(--mono);line-height:1.85;min-height:220px;max-height:280px;overflow-y:auto;color:#C9D1D9;overflow-x:auto;}
+.tbody::-webkit-scrollbar{width:3px;height:3px;}
 .tbody::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
 .tfoot{display:flex;border-top:1px solid rgba(255,255,255,.05);}
-.tinput{flex:1;background:transparent;border:none;color:rgba(255,255,255,.7);font:400 11px var(--mono);padding:11px 14px;outline:none;}
+.tinput{flex:1;background:transparent;border:none;color:rgba(255,255,255,.7);font:400 11px var(--mono);padding:12px 14px;outline:none;min-width:0;}
 .tinput::placeholder{color:rgba(255,255,255,.2);}
-.trun{font:700 11px var(--mono);letter-spacing:.08em;padding:11px 18px;background:var(--red);color:#fff;border:none;cursor:pointer;transition:background .15s;}
+.trun{font:700 11px var(--mono);letter-spacing:.08em;padding:12px 16px;background:var(--red);color:#fff;border:none;cursor:pointer;transition:background .15s;flex-shrink:0;}
 .trun:hover{background:var(--red2);}
 .trun:disabled{opacity:.4;cursor:not-allowed;}
 .jk{color:#7EE787;}.jv{color:#79C0FF;}.js{color:#A5D6FF;}.jb{color:#FF7B72;}.jn{color:#6E7681;}
 .tpanel{display:none;}
 .tpanel.on{display:block;}
+
+/* ─────────────────────────────────────────────────────────────────
+   STATS STRIP — 2×2 mobile, row at 700px+
+───────────────────────────────────────────────────────────────── */
 .stats-strip{background:var(--ink);border-top:2px solid var(--red);}
-.stats-inner{max-width:1280px;margin:0 auto;display:flex;}
-.si{flex:1;padding:20px 0;text-align:center;border-right:1px solid rgba(255,255,255,.07);transition:background .25s;}
-.si:last-child{border-right:none;}
+.stats-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;}
+.si{padding:18px 0;text-align:center;border-right:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);transition:background .25s;}
+/* last item in each row: no right border */
+.si:nth-child(2n){border-right:none;}
+/* last two items: no bottom border */
+.si:nth-last-child(-n+2){border-bottom:none;}
 .si:hover{background:rgba(255,255,255,.02);}
-.sn{font-family:var(--display);font-size:36px;font-weight:800;letter-spacing:-.5px;color:#fff;line-height:1;display:block;}
+.sn{font-family:var(--display);font-size:30px;font-weight:800;letter-spacing:-.5px;color:#fff;line-height:1;display:block;}
 .sn em{color:var(--red);font-style:normal;}
 .sl{font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:4px;display:block;}
-.section{padding:80px 0;}
-.wrap{max-width:1280px;margin:0 auto;padding:0 28px;}
-.eyebrow{font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
-h2{font-family:var(--display);font-size:clamp(34px,4.5vw,62px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.02;margin-bottom:12px;}
-h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:-.5px;}
-.section-lead{font-size:16px;color:var(--mid);max-width:540px;line-height:1.75;margin-bottom:40px;}
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
-.fc{background:var(--white);padding:28px 24px;transition:background .2s;position:relative;}
-.fc:hover{background:var(--paper);}
-.fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
-.fc:hover::before{transform:scaleX(1);}
-.fc-num{font:700 10px var(--mono);letter-spacing:.1em;color:var(--soft);margin-bottom:14px;}
-.fc-icon{font-size:28px;margin-bottom:12px;}
-.fc-title{font:800 17px var(--sans);color:var(--ink);margin-bottom:8px;}
-.fc-body{font-size:13px;color:var(--mid);line-height:1.65;}
-.odds-hero{background:var(--ink);padding:80px 0;position:relative;overflow:hidden;}
-.odds-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 20% 50%,rgba(215,59,26,.12) 0%,transparent 60%);pointer-events:none;}
-.odds-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 50%,rgba(11,122,69,.08) 0%,transparent 60%);pointer-events:none;}
-.odds-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1;}
-.odds-eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);background:rgba(215,59,26,.12);border:1px solid rgba(215,59,26,.3);padding:5px 14px;border-radius:20px;margin-bottom:16px;}
-.odds-h2{font-family:var(--display);font-size:clamp(32px,4vw,56px);font-weight:800;letter-spacing:-1.5px;color:#fff;line-height:1.0;margin-bottom:16px;}
-.odds-h2 em{color:var(--red);font-style:normal;}
-.odds-lead{font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:28px;max-width:460px;}
-.odds-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
-.odds-pill{font:600 11px var(--mono);letter-spacing:.06em;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);}
-.odds-pill.hot{border-color:rgba(215,59,26,.4);color:var(--red);background:rgba(215,59,26,.08);}
-.odds-pill.green{border-color:rgba(11,122,69,.4);color:#4ade80;background:rgba(11,122,69,.1);}
-.odds-cta{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-white{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:#fff;color:var(--ink);font:700 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;transition:all .2s;}
-.btn-white:hover{background:var(--paper);transform:translateY(-1px);}
-.btn-ghost-white{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:transparent;color:rgba(255,255,255,.7);font:600 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;border:1.5px solid rgba(255,255,255,.2);transition:all .2s;}
-.btn-ghost-white:hover{border-color:rgba(255,255,255,.5);color:#fff;}
-.sell-list{display:flex;flex-direction:column;gap:14px;}
-.sell-item{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px 20px;transition:background .2s;}
-.sell-item:hover{background:rgba(255,255,255,.07);}
-.sell-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
-.sell-title{font:700 14px var(--sans);color:#fff;margin-bottom:4px;}
-.sell-body{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55;}
-.sell-badge{display:inline-flex;align-items:center;gap:5px;font:700 9px var(--mono);letter-spacing:.1em;padding:3px 9px;border-radius:20px;margin-top:6px;}
-.sell-badge.exclusive{background:rgba(215,59,26,.15);color:var(--red);border:1px solid rgba(215,59,26,.3);}
-.sell-badge.live{background:rgba(11,122,69,.15);color:#4ade80;border:1px solid rgba(11,122,69,.3);}
-.ep-bar{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
-.ep-search-w{position:relative;flex:1;}
-.ep-search-w svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--soft);}
-.ep-search{width:100%;padding:10px 14px 10px 38px;border:1.5px solid var(--border);border-radius:9px;font:400 12px var(--mono);background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;}
-.ep-search:focus{border-color:var(--red);}
-.ep-ct{font:500 10px var(--mono);color:var(--soft);white-space:nowrap;}
-.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:8px;}
-.ep-card{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;cursor:pointer;transition:all .15s;box-shadow:var(--sh-sm);}
-.ep-card:hover{border-color:rgba(215,59,26,.3);box-shadow:var(--sh-md);transform:translateY(-1px);}
-.ep-card.hidden{display:none;}
-.ep-card.model-card{border-color:rgba(215,59,26,.2);background:linear-gradient(135deg,rgba(215,59,26,.03),var(--white));}
-.ep-card.model-card:hover{border-color:rgba(215,59,26,.5);background:linear-gradient(135deg,rgba(215,59,26,.06),var(--white));}
-.get-b{font:700 9px var(--mono);letter-spacing:.06em;padding:3px 6px;border-radius:3px;background:var(--greenbg);color:var(--green);border:1px solid var(--greenborder);white-space:nowrap;flex-shrink:0;margin-top:2px;}
-.get-b.model{background:var(--redbg);color:var(--red);border-color:var(--redborder);}
-.ep-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
-.ep-path mark{background:rgba(215,59,26,.1);color:var(--red);border-radius:2px;padding:0 2px;}
-.ep-desc{font-size:11px;color:var(--mid);}
-.ep-new-badge{font:700 8px var(--mono);letter-spacing:.08em;padding:2px 6px;border-radius:3px;background:var(--redbg);color:var(--red);border:1px solid var(--redborder);margin-left:6px;vertical-align:middle;}
-.sport-tabs{display:flex;gap:2px;padding:3px;background:var(--paper);border:1px solid var(--border);border-radius:10px;width:fit-content;margin-bottom:32px;}
-.stab{font:600 11px var(--mono);letter-spacing:.05em;padding:7px 16px;border-radius:7px;border:none;background:transparent;color:var(--mid);cursor:pointer;transition:all .2s;}
-.stab.on{background:var(--white);color:var(--ink);box-shadow:var(--sh-sm);}
-.sport-panel{display:none;}
-.sport-panel.on{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
-.sp-list{display:flex;flex-direction:column;gap:10px;}
-.sp-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:var(--sh-sm);transition:all .15s;}
-.sp-item:hover{border-color:var(--border2);box-shadow:var(--sh-md);}
-.sp-badge{font:700 9px var(--mono);letter-spacing:.08em;padding:3px 8px;border-radius:4px;background:var(--greenbg);color:var(--green);border:1px solid var(--greenborder);white-space:nowrap;flex-shrink:0;}
-.sp-badge.model{background:var(--redbg);color:var(--red);border-color:var(--redborder);}
-.sp-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
-.sp-desc{font-size:11px;color:var(--mid);}
-.sp-box{background:var(--ink);border-radius:14px;overflow:hidden;box-shadow:var(--sh-lg);}
-.sp-box-head{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.06);font:700 10px var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:space-between;}
-.sp-badge2{font:700 9px var(--mono);padding:3px 10px;border-radius:20px;background:rgba(215,59,26,.15);color:var(--red);border:1px solid rgba(215,59,26,.3);}
-.sp-box-body{padding:16px 18px;font:400 11px var(--mono);line-height:1.9;color:#C9D1D9;min-height:280px;max-height:340px;overflow-y:auto;}
-.sp-box-body::-webkit-scrollbar{width:3px;}
-.sp-box-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
-.infra-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
-.infra-card{background:var(--white);padding:32px 28px;position:relative;transition:background .2s;}
-.infra-card:hover{background:var(--paper);}
-.infra-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
-.infra-card:hover::before{transform:scaleX(1);}
-.infra-icon{font-size:32px;margin-bottom:14px;}
-.infra-title{font:800 18px var(--sans);color:var(--ink);margin-bottom:6px;}
-.infra-body{font-size:13px;color:var(--mid);line-height:1.7;}
-.infra-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
-.infra-tag{font:600 10px var(--mono);letter-spacing:.06em;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--soft);}
-.infra-tag.red{border-color:var(--redborder);color:var(--red);background:var(--redbg);}
-.infra-tag.green{border-color:var(--greenborder);color:var(--green);background:var(--greenbg);}
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
-.pricing-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px 20px;position:relative;box-shadow:var(--sh-sm);transition:all .2s;}
-.pricing-card:hover{box-shadow:var(--sh-md);transform:translateY(-2px);}
-.pricing-card.featured{border-color:rgba(215,59,26,.3);box-shadow:0 0 0 1px rgba(215,59,26,.15),var(--sh-lg);}
-.featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font:700 10px var(--mono);letter-spacing:.1em;padding:4px 14px;background:var(--red);color:#fff;border-radius:20px;white-space:nowrap;}
-.pc-tier{font:700 11px var(--mono);letter-spacing:.1em;color:var(--soft);margin-bottom:10px;}
-.pc-price{font-family:var(--display);font-size:44px;font-weight:800;letter-spacing:-2px;color:var(--ink);line-height:1;margin-bottom:6px;}
-.pc-price sup{font-size:20px;letter-spacing:0;vertical-align:top;margin-top:8px;}
-.pc-price sub{font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0;color:var(--mid);vertical-align:bottom;}
-.pc-desc{font-size:12px;color:var(--mid);margin-bottom:16px;line-height:1.5;}
-.pc-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
-.pc-feats li{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--mid);}
-.pc-feats li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
-.pc-feats li.model-feat{color:var(--ink);font-weight:600;}
-.pc-feats li.model-feat::before{content:'⚡';font-size:11px;}
-.pc-feats li.na{opacity:.4;text-decoration:line-through;}
-.pc-feats li.na::before{content:'–';color:var(--soft);}
-.pc-cta{display:block;text-align:center;padding:10px 16px;border-radius:9px;font:700 12px var(--mono);letter-spacing:.05em;text-decoration:none;transition:all .2s;}
-.pc-cta-outline{border:1.5px solid var(--border2);color:var(--ink);}
-.pc-cta-outline:hover{border-color:var(--ink);}
-.pc-cta-red{background:var(--red);color:#fff;box-shadow:0 4px 16px rgba(215,59,26,.3);}
-.pc-cta-red:hover{background:var(--red2);transform:translateY(-1px);}
-.footer{background:var(--ink);padding:40px 0;}
-.footer-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.footer-logo{font-family:var(--display);font-size:16px;font-weight:800;color:#fff;letter-spacing:.5px;}
-.footer-logo span{color:var(--red);}
-.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
-.footer-links a{font:500 12px var(--sans);color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s;}
-.footer-links a:hover{color:rgba(255,255,255,.8);}
-.footer-copy{font:400 11px var(--mono);color:rgba(255,255,255,.25);}
-.score-stab{font:700 10px var(--mono);letter-spacing:0.05em;padding:5px 12px;border-radius:5px;border:none;background:transparent;color:var(--mid);cursor:pointer;}
+
+/* ─────────────────────────────────────────────────────────────────
+   LIVE SCORES
+───────────────────────────────────────────────────────────────── */
+#live-scores{background:var(--paper);border-top:2px solid var(--red);border-bottom:1px solid var(--border);padding:28px 0;}
+.scores-header{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
+.scores-title{display:flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);}
+.scores-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.score-stab-wrap{display:flex;gap:2px;padding:3px;background:var(--paper2);border:1px solid var(--border);border-radius:8px;}
+.score-stab{font:700 10px var(--mono);letter-spacing:0.05em;padding:7px 12px;border-radius:5px;border:none;background:transparent;color:var(--mid);cursor:pointer;min-height:36px;}
 .score-stab.on{background:var(--white);color:var(--ink);box-shadow:var(--sh-sm);}
+.scores-refresh{font:600 10px var(--mono);padding:7px 10px;border-radius:6px;border:1px solid var(--border);background:var(--white);color:var(--mid);cursor:pointer;min-height:36px;}
+#scores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;min-height:80px;}
 .score-card{background:var(--white);border:1px solid var(--border);border-radius:11px;padding:14px 16px;box-shadow:var(--sh-sm);transition:all 0.2s;position:relative;overflow:hidden;}
-.score-card:hover{box-shadow:var(--sh-md);transform:translateY(-1px);}
 .score-card.live{border-color:rgba(215,59,26,0.3);}
 .score-card.live::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);}
 .score-sport{font:700 9px var(--mono);letter-spacing:0.12em;color:var(--soft);margin-bottom:8px;display:flex;align-items:center;}
@@ -248,36 +196,185 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 .score-divider{height:1px;background:var(--border);margin:3px 0;}
 .score-info{font:400 10px var(--mono);color:var(--soft);margin-top:7px;}
 .score-pitcher{font:400 10px var(--mono);color:var(--mid);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-@media(max-width:900px){
-  .hero-inner,.odds-inner{grid-template-columns:1fr;gap:32px;}
-  .feat-grid,.infra-grid{grid-template-columns:1fr;}
-  .pricing-grid{grid-template-columns:1fr 1fr;}
-  .sport-panel.on{grid-template-columns:1fr;}
-  .sp-box{display:none;}
-  .stats-inner{flex-wrap:wrap;}
-  .si{min-width:50%;border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
-  .nav-link,.ns-btn,.nav-tag{display:none;}
-  .ham{display:flex;}
-}
-@media(max-width:600px){
-  h1{font-size:48px;letter-spacing:-1.5px;}
-  .hero{padding:48px 0 40px;}
-  .section{padding:56px 0;}
-  .wrap{padding:0 18px;}
-  .hero-inner{padding:0 18px;}
-  .pricing-grid{grid-template-columns:1fr;}
-}
 
-/* ── PRODUCTS DROPDOWN ── */
+/* ─────────────────────────────────────────────────────────────────
+   FEATURES GRID — 1 col mobile
+───────────────────────────────────────────────────────────────── */
+.feat-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.fc{background:var(--white);padding:24px 20px;transition:background .2s;position:relative;}
+.fc:hover{background:var(--paper);}
+.fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.fc:hover::before{transform:scaleX(1);}
+.fc-num{font:700 10px var(--mono);letter-spacing:.1em;color:var(--soft);margin-bottom:10px;}
+.fc-icon{font-size:26px;margin-bottom:10px;}
+.fc-title{font:800 16px var(--sans);color:var(--ink);margin-bottom:6px;}
+.fc-body{font-size:13px;color:var(--mid);line-height:1.65;}
+
+/* ─────────────────────────────────────────────────────────────────
+   MODEL ODDS HERO — mobile first
+───────────────────────────────────────────────────────────────── */
+.odds-hero{background:var(--ink);padding:52px 0;position:relative;overflow:hidden;}
+.odds-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 0%,rgba(215,59,26,.12) 0%,transparent 60%);pointer-events:none;}
+.odds-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 100%,rgba(11,122,69,.08) 0%,transparent 60%);pointer-events:none;}
+.odds-inner{max-width:var(--max);margin:0 auto;padding:0 var(--px);display:flex;flex-direction:column;gap:40px;position:relative;z-index:1;}
+.odds-eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);background:rgba(215,59,26,.12);border:1px solid rgba(215,59,26,.3);padding:5px 12px;border-radius:20px;margin-bottom:14px;}
+.odds-h2{font-family:var(--display);font-size:clamp(28px,8vw,56px);font-weight:800;letter-spacing:-1.5px;color:#fff;line-height:1.0;margin-bottom:14px;}
+.odds-h2 em{color:var(--red);font-style:normal;}
+.odds-lead{font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:24px;}
+.odds-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;}
+.odds-pill{font:600 10px var(--mono);letter-spacing:.06em;padding:5px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);}
+.odds-pill.hot{border-color:rgba(215,59,26,.4);color:var(--red);background:rgba(215,59,26,.08);}
+.odds-pill.green{border-color:rgba(11,122,69,.4);color:#4ade80;background:rgba(11,122,69,.1);}
+.odds-cta{display:flex;flex-direction:column;gap:10px;}
+.odds-cta a{text-align:center;justify-content:center;}
+.btn-white{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;background:#fff;color:var(--ink);font:700 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;transition:all .2s;}
+.btn-white:hover{background:var(--paper);transform:translateY(-1px);}
+.btn-ghost-white{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;background:transparent;color:rgba(255,255,255,.7);font:600 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;border:1.5px solid rgba(255,255,255,.2);transition:all .2s;}
+.btn-ghost-white:hover{border-color:rgba(255,255,255,.5);color:#fff;}
+.sell-list{display:flex;flex-direction:column;gap:12px;}
+.sell-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px;transition:background .2s;}
+.sell-item:hover{background:rgba(255,255,255,.07);}
+.sell-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.sell-title{font:700 14px var(--sans);color:#fff;margin-bottom:4px;}
+.sell-body{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55;}
+.sell-badge{display:inline-flex;align-items:center;gap:5px;font:700 9px var(--mono);letter-spacing:.1em;padding:3px 9px;border-radius:20px;margin-top:6px;}
+.sell-badge.exclusive{background:rgba(215,59,26,.15);color:var(--red);border:1px solid rgba(215,59,26,.3);}
+.sell-badge.live{background:rgba(11,122,69,.15);color:#4ade80;border:1px solid rgba(11,122,69,.3);}
+
+/* ─────────────────────────────────────────────────────────────────
+   ENDPOINT EXPLORER
+───────────────────────────────────────────────────────────────── */
+.ep-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px;}
+.ep-search-w{position:relative;flex:1;min-width:180px;}
+.ep-search-w svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--soft);}
+.ep-search{width:100%;padding:11px 14px 11px 38px;border:1.5px solid var(--border);border-radius:9px;font:400 12px var(--mono);background:var(--white);color:var(--ink);outline:none;transition:border-color .2s;min-height:44px;}
+.ep-search:focus{border-color:var(--red);}
+.ep-ct{font:500 10px var(--mono);color:var(--soft);white-space:nowrap;}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;}
+.ep-card{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;cursor:pointer;transition:all .15s;box-shadow:var(--sh-sm);}
+.ep-card:hover{border-color:rgba(215,59,26,.3);box-shadow:var(--sh-md);}
+.ep-card.hidden{display:none;}
+.ep-card.model-card{border-color:rgba(215,59,26,.2);background:linear-gradient(135deg,rgba(215,59,26,.03),var(--white));}
+.ep-card.model-card:hover{border-color:rgba(215,59,26,.5);background:linear-gradient(135deg,rgba(215,59,26,.06),var(--white));}
+.get-b{font:700 9px var(--mono);letter-spacing:.06em;padding:3px 6px;border-radius:3px;background:var(--greenbg);color:var(--green);border:1px solid var(--greenborder);white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.get-b.model{background:var(--redbg);color:var(--red);border-color:var(--redborder);}
+.ep-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
+.ep-path mark{background:rgba(215,59,26,.1);color:var(--red);border-radius:2px;padding:0 2px;}
+.ep-desc{font-size:11px;color:var(--mid);}
+.ep-new-badge{font:700 8px var(--mono);letter-spacing:.08em;padding:2px 6px;border-radius:3px;background:var(--redbg);color:var(--red);border:1px solid var(--redborder);margin-left:6px;vertical-align:middle;}
+
+/* ─────────────────────────────────────────────────────────────────
+   SPORT DEEP DIVE
+───────────────────────────────────────────────────────────────── */
+.sport-tabs{display:flex;gap:2px;padding:3px;background:var(--paper);border:1px solid var(--border);border-radius:10px;width:100%;margin-bottom:24px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.stab{font:600 11px var(--mono);letter-spacing:.05em;padding:9px 14px;border-radius:7px;border:none;background:transparent;color:var(--mid);cursor:pointer;transition:all .2s;flex:1;white-space:nowrap;min-height:40px;}
+.stab.on{background:var(--white);color:var(--ink);box-shadow:var(--sh-sm);}
+.sport-panel{display:none;}
+.sport-panel.on{display:flex;flex-direction:column;gap:24px;}
+.sp-list{display:flex;flex-direction:column;gap:8px;}
+.sp-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:var(--sh-sm);transition:all .15s;}
+.sp-item:hover{border-color:var(--border2);box-shadow:var(--sh-md);}
+.sp-badge{font:700 9px var(--mono);letter-spacing:.08em;padding:3px 8px;border-radius:4px;background:var(--greenbg);color:var(--green);border:1px solid var(--greenborder);white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.sp-badge.model{background:var(--redbg);color:var(--red);border-color:var(--redborder);}
+.sp-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
+.sp-desc{font-size:11px;color:var(--mid);}
+.sp-box{background:var(--ink);border-radius:14px;overflow:hidden;box-shadow:var(--sh-lg);}
+.sp-box-head{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.06);font:700 10px var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:space-between;}
+.sp-badge2{font:700 9px var(--mono);padding:3px 10px;border-radius:20px;background:rgba(215,59,26,.15);color:var(--red);border:1px solid rgba(215,59,26,.3);}
+.sp-box-body{padding:14px 16px;font:400 11px var(--mono);line-height:1.9;color:#C9D1D9;max-height:280px;overflow-y:auto;overflow-x:auto;}
+.sp-box-body::-webkit-scrollbar{width:3px;}
+.sp-box-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
+
+/* ─────────────────────────────────────────────────────────────────
+   INFRA GRID — 1 col mobile
+───────────────────────────────────────────────────────────────── */
+.infra-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.infra-card{background:var(--white);padding:24px 20px;position:relative;transition:background .2s;}
+.infra-card:hover{background:var(--paper);}
+.infra-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.infra-card:hover::before{transform:scaleX(1);}
+.infra-icon{font-size:28px;margin-bottom:12px;}
+.infra-title{font:800 17px var(--sans);color:var(--ink);margin-bottom:6px;}
+.infra-body{font-size:13px;color:var(--mid);line-height:1.7;}
+.infra-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.infra-tag{font:600 10px var(--mono);letter-spacing:.06em;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--soft);}
+.infra-tag.red{border-color:var(--redborder);color:var(--red);background:var(--redbg);}
+.infra-tag.green{border-color:var(--greenborder);color:var(--green);background:var(--greenbg);}
+
+/* ─────────────────────────────────────────────────────────────────
+   PRICING — 1 col mobile, 2 col 600px+, 4 col 1100px+
+───────────────────────────────────────────────────────────────── */
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px;}
+.pricing-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 18px;position:relative;box-shadow:var(--sh-sm);transition:all .2s;}
+.pricing-card:hover{box-shadow:var(--sh-md);}
+.pricing-card.featured{border-color:rgba(215,59,26,.3);box-shadow:0 0 0 1px rgba(215,59,26,.15),var(--sh-lg);}
+.featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font:700 10px var(--mono);letter-spacing:.1em;padding:4px 14px;background:var(--red);color:#fff;border-radius:20px;white-space:nowrap;}
+.pc-tier{font:700 11px var(--mono);letter-spacing:.1em;color:var(--soft);margin-bottom:8px;}
+.pc-price{font-family:var(--display);font-size:40px;font-weight:800;letter-spacing:-2px;color:var(--ink);line-height:1;margin-bottom:6px;}
+.pc-price sup{font-size:18px;letter-spacing:0;vertical-align:top;margin-top:6px;}
+.pc-price sub{font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0;color:var(--mid);vertical-align:bottom;}
+.pc-desc{font-size:12px;color:var(--mid);margin-bottom:14px;line-height:1.5;}
+.pc-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+.pc-feats li{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--mid);}
+.pc-feats li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pc-feats li.model-feat{color:var(--ink);font-weight:600;}
+.pc-feats li.model-feat::before{content:'⚡';font-size:11px;}
+.pc-feats li.na{opacity:.4;text-decoration:line-through;}
+.pc-feats li.na::before{content:'–';color:var(--soft);}
+.pc-cta{display:block;text-align:center;padding:12px 16px;border-radius:9px;font:700 12px var(--mono);letter-spacing:.05em;text-decoration:none;transition:all .2s;min-height:44px;display:flex;align-items:center;justify-content:center;}
+.pc-cta-outline{border:1.5px solid var(--border2);color:var(--ink);}
+.pc-cta-outline:hover{border-color:var(--ink);}
+.pc-cta-red{background:var(--red);color:#fff;box-shadow:0 4px 16px rgba(215,59,26,.3);}
+.pc-cta-red:hover{background:var(--red2);}
+
+/* single-sport tiles — 2×2 on mobile */
+.sport-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 8px;}
+.sport-price-tile{display:flex;flex-direction:column;gap:8px;padding:16px 14px;background:#fff;border:1.5px solid var(--border);border-radius:12px;text-decoration:none;transition:all .2s;}
+.sport-price-tile:hover{border-color:var(--red);box-shadow:0 4px 16px rgba(215,59,26,.1);}
+.spt-emoji{font-size:28px;line-height:1;}
+.spt-name{font-family:var(--display);font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.2px;}
+.spt-desc{font-size:11px;color:var(--mid);line-height:1.5;}
+.spt-price{font-family:var(--display);font-size:20px;font-weight:800;color:var(--red);margin-top:2px;}
+.spt-price span{font-size:11px;font-weight:500;font-family:var(--sans);color:var(--soft);}
+
+/* math bar */
+.math-bar{margin-top:16px;padding:14px 16px;background:var(--redbg);border:1px solid var(--redborder);border-radius:10px;display:flex;flex-direction:column;gap:12px;}
+.math-bar-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+
+/* ─────────────────────────────────────────────────────────────────
+   RELATED APIS
+───────────────────────────────────────────────────────────────── */
+.related-section{background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 0;}
+.related-row-label{font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+.related-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:28px;}
+.related-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:all .2s;text-decoration:none;display:block;}
+.related-card:hover{border-color:rgba(232,50,26,.3);}
+.rc-tag{font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+.rc-name{font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;}
+.rc-desc{font:400 12px var(--sans);color:var(--mid);line-height:1.55;}
+
+/* ─────────────────────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────────────────────── */
+.footer{background:var(--ink);padding:32px 0;}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--px);display:flex;flex-direction:column;gap:16px;}
+.footer-logo{font-family:var(--display);font-size:16px;font-weight:800;color:#fff;letter-spacing:.5px;}
+.footer-logo span{color:var(--red);}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap;}
+.footer-links a{font:500 12px var(--sans);color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:rgba(255,255,255,.8);}
+.footer-copy{font:400 11px var(--mono);color:rgba(255,255,255,.25);}
+
+/* products dropdown */
 .nav-dropdown{position:relative;display:flex;align-items:center;}
-.nav-dropdown-btn{font-size:13px;font-weight:500;color:var(--muted);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:3px;white-space:nowrap;font-family:inherit;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);background:var(--off);}
+.nav-dropdown-btn{font-size:13px;font-weight:500;color:var(--mid);padding:6px 10px;border-radius:6px;transition:all .15s;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:3px;white-space:nowrap;font-family:inherit;min-height:44px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{color:var(--ink);}
 .nav-dropdown-btn svg{transition:transform .2s;flex-shrink:0;}
 .nav-dropdown-btn.open svg{transform:rotate(180deg);}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;left:auto;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:400px;z-index:9999;}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid #E2E1DC;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04);padding:8px;width:min(360px,92vw);z-index:9999;}
 .nav-dropdown-menu.open{display:block;}
 .nav-dd-section{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9B9990;padding:8px 10px 4px;display:block;}
-.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;min-width:0;}
+.nav-dd-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;transition:background .15s;min-height:48px;}
 .nav-dd-item:hover{background:#F7F6F3;}
 .nav-dd-icon{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1;}
 .nav-dd-item>div{min-width:0;flex:1;overflow:hidden;}
@@ -285,6 +382,68 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 .nav-dd-desc{font-size:11px;color:#6B6B6B;line-height:1.4;white-space:normal;word-break:normal;overflow-wrap:break-word;}
 .nav-dd-price{font-size:10px;font-weight:700;font-family:monospace;color:#E8321A;margin-top:3px;}
 .nav-dd-divider{height:1px;background:#E2E1DC;margin:4px 0;}
+
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE SCALE-UPS (tablet 600px+)
+───────────────────────────────────────────────────────────────── */
+@media(min-width:600px){
+  :root{--px:24px;}
+  .hero-btns{flex-direction:row;}
+  .hero-btns a{text-align:left;justify-content:flex-start;}
+  .odds-cta{flex-direction:row;}
+  .odds-cta a{text-align:left;justify-content:flex-start;}
+  .feat-grid{grid-template-columns:1fr 1fr;}
+  .infra-grid{grid-template-columns:1fr 1fr;}
+  .pricing-grid{grid-template-columns:1fr 1fr;}
+  .sport-price-grid{grid-template-columns:repeat(4,1fr);}
+  .spt-name{font-size:14px;}
+  .related-grid{grid-template-columns:1fr 1fr;}
+  .footer-inner{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:space-between;}
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE SCALE-UPS (desktop 900px+)
+───────────────────────────────────────────────────────────────── */
+@media(min-width:900px){
+  :root{--px:28px;}
+  .hero{padding:80px 0 72px;}
+  .section{padding:80px 0;}
+  .hero-inner{flex-direction:row;align-items:center;gap:52px;}
+  .hero-inner > *{flex:1;}
+  .hero-btns{flex-direction:row;}
+  .ns-btn{display:inline-flex;align-items:center;font:700 11px var(--mono);letter-spacing:.05em;padding:8px 12px;background:transparent;color:var(--mid);border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .18s;white-space:nowrap;min-height:44px;}
+  .ns-btn:hover{color:var(--ink);}
+  .ns-btn.on{color:var(--red);border-bottom-color:var(--red);}
+  .nav-r .nav-link{display:inline-flex;align-items:center;}
+  .nav-r .nav-tag{display:inline-flex;}
+  .nav-r .btn-red{display:inline-flex;}
+  .nav-r .nav-dropdown{display:flex;}
+  .nav-see-live{display:none;}
+  .nav-key-btn{display:none;}
+  .ham{display:none;}
+  .mob{display:none !important;}
+  .stats-inner{grid-template-columns:repeat(5,1fr);}
+  .si:nth-child(2n){border-right:1px solid rgba(255,255,255,.07);}
+  .si:nth-last-child(-n+2){border-bottom:1px solid rgba(255,255,255,.07);}
+  .si:last-child{border-right:none;}
+  .si{border-bottom:none !important;}
+  .sn{font-size:36px;}
+  .odds-inner{flex-direction:row;align-items:center;gap:56px;}
+  .odds-inner > *{flex:1;}
+  .odds-cta{flex-direction:row;}
+  .feat-grid{grid-template-columns:repeat(3,1fr);}
+  .infra-grid{grid-template-columns:repeat(2,1fr);}
+  .sport-panel.on{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .section-lead{max-width:540px;}
+  .scores-header{flex-direction:row;align-items:center;justify-content:space-between;}
+  .math-bar{flex-direction:row;align-items:center;justify-content:space-between;}
+  .math-bar-inner{flex:1;}
+  .related-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+@media(min-width:1100px){
+  .pricing-grid{grid-template-columns:repeat(4,1fr);}
+}
 </style>
 </head>
 <body>
@@ -317,18 +476,20 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 <nav id="nav">
   <div class="nav-i">
     <a href="/" class="logo">
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
       <span class="logo-t">Prop<span>Sports</span> API</span>
     </a>
+    <!-- desktop sport tabs -->
     <button class="ns-btn on">MLB</button>
     <button class="ns-btn">NFL</button>
     <button class="ns-btn">NBA</button>
     <button class="ns-btn">NHL</button>
+
     <div class="nav-r">
       <span class="nav-tag">⚡ Model Odds Live</span>
-      <!-- PRODUCTS DROPDOWN -->
+      <!-- products dropdown (desktop only) -->
       <div class="nav-dropdown">
-        <button class="nav-dropdown-btn" id="products-btn" title="Products">
+        <button class="nav-dropdown-btn" id="products-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </button>
         <div class="nav-dropdown-menu" id="products-menu">
@@ -352,8 +513,8 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-section">🏘️ Real Estate</div>
           <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
-            <span class="nav-dd-icon">&#127968;</span>
-            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
+            <span class="nav-dd-icon">🏠</span>
+            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai ↗</div></div>
           </a>
           <a href="/propdata-core.html" class="nav-dd-item">
             <span class="nav-dd-icon">🏘️</span>
@@ -371,11 +532,6 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
               <div class="nav-dd-price">From $149/mo</div>
             </div>
           </a>
-  <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">&#127968; PropData API &#8599;</a>
-          <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
-            <span class="nav-dd-icon">&#127968;</span>
-            <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · address lookup · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
-          </a>
           <div class="nav-dd-divider"></div>
           <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" class="nav-dd-item">
             <span class="nav-dd-icon">🔗</span>
@@ -388,27 +544,32 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       </div>
       <a href="/docs.html" class="nav-link">Docs</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
-      <a href="/live.html" style="font:700 11px var(--mono);letter-spacing:0.06em;padding:7px 14px;border-radius:7px;background:rgba(215,59,26,0.08);border:1px solid rgba(215,59,26,0.2);color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.background='rgba(215,59,26,0.15)'" onmouseout="this.style.background='rgba(215,59,26,0.08)'">&#9889; See It Live</a>
+      <a href="/live.html" class="nav-link" style="color:var(--red);background:rgba(215,59,26,.08);border:1px solid rgba(215,59,26,.2);font-weight:700;">⚡ See It Live</a>
       <a href="/pricing.html" class="btn-red">Get API Key →</a>
+      <!-- mobile-only compact buttons -->
+      <a href="/live.html" class="nav-see-live">⚡ Live</a>
+      <a href="/pricing.html" class="nav-key-btn">Key →</a>
     </div>
-    <button class="ham" onclick="document.querySelector('.mob').classList.toggle('open')">
+    <button class="ham" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
-<div class="mob">
-  <div style="padding:8px 14px 4px;font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">&#9918; Sports APIs</div>
-  <a href="/pricing.html">&#9889; PropSports API — From $19/mo</a>
-  <a href="/mlb-edge.html">&#9918; MLB Edge Suite — From $29/mo</a>
-  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
-  <div style="padding:8px 14px 4px;font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);">&#127968; Real Estate APIs</div>
-  <a href="/propdata-core.html">&#127968; PropData Core — From $49/mo</a>
-  <a href="/propdata-pro.html">&#127942; PropData Pro Stack — From $149/mo</a>
-  <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
-  <a href="/docs.html">&#128214; Documentation</a>
-  <a href="/pricing.html">&#128179; Pricing</a>
-  <a href="/live.html">&#9889; See It Live</a>
-  <a href="/pricing.html" class="btn-red" style="margin-top:12px;text-align:center;">Get API Key →</a>
+
+<!-- MOBILE DRAWER -->
+<div class="mob" id="mob">
+  <div class="mob-section">⚾ Sports APIs</div>
+  <a href="/pricing.html">⚡ PropSports API — From $19/mo</a>
+  <a href="/mlb-edge.html">⚾ MLB Edge Suite — From $29/mo</a>
+  <div class="mob-divider"></div>
+  <div class="mob-section">🏘️ Real Estate APIs</div>
+  <a href="/propdata-core.html">🏘️ PropData Core — From $49/mo</a>
+  <a href="/propdata-pro.html">🏆 PropData Pro Stack — From $149/mo</a>
+  <div class="mob-divider"></div>
+  <a href="/docs.html">📖 Documentation</a>
+  <a href="/pricing.html">💳 Pricing</a>
+  <a href="/live.html">⚡ See It Live</a>
+  <a href="/pricing.html" class="mob-cta">Get API Key →</a>
 </div>
 
 <!-- HERO -->
@@ -486,14 +647,11 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <span class="jk">"batters"</span>: [
     {
       <span class="jk">"name"</span>: <span class="js">"Aaron Judge"</span>,
-      <span class="jk">"team"</span>: <span class="js">"BAL"</span>,
       <span class="jk">"avgEV"</span>: <span class="jv">95.4</span>,
       <span class="jk">"barrelPct"</span>: <span class="jv">22.1</span>,
-      <span class="jk">"hardHitPct"</span>: <span class="jv">63.4</span>,
       <span class="jk">"xwOBA"</span>: <span class="jv">0.441</span>,
       <span class="jk">"l7HR"</span>: <span class="jv">3</span>,
-      <span class="jk">"evSpike"</span>: <span class="jv">2.4</span>,
-      <span class="jk">"vsRHP"</span>: { <span class="jk">"hr"</span>: <span class="jv">6</span>, <span class="jk">"pa"</span>: <span class="jv">54</span> }
+      <span class="jk">"evSpike"</span>: <span class="jv">2.4</span>
     }
   ]
 }</div>
@@ -503,9 +661,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
 <span class="jn">// DraftKings + FanDuel · Merged + ranked</span>
 
 {
-  <span class="jk">"date"</span>: <span class="js">"2026-06-09"</span>,
   <span class="jk">"market"</span>: <span class="js">"total_bases"</span>,
-  <span class="jk">"source"</span>: <span class="js">"DraftKings + FanDuel"</span>,
   <span class="jk">"results"</span>: [
     {
       <span class="jk">"player"</span>: <span class="js">"Juan Soto"</span>,
@@ -515,7 +671,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <span class="jk">"best_odds_fmt"</span>: <span class="js">"-115"</span>,
       <span class="jk">"all_books"</span>: {
         <span class="jk">"DraftKings"</span>: { <span class="jk">"odds"</span>: <span class="jv">-115</span> },
-        <span class="jk">"FanDuel"</span>:   { <span class="jk">"odds"</span>: <span class="jv">-118</span> }
+        <span class="jk">"FanDuel"</span>: { <span class="jk">"odds"</span>: <span class="jv">-118</span> }
       }
     }
   ]
@@ -524,28 +680,21 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
         <div class="tpanel" id="t-model">
           <div class="tbody"><span class="jn">// GET /mlb/odds/model/top?limit=5</span>
 <span class="jn">// ⚡ PropBetEdge Poisson Model</span>
-<span class="jn">// Owned Statcast. 6x daily. No sportsbook needed.</span>
 
 {
   <span class="jk">"source"</span>: <span class="js">"PropBetEdge Poisson Model"</span>,
-  <span class="jk">"model"</span>: <span class="js">"xSLG + barrel% + EV allowed + park factor"</span>,
   <span class="jk">"plays"</span>: [
     {
       <span class="jk">"player_name"</span>: <span class="js">"Aaron Judge"</span>,
       <span class="jk">"market"</span>: <span class="js">"hr"</span>,
       <span class="jk">"line"</span>: <span class="jv">0.5</span>,
       <span class="jk">"direction"</span>: <span class="js">"OVER"</span>,
-      <span class="jk">"expected_stat"</span>: <span class="jv">0.38</span>,
-      <span class="jk">"implied_prob"</span>: <span class="jv">0.314</span>,
       <span class="jk">"odds_fmt"</span>: <span class="js">"+310"</span>
     },
     {
       <span class="jk">"player_name"</span>: <span class="js">"Juan Soto"</span>,
       <span class="jk">"market"</span>: <span class="js">"totalbases"</span>,
       <span class="jk">"line"</span>: <span class="jv">1.5</span>,
-      <span class="jk">"direction"</span>: <span class="js">"OVER"</span>,
-      <span class="jk">"expected_stat"</span>: <span class="jv">1.81</span>,
-      <span class="jk">"implied_prob"</span>: <span class="jv">0.544</span>,
       <span class="jk">"odds_fmt"</span>: <span class="js">"+115"</span>
     }
   ]
@@ -565,32 +714,35 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <div class="stats-inner">
     <div class="si"><span class="sn">47<em>+</em></span><span class="sl">Live Endpoints</span></div>
     <div class="si"><span class="sn">4</span><span class="sl">Sports Covered</span></div>
-    <div class="si"><span class="sn">6<em>×</em></span><span class="sl">Daily Odds Refresh</span></div>
+    <div class="si"><span class="sn">6<em>×</em></span><span class="sl">Daily Refresh</span></div>
     <div class="si"><span class="sn"><em>$</em>49</span><span class="sl">Basic Plan / Mo</span></div>
     <div class="si"><span class="sn">0</span><span class="sl">Sportsbook Deps</span></div>
   </div>
 </div>
 
 <!-- LIVE SCORES -->
-<section id="live-scores" style="background:var(--paper);border-top:2px solid var(--red);border-bottom:1px solid var(--border);padding:36px 0;">
+<section id="live-scores">
   <div class="wrap">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:12px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div style="display:flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;display:inline-block;flex-shrink:0;"></span>LIVE SCORES &amp; TODAY'S SLATE</div>
-        <span id="scores-updated" style="font:400 10px var(--mono);color:var(--soft);">Loading...</span>
+    <div class="scores-header">
+      <div>
+        <div class="scores-title">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;display:inline-block;flex-shrink:0;"></span>
+          LIVE SCORES &amp; TODAY'S SLATE
+        </div>
+        <span id="scores-updated" style="font:400 10px var(--mono);color:var(--soft);display:block;margin-top:2px;">Loading...</span>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <div style="display:flex;gap:2px;padding:3px;background:var(--paper2);border:1px solid var(--border);border-radius:8px;">
+      <div class="scores-controls">
+        <div class="score-stab-wrap">
           <button class="score-stab on" onclick="scoresSetSport('all',this)">All</button>
           <button class="score-stab" onclick="scoresSetSport('mlb',this)">MLB</button>
           <button class="score-stab" onclick="scoresSetSport('nba',this)">NBA</button>
           <button class="score-stab" onclick="scoresSetSport('nhl',this)">NHL</button>
         </div>
-        <button id="scores-refresh-btn" onclick="loadScores()" style="font:600 10px var(--mono);padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--white);color:var(--mid);cursor:pointer;white-space:nowrap;">&#8635; Refresh</button>
+        <button class="scores-refresh" id="scores-refresh-btn" onclick="loadScores()">↻ Refresh</button>
       </div>
     </div>
-    <div id="scores-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;min-height:100px;"><div style="grid-column:1/-1;text-align:center;padding:36px;font:400 12px var(--mono);color:var(--soft);">Loading live scores...</div></div>
-    <div style="margin-top:12px;font:400 10px var(--mono);color:var(--soft);text-align:center;">Powered by <a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" style="color:var(--red);text-decoration:none;">propsports-api.sales-fd3.workers.dev</a> &middot; Auto-refreshes every 90s</div>
+    <div id="scores-grid"><div style="grid-column:1/-1;text-align:center;padding:32px;font:400 12px var(--mono);color:var(--soft);">Loading live scores...</div></div>
+    <div style="margin-top:10px;font:400 10px var(--mono);color:var(--soft);text-align:center;">Powered by <a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" style="color:var(--red);text-decoration:none;">propsports-api.sales-fd3.workers.dev</a> · Auto-refreshes every 90s</div>
   </div>
 </section>
 
@@ -599,25 +751,25 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <div class="wrap">
     <div class="eyebrow">Why PropSports</div>
     <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
-    <p class="section-lead">One API. Four sports. Statcast intelligence. Model-generated odds. No 20-vendor sprawl. No free tier subsidizing tire-kickers.</p>
+    <p class="section-lead">One API. Four sports. Statcast intelligence. Model-generated odds. No 20-vendor sprawl.</p>
     <div class="feat-grid">
       <div class="fc"><div class="fc-num">01</div><div class="fc-icon">⚡</div><div class="fc-title">Poisson Model Odds</div><div class="fc-body">We don't scrape DraftKings. We build our own odds from owned Statcast using a Poisson model. Refreshed 6× daily. No sportsbook dependency, ever.</div></div>
       <div class="fc"><div class="fc-num">02</div><div class="fc-icon">🎯</div><div class="fc-title">Owned Statcast Data</div><div class="fc-body">Exit velocity, barrel %, xwOBA, sprint speed, pitch mix — aggregated nightly into our own Supabase. We own the pipeline. No third-party sports data bill.</div></div>
       <div class="fc"><div class="fc-num">03</div><div class="fc-icon">📡</div><div class="fc-title">DK + FanDuel Props</div><div class="fc-body">Market odds from DraftKings and FanDuel merged and de-duped. Best line surfaced automatically. HR, total bases, hits, strikeouts, RBI.</div></div>
       <div class="fc"><div class="fc-num">04</div><div class="fc-icon">🏟️</div><div class="fc-title">MLB Intelligence Layer</div><div class="fc-body">Lineups, probable pitchers, park factors, real-time weather per ballpark, umpire assignments — the full picture before first pitch.</div></div>
-      <div class="fc"><div class="fc-num">05</div><div class="fc-icon">🏀</div><div class="fc-title">NBA Deep Stats</div><div class="fc-body">Live boxscores with computed TS% and USG%, shot chart coordinates, play-by-play classification, current 5-man lineup via substitution walk.</div></div>
-      <div class="fc"><div class="fc-num">06</div><div class="fc-icon">🏒</div><div class="fc-title">NFL + NHL Complete</div><div class="fc-body">Full NFL schedule, live scores, spread and over/under. NHL schedule, standings, skater leaders, player landing stats. Everything in one auth header.</div></div>
+      <div class="fc"><div class="fc-num">05</div><div class="fc-icon">🏀</div><div class="fc-title">NBA Deep Stats</div><div class="fc-body">Live boxscores with computed TS% and USG%, shot chart coordinates, play-by-play, current 5-man lineup via substitution walk.</div></div>
+      <div class="fc"><div class="fc-num">06</div><div class="fc-icon">🏒</div><div class="fc-title">NFL + NHL Complete</div><div class="fc-body">Full NFL schedule, live scores, spread and over/under. NHL schedule, standings, skater leaders. Everything in one auth header.</div></div>
     </div>
   </div>
 </section>
 
-<!-- MODEL ODDS HERO SECTION -->
+<!-- MODEL ODDS HERO -->
 <section class="odds-hero">
   <div class="odds-inner">
     <div>
       <div class="odds-eyebrow">⚡ Industry First</div>
       <h2 class="odds-h2">We don't<br>scrape odds.<br>We <em>generate</em> them.</h2>
-      <p class="odds-lead">Every other sports API depends on DraftKings, FanDuel, or a third-party odds feed. We built a Poisson probability model from our owned Statcast data — and we generate our own fair-value odds 6 times a day. No sportsbook. No feed. No single point of failure.</p>
+      <p class="odds-lead">Every other sports API depends on DraftKings, FanDuel, or a third-party odds feed. We built a Poisson probability model from our owned Statcast data — and we generate our own fair-value odds 6 times a day.</p>
       <div class="odds-pills">
         <span class="odds-pill hot">⚡ Exclusive — No Competitor Offers This</span>
         <span class="odds-pill green">✓ 6× Daily Updates</span>
@@ -644,7 +796,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
           <div class="sell-icon">🔄</div>
           <div>
             <div class="sell-title">Refreshed 6× Daily</div>
-            <div class="sell-body">8AM, 10AM, 12PM, 2PM, 5PM, 8PM CT — automatically via Cloudflare cron. Odds reflect late lineup changes, weather shifts, and pitcher swaps. Always fresh before the first game.</div>
+            <div class="sell-body">8AM, 10AM, 12PM, 2PM, 5PM, 8PM CT — automatically via Cloudflare cron. Odds reflect late lineup changes, weather shifts, and pitcher swaps.</div>
             <span class="sell-badge live">● LIVE TODAY</span>
           </div>
         </div>
@@ -652,7 +804,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
           <div class="sell-icon">💰</div>
           <div>
             <div class="sell-title">Single sport from $19/mo. All sports $49/mo. SportRadar starts at $2,000+.</div>
-            <div class="sell-body">Pick one sport for $19/mo or get all four — MLB, NFL, NBA, NHL, Statcast, prop odds, and Poisson model odds — for $49/mo. SportRadar starts at $2,000+/mo. Nobody else is close.</div>
+            <div class="sell-body">Pick one sport for $19/mo or get all four — MLB, NFL, NBA, NHL, Statcast, prop odds, and Poisson model odds — for $49/mo.</div>
             <span class="sell-badge exclusive">BEST VALUE IN THE MARKET</span>
           </div>
         </div>
@@ -660,7 +812,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
           <div class="sell-icon">🔒</div>
           <div>
             <div class="sell-title">Zero Sportsbook Dependency</div>
-            <div class="sell-body">DraftKings and FanDuel block scrapers. We don't rely on them for our model. When they go down, your model odds endpoint stays up. Three dedicated routes: /model, /model/top, /model/player.</div>
+            <div class="sell-body">DraftKings and FanDuel block scrapers. When they go down, your model odds endpoint stays up. Three dedicated routes: /model, /model/top, /model/player.</div>
             <span class="sell-badge exclusive">NO SINGLE POINT OF FAILURE</span>
           </div>
         </div>
@@ -735,7 +887,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <div class="wrap">
     <div class="eyebrow">What We Own</div>
     <h2>Data infrastructure<br><em>nobody else has.</em></h2>
-    <p class="section-lead">We built our pipeline from scratch. No sports data reseller. No dependency on vendors who can yank access. We own the data, the model, the API.</p>
+    <p class="section-lead">We built our pipeline from scratch. No sports data reseller. No dependency on vendors who can yank access.</p>
     <div class="infra-grid">
       <div class="infra-card">
         <div class="infra-icon">⚾</div>
@@ -762,7 +914,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <div class="infra-card">
         <div class="infra-icon">🎲</div>
         <div class="infra-title">PropBetEdge Poisson Model</div>
-        <div class="infra-body">A Cloudflare Worker cron runs a Poisson distribution model 6× daily against the Statcast data. For each player and market — HR, total bases, hits, strikeouts — we compute expected stat, implied probability, and American odds. Stored in Supabase, served via API.</div>
+        <div class="infra-body">A Cloudflare Worker cron runs a Poisson distribution model 6× daily against the Statcast data. For each player and market — HR, total bases, hits, strikeouts — we compute expected stat, implied probability, and American odds.</div>
         <div class="infra-tags">
           <span class="infra-tag red">Proprietary</span>
           <span class="infra-tag green">6× Daily</span>
@@ -773,7 +925,7 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <div class="infra-card">
         <div class="infra-icon">🌐</div>
         <div class="infra-title">Cloudflare Edge Delivery</div>
-        <div class="infra-body">Every endpoint runs on Cloudflare Workers — globally distributed, sub-100ms response, 99.99% uptime. No server to maintain. Cron triggers handle automated data refresh. Response caching tuned per endpoint type. Your calls never hit a slow origin.</div>
+        <div class="infra-body">Every endpoint runs on Cloudflare Workers — globally distributed, sub-100ms response, 99.99% uptime. No server to maintain. Cron triggers handle automated data refresh. Response caching tuned per endpoint type.</div>
         <div class="infra-tags">
           <span class="infra-tag green">Global Edge</span>
           <span class="infra-tag">Sub-100ms</span>
@@ -856,8 +1008,6 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
     <span class="jk">"players"</span>: [{
       <span class="jk">"name"</span>: <span class="js">"Jayson Tatum"</span>,
       <span class="jk">"points"</span>: <span class="jv">34</span>,
-      <span class="jk">"rebounds"</span>: <span class="jv">9</span>,
-      <span class="jk">"assists"</span>: <span class="jv">6</span>,
       <span class="jk">"tsPct"</span>: <span class="jv">68.4</span>,
       <span class="jk">"usgPct"</span>: <span class="jv">34.1</span>,
       <span class="jk">"minutes"</span>: <span class="jv">38</span>
@@ -899,46 +1049,42 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   <div class="wrap">
     <div class="eyebrow">Simple Pricing</div>
     <h2>Flat rate.<br><em>No surprises.</em></h2>
-    <p class="section-lead">No per-call fees. No usage tiers that sneak up on you. Single sport from $19/mo. All four sports $49/mo. SportRadar starts at $2,000+/mo. The math isn't complicated.</p>
-      <!-- Single sport entry points -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 10px">
+    <p class="section-lead">No per-call fees. No usage tiers that sneak up on you. Single sport from $19/mo. All four sports $49/mo.</p>
 
-        <a href="/pricing.html" style="display:flex;flex-direction:column;gap:10px;padding:20px 18px;background:#fff;border:1.5px solid #E0DDD7;border-radius:14px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.05)" onmouseover="this.style.borderColor='#D73B1A';this.style.boxShadow='0 4px 16px rgba(215,59,26,.1)'" onmouseout="this.style.borderColor='#E0DDD7';this.style.boxShadow='0 1px 4px rgba(0,0,0,.05)'">
-          <span style="font-size:34px;line-height:1">⚾</span>
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#141412;letter-spacing:-.2px">MLB Only</div>
-          <div style="font-size:11px;color:#5C5A54;line-height:1.5">Statcast · Poisson odds<br>HR props · K props</div>
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#D73B1A;margin-top:4px">$19<span style="font-size:12px;font-weight:500;color:#9B9990">/mo</span></div>
-        </a>
-
-        <a href="/pricing.html" style="display:flex;flex-direction:column;gap:10px;padding:20px 18px;background:#fff;border:1.5px solid #E0DDD7;border-radius:14px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.05)" onmouseover="this.style.borderColor='#D73B1A';this.style.boxShadow='0 4px 16px rgba(215,59,26,.1)'" onmouseout="this.style.borderColor='#E0DDD7';this.style.boxShadow='0 1px 4px rgba(0,0,0,.05)'">
-          <span style="font-size:34px;line-height:1">🏈</span>
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#141412;letter-spacing:-.2px">NFL Only</div>
-          <div style="font-size:11px;color:#5C5A54;line-height:1.5">Player props · spreads<br>Game lines · scores</div>
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#D73B1A;margin-top:4px">$19<span style="font-size:12px;font-weight:500;color:#9B9990">/mo</span></div>
-        </a>
-
-        <a href="/pricing.html" style="display:flex;flex-direction:column;gap:10px;padding:20px 18px;background:#fff;border:1.5px solid #E0DDD7;border-radius:14px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.05)" onmouseover="this.style.borderColor='#D73B1A';this.style.boxShadow='0 4px 16px rgba(215,59,26,.1)'" onmouseout="this.style.borderColor='#E0DDD7';this.style.boxShadow='0 1px 4px rgba(0,0,0,.05)'">
-          <span style="font-size:34px;line-height:1">🏀</span>
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#141412;letter-spacing:-.2px">NBA Only</div>
-          <div style="font-size:11px;color:#5C5A54;line-height:1.5">Advanced box scores<br>Props · TS% · USG%</div>
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#D73B1A;margin-top:4px">$19<span style="font-size:12px;font-weight:500;color:#9B9990">/mo</span></div>
-        </a>
-
-        <a href="/pricing.html" style="display:flex;flex-direction:column;gap:10px;padding:20px 18px;background:#fff;border:1.5px solid #E0DDD7;border-radius:14px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.05)" onmouseover="this.style.borderColor='#D73B1A';this.style.boxShadow='0 4px 16px rgba(215,59,26,.1)'" onmouseout="this.style.borderColor='#E0DDD7';this.style.boxShadow='0 1px 4px rgba(0,0,0,.05)'">
-          <span style="font-size:34px;line-height:1">🏒</span>
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#141412;letter-spacing:-.2px">NHL Only</div>
-          <div style="font-size:11px;color:#5C5A54;line-height:1.5">Player props · puck line<br>Goalie stats · scores</div>
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#D73B1A;margin-top:4px">$19<span style="font-size:12px;font-weight:500;color:#9B9990">/mo</span></div>
-        </a>
-
-      </div>
-      <p style="text-align:center;font-size:12px;color:#9B9990;margin:10px 0 32px">Pick one sport at $19/mo &mdash; or get all four for $49/mo with the plans below</p>
+    <!-- Single-sport entry tiles: 2×2 mobile, 4-wide at 600px+ -->
+    <div class="sport-price-grid">
+      <a href="/pricing.html" class="sport-price-tile">
+        <span class="spt-emoji">⚾</span>
+        <div class="spt-name">MLB Only</div>
+        <div class="spt-desc">Statcast · Poisson odds · HR props · K props</div>
+        <div class="spt-price">$19<span>/mo</span></div>
+      </a>
+      <a href="/pricing.html" class="sport-price-tile">
+        <span class="spt-emoji">🏈</span>
+        <div class="spt-name">NFL Only</div>
+        <div class="spt-desc">Player props · spreads · Game lines · scores</div>
+        <div class="spt-price">$19<span>/mo</span></div>
+      </a>
+      <a href="/pricing.html" class="sport-price-tile">
+        <span class="spt-emoji">🏀</span>
+        <div class="spt-name">NBA Only</div>
+        <div class="spt-desc">Advanced box scores · Props · TS% · USG%</div>
+        <div class="spt-price">$19<span>/mo</span></div>
+      </a>
+      <a href="/pricing.html" class="sport-price-tile">
+        <span class="spt-emoji">🏒</span>
+        <div class="spt-name">NHL Only</div>
+        <div class="spt-desc">Player props · puck line · Goalie stats</div>
+        <div class="spt-price">$19<span>/mo</span></div>
+      </a>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--soft);margin:10px 0 28px;">Pick one sport at $19/mo — or get all four for $49/mo with the plans below</p>
 
     <div class="pricing-grid">
       <!-- DEMO -->
       <div class="pricing-card">
         <div class="pc-tier">DEMO</div>
-        <div class="pc-price" style="font-size:38px;"><sup>$</sup>0</div>
+        <div class="pc-price"><sup>$</sup>0</div>
         <div class="pc-desc">MLB eval only. 20 req/hr global cap. Not for production use.</div>
         <ul class="pc-feats">
           <li>MLB endpoints only</li>
@@ -997,28 +1143,27 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
         <a href="/pricing.html" class="pc-cta pc-cta-outline">Get Ultra →</a>
       </div>
     </div>
-    <!-- MEGA / Enterprise bar -->
-    <div style="margin-top:16px;background:var(--ink);border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:var(--sh-lg);">
-      <div>
-        <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;">MEGA / ENTERPRISE — $1,500+ /mo</div>
-        <div style="font:800 18px var(--sans);color:#fff;margin-bottom:5px;">Unmetered. Raw Supabase exports. 99.9% SLA. White-label rights.</div>
-        <div style="font:400 13px var(--sans);color:rgba(255,255,255,.45);line-height:1.6;">Signed DPA · Dedicated Slack · 1-hour support · Custom model variants · Resale license · Full Supabase access</div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0;">
-        <a href="mailto:support@proptechusa.ai" style="display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:#fff;color:var(--ink);font:700 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;white-space:nowrap;">Contact for Mega →</a>
-        <div style="font:400 10px var(--mono);color:rgba(255,255,255,.3);text-align:center;">support@proptechusa.ai</div>
-      </div>
+
+    <!-- Mega / Enterprise -->
+    <div style="margin-top:14px;background:var(--ink);border-radius:14px;padding:22px 20px;box-shadow:var(--sh-lg);">
+      <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;">MEGA / ENTERPRISE — $1,500+ /mo</div>
+      <div style="font:800 17px var(--sans);color:#fff;margin-bottom:5px;">Unmetered. Raw Supabase exports. 99.9% SLA. White-label rights.</div>
+      <div style="font:400 13px var(--sans);color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:16px;">Signed DPA · Dedicated Slack · 1-hour support · Custom model variants · Resale license · Full Supabase access</div>
+      <a href="mailto:support@proptechusa.ai" style="display:inline-flex;align-items:center;gap:7px;padding:12px 22px;background:#fff;color:var(--ink);font:700 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;min-height:44px;">Contact for Mega →</a>
+      <div style="font:400 10px var(--mono);color:rgba(255,255,255,.3);margin-top:8px;">support@proptechusa.ai</div>
     </div>
+
     <!-- The math -->
-    <div style="margin-top:20px;padding:16px 22px;background:var(--redbg);border:1px solid var(--redborder);border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <div>
+    <div class="math-bar">
+      <div class="math-bar-inner">
         <div style="font:700 11px var(--mono);letter-spacing:.1em;color:var(--red);margin-bottom:4px;">THE MATH</div>
         <div style="font:600 15px var(--sans);color:var(--ink);">SportRadar: <span style="text-decoration:line-through;color:var(--mid);">$24,000+/year</span> &nbsp;·&nbsp; PropSports MLB-only: <strong style="color:var(--red);">$228/year</strong></div>
         <div style="font:400 12px var(--sans);color:var(--mid);margin-top:3px;">MLB-only from $19/mo ($228/yr). All 4 sports from $49/mo ($588/yr). Under 3% of the SportRadar minimum.</div>
       </div>
-      <a href="/pricing.html" class="btn-red">Start for $19/mo →</a>
+      <a href="/pricing.html" class="btn-red" style="flex-shrink:0;white-space:nowrap;">Start for $19/mo →</a>
     </div>
-    <p style="text-align:center;margin-top:20px;font:400 13px var(--sans);color:var(--soft);">
+
+    <p style="text-align:center;margin-top:18px;font:400 13px var(--sans);color:var(--soft);">
       Also on <a href="https://rapidapi.com/proptechusa/api/propsports-api" style="color:var(--red);text-decoration:none;font-weight:600;" target="_blank">RapidAPI</a>
       &nbsp;·&nbsp; Enterprise: <a href="mailto:support@proptechusa.ai" style="color:var(--red);text-decoration:none;font-weight:600;">support@proptechusa.ai</a>
       &nbsp;·&nbsp; <a href="tel:18887843881" style="color:var(--red);text-decoration:none;font-weight:600;">1-888-784-3881</a>
@@ -1026,119 +1171,84 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
   </div>
 </section>
 
-<!-- RELATED APIS FROM THE SAME TEAM -->
-<section style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0;">
+<!-- RELATED APIS -->
+<section class="related-section">
   <div class="wrap">
     <div class="eyebrow">Also on RapidAPI</div>
     <h2>More from the<br><em>same pipeline.</em></h2>
-    <p class="section-lead">Every API below is built on the same Cloudflare Workers + Supabase stack. Government-sourced data. Flat monthly pricing. No per-call fees.</p>
+    <p class="section-lead">Every API below runs on Cloudflare Workers + Supabase. Government-sourced data. Flat monthly pricing. No per-call fees.</p>
 
-    <!-- SPORTS ROW -->
-    <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">&#9918; MLB Intelligence Suite</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:36px;">
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;cursor:pointer;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">LIVE NOW</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">PropSports API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">47 endpoints. MLB · NFL · NBA · NHL. Owned Statcast. Poisson model odds. The full bundle.</div>
-        </div>
+    <div class="related-row-label">⚾ MLB Intelligence Suite</div>
+    <div class="related-grid">
+      <a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--green);">LIVE NOW</div>
+        <div class="rc-name">PropSports API</div>
+        <div class="rc-desc">47 endpoints. MLB · NFL · NBA · NHL. Owned Statcast. Poisson model odds. The full bundle.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-almost-bomb-streak-detector" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">EDGE SIGNAL</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Almost Bomb Streak Detector</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Players hitting the ball hard enough to homer — but not clearing the fence yet. 2, 3, 4+ consecutive days. The market prices the box score. You price the Statcast reality.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-almost-bomb-streak-detector" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--red);">EDGE SIGNAL</div>
+        <div class="rc-name">MLB Almost Bomb Streak Detector</div>
+        <div class="rc-desc">Players hitting the ball hard enough to homer — but not clearing the fence. The market prices the box score. You price the Statcast reality.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-pitcher-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">FADE SIGNAL</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Pitcher Intelligence API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Last 5 starts profiled by Statcast contact quality. Hard hit %, barrel %, EV, K9 trend. Punishment score 0–100. Know who to stack against and who to fade.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-pitcher-intelligence" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--red);">FADE SIGNAL</div>
+        <div class="rc-name">MLB Pitcher Intelligence API</div>
+        <div class="rc-desc">Last 5 starts profiled by Statcast contact quality. Punishment score 0–100. Know who to stack against and who to fade.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-lucky-bombs" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">FADE SIGNAL</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Lucky Bombs API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Every HR from yesterday flagged by Statcast quality. Weak EV, bad launch angle, short distance. Public hammers the player. You see the 91mph 340ft gift that wouldn't leave 25 parks.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-lucky-bombs" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--gold);">FADE SIGNAL</div>
+        <div class="rc-name">MLB Lucky Bombs API</div>
+        <div class="rc-desc">Every HR from yesterday flagged by Statcast quality. Weak EV, bad launch angle, short distance. See the gift that wouldn't leave 25 parks.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-ball-flight-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">ATMOSPHERIC</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Ball Flight Intelligence API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Tonight's games scored by real atmospheric physics. Air density from temp, humidity, altitude. Estimated extra carry distance in feet. Coors at 45°F is not the same park as Coors at 85°F.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-ball-flight-intelligence" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--blue);">ATMOSPHERIC</div>
+        <div class="rc-name">MLB Ball Flight Intelligence API</div>
+        <div class="rc-desc">Tonight's games scored by real atmospheric physics. Air density from temp, humidity, altitude. Coors at 45°F is not the same park as Coors at 85°F.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">COMPOSITE</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">MLB Intelligence API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Park factor + wind + temperature → 0–100 HR score per game. Umpire grades A–F. Statcast leaderboards. Three analytics APIs in one.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-intelligence" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--green);">COMPOSITE</div>
+        <div class="rc-name">MLB Intelligence API</div>
+        <div class="rc-desc">Park factor + wind + temperature → 0–100 HR score per game. Umpire grades A–F. Three analytics APIs in one.</div>
       </a>
-
     </div>
 
-    <!-- PROP NEWS -->
-    <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">&#9889; News &amp; Intelligence</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:36px;">
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/propbetedge-sports-news" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">AI ENRICHED</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">PropBetEdge Sports News API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">AI-enriched sports news with prop-bet impact scores. MLB · NFL · NBA · NHL. Sentiment, signal score, and player relevance on every article.</div>
-        </div>
+    <div class="related-row-label">⚡ News &amp; Intelligence</div>
+    <div class="related-grid" style="margin-bottom:28px;">
+      <a href="https://rapidapi.com/propdata-propdata-default/api/propbetedge-sports-news" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--red);">AI ENRICHED</div>
+        <div class="rc-name">PropBetEdge Sports News API</div>
+        <div class="rc-desc">AI-enriched sports news with prop-bet impact scores. MLB · NFL · NBA · NHL. Sentiment, signal score, and player relevance on every article.</div>
       </a>
-
     </div>
 
-    <!-- REAL ESTATE ROW -->
-    <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">&#127968; PropData Real Estate Suite</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:32px;">
-
-      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">165M+ PARCELS</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">PropData Real Estate Market Intelligence</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">The real estate API ATTOM doesn't want you to find. 166M+ parcels, 16 live sources, $49/mo flat. Motivated seller leads, AVM, address autocomplete, flood zones, tax data, and more.</div>
-        </div>
+    <div class="related-row-label">🏘️ PropData Real Estate Suite</div>
+    <div class="related-grid" style="margin-bottom:28px;">
+      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--blue);">165M+ PARCELS</div>
+        <div class="rc-name">PropData Real Estate Market Intelligence</div>
+        <div class="rc-desc">166M+ parcels, 16 live sources, $49/mo flat. Motivated seller leads, AVM, address autocomplete, flood zones, tax data, and more.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/us-zip-code-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">ZIP INTELLIGENCE</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">US ZIP Code Intelligence API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Demographics, income, housing market, investment signals, flood risk, crime, opportunity zone status, and urban/rural class — all in one call per ZIP.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/us-zip-code-intelligence" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--blue);">ZIP INTELLIGENCE</div>
+        <div class="rc-name">US ZIP Code Intelligence API</div>
+        <div class="rc-desc">Demographics, income, housing market, investment signals, flood risk, crime, opportunity zone status — all in one call per ZIP.</div>
       </a>
-
-      <a href="https://rapidapi.com/propdata-propdata-default/api/us-flood-zone-intelligence" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s;" onmouseover="this.style.borderColor='rgba(232,50,26,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
-          <div style="font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">FEMA DATA</div>
-          <div style="font:700 15px var(--sans);color:var(--ink);margin-bottom:5px;">US Flood Zone Intelligence API</div>
-          <div style="font:400 12px var(--sans);color:var(--mid);line-height:1.55;">Pass an address. Get the FEMA flood zone, risk level, SFHA flag, insurance requirement, and plain-English advisory. Every US property.</div>
-        </div>
+      <a href="https://rapidapi.com/propdata-propdata-default/api/us-flood-zone-intelligence" target="_blank" rel="noopener" class="related-card">
+        <div class="rc-tag" style="color:var(--blue);">FEMA DATA</div>
+        <div class="rc-name">US Flood Zone Intelligence API</div>
+        <div class="rc-desc">Pass an address. Get the FEMA flood zone, risk level, SFHA flag, insurance requirement, and plain-English advisory. Every US property.</div>
       </a>
-
     </div>
 
     <div style="text-align:center;padding-top:8px;">
-      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:var(--ink);color:#fff;font:700 13px var(--mono);letter-spacing:.05em;border-radius:9px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='#2A2A2A'" onmouseout="this.style.background='var(--ink)'">
-        View All 18 APIs on RapidAPI &rarr;
+      <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--ink);color:#fff;font:700 13px var(--mono);letter-spacing:.05em;border-radius:9px;text-decoration:none;min-height:48px;">
+        View All 18 APIs on RapidAPI →
       </a>
-      <p style="font:400 12px var(--sans);color:var(--soft);margin-top:12px;">All APIs built by PropTechUSA.ai &middot; Saint Paul, MN &middot; <a href="tel:18887843881" style="color:var(--red);text-decoration:none;">1-888-784-3881</a></p>
+      <p style="font:400 12px var(--sans);color:var(--soft);margin-top:12px;">All APIs built by PropTechUSA.ai · Saint Paul, MN · <a href="tel:18887843881" style="color:var(--red);text-decoration:none;">1-888-784-3881</a></p>
     </div>
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -1151,14 +1261,20 @@ h2 em{font-family:var(--serif);font-weight:700;font-style:italic;letter-spacing:
       <a href="https://propbetedge.ai" target="_blank">PropBetEdge</a>
       <a href="tel:18887843881">1-888-784-3881</a>
     </div>
-    <div class="footer-copy">&copy; 2026 PropTechUSA.ai &middot; Built on Cloudflare Workers</div>
+    <div class="footer-copy">&copy; 2026 PropTechUSA.ai · Built on Cloudflare Workers</div>
   </div>
 </footer>
 
 <script>
+/* NAV */
 window.addEventListener('scroll',function(){
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
 });
+function toggleMob(){
+  document.getElementById('mob').classList.toggle('open');
+}
+
+/* TERMINAL */
 function switchTab(btn,panelId){
   document.querySelectorAll('.tt').forEach(function(b){b.classList.remove('on');});
   document.querySelectorAll('.tpanel').forEach(function(p){p.classList.remove('on');});
@@ -1171,6 +1287,8 @@ function switchSport(btn,panelId){
   btn.classList.add('on');
   document.getElementById(panelId).classList.add('on');
 }
+
+/* ENDPOINT SEARCH */
 function filterEP(q){
   var cards=document.querySelectorAll('.ep-card');
   var shown=0;
@@ -1183,6 +1301,8 @@ function filterEP(q){
   });
   document.getElementById('ep-ct').textContent=shown+' endpoints';
 }
+
+/* TERMINAL DEMO */
 async function runDemo(){
   var input=document.getElementById('tinput');
   var btn=document.getElementById('trun');
@@ -1205,6 +1325,8 @@ async function runDemo(){
   }
   btn.disabled=false;btn.textContent='RUN →';
 }
+
+/* MODEL ODDS LIVE PANEL */
 async function loadModelOdds(){
   var el=document.getElementById('sp-mlb-live');
   if(!el)return;
@@ -1224,6 +1346,8 @@ async function loadModelOdds(){
     el.innerHTML='<span style="color:#6E7681">// Endpoint live at:\n// propsports-api.sales-fd3.workers.dev\n// /mlb/odds/model/top\n\n// 6x daily: 8AM 10AM 12PM 2PM 5PM 8PM CT</span>';
   }
 }
+
+/* TICKER LIVE UPDATE */
 async function updateTicker(){
   try{
     var r=await fetch('https://propsports-api.sales-fd3.workers.dev/mlb/games/live?key=psa_demo_propsports2026');
@@ -1236,13 +1360,14 @@ async function updateTicker(){
       var as=(g.teams&&g.teams.away&&g.teams.away.score!=null)?g.teams.away.score:'';
       var hs=(g.teams&&g.teams.home&&g.teams.home.score!=null)?g.teams.home.score:'';
       var inn=(g.linescore&&g.linescore.currentInning)||'';
-      return '<div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> '+away+' '+as+' \xb7 '+home+' '+hs+(inn?' \u2014 '+inn+'th':'')+'</div>';
+      return '<div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> '+away+' '+as+' · '+home+' '+hs+(inn?' — '+inn+'th':'')+'</div>';
     }).join('');
     if(liveItems){track.innerHTML=liveItems+track.innerHTML;}
   }catch(e){}
 }
+
+/* SCORES */
 var _scoresSport='all';
-var _scoresTimer=null;
 var _cachedScores=null;
 function scoresSetSport(sport,btn){
   _scoresSport=sport;
@@ -1255,7 +1380,7 @@ function loadScores(){
   var updated=document.getElementById('scores-updated');
   var btn=document.getElementById('scores-refresh-btn');
   if(!grid)return;
-  if(btn){btn.textContent='\u21bb Loading...';btn.disabled=true;}
+  if(btn){btn.textContent='↻ Loading...';btn.disabled=true;}
   var API='https://propsports-api.sales-fd3.workers.dev';
   Promise.all([
     fetch(API+'/mlb/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
@@ -1301,21 +1426,21 @@ function loadScores(){
     });}
     _cachedScores=all;renderScores(all);
     if(updated)updated.textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-    if(btn){btn.textContent='\u21bb Refresh';btn.disabled=false;}
-  }).catch(function(){if(btn){btn.textContent='\u21bb Refresh';btn.disabled=false;}});
+    if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}
+  }).catch(function(){if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}});
 }
 function renderScores(games){
   var grid=document.getElementById('scores-grid');
   if(!grid||!games)return;
   var filtered=_scoresSport==='all'?games:games.filter(function(g){return g.sport===_scoresSport;});
-  if(!filtered.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:32px;font:400 12px var(--mono);color:var(--soft);">No '+(_scoresSport==='all'?'':_scoresSport.toUpperCase()+' ')+'games today.</div>';return;}
+  if(!filtered.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:28px;font:400 12px var(--mono);color:var(--soft);">No '+(_scoresSport==='all'?'':_scoresSport.toUpperCase()+' ')+'games today.</div>';return;}
   filtered=filtered.slice().sort(function(a,b){var o={Live:0,Preview:1,Final:2};return (o[a.state]||1)-(o[b.state]||1);});
-  var icons={mlb:'&#9918;',nba:'&#127936;',nhl:'&#127944;'};
+  var icons={mlb:'⚾',nba:'🏀',nhl:'🏒'};
   var names={mlb:'MLB',nba:'NBA',nhl:'NHL'};
   grid.innerHTML=filtered.map(function(g){
     var isL=g.state==='Live',isF=g.state==='Final';
     var cls='score-card'+(isL?' live':(isF?' final':''));
-    var badge=isL?'<span class="score-live-badge">&#9679; LIVE</span>':(isF?'<span class="score-final-badge">FINAL</span>':'<span class="score-sched-badge">SCHEDULED</span>');
+    var badge=isL?'<span class="score-live-badge">● LIVE</span>':(isF?'<span class="score-final-badge">FINAL</span>':'<span class="score-sched-badge">SCHEDULED</span>');
     var aW=isF&&g.aS!=null&&g.hS!=null&&g.aS>g.hS;
     var hW=isF&&g.aS!=null&&g.hS!=null&&g.hS>g.aS;
     var aL=isL&&g.aS!=null&&g.hS!=null&&g.aS>g.hS;
@@ -1324,41 +1449,41 @@ function renderScores(games){
     return '<div class="'+cls+'">'+
       '<div class="score-sport">'+icons[g.sport]+' '+names[g.sport]+'<span style="margin-left:auto">'+badge+'</span></div>'+
       '<div class="score-matchup">'+
-        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+( g.away||'&mdash;')+'</span>'+(showSc?'<span class="score-num'+(aL?' leader':'')+'">'+g.aS+'</span>':'')+'</div>'+
+        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+( g.away||'—')+'</span>'+(showSc?'<span class="score-num'+(aL?' leader':'')+'">'+g.aS+'</span>':'')+'</div>'+
         '<div class="score-divider"></div>'+
-        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+( g.home||'&mdash;')+'</span>'+(showSc?'<span class="score-num'+(hL?' leader':'')+'">'+g.hS+'</span>':'')+'</div>'+
+        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+( g.home||'—')+'</span>'+(showSc?'<span class="score-num'+(hL?' leader':'')+'">'+g.hS+'</span>':'')+'</div>'+
       '</div>'+
       '<div class="score-info">'+(g.info||'')+'</div>'+
       (g.pitcher?'<div class="score-pitcher">'+g.pitcher+'</div>':'')+
     '</div>';
   }).join('');
 }
+
+/* PRODUCTS DROPDOWN */
+(function(){
+  var btn=document.getElementById('products-btn');
+  var menu=document.getElementById('products-menu');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=menu.classList.contains('open');
+    menu.classList.toggle('open',!open);
+    btn.classList.toggle('open',!open);
+  });
+  document.addEventListener('click',function(){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  });
+  menu.addEventListener('click',function(e){e.stopPropagation();});
+})();
+
+/* INIT */
 document.addEventListener('DOMContentLoaded',function(){
   loadModelOdds();
   updateTicker();
   setTimeout(loadScores,400);
-  _scoresTimer=setInterval(loadScores,90000);
+  setInterval(loadScores,90000);
 });
-</script>
-
-
-<script>
-(function(){
-  var btn = document.getElementById('products-btn');
-  var menu = document.getElementById('products-menu');
-  if (!btn || !menu) return;
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    var open = menu.classList.contains('open');
-    menu.classList.toggle('open', !open);
-    btn.classList.toggle('open', !open);
-  });
-  document.addEventListener('click', function(){
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-  });
-  menu.addEventListener('click', function(e){ e.stopPropagation(); });
-})();
 </script>
 </body>
 </html>

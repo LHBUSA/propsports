@@ -434,8 +434,8 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
         <p>Signed DPA &middot; Dedicated Slack channel &middot; 1-hour support response &middot; Custom model variants &middot; Resale / redistribution license &middot; Full Supabase read access &middot; Custom pricing and contract</p>
       </div>
       <div class="mega-bar-right">
-        <a href="mailto:support@proptechusa.ai?subject=PropSports Mega / Enterprise" class="btn-mega">Contact for Mega &rarr;</a>
-        <span class="mega-email">support@proptechusa.ai</span>
+        <a href="mailto:sales@proptechusa.ai?subject=PropSports Mega / Enterprise" class="btn-mega">Contact for Mega &rarr;</a>
+        <span class="mega-email">sales@proptechusa.ai</span>
       </div>
     </div>
 
@@ -452,7 +452,7 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
     <!-- STRIPE NOTICE -->
     <div class="stripe-notice">
       <span style="font-size:22px;">&#128274;</span>
-      <div>Payments via <strong>Stripe</strong>. API key emailed within 60 seconds of payment. Cancel anytime from your Stripe portal. Questions? <a href="mailto:support@proptechusa.ai">support@proptechusa.ai</a> or <a href="tel:18887843881">1-888-784-3881</a></div>
+      <div>Payments via <strong>Stripe</strong>. API key emailed within 60 seconds of payment. Cancel anytime from your Stripe portal. Questions? <a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a> or <a href="tel:18887843881">1-888-784-3881</a></div>
     </div>
   </div>
 </section>
@@ -649,7 +649,7 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I resell or redistribute the data?</div>
-        <div class="faq-a">Display within your application to your end users: yes. Resell raw API responses as a data product: not under Basic / Pro / Ultra. Yes under Mega / Enterprise with a signed Order Form and data license. Contact <a href="mailto:support@proptechusa.ai">support@proptechusa.ai</a> for enterprise licensing.</div>
+        <div class="faq-a">Display within your application to your end users: yes. Resell raw API responses as a data product: not under Basic / Pro / Ultra. Yes under Mega / Enterprise with a signed Order Form and data license. Contact <a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a> for enterprise licensing.</div>
       </div>
     </div>
   </div>
@@ -831,7 +831,7 @@ function doCheckout(tier) {
 
   // Placeholder guard — remove once Stripe IDs are set
   if (priceId.indexOf('REPLACE') !== -1) {
-    alert('Stripe not yet configured for ' + tier + '. Email support@proptechusa.ai to subscribe.');
+    alert('Stripe not yet configured for ' + tier + '. Email sales@proptechusa.ai to subscribe.');
     return;
   }
 
@@ -853,7 +853,7 @@ function doCheckout(tier) {
     else { throw new Error(d.error || 'Checkout failed'); }
   })
   .catch(function(e) {
-    alert(e.message + ' — email support@proptechusa.ai or call 1-888-784-3881');
+    alert(e.message + ' — email sales@proptechusa.ai or call 1-888-784-3881');
     if (btn) { btn.textContent = originalText; btn.disabled = false; }
   });
 }

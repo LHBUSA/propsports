@@ -320,7 +320,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
     </div>
     <div class="nav-r">
       <span class="nav-pill">⚡ Poisson Odds</span>
-      <a href="/pricing" class="btn-key">Get API Key →</a>
+      <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener" style="font:600 11px var(--mono);color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;border:1px solid var(--border);white-space:nowrap;">Manage Sub</a>
+      <button class="btn-key" onclick="doCheckout('MLB')" style="cursor:pointer;border:none;">Get MLB Key →</button>
       <div class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -332,7 +333,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
   <a href="/nhl" onclick="toggleMob()">🏒 NHL</a>
   <a href="/docs" onclick="toggleMob()">📖 Docs</a>
   <a href="/pricing" onclick="toggleMob()">💳 Pricing</a>
-  <a href="/pricing" class="btn-key" style="margin-top:8px;display:block;text-align:center;padding:12px;" onclick="toggleMob()">Get API Key →</a>
+  <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener" onclick="toggleMob()">🔑 Manage Subscription</a>
+  <button onclick="doCheckout('MLB');toggleMob();" style="display:block;width:100%;text-align:center;padding:13px;margin-top:8px;background:var(--red);color:#fff;font:700 13px var(--body);border-radius:8px;border:none;cursor:pointer;">Get MLB Key — $19/mo →</button>
 </div>
 
 <!-- HERO -->
@@ -348,7 +350,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
         <h1 class="fu d1">MLB data<br>that <em style="color:var(--red);font-style:normal;">thinks.</em></h1>
         <p class="lead fu d2" style="max-width:480px;">Live scores, Statcast, player props, weather, umpires — and the only MLB API that generates its own odds from a Poisson model built on owned data. No DraftKings dependency. No FanDuel scraping. No single point of failure.</p>
         <div class="hero-actions fu d3">
-          <a href="/pricing" class="btn-red">Get API Key — from $19/mo →</a>
+          <button class="btn-red" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
           <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" class="btn-outline btn-ghost-sm" style="padding:12px 18px;font-size:12px;">▶ Try Live API</a>
         </div>
         <p class="fu d4" style="font:400 12px var(--mono);color:var(--muted);margin-top:12px;">✓ Demo key available &nbsp;·&nbsp; ✓ Key in 60 seconds &nbsp;·&nbsp; ✓ Cancel anytime</p>
@@ -713,7 +715,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
           <li><span class="pck">✓</span> Owned Statcast (MLB)</li>
           <li><span class="pck">✓</span> Key in 60 seconds</li>
         </ul>
-        <a href="/pricing" class="btn-p btn-p-red">Get MLB Key →</a>
+        <button class="btn-p btn-p-red" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
       </div>
 
       <!-- Basic -->
@@ -729,7 +731,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
           <li><span class="pck">✓</span> DK + FanDuel prop merge</li>
           <li><span class="pck">✓</span> Email support (~48hr)</li>
         </ul>
-        <a href="/pricing" class="btn-p btn-p-ink">Get Basic →</a>
+        <button class="btn-p btn-p-ink" onclick="doCheckout('BASIC')">Get Basic — $49/mo →</button>
       </div>
 
       <!-- Pro -->
@@ -745,7 +747,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
           <li><span class="pck">✓</span> Early endpoint access</li>
           <li><span class="pck">✓</span> Historical / backtest data</li>
         </ul>
-        <a href="/pricing" class="btn-p btn-p-ink">Get Pro →</a>
+        <button class="btn-p btn-p-ink" onclick="doCheckout('PRO')">Get Pro — $99/mo →</button>
       </div>
 
       <!-- Ultra -->
@@ -761,7 +763,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
           <li><span class="pck">✓</span> 99.5% uptime target</li>
           <li><span class="pck">✓</span> Custom rate limits</li>
         </ul>
-        <a href="/pricing" class="btn-p btn-p-ink">Get Ultra →</a>
+        <button class="btn-p btn-p-ink" onclick="doCheckout('ULTRA')">Get Ultra — $249/mo →</button>
       </div>
 
       <!-- Enterprise -->
@@ -791,9 +793,23 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
     <h2 class="sfu">Ready to build with MLB data?</h2>
     <p class="lead sfu">Demo key available right now. No credit card required. Full key in 60 seconds when you're ready to ship.</p>
     <div class="cta-btns sfu">
-      <a href="/pricing" class="btn-white">Get API Key — from $19/mo →</a>
+      <button class="btn-white" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
       <a href="/docs" class="btn-red-outline">Read the Docs</a>
     </div>
+  </div>
+</div>
+
+
+<!-- CUSTOMER PORTAL STRIP -->
+<div style="background:var(--off);border-top:1px solid var(--border);padding:14px 0;text-align:center;">
+  <div style="max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
+    <span style="font:400 13px var(--body);color:var(--muted);">Already a subscriber?</span>
+    <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener"
+      style="display:inline-flex;align-items:center;gap:6px;padding:7px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:7px;font:700 12px var(--mono);color:var(--ink);text-decoration:none;transition:all .15s;"
+      onmouseover="this.style.borderColor='#aaa'" onmouseout="this.style.borderColor='var(--border)'">
+      🔑 Manage Subscription &amp; Cancel
+    </a>
+    <span style="font:400 12px var(--mono);color:var(--muted);">· cancel anytime · no fees</span>
   </div>
 </div>
 
@@ -980,6 +996,53 @@ document.querySelectorAll('.sfu').forEach(el => sObs.observe(el));
 document.addEventListener('DOMContentLoaded', () => {
   applyFilter();
 });
+
+// ── STRIPE CHECKOUT ──
+var PRICE_IDS = {
+  MLB:   'price_1Tgl7SF3CaVzg4OROnbVwkJn',
+  NFL:   'price_1TglBvF3CaVzg4ORiqx6QDne',
+  NBA:   'price_1TglD6F3CaVzg4ORolvfntBE',
+  NHL:   'price_1TglEDF3CaVzg4ORkrqBkQSf',
+  BASIC: 'price_1TgVGEF3CaVzg4ORwIgccsLq',
+  PRO:   'price_1TgVIFF3CaVzg4ORBLnm7oV3',
+  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5'
+};
+
+function doCheckout(tier) {
+  var priceId = PRICE_IDS[tier];
+  if (!priceId) { window.location.href = '/pricing'; return; }
+
+  // Find any active button and show loading state
+  event && event.target && (event.target.textContent = 'Loading...');
+  event && event.target && (event.target.disabled = true);
+
+  fetch('https://propsports-stripe.sales-fd3.workers.dev/create-checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      priceId: priceId,
+      tier: tier,
+      successUrl: 'https://propsports.proptechusa.ai/dashboard',
+      cancelUrl: window.location.href
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.url) { window.location.href = d.url; }
+    else { throw new Error(d.error || 'Checkout unavailable'); }
+  })
+  .catch(function(e) {
+    alert('Checkout issue: ' + e.message + '\nEmail sales@proptechusa.ai or call 1-888-784-3881');
+    if (event && event.target) {
+      event.target.disabled = false;
+      event.target.textContent = tier === 'MLB' ? 'Get MLB Key — $19/mo →' :
+        tier === 'BASIC' ? 'Get Basic — $49/mo →' :
+        tier === 'PRO' ? 'Get Pro — $99/mo →' :
+        tier === 'ULTRA' ? 'Get Ultra — $249/mo →' : 'Subscribe →';
+    }
+  });
+}
+
 </script>
 </body>
 </html>

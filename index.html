@@ -729,6 +729,40 @@ body.nav-open{
   }
 }
 .hero-inner { position: relative; z-index: 2; }
+
+
+/* ─────────────────────────────────────────────────────────────────
+   FINAL NAV / CHECKOUT / FOOTER PATCH
+───────────────────────────────────────────────────────────────── */
+.ns-btn{text-decoration:none;}
+button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-btn{font-family:inherit;}
+.mob button.mob-cta{justify-content:center;text-align:center;}
+
+.portal-strip{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px var(--px);}
+.portal-strip-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;}
+.portal-strip span{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);}
+.portal-strip a{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;background:var(--red);color:#fff;text-decoration:none;font:700 12px var(--mono);letter-spacing:.04em;box-shadow:0 4px 16px rgba(215,59,26,.22);}
+.portal-strip a:hover{background:var(--red2);}
+
+.footer{background:var(--ink);padding:0;color:#fff;}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:46px var(--px) 0;}
+.footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:34px;padding-bottom:34px;}
+.footer-logo{display:inline-flex;font-family:var(--display);font-size:18px;font-weight:800;color:#fff;letter-spacing:.5px;text-decoration:none;margin-bottom:12px;}
+.footer-logo span{color:var(--red);}
+.footer-desc{font-size:13px;color:rgba(255,255,255,.42);line-height:1.7;max-width:270px;margin-bottom:14px;}
+.footer-contact{display:block;font:600 13px var(--sans);color:rgba(255,255,255,.65);text-decoration:none;margin-top:6px;}
+.footer-contact:hover{color:#fff;}
+.footer-col h3{font:700 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);margin:0 0 13px;}
+.footer-col a{display:block;font:500 13px var(--sans);color:rgba(255,255,255,.46);text-decoration:none;margin:8px 0;transition:color .15s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:16px 0;}
+.footer-copy{font:400 11px var(--mono);color:rgba(255,255,255,.25);}
+.footer-bottom-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.footer-bottom-links a{font:500 12px var(--sans);color:rgba(255,255,255,.45);text-decoration:none;}
+.footer-bottom-links a:hover{color:#fff;}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px;}}
+@media(max-width:600px){.footer-inner{padding-top:34px;}.footer-grid{grid-template-columns:1fr;gap:22px;padding-bottom:28px;}.footer-bottom{align-items:flex-start;flex-direction:column;}.footer-bottom-links{gap:12px;}.portal-strip-inner{align-items:stretch;}.portal-strip a{width:100%;}}
+
 </style>
 
 </head>
@@ -766,10 +800,10 @@ body.nav-open{
       <span class="logo-t">Prop<span>Sports</span> API</span>
     </a>
     <!-- desktop sport tabs -->
-    <button class="ns-btn on">MLB</button>
-    <button class="ns-btn">NFL</button>
-    <button class="ns-btn">NBA</button>
-    <button class="ns-btn">NHL</button>
+    <a href="/mlb" class="ns-btn on">MLB</a>
+    <a href="/nfl" class="ns-btn">NFL</a>
+    <a href="/nba" class="ns-btn">NBA</a>
+    <a href="/nhl" class="ns-btn">NHL</a>
 
     <div class="nav-r">
       <span class="nav-tag">⚡ Model Odds Live</span>
@@ -780,7 +814,7 @@ body.nav-open{
         </button>
         <div class="nav-dropdown-menu" id="products-menu">
           <div class="nav-dd-section">⚾ Sports</div>
-          <a href="/pricing.html" class="nav-dd-item">
+          <a href="/pricing" class="nav-dd-item">
             <span class="nav-dd-icon">⚡</span>
             <div>
               <div class="nav-dd-name">PropSports API</div>
@@ -788,7 +822,7 @@ body.nav-open{
               <div class="nav-dd-price">From $19/mo · All sports $49/mo</div>
             </div>
           </a>
-          <a href="/mlb-edge.html" class="nav-dd-item">
+          <a href="/mlb-edge" class="nav-dd-item">
             <span class="nav-dd-icon">⚾</span>
             <div>
               <div class="nav-dd-name">MLB Edge Suite</div>
@@ -802,7 +836,7 @@ body.nav-open{
             <span class="nav-dd-icon">🏠</span>
             <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai ↗</div></div>
           </a>
-          <a href="/propdata-core.html" class="nav-dd-item">
+          <a href="/propdata-core" class="nav-dd-item">
             <span class="nav-dd-icon">🏘️</span>
             <div>
               <div class="nav-dd-name">PropData Core</div>
@@ -810,7 +844,7 @@ body.nav-open{
               <div class="nav-dd-price">From $49/mo</div>
             </div>
           </a>
-          <a href="/propdata-pro.html" class="nav-dd-item">
+          <a href="/propdata-pro" class="nav-dd-item">
             <span class="nav-dd-icon">🏆</span>
             <div>
               <div class="nav-dd-name">PropData Pro Stack</div>
@@ -828,12 +862,12 @@ body.nav-open{
           </a>
         </div>
       </div>
-      <a href="/docs.html" class="nav-link">Docs</a>
-      <a href="/pricing.html" class="nav-link">Pricing</a>
-      <a href="/live.html" class="nav-link" style="color:var(--red);background:rgba(215,59,26,.08);border:1px solid rgba(215,59,26,.2);font-weight:700;">⚡ See It Live</a>
-      <a href="/pricing.html" class="btn-red">Get API Key →</a>
+      <a href="/docs" class="nav-link">Docs</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/live" class="nav-link" style="color:var(--red);background:rgba(215,59,26,.08);border:1px solid rgba(215,59,26,.2);font-weight:700;">⚡ See It Live</a>
+      <a href="#" class="btn-red" onclick="doCheckout('BASIC');return false;">Get API Key →</a>
       <!-- mobile-only compact buttons -->
-      <a href="/pricing.html" class="nav-key-btn">Key →</a>
+      <a href="#" class="nav-key-btn" onclick="doCheckout('BASIC');return false;">Key →</a>
     </div>
     <button class="ham" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -843,18 +877,27 @@ body.nav-open{
 
 <!-- MOBILE DRAWER -->
 <div class="mob" id="mob">
-  <div class="mob-section">⚾ Sports APIs</div>
-  <a href="/pricing.html">⚡ PropSports API — From $19/mo</a>
-  <a href="/mlb-edge.html">⚾ MLB Edge Suite — From $29/mo</a>
+  <div class="mob-section">Sports</div>
+  <a href="/mlb">⚾ MLB</a>
+  <a href="/nfl">🏈 NFL</a>
+  <a href="/nba">🏀 NBA</a>
+  <a href="/nhl">🏒 NHL</a>
+
   <div class="mob-divider"></div>
-  <div class="mob-section">🏘️ Real Estate APIs</div>
-  <a href="/propdata-core.html">🏘️ PropData Core — From $49/mo</a>
-  <a href="/propdata-pro.html">🏆 PropData Pro Stack — From $149/mo</a>
+  <div class="mob-section">Products</div>
+  <a href="/pricing">⚡ PropSports API Pricing</a>
+  <a href="/mlb-edge">⚾ MLB Edge Suite</a>
+  <a href="/propdata-core">🏘️ PropData Core</a>
+  <a href="/propdata-pro">🏆 PropData Pro</a>
+
   <div class="mob-divider"></div>
-  <a href="/docs.html">📖 Documentation</a>
-  <a href="/pricing.html">💳 Pricing</a>
-  <a href="/live.html">⚡ See It Live</a>
-  <a href="/pricing.html" class="mob-cta">Get API Key →</a>
+  <a href="/docs">📖 Docs</a>
+  <a href="/pricing">💳 Pricing</a>
+  <a href="/live">⚡ Live</a>
+  <a href="/terms">Terms</a>
+  <a href="/privacy">Privacy</a>
+
+  <button type="button" class="mob-cta" onclick="doCheckout('BASIC')">Get API Key →</button>
 </div>
 
 <!-- HERO -->
@@ -876,8 +919,8 @@ body.nav-open{
         Live scores, Statcast, player props, weather, umpires — and the only sports API that <strong>generates its own odds</strong> from a Poisson model built on owned data. No DraftKings. No FanDuel. No dependency.
       </p>
       <div class="hero-btns">
-        <a href="/pricing.html" class="btn-red">Get API Key — From $19/mo →</a>
-        <a href="/docs.html" class="btn-outline">View All 47 Endpoints</a>
+        <a href="#" class="btn-red" onclick="doCheckout('BASIC');return false;">Get API Key — From $49/mo →</a>
+        <a href="/docs" class="btn-outline">View All 47 Endpoints</a>
       </div>
       <div class="trust-row">
         <span class="tr-pill g">✓ Demo key for evaluation</span>
@@ -1067,8 +1110,8 @@ body.nav-open{
         <span class="odds-pill hot">From $19/mo</span>
       </div>
       <div class="odds-cta">
-        <a href="/pricing.html" class="btn-white">Get Started — From $19/mo →</a>
-        <a href="/docs.html" class="btn-ghost-white">See the Endpoints</a>
+        <a href="#" class="btn-white" onclick="doCheckout('BASIC');return false;">Get Started — $49/mo →</a>
+        <a href="/docs" class="btn-ghost-white">See the Endpoints</a>
       </div>
     </div>
     <div>
@@ -1342,25 +1385,25 @@ body.nav-open{
 
     <!-- Single-sport entry tiles: 2×2 mobile, 4-wide at 600px+ -->
     <div class="sport-price-grid">
-      <a href="/pricing.html" class="sport-price-tile">
+      <a href="#" class="sport-price-tile" onclick="doCheckout('MLB');return false;">
         <span class="spt-emoji">⚾</span>
         <div class="spt-name">MLB Only</div>
         <div class="spt-desc">Statcast · Poisson odds · HR props · K props</div>
         <div class="spt-price">$19<span>/mo</span></div>
       </a>
-      <a href="/pricing.html" class="sport-price-tile">
+      <a href="#" class="sport-price-tile" onclick="doCheckout('NFL');return false;">
         <span class="spt-emoji">🏈</span>
         <div class="spt-name">NFL Only</div>
         <div class="spt-desc">Player props · spreads · Game lines · scores</div>
         <div class="spt-price">$19<span>/mo</span></div>
       </a>
-      <a href="/pricing.html" class="sport-price-tile">
+      <a href="#" class="sport-price-tile" onclick="doCheckout('NBA');return false;">
         <span class="spt-emoji">🏀</span>
         <div class="spt-name">NBA Only</div>
         <div class="spt-desc">Advanced box scores · Props · TS% · USG%</div>
         <div class="spt-price">$19<span>/mo</span></div>
       </a>
-      <a href="/pricing.html" class="sport-price-tile">
+      <a href="#" class="sport-price-tile" onclick="doCheckout('NHL');return false;">
         <span class="spt-emoji">🏒</span>
         <div class="spt-name">NHL Only</div>
         <div class="spt-desc">Player props · puck line · Goalie stats</div>
@@ -1383,7 +1426,7 @@ body.nav-open{
           <li class="na">NFL · NBA · NHL</li>
           <li class="na">Production traffic</li>
         </ul>
-        <a href="/docs.html" class="pc-cta pc-cta-outline">Try Demo Key →</a>
+        <a href="/docs" class="pc-cta pc-cta-outline">Try Demo Key →</a>
       </div>
       <!-- BASIC -->
       <div class="pricing-card">
@@ -1398,7 +1441,7 @@ body.nav-open{
           <li class="model-feat">⚡ PropBetEdge model odds</li>
           <li>Email support (~48hr)</li>
         </ul>
-        <a href="/pricing.html" class="pc-cta pc-cta-outline">Get Basic →</a>
+        <a href="#" class="pc-cta pc-cta-outline" onclick="doCheckout('BASIC');return false;">Get Basic →</a>
       </div>
       <!-- PRO -->
       <div class="pricing-card featured">
@@ -1414,7 +1457,7 @@ body.nav-open{
           <li class="model-feat">⚡ Early access to new endpoints</li>
           <li class="model-feat">⚡ Historical / backtest data</li>
         </ul>
-        <a href="/pricing.html" class="pc-cta pc-cta-red">Get Pro →</a>
+        <a href="#" class="pc-cta pc-cta-red" onclick="doCheckout('BASIC');return false;">Start Basic →</a>
       </div>
       <!-- ULTRA -->
       <div class="pricing-card">
@@ -1429,7 +1472,7 @@ body.nav-open{
           <li>99.5% monthly uptime target</li>
           <li>Custom rate limit per key</li>
         </ul>
-        <a href="/pricing.html" class="pc-cta pc-cta-outline">Get Ultra →</a>
+        <a href="#" class="pc-cta pc-cta-outline" onclick="doCheckout('BASIC');return false;">Start Basic →</a>
       </div>
     </div>
 
@@ -1449,7 +1492,7 @@ body.nav-open{
         <div style="font:600 15px var(--sans);color:var(--ink);">SportRadar: <span style="text-decoration:line-through;color:var(--mid);">$24,000+/year</span> &nbsp;·&nbsp; PropSports MLB-only: <strong style="color:var(--red);">$228/year</strong></div>
         <div style="font:400 12px var(--sans);color:var(--mid);margin-top:3px;">MLB-only from $19/mo ($228/yr). All 4 sports from $49/mo ($588/yr). Under 3% of the SportRadar minimum.</div>
       </div>
-      <a href="/pricing.html" class="btn-red" style="flex-shrink:0;white-space:nowrap;">Start for $19/mo →</a>
+      <a href="#" class="btn-red" style="flex-shrink:0;white-space:nowrap;" onclick="doCheckout('BASIC');return false;">Start for $49/mo →</a>
     </div>
 
     <p style="text-align:center;margin-top:18px;font:400 13px var(--sans);color:var(--soft);">
@@ -1538,21 +1581,127 @@ body.nav-open{
   </div>
 </section>
 
+<!-- CUSTOMER PORTAL STRIP -->
+<section class="portal-strip" aria-label="Customer portal">
+  <div class="portal-strip-inner">
+    <span>Already a subscriber?</span>
+    <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage Subscription &amp; Cancel →</a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo">Prop<span>Sports</span> API</div>
-    <div class="footer-links">
-      <a href="/docs.html">Docs</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank">RapidAPI</a>
-      <a href="https://proptechusa.ai" target="_blank">PropTechUSA.ai</a>
-      <a href="https://propbetedge.ai" target="_blank">PropBetEdge</a>
-      <a href="tel:18887843881">1-888-784-3881</a>
+    <div class="footer-grid">
+      <div class="footer-col footer-brand-col">
+        <a href="/" class="footer-logo">Prop<span>Sports</span> API</a>
+        <p class="footer-desc">Sports data, model odds, and real estate intelligence from PropTechUSA.ai.</p>
+        <a href="tel:18887843881" class="footer-contact">1-888-784-3881</a>
+        <a href="mailto:sales@proptechusa.ai" class="footer-contact">sales@proptechusa.ai</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sports APIs</h3>
+        <a href="/mlb">MLB</a>
+        <a href="/nfl">NFL</a>
+        <a href="/nba">NBA</a>
+        <a href="/nhl">NHL</a>
+        <a href="/mlb-edge">MLB Edge</a>
+        <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI →</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <a href="/docs">Docs</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/live">Live</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/propdata-core">PropData Core</a>
+        <a href="/propdata-pro">PropData Pro</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai</a>
+        <a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai</a>
+        <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">PropData</a>
+        <a href="https://localhomebuyersusa.com" target="_blank" rel="noopener">Local Home Buyers USA</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </div>
     </div>
-    <div class="footer-copy">&copy; 2026 PropTechUSA.ai · Built on Cloudflare Workers</div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 PropTechUSA.ai. Built on Cloudflare Workers.</div>
+      <div class="footer-bottom-links">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:sales@proptechusa.ai">Contact</a>
+      </div>
+    </div>
   </div>
 </footer>
+
+<script>
+/* STRIPE CHECKOUT */
+var PRICE_IDS = {
+  BASIC: 'price_1TgVGEF3CaVzg4ORwIgccsLq',
+  PRO: 'price_1TgVIFF3CaVzg4ORBLnm7oV3',
+  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5',
+  MLB: 'price_1Tgl7SF3CaVzg4OROnbVwkJn',
+  NFL: 'price_1TglBvF3CaVzg4ORiqx6QDne',
+  NBA: 'price_1TglD6F3CaVzg4ORolvfntBE',
+  NHL: 'price_1TglEDF3CaVzg4ORkrqBkQSf'
+};
+
+var CHECKOUT_WORKER = 'https://propsports-stripe.sales-fd3.workers.dev/create-checkout';
+
+async function doCheckout(tier) {
+  tier = tier || 'BASIC';
+  var priceId = PRICE_IDS[tier];
+  if (!priceId) {
+    alert('Checkout is not configured for ' + tier + '. Email sales@proptechusa.ai or call 1-888-784-3881.');
+    return;
+  }
+
+  var clicked = window.event && window.event.currentTarget ? window.event.currentTarget : null;
+  var originalText = clicked ? clicked.textContent : '';
+  if (clicked) {
+    clicked.setAttribute('aria-busy', 'true');
+    clicked.style.pointerEvents = 'none';
+    if ('disabled' in clicked) clicked.disabled = true;
+    clicked.textContent = 'Loading…';
+  }
+
+  try {
+    var res = await fetch(CHECKOUT_WORKER, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tier: tier,
+        priceId: priceId,
+        successUrl: window.location.origin + '/dashboard',
+        cancelUrl: window.location.href
+      })
+    });
+
+    var data = await res.json().catch(function(){ return {}; });
+    var checkoutUrl = data.url || data.checkoutUrl || data.sessionUrl;
+    if (!res.ok || !checkoutUrl) {
+      throw new Error(data.error || data.message || 'Checkout failed');
+    }
+    window.location.href = checkoutUrl;
+  } catch (err) {
+    alert((err && err.message ? err.message : 'Checkout failed') + ' — email sales@proptechusa.ai or call 1-888-784-3881.');
+    if (clicked) {
+      clicked.removeAttribute('aria-busy');
+      clicked.style.pointerEvents = '';
+      if ('disabled' in clicked) clicked.disabled = false;
+      clicked.textContent = originalText;
+    }
+  }
+}
+</script>
 
 <script>
 /* NAV */

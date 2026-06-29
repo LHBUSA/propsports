@@ -277,6 +277,351 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
   .hstat{width:50%;}
   .cta-btns{flex-direction:column;align-items:center;}
 }
+
+/* ── MLB HERO V3 — FIELD / PRODUCT WALL ───────────────────────────── */
+.mlb-hero-v3{
+  position:relative;
+  overflow:hidden;
+  min-height:640px;
+  padding:0 0 34px;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(4,8,6,.92) 0%,rgba(8,16,10,.78) 42%,rgba(5,8,7,.92) 100%),
+    radial-gradient(ellipse at 52% 42%,rgba(64,126,60,.62) 0%,rgba(27,70,35,.48) 25%,rgba(12,28,18,.52) 48%,rgba(2,5,4,.78) 72%),
+    linear-gradient(135deg,#15341d 0%,#050806 100%);
+}
+.mlb-hero-v3::before{
+  content:'';
+  position:absolute;
+  inset:-12% -5% auto -5%;
+  height:112%;
+  pointer-events:none;
+  opacity:.42;
+  background:
+    linear-gradient(28deg,transparent 0 44%,rgba(222,186,130,.24) 45%,rgba(222,186,130,.24) 46%,transparent 47%),
+    linear-gradient(-28deg,transparent 0 44%,rgba(222,186,130,.20) 45%,rgba(222,186,130,.20) 46%,transparent 47%),
+    radial-gradient(circle at 50% 62%,rgba(205,172,118,.28) 0 7%,transparent 7.5%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 54px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 54px);
+  filter:saturate(.95);
+}
+.mlb-hero-v3::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 70% 24%,rgba(232,50,26,.22) 0%,transparent 34%),
+    radial-gradient(ellipse at 10% 42%,rgba(0,0,0,.62) 0%,transparent 45%),
+    linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 44%,rgba(0,0,0,.88) 100%);
+}
+.mlb-hero-v3 .wrap{position:relative;z-index:2;}
+.mlb-hero-v3 .breadcrumb{
+  color:rgba(255,255,255,.42);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:14px 0 12px;
+}
+.mlb-hero-v3 .breadcrumb a{color:rgba(255,255,255,.46);}
+.mlb-hero-v3 .breadcrumb a:hover{color:#fff;}
+.mlb-hero-stage{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(420px,520px);
+  gap:52px;
+  align-items:center;
+  min-height:476px;
+  padding:42px 0 22px;
+}
+.mlb-hero-copy{max-width:520px;}
+.mlb-kicker{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:18px;
+}
+.mlb-kicker-ball{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 0 20px rgba(255,255,255,.10);
+}
+.mlb-kicker span:last-child{
+  font:700 10px var(--mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.74);
+}
+.mlb-hero-title{
+  margin:0 0 17px;
+  color:#fff;
+  font:800 clamp(54px,7.15vw,94px) var(--display);
+  letter-spacing:-3.8px;
+  line-height:.88;
+}
+.mlb-hero-title .red{color:var(--red);}
+.mlb-hero-dek{
+  color:rgba(255,255,255,.78);
+  max-width:490px;
+  font-size:15px;
+  line-height:1.72;
+  margin:0 0 24px;
+}
+.mlb-hero-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.mlb-hero-actions .btn-outline{
+  color:rgba(255,255,255,.86);
+  border-color:rgba(255,255,255,.22);
+  background:rgba(255,255,255,.04);
+}
+.mlb-hero-actions .btn-outline:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.42);
+  background:rgba(255,255,255,.08);
+}
+.mlb-trustline{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  font:500 12px var(--body);
+  color:rgba(255,255,255,.66);
+}
+.mlb-trustline strong{color:#fff;}
+.mlb-visual{
+  position:relative;
+  min-height:390px;
+}
+.mlb-pitch-card{
+  position:absolute;
+  left:0;
+  top:4px;
+  width:210px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(2,6,5,.46);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(14px);
+  box-shadow:0 16px 42px rgba(0,0,0,.22);
+}
+.pitch-title{
+  color:#fff;
+  font:800 18px var(--display);
+  letter-spacing:-.5px;
+  margin-bottom:9px;
+}
+.pitch-mix{
+  position:relative;
+  height:112px;
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 52% 52%,rgba(255,255,255,.10) 0 2px,transparent 3px),
+    linear-gradient(90deg,transparent 49%,rgba(255,255,255,.11) 50%,transparent 51%),
+    linear-gradient(0deg,transparent 49%,rgba(255,255,255,.11) 50%,transparent 51%);
+}
+.pitch-dot{
+  position:absolute;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#f2a65a;
+  box-shadow:0 0 12px rgba(242,166,90,.55);
+}
+.pitch-dot.fast{background:#7dd3fc;box-shadow:0 0 12px rgba(125,211,252,.55);}
+.pitch-dot.mix{background:#fb7185;box-shadow:0 0 12px rgba(251,113,133,.55);}
+.pitch-legend{display:flex;gap:10px;margin-top:8px;font:500 9px var(--mono);color:rgba(255,255,255,.54);}
+.pitch-legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;}
+.mlb-code-card{
+  position:absolute;
+  right:0;
+  top:2px;
+  width:360px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#0D1117;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 24px 70px rgba(0,0,0,.42);
+}
+.mlb-code-top{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  height:34px;
+  padding:0 12px;
+  background:#161B22;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mlb-code-top i{display:block;width:8px;height:8px;border-radius:50%;}
+.mlb-code-url{
+  margin-left:7px;
+  flex:1;
+  font:400 9px var(--mono);
+  color:rgba(255,255,255,.32);
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.mlb-code-live{
+  color:#4ade80;
+  font:700 9px var(--mono);
+}
+.mlb-code-tabs{
+  display:flex;
+  gap:3px;
+  padding:9px 11px 0;
+  background:#0D1117;
+}
+.mlb-code-tabs span{
+  padding:5px 10px;
+  border-radius:6px 6px 0 0;
+  font:600 9px var(--mono);
+  color:rgba(255,255,255,.40);
+}
+.mlb-code-tabs span.on{
+  color:#fff;
+  background:#161B22;
+}
+.mlb-code-send{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  background:#161B22;
+  border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.mlb-code-send code{
+  flex:1;
+  color:rgba(255,255,255,.66);
+  font:500 10px var(--mono);
+}
+.mlb-code-send b{
+  background:var(--red);
+  color:#fff;
+  padding:4px 10px;
+  border-radius:4px;
+  font:800 9px var(--mono);
+}
+.mlb-code-pre{
+  margin:0;
+  padding:12px 14px 16px;
+  font:400 10px/1.62 var(--mono);
+  color:#e6edf3;
+  max-height:202px;
+  overflow:hidden;
+}
+.mlb-code-pre .key{color:#7EE787}.mlb-code-pre .str{color:#A5D6FF}.mlb-code-pre .num{color:#79C0FF}.mlb-code-pre .cm{color:#6E7681}
+.mlb-stadium-card{
+  position:absolute;
+  right:18px;
+  bottom:36px;
+  width:220px;
+  height:122px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 20px 50px rgba(0,0,0,.38);
+  background:
+    linear-gradient(180deg,rgba(255,171,92,.2),rgba(2,8,6,.28)),
+    radial-gradient(ellipse at 50% 76%,rgba(219,167,89,.92) 0 10%,transparent 11%),
+    linear-gradient(155deg,transparent 0 48%,rgba(255,255,255,.25) 49%,transparent 51%),
+    linear-gradient(25deg,transparent 0 48%,rgba(255,255,255,.18) 49%,transparent 51%),
+    repeating-linear-gradient(90deg,rgba(34,96,42,.95) 0 18px,rgba(24,74,34,.95) 18px 36px);
+}
+.mlb-stadium-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(13,20,34,.15),rgba(0,0,0,.55));
+}
+.mlb-mini-logo{
+  position:absolute;
+  left:16px;
+  top:14px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#fff;
+  font:800 12px var(--display);
+}
+.mlb-mini-logo i{
+  width:22px;height:22px;border-radius:6px;background:var(--red);display:grid;place-items:center;font-style:normal;font-size:12px;
+}
+.mlb-heat-card{
+  position:absolute;
+  left:130px;
+  bottom:0;
+  width:175px;
+  padding:14px 16px 15px;
+  border-radius:16px;
+  background:rgba(3,8,7,.52);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(16px);
+  box-shadow:0 18px 46px rgba(0,0,0,.30);
+}
+.heat-title{color:#fff;font:800 15px var(--display);letter-spacing:-.3px;margin-bottom:8px;}
+.heat-map{
+  position:relative;
+  height:104px;
+  border-radius:12px;
+  background:radial-gradient(circle at 52% 57%,rgba(232,50,26,.70),rgba(232,50,26,.25) 24%,rgba(125,211,252,.18) 44%,rgba(255,255,255,.06) 58%,transparent 72%);
+}
+.heat-bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.72);}
+.mlb-stats-strip{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border-top:1px solid rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  margin-top:8px;
+}
+.mlb-stat{
+  text-align:center;
+  padding:15px 10px 13px;
+  border-right:1px solid rgba(255,255,255,.14);
+}
+.mlb-stat:last-child{border-right:none;}
+.mlb-stat b{
+  display:block;
+  color:#fff;
+  font:800 28px var(--display);
+  line-height:1;
+  letter-spacing:-1px;
+}
+.mlb-stat b.red{color:var(--red);}
+.mlb-stat span{
+  display:block;
+  margin-top:3px;
+  color:rgba(255,255,255,.58);
+  font:700 8px var(--mono);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+@media(max-width:1040px){
+  .mlb-hero-stage{grid-template-columns:1fr;gap:26px;padding-top:34px;}
+  .mlb-visual{min-height:360px;max-width:620px;}
+  .mlb-code-card{right:0;}
+  .mlb-pitch-card{left:0;}
+}
+@media(max-width:768px){
+  .mlb-hero-v3{min-height:auto;}
+  .mlb-hero-title{font-size:clamp(46px,15vw,68px);letter-spacing:-2.5px;}
+  .mlb-hero-stage{padding:28px 0 20px;}
+  .mlb-visual{display:none;}
+  .mlb-stats-strip{grid-template-columns:repeat(2,1fr);}
+  .mlb-stat:nth-child(even){border-right:none;}
+  .mlb-stat:last-child{grid-column:1/-1;border-right:none;}
+}
+
 </style>
 </head>
 <body>
@@ -338,90 +683,111 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
 </div>
 
 <!-- HERO -->
-<div class="wrap">
-  <nav class="breadcrumb"><a href="/">Home</a> › <span>MLB API</span></nav>
-  <div class="hero">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker fu">
-          <span class="hero-sport">⚾</span>
-          <span class="eyebrow" style="margin:0;">Major League Baseball</span>
+<section class="mlb-hero-v3">
+  <div class="wrap">
+    <nav class="breadcrumb"><a href="/">Home</a> › <span>MLB API</span></nav>
+
+    <div class="mlb-hero-stage">
+      <div class="mlb-hero-copy">
+        <div class="mlb-kicker fu">
+          <span class="mlb-kicker-ball">⚾</span>
+          <span>Major League Baseball</span>
         </div>
-        <h1 class="fu d1">MLB data<br>that <em style="color:var(--red);font-style:normal;">thinks.</em></h1>
-        <p class="lead fu d2" style="max-width:480px;">Live scores, Statcast, player props, weather, umpires — and the only MLB API that generates its own odds from a Poisson model built on owned data. No DraftKings dependency. No FanDuel scraping. No single point of failure.</p>
-        <div class="hero-actions fu d3">
+
+        <h1 class="mlb-hero-title fu d1">MLB data<br>that <span class="red">thinks.</span></h1>
+
+        <p class="mlb-hero-dek fu d2">
+          Live scores, Statcast, player props, weather, umpires — and the only MLB API that generates its own odds from a Poisson model built on owned data. No DraftKings dependency. No FanDuel scraping. No single point of failure.
+        </p>
+
+        <div class="mlb-hero-actions fu d3">
           <button class="btn-red" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
-          <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" class="btn-outline btn-ghost-sm" style="padding:12px 18px;font-size:12px;">▶ Try Live API</a>
+          <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" rel="noopener" class="btn-outline">▶ Try Live API</a>
         </div>
-        <p class="fu d4" style="font:400 12px var(--mono);color:var(--muted);margin-top:12px;">✓ Demo key available &nbsp;·&nbsp; ✓ Key in 60 seconds &nbsp;·&nbsp; ✓ Cancel anytime</p>
+
+        <div class="mlb-trustline fu d4">
+          <span>✓ Built on owned data.</span>
+          <span>Free from vendor lock-in.</span>
+        </div>
       </div>
 
-      <!-- LIVE DEMO BOX -->
-      <div class="demo-box fu d2" id="demo-box">
-        <div class="demo-toolbar">
-          <div class="demo-dots"><div class="demo-dot dd-r"></div><div class="demo-dot dd-y"></div><div class="demo-dot dd-g"></div></div>
-          <div class="demo-url" id="demo-url-bar">propsports-api.sales-fd3.workers.dev/mlb/schedule/today</div>
-          <span class="demo-status" id="demo-status-badge">● LIVE</span>
-        </div>
-        <div class="demo-tabs">
-          <div class="dtab on" onclick="switchDemo('schedule',this)">Schedule</div>
-          <div class="dtab" onclick="switchDemo('statcast',this)">Statcast</div>
-          <div class="dtab" onclick="switchDemo('model',this)">⚡ Model Odds</div>
-          <div class="dtab" onclick="switchDemo('weather',this)">Weather</div>
+      <div class="mlb-visual fu d2" aria-hidden="true">
+        <div class="mlb-pitch-card">
+          <div class="pitch-title">pitch mix</div>
+          <div class="pitch-mix">
+            <i class="pitch-dot" style="left:48%;top:36%;"></i>
+            <i class="pitch-dot fast" style="left:58%;top:42%;"></i>
+            <i class="pitch-dot mix" style="left:40%;top:48%;"></i>
+            <i class="pitch-dot" style="left:55%;top:55%;"></i>
+            <i class="pitch-dot fast" style="left:62%;top:61%;"></i>
+            <i class="pitch-dot mix" style="left:45%;top:64%;"></i>
+            <i class="pitch-dot" style="left:50%;top:72%;"></i>
+            <i class="pitch-dot fast" style="left:36%;top:58%;"></i>
+            <i class="pitch-dot mix" style="left:66%;top:48%;"></i>
+            <i class="pitch-dot" style="left:31%;top:44%;"></i>
+            <i class="pitch-dot fast" style="left:70%;top:36%;"></i>
+            <i class="pitch-dot mix" style="left:57%;top:29%;"></i>
+          </div>
+          <div class="pitch-legend">
+            <span><i style="background:#f2a65a"></i>pitch</span>
+            <span><i style="background:#7dd3fc"></i>small</span>
+            <span><i style="background:#fb7185"></i>mix</span>
+          </div>
         </div>
 
-        <!-- Schedule -->
-        <div class="demo-pane on" id="dpane-schedule">
-          <div class="demo-send">
-            <span class="demo-endpoint">GET /mlb/schedule/today</span>
-            <button class="demo-run" onclick="runDemo('schedule')">RUN →</button>
+        <div class="mlb-code-card">
+          <div class="mlb-code-top">
+            <i style="background:#FF5F57"></i><i style="background:#FFBD2E"></i><i style="background:#28CA41"></i>
+            <span class="mlb-code-url">propsports-api.sales-fd3.workers.dev/mlb/odds/model/top</span>
+            <span class="mlb-code-live">● LIVE</span>
           </div>
-          <div class="demo-output" id="dout-schedule"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN to fetch today's slate live →</span></div>
-          <div class="demo-note">Returns probable pitchers · venue · linescore · status</div>
+          <div class="mlb-code-tabs">
+            <span>Schedule</span><span>Statcast</span><span class="on">⚡ Model Odds</span><span>Weather</span>
+          </div>
+          <div class="mlb-code-send">
+            <code>GET /mlb/odds/model/top</code><b>RUN →</b>
+          </div>
+          <pre class="mlb-code-pre">{
+  <span class="key">"generated"</span>: <span class="str">"2026-06-29T14:00:00Z"</span>,
+  <span class="key">"model"</span>: <span class="str">"poisson_v3"</span>,
+  <span class="key">"top_plays"</span>: [
+    {
+      <span class="key">"player"</span>: <span class="str">"Juan Soto"</span>,
+      <span class="key">"market"</span>: <span class="str">"TB_OVER_1.5"</span>,
+      <span class="key">"model_prob"</span>: <span class="num">0.641</span>,
+      <span class="key">"model_odds"</span>: <span class="str">"+115"</span>,
+      <span class="key">"expected_tb"</span>: <span class="num">1.82</span>
+    }
+  ]
+}</pre>
         </div>
 
-        <!-- Statcast -->
-        <div class="demo-pane" id="dpane-statcast">
-          <div class="demo-send">
-            <span class="demo-endpoint">GET /mlb/statcast/batters</span>
-            <button class="demo-run" onclick="runDemo('statcast')">RUN →</button>
-          </div>
-          <div class="demo-output" id="dout-statcast"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN to fetch Statcast leaderboard →</span></div>
-          <div class="demo-note">150 batters · EV · barrel% · xwOBA · sprint speed · splits</div>
+        <div class="mlb-stadium-card">
+          <div class="mlb-mini-logo"><i>⚡</i>PropSports</div>
         </div>
 
-        <!-- Model Odds -->
-        <div class="demo-pane" id="dpane-model">
-          <div class="demo-send">
-            <span class="demo-endpoint">GET /mlb/odds/model/top</span>
-            <button class="demo-run" onclick="runDemo('model')">RUN →</button>
+        <div class="mlb-heat-card">
+          <div class="heat-title">exit velocity</div>
+          <div class="heat-map">
+            <i class="heat-bubble" style="width:10px;height:10px;left:43%;top:46%;"></i>
+            <i class="heat-bubble" style="width:6px;height:6px;left:54%;top:38%;"></i>
+            <i class="heat-bubble" style="width:8px;height:8px;left:35%;top:56%;"></i>
+            <i class="heat-bubble" style="width:5px;height:5px;left:62%;top:58%;"></i>
+            <i class="heat-bubble" style="width:7px;height:7px;left:48%;top:66%;"></i>
           </div>
-          <div class="demo-output" id="dout-model"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN — model odds refresh 6× daily →</span></div>
-          <div class="demo-note">⚡ Poisson model · no sportsbook · updates 8AM–8PM CT</div>
-        </div>
-
-        <!-- Weather -->
-        <div class="demo-pane" id="dpane-weather">
-          <div class="demo-send">
-            <span class="demo-endpoint">GET /mlb/weather/all</span>
-            <button class="demo-run" onclick="runDemo('weather')">RUN →</button>
-          </div>
-          <div class="demo-output" id="dout-weather"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN for live park weather →</span></div>
-          <div class="demo-note">Wind · temp · humidity · park factor · indoor flag</div>
         </div>
       </div>
     </div>
 
-    <!-- STAT ROW -->
-    <div class="hero-stat-row sfu">
-      <div class="hstat"><span class="hstat-n">25</span><span class="hstat-l">MLB Endpoints</span></div>
-      <div class="hstat"><span class="hstat-n">150</span><span class="hstat-l">Statcast Batters</span></div>
-      <div class="hstat"><span class="hstat-n">6<em>×</em></span><span class="hstat-l">Daily Model Refresh</span></div>
-      <div class="hstat"><span class="hstat-n"><em>$19</em></span><span class="hstat-l">Starting /mo</span></div>
-      <div class="hstat"><span class="hstat-n">0</span><span class="hstat-l">Sportsbook Deps</span></div>
+    <div class="mlb-stats-strip fu d4">
+      <div class="mlb-stat"><b>25</b><span>MLB Endpoints</span></div>
+      <div class="mlb-stat"><b>150</b><span>Statcast Batters</span></div>
+      <div class="mlb-stat"><b>6×</b><span>Daily Model Refresh</span></div>
+      <div class="mlb-stat"><b class="red">$19</b><span>Starting /mo</span></div>
+      <div class="mlb-stat"><b>0</b><span>Sportsbook Deps</span></div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- POISSON CALLOUT -->
 <div class="poisson-band">
@@ -1022,7 +1388,7 @@ function doCheckout(tier) {
     body: JSON.stringify({
       priceId: priceId,
       tier: tier,
-      successUrl: 'https://propsports.proptechusa.ai/dashboard',
+      successUrl: 'https://propsports.proptechusa.ai/docs?checkout=success',
       cancelUrl: window.location.href
     })
   })

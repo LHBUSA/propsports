@@ -745,7 +745,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 .portal-strip a:hover{background:var(--red2);}
 
 .footer{background:var(--ink);padding:0;color:#fff;}
-.footer-inner{max-width:var(--max);margin:0 auto;padding:46px var(--px) 0;}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:46px var(--px) 0;display:block;}
 .footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:34px;padding-bottom:34px;}
 .footer-logo{display:inline-flex;font-family:var(--display);font-size:18px;font-weight:800;color:#fff;letter-spacing:.5px;text-decoration:none;margin-bottom:12px;}
 .footer-logo span{color:var(--red);}
@@ -762,6 +762,57 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 .footer-bottom-links a:hover{color:#fff;}
 @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px;}}
 @media(max-width:600px){.footer-inner{padding-top:34px;}.footer-grid{grid-template-columns:1fr;gap:22px;padding-bottom:28px;}.footer-bottom{align-items:flex-start;flex-direction:column;}.footer-bottom-links{gap:12px;}.portal-strip-inner{align-items:stretch;}.portal-strip a{width:100%;}}
+
+
+
+/* ─────────────────────────────────────────────────────────────────
+   WORLD CLASS MLB EDGE + SINGLE SPORT CHECKOUT PATCH
+───────────────────────────────────────────────────────────────── */
+.nav-edge-link{
+  color:var(--red) !important;
+  background:rgba(215,59,26,.08) !important;
+  border:1px solid rgba(215,59,26,.18);
+  font-weight:800 !important;
+}
+.nav-edge-link:hover{background:rgba(215,59,26,.14) !important;border-color:rgba(215,59,26,.28);}
+@media(max-width:1080px) and (min-width:900px){.nav-edge-link{display:none !important;}}
+
+.single-sport-headline{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  margin:26px 0 14px;padding:18px 20px;border:1px solid var(--border);border-radius:16px;
+  background:linear-gradient(135deg,#fff,rgba(215,59,26,.035));box-shadow:var(--sh-sm);
+}
+.single-sport-kicker{font:800 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px;}
+.single-sport-headline h3{font-family:var(--display);font-size:clamp(19px,3vw,28px);line-height:1.05;letter-spacing:-.7px;color:var(--ink);margin:0;}
+.single-sport-edge-link{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;text-decoration:none;background:var(--ink);color:#fff;font:800 11px var(--mono);letter-spacing:.04em;box-shadow:0 6px 20px rgba(0,0,0,.14);}
+.single-sport-edge-link:hover{transform:translateY(-1px);}
+
+.sport-price-grid-premium{grid-template-columns:1fr;gap:14px;margin:14px 0 14px;}
+.sport-price-card{
+  position:relative;overflow:hidden;min-height:100%;padding:18px;background:#fff;border:1.5px solid var(--border);border-radius:16px;
+  box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:10px;text-decoration:none;
+}
+.sport-price-card::before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--red),rgba(215,59,26,.25));opacity:.9;}
+.sport-price-card:hover{border-color:rgba(215,59,26,.35);box-shadow:var(--sh-md);transform:translateY(-2px);}
+.spt-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.spt-badge{font:800 8px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mid);border:1px solid var(--border);background:var(--paper);border-radius:999px;padding:4px 8px;white-space:nowrap;}
+.spt-badge.hot{color:var(--red);background:var(--redbg);border-color:var(--redborder);}
+.spt-mini-list{list-style:none;display:grid;gap:5px;margin:2px 0 4px;padding:0;}
+.spt-mini-list li{font:600 11px var(--sans);color:var(--mid);display:flex;align-items:center;gap:7px;}
+.spt-mini-list li::before{content:'✓';color:var(--green);font-weight:900;}
+.spt-foot{margin-top:auto;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;}
+.spt-btn{appearance:none;border:none;border-radius:10px;background:var(--red);color:#fff;cursor:pointer;font:800 11px var(--mono);letter-spacing:.04em;padding:12px 10px;box-shadow:0 4px 16px rgba(215,59,26,.26);transition:all .2s;min-height:42px;}
+.spt-btn:hover{background:var(--red2);transform:translateY(-1px);}
+.all-sports-upsell{margin:12px 0 30px;padding:16px 18px;border-radius:14px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:var(--sh-md);}
+.all-sports-upsell div{font-size:13px;color:rgba(255,255,255,.72);line-height:1.55;}
+.all-sports-upsell strong{color:#fff;}
+.all-sports-upsell span{display:block;color:rgba(255,255,255,.42);font-size:12px;margin-top:2px;}
+.all-sports-upsell button{border:none;border-radius:10px;background:#fff;color:var(--ink);font:800 12px var(--mono);letter-spacing:.04em;padding:12px 16px;cursor:pointer;min-height:44px;}
+.all-sports-upsell button:hover{background:var(--paper);}
+.footer-feature-link{color:#fff !important;font-weight:800 !important;}
+@media(min-width:600px){.sport-price-grid-premium{grid-template-columns:repeat(2,1fr);}.spt-name{font-size:17px;}}
+@media(min-width:1050px){.sport-price-grid-premium{grid-template-columns:repeat(4,1fr);}.sport-price-card{padding:20px 18px;}.spt-foot{grid-template-columns:1fr;align-items:stretch;}.spt-price{font-size:26px;}.spt-btn{width:100%;}}
+@media(max-width:600px){.single-sport-headline{align-items:stretch;}.single-sport-edge-link{width:100%;}.all-sports-upsell button{width:100%;}.spt-foot{grid-template-columns:1fr;}.spt-btn{width:100%;}}
 
 </style>
 
@@ -862,6 +913,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
           </a>
         </div>
       </div>
+      <a href="https://propsports.proptechusa.ai/mlb-edge" class="nav-link nav-edge-link">⚾ MLB Edge</a>
       <a href="/docs" class="nav-link">Docs</a>
       <a href="/pricing" class="nav-link">Pricing</a>
       <a href="/live" class="nav-link" style="color:var(--red);background:rgba(215,59,26,.08);border:1px solid rgba(215,59,26,.2);font-weight:700;">⚡ See It Live</a>
@@ -886,7 +938,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <div class="mob-divider"></div>
   <div class="mob-section">Products</div>
   <a href="/pricing">⚡ PropSports API Pricing</a>
-  <a href="/mlb-edge">⚾ MLB Edge Suite</a>
+  <a href="https://propsports.proptechusa.ai/mlb-edge">⚾ MLB Edge Suite — Premium Signals</a>
   <a href="/propdata-core">🏘️ PropData Core</a>
   <a href="/propdata-pro">🏆 PropData Pro</a>
 
@@ -1383,34 +1435,84 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
     <h2>Flat rate.<br><em>No surprises.</em></h2>
     <p class="section-lead">No per-call fees. No usage tiers that sneak up on you. Single sport from $19/mo. All four sports $49/mo.</p>
 
-    <!-- Single-sport entry tiles: 2×2 mobile, 4-wide at 600px+ -->
-    <div class="sport-price-grid">
-      <a href="#" class="sport-price-tile" onclick="doCheckout('MLB');return false;">
-        <span class="spt-emoji">⚾</span>
-        <div class="spt-name">MLB Only</div>
-        <div class="spt-desc">Statcast · Poisson odds · HR props · K props</div>
-        <div class="spt-price">$19<span>/mo</span></div>
-      </a>
-      <a href="#" class="sport-price-tile" onclick="doCheckout('NFL');return false;">
-        <span class="spt-emoji">🏈</span>
-        <div class="spt-name">NFL Only</div>
-        <div class="spt-desc">Player props · spreads · Game lines · scores</div>
-        <div class="spt-price">$19<span>/mo</span></div>
-      </a>
-      <a href="#" class="sport-price-tile" onclick="doCheckout('NBA');return false;">
-        <span class="spt-emoji">🏀</span>
-        <div class="spt-name">NBA Only</div>
-        <div class="spt-desc">Advanced box scores · Props · TS% · USG%</div>
-        <div class="spt-price">$19<span>/mo</span></div>
-      </a>
-      <a href="#" class="sport-price-tile" onclick="doCheckout('NHL');return false;">
-        <span class="spt-emoji">🏒</span>
-        <div class="spt-name">NHL Only</div>
-        <div class="spt-desc">Player props · puck line · Goalie stats</div>
-        <div class="spt-price">$19<span>/mo</span></div>
-      </a>
+    <!-- Single-sport entry tiles: premium checkout cards -->
+    <div class="single-sport-headline">
+      <div>
+        <span class="single-sport-kicker">Single Sport Access</span>
+        <h3>Only need one league? Start at $19/mo.</h3>
+      </div>
+      <a href="https://propsports.proptechusa.ai/mlb-edge" class="single-sport-edge-link">Want MLB betting signals? Explore MLB Edge →</a>
     </div>
-    <p style="text-align:center;font-size:12px;color:var(--soft);margin:10px 0 28px;">Pick one sport at $19/mo — or get all four for $49/mo with the plans below</p>
+
+    <div class="sport-price-grid sport-price-grid-premium">
+      <div class="sport-price-tile sport-price-card">
+        <div class="spt-top"><span class="spt-emoji">⚾</span><span class="spt-badge hot">Statcast + Model</span></div>
+        <div class="spt-name">MLB Only</div>
+        <div class="spt-desc">Statcast, Poisson odds, HR props, K props, park factors, weather, umpire context.</div>
+        <ul class="spt-mini-list">
+          <li>50,000 requests/day</li>
+          <li>All MLB endpoints</li>
+          <li>Instant Stripe key</li>
+        </ul>
+        <div class="spt-foot">
+          <div class="spt-price">$19<span>/mo</span></div>
+          <button type="button" class="spt-btn" onclick="doCheckout('MLB')">Start MLB →</button>
+        </div>
+      </div>
+
+      <div class="sport-price-tile sport-price-card">
+        <div class="spt-top"><span class="spt-emoji">🏈</span><span class="spt-badge">Lines + Props</span></div>
+        <div class="spt-name">NFL Only</div>
+        <div class="spt-desc">Player props, spreads, totals, moneylines, team stats, live scores, and standings.</div>
+        <ul class="spt-mini-list">
+          <li>50,000 requests/day</li>
+          <li>All NFL endpoints</li>
+          <li>Instant Stripe key</li>
+        </ul>
+        <div class="spt-foot">
+          <div class="spt-price">$19<span>/mo</span></div>
+          <button type="button" class="spt-btn" onclick="doCheckout('NFL')">Start NFL →</button>
+        </div>
+      </div>
+
+      <div class="sport-price-tile sport-price-card">
+        <div class="spt-top"><span class="spt-emoji">🏀</span><span class="spt-badge">Advanced Box</span></div>
+        <div class="spt-name">NBA Only</div>
+        <div class="spt-desc">Advanced box scores, TS%, USG%, player props, spreads, totals, live scores, standings.</div>
+        <ul class="spt-mini-list">
+          <li>50,000 requests/day</li>
+          <li>All NBA endpoints</li>
+          <li>Instant Stripe key</li>
+        </ul>
+        <div class="spt-foot">
+          <div class="spt-price">$19<span>/mo</span></div>
+          <button type="button" class="spt-btn" onclick="doCheckout('NBA')">Start NBA →</button>
+        </div>
+      </div>
+
+      <div class="sport-price-tile sport-price-card">
+        <div class="spt-top"><span class="spt-emoji">🏒</span><span class="spt-badge">Goalie Data</span></div>
+        <div class="spt-name">NHL Only</div>
+        <div class="spt-desc">Player props, puck line, totals, moneylines, live scores, goalie stats, and leaders.</div>
+        <ul class="spt-mini-list">
+          <li>50,000 requests/day</li>
+          <li>All NHL endpoints</li>
+          <li>Instant Stripe key</li>
+        </ul>
+        <div class="spt-foot">
+          <div class="spt-price">$19<span>/mo</span></div>
+          <button type="button" class="spt-btn" onclick="doCheckout('NHL')">Start NHL →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="all-sports-upsell">
+      <div>
+        <strong>Best value:</strong> get MLB + NFL + NBA + NHL for $49/mo.
+        <span>$30 more than one sport, 4x the coverage.</span>
+      </div>
+      <button type="button" onclick="doCheckout('BASIC')">Get All Sports →</button>
+    </div>
 
     <div class="pricing-grid">
       <!-- DEMO -->
@@ -1606,7 +1708,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <a href="/nfl">NFL</a>
         <a href="/nba">NBA</a>
         <a href="/nhl">NHL</a>
-        <a href="/mlb-edge">MLB Edge</a>
+        <a href="https://propsports.proptechusa.ai/mlb-edge" class="footer-feature-link">MLB Edge Suite →</a>
         <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI →</a>
       </div>
 
@@ -1615,7 +1717,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <a href="/docs">Docs</a>
         <a href="/pricing">Pricing</a>
         <a href="/live">Live</a>
-        <a href="/dashboard">Dashboard</a>
+        <a href="https://propsports.proptechusa.ai/mlb-edge">MLB Edge Suite</a>
         <a href="/propdata-core">PropData Core</a>
         <a href="/propdata-pro">PropData Pro</a>
       </div>
@@ -1680,7 +1782,7 @@ async function doCheckout(tier) {
       body: JSON.stringify({
         tier: tier,
         priceId: priceId,
-        successUrl: window.location.origin + '/dashboard',
+        successUrl: window.location.origin + '/docs?checkout=success',
         cancelUrl: window.location.href
       })
     });

@@ -11,50 +11,97 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FAFAF7;--paper:#F3F2EE;--paper2:#ECEAE4;--white:#fff;--ink:#141412;--mid:#5C5A54;--soft:#9B9990;--border:#E0DDD7;--red:#D73B1A;--green:#0B7A45;--sans:'DM Sans',sans-serif;--display:'Syne',sans-serif;--mono:'JetBrains Mono',monospace;}
+:root{
+  --cream:#FAFAF7;
+  --paper:#F3F2EE;
+  --paper2:#ECEAE4;
+  --white:#fff;
+  --ink:#141412;
+  --mid:#5C5A54;
+  --soft:#9B9990;
+  --border:#E0DDD7;
+  --red:#D73B1A;
+  --green:#0B7A45;
+  --sans:'DM Sans',sans-serif;
+  --display:'Syne',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.7;}
+
+/* NAV */
 nav{position:sticky;top:0;z-index:100;height:58px;display:flex;align-items:center;padding:0 28px;background:rgba(250,250,247,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.logo-icon{width:28px;height:28px;flex-shrink:0;}
 .logo-t{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:0.5px;color:var(--ink);}
 .logo-t span{color:var(--red);}
 .nav-r{margin-left:auto;display:flex;gap:8px;}
 .nav-link{font:500 13px var(--sans);color:var(--mid);text-decoration:none;padding:6px 10px;border-radius:6px;transition:color 0.15s;}
 .nav-link:hover{color:var(--ink);}
+
+/* LAYOUT */
 .wrap{max-width:720px;margin:0 auto;padding:64px 28px 80px;}
+
+/* HEADER */
 .doc-header{margin-bottom:48px;padding-bottom:28px;border-bottom:2px solid var(--border);}
 .eyebrow{font:700 10px var(--mono);letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
 h1{font-family:var(--display);font-size:clamp(34px,5vw,52px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.0;margin-bottom:12px;}
 .updated{font:400 13px var(--mono);color:var(--soft);}
+
+/* TOC */
 .toc{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:48px;}
 .toc-title{font:700 10px var(--mono);letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px;}
 .toc ol{padding-left:16px;display:flex;flex-direction:column;gap:6px;}
 .toc a{font-size:14px;color:var(--mid);text-decoration:none;transition:color 0.15s;}
 .toc a:hover{color:var(--red);}
+
+/* SECTIONS */
 .section{margin-bottom:44px;scroll-margin-top:80px;}
 h2{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 h2 .num{font:700 11px var(--mono);letter-spacing:0.08em;padding:3px 8px;background:rgba(215,59,26,0.08);color:var(--red);border-radius:4px;flex-shrink:0;}
 p{font-size:15px;color:var(--mid);margin-bottom:14px;}
-ul,ol{padding-left:20px;margin-bottom:14px;}
+ul,ol.body-list{padding-left:20px;margin-bottom:14px;}
 li{font-size:15px;color:var(--mid);margin-bottom:7px;}
 strong{color:var(--ink);font-weight:600;}
+a.inline{color:var(--red);text-decoration:none;font-weight:500;}
+a.inline:hover{text-decoration:underline;}
+code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;font-family:var(--mono);}
+
+/* CALLOUTS */
 .callout{background:var(--paper);border-left:3px solid var(--red);border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:14px;color:var(--mid);}
 .callout-green{background:rgba(11,122,69,0.05);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:14px;color:var(--mid);}
+
+/* PLAN TABLE */
 .plan-table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:16px 0;}
 .plan-table th{font:700 9px var(--mono);letter-spacing:0.1em;text-transform:uppercase;color:var(--soft);padding:10px 14px;background:var(--paper2);text-align:left;border-bottom:1px solid var(--border);}
 .plan-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;color:var(--mid);}
 .plan-table tr:last-child td{border-bottom:none;}
 .plan-table td:first-child{font:600 13px var(--mono);color:var(--ink);}
+.plan-badge{display:inline-block;font:700 9px var(--mono);letter-spacing:0.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:rgba(215,59,26,0.08);color:var(--red);margin-left:6px;vertical-align:middle;}
+
+/* CONTACT BOX */
 .contact-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-top:24px;}
 .contact-box h3{font:700 15px var(--sans);color:var(--ink);margin-bottom:8px;}
-.contact-box a{color:var(--red);text-decoration:none;font-weight:500;}
-@media(max-width:600px){.wrap{padding:40px 16px 60px;}.nav-link{display:none;}}
+
+/* FOOTER NOTE */
+.footer-note{margin-top:20px;font-size:13px;color:var(--soft);}
+
+@media(max-width:600px){
+  .wrap{padding:40px 16px 60px;}
+  .nav-link{display:none;}
+  .plan-table{font-size:12px;}
+  .plan-table th,.plan-table td{padding:8px 10px;}
+}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="logo">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+    <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="8" fill="#D73B1A"/>
+      <path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/>
+    </svg>
     <span class="logo-t">Prop<span>Sports</span> API</span>
   </a>
   <div class="nav-r">
@@ -65,10 +112,11 @@ strong{color:var(--ink);font-weight:600;}
 </nav>
 
 <div class="wrap">
+
   <div class="doc-header">
     <div class="eyebrow">Legal</div>
     <h1>Terms of Service</h1>
-    <div class="updated">Last updated: April 1, 2026 &nbsp;&middot;&nbsp; Effective immediately upon account creation</div>
+    <div class="updated">Last updated: June 29, 2026 &nbsp;&middot;&nbsp; Effective immediately upon account creation</div>
   </div>
 
   <div class="toc">
@@ -94,6 +142,7 @@ strong{color:var(--ink);font-weight:600;}
     <strong>Plain English summary:</strong> Use PropSports API to build products. Don't scrape it, resell raw data, or hammer it past your rate limit. Pay your subscription. We'll keep it running. That's the deal.
   </div>
 
+  <!-- 01 -->
   <div class="section" id="acceptance">
     <h2><span class="num">01</span> Acceptance of Terms</h2>
     <p>By creating an account, obtaining an API key, or using the PropSports API service (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.</p>
@@ -101,47 +150,91 @@ strong{color:var(--ink);font-weight:600;}
     <p>We may update these Terms at any time. Continued use of the Service after changes constitutes acceptance. Material changes will be communicated to active subscribers via email.</p>
   </div>
 
+  <!-- 02 -->
   <div class="section" id="service">
     <h2><span class="num">02</span> The Service</h2>
     <p>PropSports API provides real-time sports data via a REST API. The Service includes:</p>
     <ul>
       <li>API endpoints for MLB, NFL, NBA, and NHL data (schedule, live scores, statistics, odds, weather, umpires, Statcast)</li>
+      <li>Proprietary Poisson model odds generated from owned Statcast data, refreshed 6× daily</li>
       <li>API key-based authentication and rate limiting</li>
-      <li>Developer documentation at propsports.proptechusa.ai/docs</li>
+      <li>Developer documentation at <a href="https://propsports.proptechusa.ai/docs" class="inline">propsports.proptechusa.ai/docs</a></li>
     </ul>
-    <p>The Service is provided "as-is" with best-effort uptime. We do not guarantee 100% availability, though we target 99.9% uptime on an ongoing basis.</p>
-    <p>We reserve the right to modify, suspend, or discontinue the Service or any endpoint at any time with reasonable notice to active subscribers.</p>
+    <p>The Service is provided with best-effort uptime. We target 99.9% uptime on an ongoing basis but do not guarantee 100% availability. We reserve the right to modify, suspend, or discontinue the Service or any endpoint at any time with reasonable notice to active subscribers.</p>
   </div>
 
+  <!-- 03 -->
   <div class="section" id="accounts">
     <h2><span class="num">03</span> API Keys &amp; Accounts</h2>
-    <p>Upon successful payment, an API key is generated and delivered to your registered email address. Your API key is your credential and your responsibility.</p>
+    <p>Upon successful payment, an API key is generated and delivered to your registered email address within 60 seconds. Your API key is your credential and your responsibility.</p>
     <ul>
       <li><strong>Keep your key secret.</strong> Do not commit it to public repositories, expose it in client-side code, or share it with unauthorized parties.</li>
       <li>You are responsible for all API usage made with your key, whether authorized by you or not.</li>
-      <li>If your key is compromised, contact us immediately at <a href="tel:18887843881" style="color:var(--red);text-decoration:none;">1-888-784-3881</a> and we will revoke and reissue it.</li>
-      <li>One API key per subscription. Keys are non-transferable.</li>
+      <li>If your key is compromised, contact us immediately at <a href="mailto:sales@proptechusa.ai" class="inline">sales@proptechusa.ai</a> and we will revoke and reissue it at no charge.</li>
+      <li>Standard plans include one API key per subscription. Pro plans include up to 3 keys. Ultra plans include up to 10 keys. Keys are non-transferable.</li>
     </ul>
-    <p>You must provide accurate registration information (name, email) and keep it current. Fraudulent or inaccurate information may result in immediate termination.</p>
+    <p>You must provide accurate registration information (name, email) and keep it current. Fraudulent or inaccurate information may result in immediate termination without refund.</p>
   </div>
 
+  <!-- 04 -->
   <div class="section" id="plans">
     <h2><span class="num">04</span> Plans, Pricing &amp; Rate Limits</h2>
     <p>PropSports API is offered under the following plans:</p>
     <table class="plan-table">
-      <thead><tr><th>Plan</th><th>Sports</th><th>Daily Limit</th><th>Price</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Sports</th>
+          <th>Daily Limit</th>
+          <th>Price</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Starter</td><td>MLB only</td><td>1,000 requests/day</td><td>$0/mo</td></tr>
-        <tr><td>Pro Sport</td><td>1 sport (your choice)</td><td>50,000 requests/day</td><td>$9/mo</td></tr>
-        <tr><td>Full Bundle</td><td>MLB + NFL + NBA + NHL</td><td>200,000 requests/day</td><td>$24/mo</td></tr>
-        <tr><td>Enterprise</td><td>All sports</td><td>Custom</td><td>Custom</td></tr>
+        <tr>
+          <td>Demo</td>
+          <td>MLB only (eval)</td>
+          <td>20 req/hr global cap</td>
+          <td>$0/mo</td>
+        </tr>
+        <tr>
+          <td>Single Sport</td>
+          <td>1 sport — MLB, NFL, NBA, or NHL</td>
+          <td>50,000 req/day</td>
+          <td>$19/mo</td>
+        </tr>
+        <tr>
+          <td>Basic <span class="plan-badge">All Sports</span></td>
+          <td>MLB + NFL + NBA + NHL</td>
+          <td>50,000 req/day</td>
+          <td>$49/mo</td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td>MLB + NFL + NBA + NHL</td>
+          <td>200,000 req/day</td>
+          <td>$99/mo</td>
+        </tr>
+        <tr>
+          <td>Ultra</td>
+          <td>MLB + NFL + NBA + NHL</td>
+          <td>500,000 req/day</td>
+          <td>$249/mo</td>
+        </tr>
+        <tr>
+          <td>Mega / Enterprise</td>
+          <td>All sports + custom</td>
+          <td>Unmetered</td>
+          <td>$1,500+/mo</td>
+        </tr>
       </tbody>
     </table>
-    <p>Prices are in USD and billed monthly via Stripe. Subscriptions renew automatically until cancelled. Rate limits reset at midnight UTC. Exceeding your rate limit returns a <code style="font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;">429 Too Many Requests</code> response.</p>
-    <p>We reserve the right to change pricing with 30 days' notice to active subscribers. Price changes do not apply to the current billing period.</p>
-    <p><strong>Refunds:</strong> Due to the nature of API key delivery, we do not offer refunds on subscription charges. If you experience a technical failure on our end, contact us and we will make it right.</p>
+    <p>Prices are in USD and billed monthly via Stripe. Subscriptions renew automatically until cancelled. Rate limits reset at midnight UTC. Exceeding your rate limit returns a <code>429 Too Many Requests</code> response and does not count against your daily limit.</p>
+    <p>The Demo plan is intended for evaluation only and is not permitted for production use or commercial applications.</p>
+    <p>We reserve the right to change pricing with 30 days' notice to active subscribers. Price changes do not apply retroactively to the current billing period.</p>
+    <p><strong>Refunds:</strong> Due to the nature of instant API key delivery, we do not offer refunds on subscription charges. If you experience a service failure on our end that materially impacts your usage, contact us and we will make it right.</p>
   </div>
 
+  <!-- 05 -->
   <div class="section" id="permitted">
     <h2><span class="num">05</span> Permitted Use</h2>
     <div class="callout-green">
@@ -154,60 +247,68 @@ strong{color:var(--ink);font-weight:600;}
       <li>Use data in commercial products, provided such use does not violate these Terms</li>
       <li>Access the Service programmatically within your plan's rate limits</li>
       <li>Cache API responses temporarily (up to 1 hour) to reduce request volume</li>
+      <li>Reference PropSports API as your data provider in your product documentation</li>
     </ul>
   </div>
 
+  <!-- 06 -->
   <div class="section" id="prohibited">
     <h2><span class="num">06</span> Prohibited Use</h2>
     <div class="callout">
       <strong>You may not:</strong>
     </div>
     <ul>
-      <li><strong>Resell raw API access.</strong> You may not create a competing API service that simply proxies PropSports API data to third parties without substantial value-add.</li>
-      <li><strong>Exceed rate limits</strong> through automated scraping, bot traffic, or artificially distributed requests across multiple keys.</li>
+      <li><strong>Resell raw API access.</strong> You may not create a competing API service that proxies PropSports API data to third parties without substantial value-add. Contact us about Mega/Enterprise resale licensing if this applies to your use case.</li>
+      <li><strong>Exceed rate limits</strong> through automated scraping, bot traffic, or artificially distributed requests across multiple keys without an appropriate plan.</li>
       <li><strong>Share or distribute your API key</strong> to unauthorized users or as part of a multi-user service without an Enterprise agreement.</li>
+      <li><strong>Use the Demo plan in production.</strong> The Demo plan is for evaluation only. Production apps must be on a paid plan.</li>
       <li><strong>Use the Service for illegal purposes</strong> or in connection with illegal gambling, match-fixing, or fraud.</li>
       <li><strong>Misrepresent data accuracy</strong> in safety-critical or legally sensitive contexts.</li>
       <li><strong>Reverse engineer the Service</strong> to reconstruct underlying data sources, authentication mechanisms, or infrastructure.</li>
-      <li><strong>Automated abuse</strong> — use scripts to enumerate endpoints, probe rate limits, or stress-test the infrastructure.</li>
+      <li><strong>Automated abuse</strong> — scripts that enumerate endpoints, probe rate limits, or stress-test infrastructure without authorization.</li>
     </ul>
     <p>Violation of these prohibitions may result in immediate key revocation and account termination without refund.</p>
   </div>
 
+  <!-- 07 -->
   <div class="section" id="data">
     <h2><span class="num">07</span> Data Sources &amp; Accuracy</h2>
-    <p>PropSports API aggregates data from public sources including the MLB Stats API, NHL Stats API, NBA Stats API, Baseball Savant (Statcast), ESPN, and Open-Meteo (weather). These are the same sources used by major sports analytics platforms.</p>
-    <p>While we make best efforts to provide accurate, timely data, we make <strong>no guarantees</strong> of data accuracy, completeness, or timeliness. Sports data is inherently real-time and subject to correction, revision, and delay.</p>
+    <p>PropSports API aggregates data from public sources including the MLB Stats API, NHL Stats API, NBA Stats API, Baseball Savant (Statcast), ESPN, and Open-Meteo (weather). Proprietary Poisson model odds are generated from our own Statcast pipeline — not scraped from sportsbooks. These sources are consistent with those used by major sports analytics platforms.</p>
+    <p>While we make best efforts to provide accurate, timely data, we make <strong>no guarantees</strong> of data accuracy, completeness, or timeliness. Sports data is inherently real-time and subject to correction, revision, and delay. Model odds are generated outputs, not official sportsbook lines, and carry their own margin of error.</p>
     <p><strong>You should not use PropSports API data as the sole basis for financial decisions.</strong> We are not responsible for losses arising from reliance on API data in any context, including sports betting, fantasy sports, or financial trading.</p>
-    <p>Source APIs may change without notice. We will make reasonable efforts to maintain endpoint compatibility, but cannot guarantee uninterrupted access to any specific data field.</p>
+    <p>Source APIs may change without notice. We will make reasonable efforts to maintain endpoint compatibility but cannot guarantee uninterrupted access to any specific data field or model output.</p>
   </div>
 
+  <!-- 08 -->
   <div class="section" id="ip">
     <h2><span class="num">08</span> Intellectual Property</h2>
-    <p>The PropSports API platform, including its infrastructure, documentation, code, design, and branding, is owned by PropTechUSA.ai. These Terms grant you a limited, non-exclusive, non-transferable license to access and use the Service within the scope of your plan.</p>
+    <p>The PropSports API platform — including its infrastructure, Poisson model, documentation, code, design, and branding — is owned by PropTechUSA.ai. These Terms grant you a limited, non-exclusive, non-transferable license to access and use the Service within the scope of your plan.</p>
     <p>Underlying sports data (game scores, statistics, player information) is sourced from public APIs. We make no claim to ownership of raw sports data. Your use of such data remains subject to the terms of the original data sources.</p>
     <p>"PropSports API," "PropTechUSA.ai," "PropBetEdge," and associated logos are trademarks of PropTechUSA.ai. You may not use these marks without prior written permission.</p>
   </div>
 
+  <!-- 09 -->
   <div class="section" id="termination">
     <h2><span class="num">09</span> Termination &amp; Suspension</h2>
-    <p><strong>By you:</strong> You may cancel your subscription at any time through Stripe or by contacting us. Your key will remain active until the end of the current billing period.</p>
+    <p><strong>By you:</strong> You may cancel your subscription at any time through the Stripe customer portal or by contacting us at <a href="mailto:sales@proptechusa.ai" class="inline">sales@proptechusa.ai</a>. Your key will remain active until the end of the current billing period.</p>
     <p><strong>By us:</strong> We may suspend or terminate your API key and account immediately and without notice if:</p>
     <ul>
       <li>You violate these Terms, particularly the Prohibited Use section</li>
       <li>Your payment fails and remains unresolved after 7 days</li>
-      <li>We determine your usage is abusive or harmful to the Service</li>
+      <li>We determine your usage is abusive or harmful to the Service or other customers</li>
       <li>Required by law or to protect the rights of third parties</li>
     </ul>
     <p>Upon termination, your API key will be revoked and access to the Service will cease. Termination for cause does not entitle you to a refund.</p>
   </div>
 
+  <!-- 10 -->
   <div class="section" id="warranty">
     <h2><span class="num">10</span> Warranty Disclaimer</h2>
     <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
-    <p>WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR THAT DATA PROVIDED WILL BE ACCURATE OR COMPLETE. YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK.</p>
+    <p>WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR THAT DATA OR MODEL OUTPUTS PROVIDED WILL BE ACCURATE OR COMPLETE. YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK.</p>
   </div>
 
+  <!-- 11 -->
   <div class="section" id="liability">
     <h2><span class="num">11</span> Limitation of Liability</h2>
     <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, PROPTECHUSA.AI SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITIES, ARISING FROM YOUR USE OF OR INABILITY TO USE THE SERVICE.</p>
@@ -215,23 +316,26 @@ strong{color:var(--ink);font-weight:600;}
     <p>Some jurisdictions do not allow limitation of liability for incidental or consequential damages, so the above limitation may not apply to you.</p>
   </div>
 
+  <!-- 12 -->
   <div class="section" id="governing">
     <h2><span class="num">12</span> Governing Law</h2>
     <p>These Terms are governed by the laws of the State of Minnesota, United States, without regard to conflict of law principles. Any disputes arising under these Terms shall be resolved in the state or federal courts located in Ramsey County, Minnesota.</p>
     <p>If any provision of these Terms is found unenforceable, the remaining provisions will remain in full force and effect.</p>
   </div>
 
+  <!-- 13 -->
   <div class="section" id="contact">
     <h2><span class="num">13</span> Contact</h2>
-    <p>For questions about these Terms, billing issues, or anything else:</p>
+    <p>For questions about these Terms, billing issues, key revocation, or anything else:</p>
     <div class="contact-box">
       <h3>PropTechUSA.ai — PropSports API</h3>
       <p style="margin-bottom:6px;">Justin Erickson, Founder &amp; CEO</p>
       <p style="margin-bottom:6px;">Saint Paul, Minnesota, United States</p>
-      <p style="margin-bottom:6px;">Phone: <a href="tel:18887843881">1-888-784-3881</a></p>
-      <p>Web: <a href="https://proptechusa.ai" target="_blank">proptechusa.ai</a></p>
+      <p style="margin-bottom:6px;">Email: <a href="mailto:sales@proptechusa.ai" class="inline">sales@proptechusa.ai</a></p>
+      <p style="margin-bottom:6px;">Phone: <a href="tel:18887843881" class="inline">1-888-784-3881</a></p>
+      <p>Web: <a href="https://proptechusa.ai" target="_blank" class="inline">proptechusa.ai</a></p>
     </div>
-    <p style="margin-top:20px;font-size:13px;">Also see: <a href="/privacy" style="color:var(--red);text-decoration:none;">Privacy Policy</a></p>
+    <p class="footer-note">Also see: <a href="/privacy" class="inline">Privacy Policy</a></p>
   </div>
 
 </div>

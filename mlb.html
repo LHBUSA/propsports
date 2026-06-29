@@ -2,811 +2,984 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>MLB API — Real-Time Major League Baseball Data | PropSports API</title>
-<meta name="description" content="PropSports MLB API: live scores, schedules, stats, and odds for Major League Baseball. Official data source. Free tier available. Starts at $9/month.">
-<link rel="canonical" href="https://propsports.proptechusa.ai/mlb.html">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"MLB API","item":"https://propsports.proptechusa.ai/mlb.html"}]},{"@type":"TechArticle","headline":"MLB API Documentation","description":"Complete reference for PropSports API MLB endpoints.","url":"https://propsports.proptechusa.ai/mlb.html","publisher":{"@id":"https://proptechusa.ai/#organization"}}]}</script>
-<style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-:root {
-  --white:#ffffff;--off:#F7F6F3;--paper:#EFEFEB;
-  --ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--border:#E2E1DC;
-  --red:#E8321A;--red2:#FF4429;--green:#0BAA5C;--blue:#1B65F0;--gold:#E8A020;
-  --card-shadow:0 2px 20px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.05);
-  --max:1200px;
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>MLB API — Live Scores, Statcast, Odds & Poisson Model | PropSports API</title>
+<meta name="description" content="The only MLB API with a built-in Poisson probability model. Live scores, Statcast, props, weather, umpires — 25 endpoints from $19/mo. No sportsbook dependency.">
+<link rel="canonical" href="https://propsports.proptechusa.ai/mlb">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E8321A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#E8321A">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"MLB API","item":"https://propsports.proptechusa.ai/mlb"}]},{"@type":"SoftwareApplication","name":"PropSports MLB API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"19","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"19","priceCurrency":"USD","billingDuration":"P1M"}},"description":"Real-time MLB API with live scores, Statcast, player props, weather, umpires, and proprietary Poisson model odds. 25 endpoints from $19/mo.","publisher":{"@type":"Organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#fff;
+  --off:#F7F6F3;
+  --paper:#EFEFEB;
+  --ink:#0D0D0D;
+  --ink2:#1A1A1A;
+  --muted:#6B6B6B;
+  --border:#E2E1DC;
+  --red:#E8321A;
+  --red2:#FF4429;
+  --green:#0BAA5C;
+  --blue:#1B65F0;
+  --gold:#E8A020;
+  --display:'Syne',sans-serif;
+  --body:'Instrument Sans',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --max:1160px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html {scroll-behavior:smooth; overflow-x: hidden; max-width: 100vw;}
-body{background:var(--white);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
-
-/* ── BALLS BG ── */
-.balls-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.ball{position:absolute;border-radius:50%;animation:ballFloat linear infinite;}
-@keyframes ballFloat{0%{transform:translateY(110vh) rotate(0deg);}100%{transform:translateY(-150px) rotate(900deg);}}
-.ball-baseball{background:radial-gradient(circle at 35% 30%,#fff 0%,#f0ece8 60%,#e8e0d8 100%);box-shadow:inset -3px -3px 8px rgba(0,0,0,0.1),0 2px 8px rgba(0,0,0,0.06);}
-.ball-basketball{background:radial-gradient(circle at 35% 30%,#f5a623 0%,#e8831a 50%,#c45a00 100%);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.ball-soccer{background:radial-gradient(circle at 35% 30%,#fff 0%,#ddd 60%,#bbb 100%);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.ball-hockey{background:radial-gradient(circle at 35% 30%,#888 0%,#444 100%);border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--white);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
 /* ── TICKER ── */
-.ticker-wrap{background:var(--ink);overflow:hidden;height:34px;display:flex;align-items:center;position:relative;z-index:10;}
-.ticker-track{display:flex;white-space:nowrap;animation:ticker 55s linear infinite;}
-.ticker-track:hover{animation-play-state:paused;}
-.t-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font-size:11px;font-weight:600;font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,0.6);border-right:1px solid rgba(255,255,255,0.06);}
-.t-score{color:#F5A623;font-weight:700;}
-.t-live{display:inline-block;width:5px;height:5px;border-radius:50%;background:#4ade80;animation:blink 1.5s infinite;flex-shrink:0;}
-@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
-
-/* ── GLOBAL SEARCH ── */
-.search-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;backdrop-filter:blur(4px);}
-.search-modal-bg.open{display:flex;align-items:flex-start;justify-content:center;padding-top:80px;}
-.search-modal{background:var(--white);border-radius:16px;width:min(600px,92vw);box-shadow:0 24px 80px rgba(0,0,0,0.2);overflow:hidden;}
-.search-input-row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);}
-.search-icon{font-size:18px;flex-shrink:0;color:var(--muted);}
-.search-input{flex:1;font-size:16px;border:none;outline:none;font-family:'JetBrains Mono',monospace;color:var(--ink);background:transparent;}
-.search-input::placeholder{color:var(--muted);}
-.search-close{font-size:20px;color:var(--muted);cursor:pointer;padding:4px;line-height:1;}
-.search-results{max-height:400px;overflow-y:auto;}
-.search-result-item{display:flex;align-items:center;gap:12px;padding:12px 20px;cursor:pointer;border-bottom:1px solid var(--border);text-decoration:none;transition:background 0.1s;}
-.search-result-item:hover{background:var(--off);}
-.search-result-item:last-child{border-bottom:none;}
-.sr-badge{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(11,170,92,0.1);color:var(--green);border:1px solid rgba(11,170,92,0.2);white-space:nowrap;flex-shrink:0;}
-.sr-path{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink);font-weight:500;}
-.sr-desc{font-size:12px;color:var(--muted);margin-left:auto;flex-shrink:0;}
-.sr-sport{font-size:11px;margin-right:4px;}
-.search-empty{padding:32px;text-align:center;color:var(--muted);font-size:14px;}
-.search-hint{padding:10px 20px;font-size:11px;color:var(--muted);background:var(--off);display:flex;justify-content:space-between;}
-.search-key{background:var(--border);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;}
+.ticker-wrap{background:var(--ink);height:32px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:50;}
+.ticker-inner{display:flex;white-space:nowrap;animation:tick 50s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.ti{display:inline-flex;align-items:center;gap:7px;padding:0 22px;font:600 10px var(--mono);color:rgba(255,255,255,0.45);border-right:1px solid rgba(255,255,255,0.06);}
+.ti-hot{color:var(--gold);}
+.ti-live{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:blink 1.4s infinite;flex-shrink:0;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.15;}}
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 24px;}
-.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:8px;}
-.logo-wrap{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
-.logo-icon{width:30px;height:30px;flex-shrink:0;}
-.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--ink);letter-spacing:-0.3px;}
-.logo-text span{color:var(--red);}
-.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto;}
-.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all 0.15s;white-space:nowrap;}
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;}
+.nav-in{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;gap:6px;}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
+.logo-t{font:800 17px var(--display);color:var(--ink);letter-spacing:-.3px;}
+.logo-t em{color:var(--red);font-style:normal;}
+.nav-links{display:flex;gap:2px;margin-left:20px;}
+.nav-links a{font:500 13px var(--body);color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:6px;transition:all .15s;}
 .nav-links a:hover,.nav-links a.active{color:var(--ink);background:var(--off);}
-.nav-search-btn{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:8px;border:1px solid var(--border);font-size:12px;color:var(--muted);cursor:pointer;background:var(--off);transition:all 0.15s;white-space:nowrap;margin-left:8px;}
-.nav-search-btn:hover{border-color:#bbb;}
-.nav-search-key{background:var(--border);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:10px;}
-.nav-pill{font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(232,50,26,0.08);color:var(--red);border:1px solid rgba(232,50,26,0.15);white-space:nowrap;}
-.btn-nav{padding:7px 16px;background:var(--ink);color:var(--white);font-size:13px;font-weight:600;border-radius:7px;text-decoration:none;transition:all 0.2s;white-space:nowrap;flex-shrink:0;}
-.btn-nav:hover{background:var(--ink2);}
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;margin-left:auto;}
-.hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s;}
-.mobile-menu{display:none;position:fixed;inset:0;top:60px;background:white;z-index:150;padding:16px;flex-direction:column;gap:2px;overflow-y:auto;}
-.mobile-menu a{display:block;padding:12px 14px;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border-radius:8px;transition:background 0.15s;}
-.mobile-menu a:hover{background:var(--off);}
-.mobile-menu .btn-nav{text-align:center;margin-top:8px;display:block;}
-.mobile-search{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;border:1px solid var(--border);margin-bottom:8px;color:var(--muted);font-size:14px;cursor:pointer;}
+.nav-r{display:flex;align-items:center;gap:8px;margin-left:auto;}
+.nav-pill{font:700 10px var(--mono);letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(232,50,26,.08);color:var(--red);border:1px solid rgba(232,50,26,.15);}
+.btn-key{padding:7px 16px;background:var(--ink);color:#fff;font:700 13px var(--body);border-radius:7px;text-decoration:none;transition:all .2s;}
+.btn-key:hover{background:#333;transform:translateY(-1px);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.ham span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;}
+.mob-menu{display:none;position:fixed;inset:0;top:58px;background:#fff;z-index:150;padding:16px;flex-direction:column;gap:4px;overflow-y:auto;}
+.mob-menu a{display:block;padding:11px 14px;font:500 15px var(--body);color:var(--ink);text-decoration:none;border-radius:8px;}
+.mob-menu a:hover{background:var(--off);}
 
 /* ── LAYOUT ── */
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;z-index:1;}
-section{padding:72px 0;position:relative;}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
-h1{font-family:'Syne',sans-serif;font-size:clamp(40px,7vw,80px);font-weight:800;letter-spacing:-2.5px;color:var(--ink);line-height:0.97;margin-bottom:16px;}
-h2{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,48px);font-weight:800;letter-spacing:-1.5px;color:var(--ink);line-height:1.05;margin-bottom:12px;}
-h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px;}
-.lead{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:28px;}
-.accent{color:var(--red);}
-
-/* ── BUTTONS ── */
-.btn-red{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--red);color:white;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(232,50,26,0.3);}
-.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,50,26,0.4);}
-.btn-ink{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--ink);color:white;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all 0.2s;}
-.btn-ink:hover{background:var(--ink2);transform:translateY(-1px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;color:var(--ink);font-weight:600;font-size:13px;border-radius:10px;text-decoration:none;border:1.5px solid var(--border);font-family:'JetBrains Mono',monospace;transition:all 0.2s;}
-.btn-ghost:hover{border-color:#bbb;background:var(--off);}
-.btn-outline{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:transparent;color:var(--ink);font-weight:600;font-size:13px;border-radius:8px;text-decoration:none;border:1.5px solid var(--border);transition:all 0.2s;}
-.btn-outline:hover{border-color:#aaa;background:var(--off);}
-
-/* ── STATS STRIP ── */
-.stats-strip{background:var(--ink);padding:24px;display:flex;justify-content:center;flex-wrap:wrap;gap:0;}
-.stat-box{text-align:center;padding:8px 36px;border-right:1px solid rgba(255,255,255,0.1);}
-.stat-box:last-child{border-right:none;}
-.stat-n{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:white;letter-spacing:-1px;line-height:1;display:block;}
-.stat-n em{color:var(--gold);font-style:normal;}
-.stat-l{font-size:10px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-top:3px;}
-
-/* ── INTERACTIVE PREVIEW ── */
-.preview-section{background:var(--ink);padding:72px 0;position:relative;overflow:hidden;}
-.preview-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(232,50,26,0.08) 0%,transparent 70%);pointer-events:none;}
-.preview-tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap;}
-.prev-tab{padding:7px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);background:transparent;font-family:'Instrument Sans',sans-serif;transition:all 0.15s;}
-.prev-tab.on,.prev-tab:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:white;}
-.prev-tab.on{border-color:var(--red);color:var(--red);background:rgba(232,50,26,0.1);}
-.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
-.prev-panel{display:none;}
-.prev-panel.on{display:contents;}
-.code-block{background:#0D1117;border-radius:12px;overflow:hidden;}
-.code-header{padding:10px 16px;background:#161B22;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);}
-.dot{width:10px;height:10px;border-radius:50%;}
-pre{padding:18px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.75;color:#e6edf3;-webkit-overflow-scrolling:touch;}
-.kw{color:#FF7B72;}.str{color:#A5D6FF;}.cm{color:#6E7681;}.fn{color:#D2A8FF;}.url{color:#F2CC60;}.num{color:#79C0FF;}.key{color:#7EE787;}
-.try-btn{display:flex;align-items:center;gap:6px;margin-top:12px;padding:8px 16px;background:var(--red);color:white;font-size:12px;font-weight:700;border-radius:6px;text-decoration:none;width:fit-content;transition:all 0.2s;}
-.try-btn:hover{background:var(--red2);}
-.response-block{background:#0D1117;border-radius:12px;overflow:hidden;height:100%;}
-.response-header{padding:10px 16px;background:#161B22;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;}
-.response-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);}
-.response-status{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);font-weight:700;}
-
-/* ── ENDPOINT SEARCH ── */
-.ep-search-wrap{position:relative;margin-bottom:20px;}
-.ep-search{width:100%;padding:12px 16px 12px 44px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-family:'JetBrains Mono',monospace;background:var(--white);color:var(--ink);outline:none;transition:border-color 0.15s;}
-.ep-search:focus{border-color:var(--red);}
-.ep-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;pointer-events:none;}
-.ep-count{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
-.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
-.ep-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:13px 16px;display:flex;gap:11px;align-items:flex-start;transition:all 0.15s;cursor:pointer;}
-.ep-card:hover{border-color:rgba(232,50,26,0.3);background:rgba(232,50,26,0.02);}
-.ep-card.hidden{display:none;}
-.get-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:3px 6px;border-radius:3px;background:rgba(11,170,92,0.1);color:var(--green);border:1px solid rgba(11,170,92,0.2);white-space:nowrap;flex-shrink:0;margin-top:2px;}
-.ep-path{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink);margin-bottom:2px;font-weight:500;}
-.ep-path mark{background:rgba(232,50,26,0.12);color:var(--red);border-radius:2px;padding:0 2px;}
-.ep-desc{font-size:11px;color:var(--muted);line-height:1.4;}
-
-/* ── CARDS ── */
-.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--card-shadow);transition:all 0.25s;}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,0.1);}
-.card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
-.icon-red{background:rgba(232,50,26,0.08);}
-.icon-blue{background:rgba(27,101,240,0.08);}
-.icon-green{background:rgba(11,170,92,0.08);}
-.icon-gold{background:rgba(232,160,32,0.08);}
-
-/* ── SPORT PAGES ── */
-.sport-nav{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap;}
-.stab{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);color:var(--muted);background:var(--white);transition:all 0.15s;font-family:'Instrument Sans',sans-serif;}
-.stab.on,.stab:hover{background:var(--ink);color:var(--white);border-color:var(--ink);}
-
-/* ── PRICING ── */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px;}
-.p-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:26px 22px;position:relative;transition:all 0.25s;}
-.p-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,0.1);}
-.p-card.hot{border-color:var(--red);background:linear-gradient(160deg,#fff8f7 0%,var(--white) 100%);}
-.hot-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--red);color:white;font-size:9px;font-weight:800;letter-spacing:1px;padding:3px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;}
-.p-sport{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
-.p-icon{font-size:26px;margin-bottom:10px;display:block;}
-.p-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.p-price{display:flex;align-items:baseline;gap:2px;margin-bottom:4px;}
-.p-dollar{font-size:16px;font-weight:700;color:var(--ink);margin-top:4px;}
-.p-num{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:var(--ink);line-height:1;}
-.p-period{font-size:12px;color:var(--muted);margin-left:2px;}
-.p-was{font-size:11px;color:var(--muted);text-decoration:line-through;margin-bottom:14px;}
-.p-feats{list-style:none;margin-bottom:20px;}
-.p-feats li{font-size:13px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;}
-.p-feats li:last-child{border-bottom:none;}
-.ck{color:var(--green);font-size:13px;flex-shrink:0;}
-.btn-plan{display:block;text-align:center;padding:11px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none;transition:all 0.2s;}
-.btn-plan-red{background:var(--red);color:white;}
-.btn-plan-red:hover{background:var(--red2);}
-.btn-plan-ink{background:var(--ink);color:white;}
-.btn-plan-ink:hover{background:var(--ink2);}
-.btn-plan-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
-.btn-plan-outline:hover{border-color:#aaa;background:var(--off);}
-
-/* ── SPONSOR ── */
-.sponsor-bar{background:var(--ink);padding:40px;border-radius:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-.sponsor-logo-txt{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:white;letter-spacing:-0.5px;white-space:nowrap;}
-.sponsor-logo-txt em{color:var(--red);font-style:normal;}
-.sponsor-div{width:1px;height:46px;background:rgba(255,255,255,0.12);flex-shrink:0;}
-.sponsor-copy h3{font-size:15px;font-weight:700;color:white;margin-bottom:3px;}
-.sponsor-copy p{font-size:13px;color:rgba(255,255,255,0.45);max-width:360px;line-height:1.6;}
-.btn-sponsor{margin-left:auto;padding:11px 22px;background:var(--red);color:white;font-weight:700;font-size:13px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:all 0.2s;}
-.btn-sponsor:hover{background:var(--red2);}
-
-/* ── FOOTER ── */
-footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:56px 24px 28px;}
-.footer-inner{max-width:var(--max);margin:0 auto;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,0.35);margin-top:10px;max-width:210px;line-height:1.6;}
-.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:12px;}
-.footer-col ul{list-style:none;}
-.footer-col li{margin-bottom:8px;}
-.footer-col a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.15s;}
-.footer-col a:hover{color:white;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.18);}
-.footer-legal{display:flex;gap:18px;}
-.footer-legal a{font-size:12px;color:rgba(255,255,255,0.18);text-decoration:none;}
-.footer-legal a:hover{color:rgba(255,255,255,0.5);}
-.breadcrumb{padding:10px 0;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.section{padding:72px 0;}
+.eyebrow{font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block;}
+h1{font:800 clamp(44px,7vw,82px) var(--display);letter-spacing:-2.5px;color:var(--ink);line-height:.95;margin-bottom:16px;}
+h2{font:800 clamp(28px,4vw,48px) var(--display);letter-spacing:-1.5px;color:var(--ink);line-height:1.05;margin-bottom:12px;}
+h3{font:700 18px var(--display);color:var(--ink);margin-bottom:8px;letter-spacing:-.3px;}
+.lead{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:24px;}
+.breadcrumb{padding:10px 0;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);}
 .breadcrumb a{color:var(--muted);text-decoration:none;}
 .breadcrumb a:hover{color:var(--ink);}
-.bc-sep{opacity:0.4;}
+
+/* ── BUTTONS ── */
+.btn-red{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--red);color:#fff;font:700 14px var(--body);border-radius:10px;text-decoration:none;transition:all .2s;box-shadow:0 4px 16px rgba(232,50,26,.3);}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,50,26,.4);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;color:var(--ink);font:600 13px var(--mono);border-radius:10px;text-decoration:none;border:1.5px solid var(--border);transition:all .2s;}
+.btn-outline:hover{border-color:#aaa;background:var(--off);}
+.btn-ghost-sm{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;font:600 11px var(--mono);border-radius:5px;background:rgba(11,170,92,.08);border:1px solid rgba(11,170,92,.2);color:var(--green);text-decoration:none;transition:all .15s;}
+.btn-ghost-sm:hover{background:rgba(11,170,92,.14);}
+
+/* ── HERO ── */
+.hero{padding:52px 0 0;}
+.hero-grid{display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:start;}
+.hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;}
+.hero-sport{font-size:42px;line-height:1;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.hero-stat-row{display:flex;gap:0;margin-top:40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.hstat{padding:16px 24px;border-right:1px solid var(--border);text-align:center;flex:1;}
+.hstat:last-child{border-right:none;}
+.hstat-n{font:800 28px var(--display);color:var(--ink);letter-spacing:-1px;display:block;line-height:1;}
+.hstat-n em{color:var(--red);font-style:normal;}
+.hstat-l{font:600 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px;display:block;}
+
+/* ── LIVE DEMO ── */
+.demo-box{background:var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2);}
+.demo-toolbar{background:#161B22;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.06);}
+.demo-dots{display:flex;gap:5px;}
+.demo-dot{width:10px;height:10px;border-radius:50%;}
+.dd-r{background:#FF5F57;}.dd-y{background:#FFBD2E;}.dd-g{background:#28CA41;}
+.demo-url{flex:1;background:rgba(255,255,255,.06);border-radius:5px;padding:4px 10px;font:400 11px var(--mono);color:rgba(255,255,255,.4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.demo-status{font:700 10px var(--mono);color:var(--green);}
+.demo-tabs{display:flex;gap:2px;padding:10px 14px 0;background:#0D1117;}
+.dtab{padding:6px 14px;font:600 11px var(--mono);border-radius:6px 6px 0 0;color:rgba(255,255,255,.35);cursor:pointer;border:1px solid transparent;border-bottom:none;transition:all .15s;}
+.dtab.on{background:#161B22;color:#fff;border-color:rgba(255,255,255,.08);}
+.dtab:hover:not(.on){color:rgba(255,255,255,.6);}
+.demo-pane{display:none;background:#0D1117;}
+.demo-pane.on{display:block;}
+.demo-send{padding:10px 14px;background:#161B22;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.04);}
+.demo-endpoint{font:500 12px var(--mono);color:rgba(255,255,255,.5);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.demo-run{padding:5px 14px;background:var(--red);color:#fff;font:700 11px var(--mono);border-radius:5px;border:none;cursor:pointer;transition:all .15s;flex-shrink:0;}
+.demo-run:hover{background:var(--red2);}
+.demo-run:disabled{background:#333;color:rgba(255,255,255,.3);cursor:not-allowed;}
+.demo-output{min-height:180px;max-height:260px;overflow-y:auto;padding:14px;font:400 11px/1.7 var(--mono);color:#e6edf3;}
+.demo-output .key{color:#7EE787;}.demo-output .str{color:#A5D6FF;}.demo-output .num{color:#79C0FF;}.demo-output .null{color:#FF7B72;}
+.demo-loading{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.3);font:400 12px var(--mono);padding:14px;}
+.demo-spin{width:12px;height:12px;border:2px solid rgba(255,255,255,.1);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.demo-error{color:#FF7B72;font:400 11px var(--mono);padding:14px;}
+.demo-note{padding:8px 14px;font:400 10px var(--mono);color:rgba(255,255,255,.2);background:#0D1117;border-top:1px solid rgba(255,255,255,.04);}
+
+/* ── POISSON CALLOUT ── */
+.poisson-band{background:var(--ink);padding:56px 0;position:relative;overflow:hidden;}
+.poisson-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(232,50,26,.12) 0%,transparent 70%);pointer-events:none;}
+.poisson-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.poisson-tag{font:700 9px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);display:inline-block;padding:4px 10px;border-radius:4px;border:1px solid rgba(232,50,26,.3);background:rgba(232,50,26,.08);margin-bottom:14px;}
+.poisson-grid h2{color:#fff;}
+.poisson-grid .lead{color:rgba(255,255,255,.5);max-width:420px;}
+.poisson-steps{display:flex;flex-direction:column;gap:14px;}
+.pstep{display:flex;gap:14px;align-items:flex-start;}
+.pstep-icon{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.pstep-body h4{font:700 13px var(--body);color:#fff;margin-bottom:2px;}
+.pstep-body p{font:400 12px var(--body);color:rgba(255,255,255,.4);line-height:1.5;}
+.poisson-code{background:#0D1117;border-radius:12px;overflow:hidden;}
+.pc-head{background:#161B22;padding:8px 14px;display:flex;align-items:center;gap:8px;font:400 10px var(--mono);color:rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.05);}
+.pc-pre{padding:16px;font:400 11px/1.8 var(--mono);color:#e6edf3;overflow-x:auto;}
+.pc-pre .key{color:#7EE787;}.pc-pre .str{color:#A5D6FF;}.pc-pre .num{color:#79C0FF;}.pc-pre .cm{color:#6E7681;}
+
+/* ── ENDPOINTS ── */
+.ep-section{background:var(--off);padding:72px 0;}
+.ep-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.ep-search-wrap{position:relative;width:100%;margin-bottom:20px;}
+.ep-input{width:100%;padding:11px 16px 11px 42px;border-radius:9px;border:1.5px solid var(--border);font:400 14px var(--mono);background:var(--white);color:var(--ink);outline:none;transition:border-color .15s;}
+.ep-input:focus{border-color:var(--red);}
+.ep-search-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:15px;pointer-events:none;}
+.ep-count{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:400 10px var(--mono);color:var(--muted);}
+.ep-cats{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+.ep-cat{padding:6px 14px;border-radius:20px;font:600 11px var(--mono);border:1.5px solid var(--border);color:var(--muted);cursor:pointer;background:var(--white);transition:all .15s;}
+.ep-cat.on,.ep-cat:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px;}
+.ep-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:13px 15px;display:flex;gap:10px;align-items:flex-start;transition:all .15s;cursor:default;}
+.ep-card:hover{border-color:rgba(232,50,26,.35);box-shadow:0 3px 16px rgba(232,50,26,.06);}
+.ep-card.hidden{display:none;}
+.ep-badge{font:700 9px var(--mono);padding:3px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.badge-get{background:rgba(11,170,92,.1);color:var(--green);border:1px solid rgba(11,170,92,.2);}
+.badge-model{background:rgba(232,50,26,.1);color:var(--red);border:1px solid rgba(232,50,26,.2);}
+.ep-path{font:500 12px var(--mono);color:var(--ink);margin-bottom:2px;}
+.ep-path mark{background:rgba(232,50,26,.1);color:var(--red);border-radius:2px;padding:0 2px;}
+.ep-desc{font-size:11px;color:var(--muted);line-height:1.45;}
+
+/* ── USE CASES ── */
+.use-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.use-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all .2s;}
+.use-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.08);}
+.use-icon{font-size:28px;margin-bottom:12px;display:block;}
+.use-tag{font:700 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block;}
+.use-endpoints{margin-top:12px;display:flex;flex-direction:column;gap:4px;}
+.use-ep{font:400 11px var(--mono);color:var(--muted);padding:3px 8px;background:var(--off);border-radius:4px;display:inline-block;}
+
+/* ── COMPARE ── */
+.compare-wrap{overflow-x:auto;margin-top:32px;}
+.compare-table{width:100%;border-collapse:collapse;min-width:640px;}
+.compare-table th{font:700 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:2px solid var(--border);}
+.compare-table th.ours{color:var(--red);}
+.compare-table td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);vertical-align:middle;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table td:first-child{font:600 13px var(--body);color:var(--ink);}
+.ct-yes{color:var(--green);font-weight:700;font-size:15px;}
+.ct-no{color:#ccc;font-size:15px;}
+.ct-val{font:600 13px var(--body);color:var(--ink);}
+.ct-val-red{font:700 13px var(--body);color:var(--red);}
+.ct-row-hl td{background:rgba(232,50,26,.02);}
+
+/* ── PRICING ── */
+.pricing-section{background:var(--off);padding:72px 0;}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:36px;}
+.p-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:24px 20px;position:relative;transition:all .25s;}
+.p-card:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(0,0,0,.1);}
+.p-card.featured{border-color:var(--red);background:linear-gradient(160deg,#fff8f7 0%,#fff 60%);}
+.p-hot{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font:800 9px var(--mono);letter-spacing:.08em;padding:3px 12px;border-radius:20px;text-transform:uppercase;white-space:nowrap;}
+.p-name{font:800 18px var(--display);color:var(--ink);margin-bottom:4px;letter-spacing:-.3px;}
+.p-sport{font:600 10px var(--mono);color:var(--muted);margin-bottom:12px;display:block;text-transform:uppercase;letter-spacing:.08em;}
+.p-price{display:flex;align-items:baseline;gap:1px;margin-bottom:16px;}
+.p-dollar{font:700 16px var(--display);color:var(--ink);margin-top:6px;}
+.p-amount{font:800 48px var(--display);color:var(--ink);line-height:1;letter-spacing:-2px;}
+.p-period{font:400 12px var(--body);color:var(--muted);margin-left:3px;}
+.p-feats{list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:6px;}
+.p-feats li{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:1px solid var(--border);}
+.p-feats li:last-child{border-bottom:none;}
+.pck{color:var(--green);font-size:14px;flex-shrink:0;}
+.pdash{color:#ddd;font-size:14px;flex-shrink:0;}
+.btn-p{display:block;text-align:center;padding:11px;border-radius:8px;font:700 13px var(--body);text-decoration:none;transition:all .2s;}
+.btn-p-red{background:var(--red);color:#fff;}
+.btn-p-red:hover{background:var(--red2);}
+.btn-p-ink{background:var(--ink);color:#fff;}
+.btn-p-ink:hover{background:#333;}
+.btn-p-out{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+.btn-p-out:hover{border-color:#aaa;background:var(--off);}
+.pricing-note{text-align:center;margin-top:20px;font-size:13px;color:var(--muted);}
+.pricing-note strong{color:var(--ink);}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--ink);padding:72px 0;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(232,50,26,.15) 0%,transparent 60%);pointer-events:none;}
+.cta-band h2{color:#fff;margin-bottom:12px;}
+.cta-band .lead{color:rgba(255,255,255,.45);margin:0 auto 28px;max-width:460px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-white{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#fff;color:var(--ink);font:700 14px var(--body);border-radius:10px;text-decoration:none;transition:all .2s;}
+.btn-white:hover{background:var(--off);transform:translateY(-2px);}
+.btn-red-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:transparent;color:#fff;font:700 14px var(--body);border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,.2);transition:all .2s;}
+.btn-red-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05);}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
+.ft-in{max-width:var(--max);margin:0 auto;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.ft-brand-t{font:800 17px var(--display);color:#fff;letter-spacing:.3px;margin-bottom:10px;display:block;}
+.ft-brand-t em{color:var(--red);font-style:normal;}
+.ft-desc{font-size:13px;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:16px;max-width:220px;}
+.ft-col h4{font:700 9px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:12px;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:8px;}
+.ft-col a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;}
+.ft-col a:hover{color:#fff;}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-copy{font:400 11px var(--mono);color:rgba(255,255,255,.18);}
+.ft-legal{display:flex;gap:16px;}
+.ft-legal a{font-size:12px;color:rgba(255,255,255,.18);text-decoration:none;}
+.ft-legal a:hover{color:rgba(255,255,255,.5);}
 
 /* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-.fu{animation:fadeUp 0.55s ease both;}
-.d1{animation-delay:0.08s;}.d2{animation-delay:0.16s;}.d3{animation-delay:0.24s;}.d4{animation-delay:0.32s;}.d5{animation-delay:0.4s;}
-.scroll-fu{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
-.scroll-fu.visible{opacity:1;transform:none;}
-
-/* ── DOCS ── */
-.docs-layout{display:grid;grid-template-columns:220px 1fr;gap:0;max-width:var(--max);margin:0 auto;padding:0 24px;}
-.docs-sidebar{position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;padding:28px 20px 28px 0;border-right:1px solid var(--border);scrollbar-width:thin;}
-.sidebar-section{margin-bottom:20px;}
-.sidebar-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;padding:0 8px;}
-.sidebar-link{display:block;padding:5px 8px;font-size:13px;color:var(--muted);text-decoration:none;border-radius:5px;transition:all 0.12s;}
-.sidebar-link:hover,.sidebar-link.active{color:var(--ink);background:var(--off);}
-.docs-content{padding:36px 0 80px 40px;}
-.doc-section{margin-bottom:52px;}
-.param-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px;}
-.param-table th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);}
-.param-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
-.param-table tr:last-child td{border-bottom:none;}
-.p-name{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue);}
-.p-type{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);}
-.p-req{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;background:rgba(232,50,26,0.08);color:var(--red);}
-.p-opt{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;background:var(--off);color:var(--muted);}
-.alert{padding:12px 16px;border-radius:8px;font-size:13px;margin:14px 0;line-height:1.6;}
-.alert-blue{background:rgba(27,101,240,0.05);border-left:3px solid var(--blue);}
-.alert-green{background:rgba(11,170,92,0.05);border-left:3px solid var(--green);}
-.alert-red{background:rgba(232,50,26,0.05);border-left:3px solid var(--red);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp .5s ease both;}
+.d1{animation-delay:.06s;}.d2{animation-delay:.12s;}.d3{animation-delay:.18s;}.d4{animation-delay:.24s;}
+.sfu{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.sfu.vis{opacity:1;transform:none;}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
-  .docs-layout{grid-template-columns:1fr;padding:0 20px;}
-  .docs-sidebar{display:none;}
-  .docs-content{padding:28px 0 60px;}
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;}
+  .demo-box{display:none;}
+  .poisson-grid{grid-template-columns:1fr;}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:28px;}
 }
 @media(max-width:768px){
   nav{padding:0 16px;}
-  .nav-links,.nav-search-btn{display:none;}
-  .hamburger{display:flex;}
+  .nav-links,.nav-pill{display:none;}
+  .ham{display:flex;}
   .wrap{padding:0 16px;}
-  .preview-grid{grid-template-columns:1fr;}
-  .stats-strip{padding:16px;}
-  .stat-box{padding:10px 16px;width:50%;}
-  section{padding:52px 0;}
-  .sponsor-bar{flex-direction:column;text-align:center;}
-  .sponsor-div{width:60px;height:1px;}
-  .btn-sponsor{margin-left:0;}
-  footer{padding:40px 16px 20px;}
-  .footer-grid{grid-template-columns:1fr;gap:20px;}
-  .footer-bottom{flex-direction:column;text-align:center;}
+  .section{padding:52px 0;}
+  .hero{padding:36px 0 0;}
+  .hero-stat-row{flex-wrap:wrap;}
+  .hstat{width:50%;}
+  .ep-grid{grid-template-columns:1fr;}
   .pricing-grid{grid-template-columns:1fr;}
+  .compare-table th,.compare-table td{padding:10px 12px;}
+  .ft-grid{grid-template-columns:1fr;gap:20px;}
+  .ft-bottom{flex-direction:column;text-align:center;}
   h1{letter-spacing:-1.5px;}
-  h2{letter-spacing:-0.8px;}
 }
 @media(max-width:480px){
-  .ep-grid{grid-template-columns:1fr;}
-  .stat-box{width:50%;}
-  .preview-tabs{gap:6px;}
-  .prev-tab{font-size:11px;padding:6px 12px;}
-}
-</style>
-<style>
-.page-hero{padding:56px 0 44px;border-bottom:1px solid var(--border);}
-.sport-hdr{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
-.sp-big{font-size:52px;line-height:1;}
-.try-live{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:6px;background:rgba(11,170,92,0.08);border:1px solid rgba(11,170,92,0.2);color:var(--green);font-size:12px;font-weight:700;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:all 0.15s;}
-.try-live:hover{background:rgba(11,170,92,0.12);}
-</style>
-
-
-
-<style id="psa-footer-css">
-/* ── BASE = MOBILE ─────────────────────────────────────── */
-.psa-ft { background:#141412; color:#fff; position:relative; overflow:hidden; }
-.psa-ft::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
-.psa-ft-red  { height:2px; background:linear-gradient(90deg,transparent,#D73B1A 30%,#D73B1A 70%,transparent); position:relative; z-index:1; }
-
-/* powered-by strip */
-.psa-ft-pb  { background:rgba(215,59,26,0.06); border-bottom:1px solid rgba(215,59,26,0.12); padding:14px 16px; position:relative; z-index:1; }
-.psa-ft-pb-in { display:flex; flex-direction:column; align-items:stretch; gap:8px; max-width:1280px; margin:0 auto; }
-.psa-ft-pb-label { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.25); text-align:center; }
-.psa-ft-pb-link { display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; padding:8px 14px; border-radius:20px; transition:all 0.2s; }
-.psa-ft-pb-link-red  { background:rgba(215,59,26,0.1); border:1px solid rgba(215,59,26,0.3); }
-.psa-ft-pb-link-red:hover  { background:rgba(215,59,26,0.2); }
-.psa-ft-pb-link-blue { background:rgba(27,95,191,0.08); border:1px solid rgba(27,95,191,0.2); }
-.psa-ft-pb-link-blue:hover { background:rgba(27,95,191,0.18); }
-.psa-ft-pb-name { font:700 12px 'JetBrains Mono',monospace; letter-spacing:0.06em; color:#fff; }
-.psa-ft-pb-sub  { font:400 10px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.35); }
-.psa-ft-pb-arr  { color:rgba(255,255,255,0.3); font-size:10px; }
-
-/* main grid */
-.psa-ft-body { position:relative; z-index:1; }
-.psa-ft-grid { display:grid; grid-template-columns:1fr; gap:0; padding:28px 16px 16px; max-width:1280px; margin:0 auto; }
-
-/* brand col */
-.psa-ft-brand { padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.07); margin-bottom:0; }
-.psa-ft-logo  { display:flex; align-items:center; gap:9px; text-decoration:none; margin-bottom:12px; }
-.psa-ft-logo-t { font:800 17px 'Syne','DM Sans',sans-serif; letter-spacing:0.5px; color:#fff; }
-.psa-ft-logo-t span { color:#D73B1A; }
-.psa-ft-desc  { font-size:13px; color:rgba(255,255,255,0.32); line-height:1.75; margin:0 0 16px; max-width:280px; }
-.psa-ft-phone { display:inline-flex; align-items:center; gap:8px; text-decoration:none; margin-bottom:14px; color:rgba(255,255,255,0.45); font:500 13px 'DM Sans',sans-serif; }
-.psa-ft-phone-ic { width:30px; height:30px; border-radius:7px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.09); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.psa-ft-socials { display:flex; gap:7px; flex-wrap:wrap; }
-.psa-ft-soc { width:34px; height:34px; border-radius:7px; display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,0.45); transition:all 0.2s; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
-.psa-ft-soc:hover { background:rgba(255,255,255,0.1); color:#fff; }
-
-/* link columns */
-.psa-ft-col { padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
-.psa-ft-col:last-child { border-bottom:none; padding-bottom:8px; }
-.psa-ft-col-h { font:700 9px 'JetBrains Mono',monospace; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2); display:block; margin-bottom:12px; }
-.psa-ft-links { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
-.psa-ft-links a { font-size:13px; color:rgba(255,255,255,0.45); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color 0.15s; }
-.psa-ft-links a:hover { color:#fff; }
-.psa-ft-links .psa-ft-link-blue { color:#4D9EFF !important; }
-.psa-ft-links .psa-ft-link-blue:hover { color:#80bfff !important; }
-.psa-ft-ext-arr { font-size:9px; opacity:0.4; }
-
-/* bottom bar */
-.psa-ft-base { border-top:1px solid rgba(255,255,255,0.06); position:relative; z-index:1; }
-.psa-ft-base-in { display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:14px 16px; max-width:1280px; margin:0 auto; }
-.psa-ft-copy { font:400 11px 'JetBrains Mono',monospace; color:rgba(255,255,255,0.18); }
-.psa-ft-badges { display:flex; flex-wrap:wrap; gap:5px; }
-.psa-ft-badge { font:600 9px 'JetBrains Mono',monospace; letter-spacing:0.06em; padding:3px 9px; border-radius:20px; border:1px solid rgba(255,255,255,0.07); color:rgba(255,255,255,0.18); }
-
-/* ── TABLET 640px ──────────────────────────────────────── */
-@media(min-width:640px) {
-  .psa-ft-grid { grid-template-columns:1fr 1fr; gap:0 28px; padding:36px 24px 20px; }
-  .psa-ft-brand { grid-column:1/-1; }
-  .psa-ft-pb-in { flex-direction:row; align-items:center; justify-content:center; gap:16px; }
-  .psa-ft-pb-link { flex:none; }
-  .psa-ft-pb-label { flex:none; }
-  .psa-ft-base-in { flex-direction:row; align-items:center; justify-content:space-between; }
-}
-
-/* ── DESKTOP 1024px ────────────────────────────────────── */
-@media(min-width:1024px) {
-  .psa-ft-grid { grid-template-columns:2.2fr 1fr 1fr 1fr; gap:44px; padding:52px 28px 36px; }
-  .psa-ft-brand { grid-column:auto; border-bottom:none; padding-bottom:0; }
-  .psa-ft-col { border-bottom:none; padding:0; }
-  .psa-ft-desc { max-width:230px; }
-  .psa-ft-base-in { padding:16px 28px; }
-  .psa-ft-pb-in { padding:0 28px; }
-}
-</style>
-
-<style id="psa-nav-mobile">
-@media(max-width:768px){
-  /* Hide nav-r links/buttons, keep only hamburger */
-  .nav-r > a { display:none !important; }
-  .nav-r > button.btn-red { display:none !important; }
-  .ham { display:flex !important; }
-  nav { padding:0 14px !important; }
-  /* Nav sports pills */
-  .nav-sports, .nav-tag { display:none !important; }
-}
-</style>
-
-<style id="psa-overflow">
-html,body{overflow-x:hidden!important;max-width:100vw;}
-*{box-sizing:border-box;}
-@media(max-width:768px){
-  section,main,article{overflow-x:hidden!important;}
-  .hero-inner{grid-template-columns:1fr!important;padding:0 16px!important;gap:28px!important;}
-  .hero-inner>div{min-width:0;overflow-wrap:break-word;word-break:break-word;}
-  .hero-lead{max-width:100%!important;overflow-wrap:break-word!important;}
-  h1{word-break:break-word!important;}
-  .stats-inner,.stat-inner{flex-wrap:wrap!important;}
-  .si,.stat-item{width:50%!important;}
-  #scores-grid{grid-template-columns:1fr 1fr!important;gap:8px!important;}
-  .feat-grid,.p-grid,.use-grid,.powers-grid,.compare-grid{grid-template-columns:1fr!important;}
-  .cta-btns{flex-direction:column!important;align-items:stretch!important;}
-  .cta-btns a{text-align:center!important;justify-content:center!important;}
-}
-@media(max-width:400px){
-  #scores-grid{grid-template-columns:1fr!important;}
+  .use-grid{grid-template-columns:1fr;}
+  .hstat{width:50%;}
+  .cta-btns{flex-direction:column;align-items:center;}
 }
 </style>
 </head>
 <body>
-<div class="balls-bg" id="balls-bg"></div>
-<div class="search-modal-bg" id="search-modal-bg">
-  <div class="search-modal">
-    <div class="search-input-row"><span class="search-icon">🔍</span><input class="search-input" id="global-search-input" type="text" placeholder="Search endpoints…"><span class="search-close" onclick="closeSearch()">✕</span></div>
-    <div class="search-results" id="search-results-list"></div>
-    <div class="search-hint"><span>31 endpoints across MLB, NFL, NBA, NHL</span><span><span class="search-key">⌘K</span> · <span class="search-key">Esc</span></span></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ti"><span class="ti-live"></span> LIVE · /mlb/games/live</span>
+    <span class="ti">⚡ /mlb/odds/model — Poisson model odds</span>
+    <span class="ti">📊 /mlb/statcast/batters — 150 batters, 34 columns</span>
+    <span class="ti">🌤 /mlb/weather/all — every park tonight</span>
+    <span class="ti">⚾ /mlb/umpires — home plate assignments</span>
+    <span class="ti">🎯 /mlb/odds/hr — DK + FanDuel merged</span>
+    <span class="ti">⚡ /mlb/odds/model/top — top OVER plays ranked</span>
+    <span class="ti">📋 /mlb/lineups — confirmed batting orders</span>
+    <span class="ti"><span class="ti-live"></span> LIVE · /mlb/games/live</span>
+    <span class="ti">⚡ /mlb/odds/model — Poisson model odds</span>
+    <span class="ti">📊 /mlb/statcast/batters — 150 batters, 34 columns</span>
+    <span class="ti">🌤 /mlb/weather/all — every park tonight</span>
+    <span class="ti">⚾ /mlb/umpires — home plate assignments</span>
+    <span class="ti">🎯 /mlb/odds/hr — DK + FanDuel merged</span>
+    <span class="ti">⚡ /mlb/odds/model/top — top OVER plays ranked</span>
+    <span class="ti">📋 /mlb/lineups — confirmed batting orders</span>
   </div>
 </div>
-<div class="ticker-wrap"><div class="ticker-track">
-  <span class="t-item">⚾ /mlb/schedule/today</span>
-  <span class="t-item">⚾ /mlb/games/live</span>
-  <span class="t-item">⚾ /mlb/odds</span>
-  <span class="t-item">🔍 Press ⌘K to search all 31 endpoints</span>
-  <span class="t-item">⚾ /mlb/schedule/today</span>
-  <span class="t-item">⚾ /mlb/games/live</span>
-  <span class="t-item">⚾ /mlb/odds</span>
-  <span class="t-item">🔍 Press ⌘K to search all 31 endpoints</span>
-</div></div>
+
+<!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a href="/" class="logo-wrap"><svg class="logo-icon" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E8321A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg><span class="logo-text">Prop<span>Sports</span> API</span></a>
+  <div class="nav-in">
+    <a href="/" class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E8321A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
+      <span class="logo-t">Prop<em>Sports</em> API</span>
+    </a>
     <div class="nav-links">
-      <a href="/mlb.html" class="active">MLB</a>
-      <a href="/nfl.html" >NFL</a>
-      <a href="/nba.html" >NBA</a>
-      <a href="/nhl.html" >NHL</a>
-      <a href="/docs.html">Docs</a>
-      <a href="/pricing.html">Pricing</a>
+      <a href="/mlb" class="active">MLB</a>
+      <a href="/nfl">NFL</a>
+      <a href="/nba">NBA</a>
+      <a href="/nhl">NHL</a>
+      <a href="/docs">Docs</a>
+      <a href="/pricing">Pricing</a>
     </div>
-    <div class="nav-search-btn" onclick="openSearch()">🔍 Search endpoints <span class="nav-search-key">⌘K</span></div>
-    <a href="/pricing.html" class="btn-nav" style="margin-left:8px;">Get API Key</a>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div class="nav-r">
+      <span class="nav-pill">⚡ Poisson Odds</span>
+      <a href="/pricing" class="btn-key">Get API Key →</a>
+      <div class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mobile-search" onclick="toggleMenu();openSearch()">🔍 Search all 31 endpoints…</div>
-  <a href="/mlb.html" onclick="toggleMenu()">⚾ MLB</a><a href="/nfl.html" onclick="toggleMenu()">🏈 NFL</a>
-  <a href="/nba.html" onclick="toggleMenu()">🏀 NBA</a><a href="/nhl.html" onclick="toggleMenu()">🏒 NHL</a>
-  <a href="/docs.html" onclick="toggleMenu()">📖 Docs</a><a href="/pricing.html" onclick="toggleMenu()">💳 Pricing</a>
-  <a href="/pricing.html" class="btn-nav" onclick="toggleMenu()">Get API Key →</a>
+<div class="mob-menu" id="mob-menu">
+  <a href="/mlb" onclick="toggleMob()">⚾ MLB</a>
+  <a href="/nfl" onclick="toggleMob()">🏈 NFL</a>
+  <a href="/nba" onclick="toggleMob()">🏀 NBA</a>
+  <a href="/nhl" onclick="toggleMob()">🏒 NHL</a>
+  <a href="/docs" onclick="toggleMob()">📖 Docs</a>
+  <a href="/pricing" onclick="toggleMob()">💳 Pricing</a>
+  <a href="/pricing" class="btn-key" style="margin-top:8px;display:block;text-align:center;padding:12px;" onclick="toggleMob()">Get API Key →</a>
 </div>
 
+<!-- HERO -->
 <div class="wrap">
-  <nav class="breadcrumb"><a href="/">Home</a><span class="bc-sep">›</span><span>MLB API</span></nav>
-  <div class="page-hero fu">
-    <div class="sport-hdr">
-      <span class="sp-big">⚾</span>
-      <div><div class="eyebrow">Major League Baseball</div><h1 style="font-size:clamp(34px,5vw,60px);margin-bottom:0;">MLB API</h1></div>
-    </div>
-    <p class="lead">Official Major League Baseball data — live scores, schedules, stats, and odds. The same sources the league uses, available as a clean REST API.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-      <a href="/pricing.html" class="btn-red">Get API Key →</a>
-      <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" class="try-live">▶ Try Live</a>
-      <span class="nav-search-btn" onclick="openSearch()" style="cursor:pointer;font-size:12px;">🔍 Search endpoints</span>
-    </div>
-  </div>
-</div>
+  <nav class="breadcrumb"><a href="/">Home</a> › <span>MLB API</span></nav>
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-kicker fu">
+          <span class="hero-sport">⚾</span>
+          <span class="eyebrow" style="margin:0;">Major League Baseball</span>
+        </div>
+        <h1 class="fu d1">MLB data<br>that <em style="color:var(--red);font-style:normal;">thinks.</em></h1>
+        <p class="lead fu d2" style="max-width:480px;">Live scores, Statcast, player props, weather, umpires — and the only MLB API that generates its own odds from a Poisson model built on owned data. No DraftKings dependency. No FanDuel scraping. No single point of failure.</p>
+        <div class="hero-actions fu d3">
+          <a href="/pricing" class="btn-red">Get API Key — from $19/mo →</a>
+          <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" class="btn-outline btn-ghost-sm" style="padding:12px 18px;font-size:12px;">▶ Try Live API</a>
+        </div>
+        <p class="fu d4" style="font:400 12px var(--mono);color:var(--muted);margin-top:12px;">✓ Demo key available &nbsp;·&nbsp; ✓ Key in 60 seconds &nbsp;·&nbsp; ✓ Cancel anytime</p>
+      </div>
 
-<section>
-  <div class="wrap">
-    <div class="eyebrow">All MLB Endpoints</div>
-    <h2>Search all endpoints.</h2>
-    <p class="lead" style="margin-bottom:20px;">Base URL: <code style="font-family:'JetBrains Mono',monospace;background:var(--off);padding:2px 8px;border-radius:4px;font-size:12px;">https://propsports-api.sales-fd3.workers.dev</code></p>
-    <div class="ep-search-wrap">
-      <span class="ep-search-icon">🔍</span>
-      <input class="ep-search" id="ep-search" type="text" placeholder="Filter MLB endpoints… try 'live' or 'stats' or 'odds'">
-      <span class="ep-count" id="ep-count"></span>
-    </div>
-    <div class="ep-grid"><div class="ep-card" data-path="/mlb/schedule/today" data-desc="Full slate probable pitchers venues"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/schedule/today</div><div class="ep-desc">Full slate with probable pitchers</div></div></div>
-<div class="ep-card" data-path="/mlb/games/live" data-desc="Live games linescore"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/games/live</div><div class="ep-desc">Live games only with linescore</div></div></div>
-<div class="ep-card" data-path="/mlb/lineups batting order" data-desc="Confirmed batting orders"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/lineups?date=</div><div class="ep-desc">Confirmed batting orders</div></div></div>
-<div class="ep-card" data-path="/mlb/game plays play-by-play" data-desc="Real time play by play data"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/game/:id/plays</div><div class="ep-desc">Real-time play-by-play</div></div></div>
-<div class="ep-card" data-path="/mlb/game boxscore box score stats" data-desc="Full box score player stats"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/game/:id/boxscore</div><div class="ep-desc">Full box score with player stats</div></div></div>
-<div class="ep-card" data-path="/mlb/statcast batters exit velocity barrel hard hit" data-desc="EV barrelPct hardHitPct avgLA evSpike MLB AAA AA"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/schedule/today</div><div class="ep-desc">Exit velocity, barrel%, hard hit% — MLB/AAA/AA</div></div></div>
-<div class="ep-card" data-path="/mlb/statcast pitchers swinging strike velo" data-desc="SwStr pct velo EV allowed barrels"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/statcast/pitchers</div><div class="ep-desc">SwStr%, velo, EV allowed, barrel rate</div></div></div>
-<div class="ep-card" data-path="/mlb/weather park wind temp factor" data-desc="Wind speed direction park factor temp indoor outdoor"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/schedule/today</div><div class="ep-desc">Wind, temp, park factor for every game</div></div></div>
-<div class="ep-card" data-path="/mlb/umpires home plate" data-desc="Home plate umpire assignments by date game"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/umpires?date=</div><div class="ep-desc">Home plate umpire assignments</div></div></div>
-<div class="ep-card" data-path="/mlb/player stats hitting pitching season" data-desc="Player season stats hitting pitching"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/player/:id/stats</div><div class="ep-desc">Season hitting or pitching stats</div></div></div>
-<div class="ep-card" data-path="/mlb/player gamelog game log history" data-desc="Game by game log any player"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/player/:id/gamelog</div><div class="ep-desc">Game-by-game log for any player</div></div></div>
-<div class="ep-card" data-path="/mlb/odds moneyline spread over under" data-desc="Moneylines spreads over unders"><span class="get-badge">GET</span><div><div class="ep-path">/mlb/odds</div><div class="ep-desc">Moneylines, spreads, over/unders</div></div></div></div>
-  </div>
-</section>
+      <!-- LIVE DEMO BOX -->
+      <div class="demo-box fu d2" id="demo-box">
+        <div class="demo-toolbar">
+          <div class="demo-dots"><div class="demo-dot dd-r"></div><div class="demo-dot dd-y"></div><div class="demo-dot dd-g"></div></div>
+          <div class="demo-url" id="demo-url-bar">propsports-api.sales-fd3.workers.dev/mlb/schedule/today</div>
+          <span class="demo-status" id="demo-status-badge">● LIVE</span>
+        </div>
+        <div class="demo-tabs">
+          <div class="dtab on" onclick="switchDemo('schedule',this)">Schedule</div>
+          <div class="dtab" onclick="switchDemo('statcast',this)">Statcast</div>
+          <div class="dtab" onclick="switchDemo('model',this)">⚡ Model Odds</div>
+          <div class="dtab" onclick="switchDemo('weather',this)">Weather</div>
+        </div>
 
-<section style="background:var(--off);padding:52px 0;">
-  <div class="wrap" style="text-align:center;">
-    <h2>Ready to build with MLB data?</h2>
-    <p class="lead" style="margin:0 auto 24px;">Free tier available. No credit card required.</p>
-    <a href="/pricing.html" class="btn-red">Get Your Free API Key →</a>
-  </div>
-</section>
+        <!-- Schedule -->
+        <div class="demo-pane on" id="dpane-schedule">
+          <div class="demo-send">
+            <span class="demo-endpoint">GET /mlb/schedule/today</span>
+            <button class="demo-run" onclick="runDemo('schedule')">RUN →</button>
+          </div>
+          <div class="demo-output" id="dout-schedule"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN to fetch today's slate live →</span></div>
+          <div class="demo-note">Returns probable pitchers · venue · linescore · status</div>
+        </div>
 
-<footer class="psa-ft">
-  <div class="psa-ft-red"></div>
+        <!-- Statcast -->
+        <div class="demo-pane" id="dpane-statcast">
+          <div class="demo-send">
+            <span class="demo-endpoint">GET /mlb/statcast/batters</span>
+            <button class="demo-run" onclick="runDemo('statcast')">RUN →</button>
+          </div>
+          <div class="demo-output" id="dout-statcast"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN to fetch Statcast leaderboard →</span></div>
+          <div class="demo-note">150 batters · EV · barrel% · xwOBA · sprint speed · splits</div>
+        </div>
 
-  <!-- POWERED BY -->
-  <div class="psa-ft-pb">
-    <div class="psa-ft-pb-in">
-      <span class="psa-ft-pb-label">Powered by</span>
-      <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-red">
-        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
-        <span class="psa-ft-pb-name">PropTechUSA.ai</span>
-        <span class="psa-ft-pb-sub">165+ Cloudflare Workers</span>
-      </a>
-      <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-pb-link psa-ft-pb-link-blue">
-        <span class="psa-ft-pb-name" style="color:#4D9EFF">PropData API</span>
-        <span class="psa-ft-pb-sub">Real Estate Intelligence</span>
-        <span class="psa-ft-pb-arr">&#8599;</span>
-      </a>
-    </div>
-  </div>
+        <!-- Model Odds -->
+        <div class="demo-pane" id="dpane-model">
+          <div class="demo-send">
+            <span class="demo-endpoint">GET /mlb/odds/model/top</span>
+            <button class="demo-run" onclick="runDemo('model')">RUN →</button>
+          </div>
+          <div class="demo-output" id="dout-model"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN — model odds refresh 6× daily →</span></div>
+          <div class="demo-note">⚡ Poisson model · no sportsbook · updates 8AM–8PM CT</div>
+        </div>
 
-  <!-- MAIN GRID -->
-  <div class="psa-ft-body">
-    <div class="psa-ft-grid">
-
-      <!-- BRAND -->
-      <div class="psa-ft-brand">
-        <a href="/" class="psa-ft-logo">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
-          <span class="psa-ft-logo-t">Prop<span>Sports</span> API</span>
-        </a>
-        <p class="psa-ft-desc">Real-time MLB, NFL, NBA &amp; NHL data. Official sources. Flat monthly pricing. No per-call fees ever.</p>
-        <a href="tel:18887843881" class="psa-ft-phone">
-          <span class="psa-ft-phone-ic">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </span>
-          1-888-784-3881
-        </a>
-        <div class="psa-ft-socials">
-          <a href="https://x.com/PropTechUSAAI" target="_blank" rel="noopener" class="psa-ft-soc" title="@PropTechUSAAI">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
-          </a>
-          <a href="https://proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropTechUSA.ai">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </a>
-          <a href="https://propbetedge.ai" target="_blank" rel="noopener" class="psa-ft-soc" title="PropBetEdge.ai">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </a>
+        <!-- Weather -->
+        <div class="demo-pane" id="dpane-weather">
+          <div class="demo-send">
+            <span class="demo-endpoint">GET /mlb/weather/all</span>
+            <button class="demo-run" onclick="runDemo('weather')">RUN →</button>
+          </div>
+          <div class="demo-output" id="dout-weather"><span style="color:rgba(255,255,255,.2);font:400 11px var(--mono);">Click RUN for live park weather →</span></div>
+          <div class="demo-note">Wind · temp · humidity · park factor · indoor flag</div>
         </div>
       </div>
+    </div>
 
-      <!-- SPORTS -->
-      <div class="psa-ft-col">
-        <span class="psa-ft-col-h">Sports</span>
-        <ul class="psa-ft-links">
-          <li><a href="/mlb">&#9918; MLB API</a></li>
-          <li><a href="/nfl">&#127944; NFL API</a></li>
-          <li><a href="/nba">&#127936; NBA API</a></li>
-          <li><a href="/nhl">&#127944; NHL API</a></li>
+    <!-- STAT ROW -->
+    <div class="hero-stat-row sfu">
+      <div class="hstat"><span class="hstat-n">25</span><span class="hstat-l">MLB Endpoints</span></div>
+      <div class="hstat"><span class="hstat-n">150</span><span class="hstat-l">Statcast Batters</span></div>
+      <div class="hstat"><span class="hstat-n">6<em>×</em></span><span class="hstat-l">Daily Model Refresh</span></div>
+      <div class="hstat"><span class="hstat-n"><em>$19</em></span><span class="hstat-l">Starting /mo</span></div>
+      <div class="hstat"><span class="hstat-n">0</span><span class="hstat-l">Sportsbook Deps</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- POISSON CALLOUT -->
+<div class="poisson-band">
+  <div class="wrap">
+    <div class="poisson-grid">
+      <div>
+        <span class="poisson-tag">⚡ Industry First</span>
+        <h2 class="sfu">We don't scrape odds.<br>We generate them.</h2>
+        <p class="lead sfu">Every other sports API depends on DraftKings, FanDuel, or a third-party odds feed. We built a Poisson probability model on top of our owned Statcast data and generate fair-value odds 6× a day — so when sportsbooks block scrapers, you stay up.</p>
+        <div class="poisson-steps sfu">
+          <div class="pstep">
+            <div class="pstep-icon">📊</div>
+            <div class="pstep-body"><h4>Owned Statcast pipeline</h4><p>Exit velocity, barrel%, xwOBA, pitch mix — aggregated nightly into our own Supabase. No vendor dependency.</p></div>
+          </div>
+          <div class="pstep">
+            <div class="pstep-icon">🧠</div>
+            <div class="pstep-body"><h4>Poisson distribution model</h4><p>Each player's expected stat output modeled against opposing pitcher, park factor, and recent splits. True probability → American odds.</p></div>
+          </div>
+          <div class="pstep">
+            <div class="pstep-icon">🔄</div>
+            <div class="pstep-body"><h4>Refreshed 6× daily</h4><p>8AM, 10AM, 12PM, 2PM, 5PM, 8PM CT via Cloudflare cron. Reflects late lineup changes, weather shifts, pitcher swaps.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="poisson-code sfu">
+        <div class="pc-head">
+          <div style="display:flex;gap:4px;"><div style="width:9px;height:9px;border-radius:50%;background:#FF5F57;"></div><div style="width:9px;height:9px;border-radius:50%;background:#FFBD2E;"></div><div style="width:9px;height:9px;border-radius:50%;background:#28CA41;"></div></div>
+          <span>GET /mlb/odds/model/top</span>
+        </div>
+        <pre class="pc-pre">{
+  <span class="key">"generated"</span>: <span class="str">"2026-06-29T14:00:00Z"</span>,
+  <span class="key">"model"</span>: <span class="str">"poisson_v3"</span>,
+  <span class="key">"refresh_count_today"</span>: <span class="num">4</span>,
+  <span class="key">"top_plays"</span>: [
+    {
+      <span class="key">"player"</span>: <span class="str">"Juan Soto"</span>,
+      <span class="key">"market"</span>: <span class="str">"TB_OVER_1.5"</span>,
+      <span class="key">"model_prob"</span>: <span class="num">0.641</span>,
+      <span class="key">"model_odds"</span>: <span class="str">"+115"</span>,
+      <span class="key">"expected_tb"</span>: <span class="num">1.82</span>,
+      <span class="key">"ev_vs_book"</span>: <span class="num">+0.087</span>
+    },
+    {
+      <span class="key">"player"</span>: <span class="str">"Aaron Judge"</span>,
+      <span class="key">"market"</span>: <span class="str">"HR_OVER_0.5"</span>,
+      <span class="key">"model_prob"</span>: <span class="num">0.248</span>,
+      <span class="key">"model_odds"</span>: <span class="str">"+303"</span>,
+      <span class="key">"barrel_pct"</span>: <span class="num">22.4</span>,
+      <span class="key">"park_factor"</span>: <span class="num">1.09</span>
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENDPOINTS -->
+<div class="ep-section">
+  <div class="wrap">
+    <div class="ep-header">
+      <div>
+        <span class="eyebrow">API Reference</span>
+        <h2 style="margin-bottom:4px;">All 25 MLB endpoints.</h2>
+        <p style="font:400 13px var(--mono);color:var(--muted);">Base URL: <code style="background:var(--white);padding:2px 8px;border-radius:4px;">https://propsports-api.sales-fd3.workers.dev</code></p>
+      </div>
+    </div>
+    <div class="ep-search-wrap">
+      <span class="ep-search-ico">🔍</span>
+      <input class="ep-input" id="ep-input" type="text" placeholder="Filter endpoints — try 'statcast', 'odds', 'live', 'weather'…">
+      <span class="ep-count" id="ep-count">25 endpoints</span>
+    </div>
+    <div class="ep-cats">
+      <div class="ep-cat on" onclick="filterCat('all',this)">All</div>
+      <div class="ep-cat" onclick="filterCat('model',this)">⚡ Model Odds</div>
+      <div class="ep-cat" onclick="filterCat('book',this)">Book Props</div>
+      <div class="ep-cat" onclick="filterCat('statcast',this)">Statcast</div>
+      <div class="ep-cat" onclick="filterCat('game',this)">Game Data</div>
+      <div class="ep-cat" onclick="filterCat('intel',this)">Intelligence</div>
+    </div>
+    <div class="ep-grid" id="ep-grid">
+      <!-- Model Odds -->
+      <div class="ep-card" data-cat="model" data-path="/mlb/odds/model" data-desc="Poisson model odds all markets HR total bases hits strikeouts"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model</div><div class="ep-desc">Poisson model odds — all markets. No sportsbook needed.</div></div></div>
+      <div class="ep-card" data-cat="model" data-path="/mlb/odds/model/top" data-desc="Top OVER value plays ranked expected stat poisson"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model/top</div><div class="ep-desc">Top OVER value plays ranked by expected stat. Updated 6× daily.</div></div></div>
+      <div class="ep-card" data-cat="model" data-path="/mlb/odds/model/player" data-desc="All model markets one player name Soto HR total bases hits K"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model/player</div><div class="ep-desc">All model markets for one player. <code style="font-size:10px;">?name=Soto</code> → HR, TB, hits, K.</div></div></div>
+      <!-- Book Props -->
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/hr" data-desc="HR home run prop odds DraftKings FanDuel merged best line"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/hr</div><div class="ep-desc">HR prop odds — DK + FanDuel merged, best line surfaced.</div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/totalbases" data-desc="Total bases props DK FanDuel over under best book"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/totalbases</div><div class="ep-desc">Total bases props. DK + FD. Best line per player.</div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/hits" data-desc="Hits props DraftKings FanDuel filter name direction over under"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/hits</div><div class="ep-desc">Hits props. DK + FD. Filter by <code style="font-size:10px;">?name=</code> or <code style="font-size:10px;">?direction=OVER</code>.</div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/strikeouts" data-desc="Pitcher strikeout K props DraftKings FanDuel best line"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/strikeouts</div><div class="ep-desc">Pitcher K props — DK + FanDuel, best line per pitcher.</div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/rbi" data-desc="RBI props DraftKings FanDuel merged"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/rbi</div><div class="ep-desc">RBI props from DK + FanDuel merged.</div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/all" data-desc="All book prop markets combined HR total bases hits strikeouts one call"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/all</div><div class="ep-desc">All prop markets combined. HR + TB + Hits + Ks in one call.</div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds/player" data-desc="All book markets one player DraftKings FanDuel name"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/player</div><div class="ep-desc">All book markets for one player. <code style="font-size:10px;">?name=Soto</code></div></div></div>
+      <div class="ep-card" data-cat="book" data-path="/mlb/odds" data-desc="Game level odds spread over under moneyline ESPN"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds</div><div class="ep-desc">Game-level odds — spread, O/U, moneyline.</div></div></div>
+      <!-- Statcast -->
+      <div class="ep-card" data-cat="statcast" data-path="/mlb/statcast/batters" data-desc="Statcast batters exit velocity barrel percent xwOBA sprint speed HR streak L7 splits vs RHP LHP"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/statcast/batters</div><div class="ep-desc">150 batters. EV, barrel%, xwOBA, sprint speed, HR streak, L7, vs RHP/LHP.</div></div></div>
+      <div class="ep-card" data-cat="statcast" data-path="/mlb/statcast/pitchers" data-desc="Statcast pitchers EV allowed barrel rate velo pitch mix SwStr swinging strike HR rate"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/statcast/pitchers</div><div class="ep-desc">200+ pitchers. EV allowed, barrel rate, velo, pitch mix, SwStr%.</div></div></div>
+      <!-- Game Data -->
+      <div class="ep-card" data-cat="game" data-path="/mlb/schedule/today" data-desc="Today MLB slate schedule probable pitchers venue linescore status"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/schedule/today</div><div class="ep-desc">Full slate. Probable pitchers, venue, linescore, status.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/schedule" data-desc="Schedule any date date parameter YYYY-MM-DD"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/schedule?date=</div><div class="ep-desc">Schedule for any date. <code style="font-size:10px;">?date=YYYY-MM-DD</code></div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/games/live" data-desc="Live games in progress linescore real time score inning"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/games/live</div><div class="ep-desc">All games currently in progress with live linescore.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/lineups" data-desc="Confirmed batting lineups batting order probable pitcher lineup array"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/lineups</div><div class="ep-desc">Confirmed batting lineups when posted. Probable pitcher + lineup array.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/game/:id/linescore" data-desc="Inning by inning linescore game ID"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/game/:id/linescore</div><div class="ep-desc">Inning-by-inning linescore for any game ID.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/game/:id/boxscore" data-desc="Full boxscore hitting pitching lines both teams stats"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/game/:id/boxscore</div><div class="ep-desc">Full boxscore — hitting and pitching lines for both teams.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/game/:id/plays" data-desc="Play by play real time limit most recent N plays"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/game/:id/plays</div><div class="ep-desc">Play-by-play. <code style="font-size:10px;">?limit=N</code> for most recent N plays.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/player/:id/stats" data-desc="Season stats player ID hitting pitching group"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/player/:id/stats</div><div class="ep-desc">Season stats by player ID. <code style="font-size:10px;">?group=hitting</code> or <code style="font-size:10px;">pitching</code>.</div></div></div>
+      <div class="ep-card" data-cat="game" data-path="/mlb/player/:id/gamelog" data-desc="Game by game log player full split history gamelog"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/player/:id/gamelog</div><div class="ep-desc">Game-by-game log for a player. Full split history.</div></div></div>
+      <!-- Intelligence -->
+      <div class="ep-card" data-cat="intel" data-path="/mlb/weather" data-desc="Real time weather ballpark wind speed direction temp park factor indoor outdoor"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/weather</div><div class="ep-desc">Real-time weather for one ballpark. Wind, temp, park factor.</div></div></div>
+      <div class="ep-card" data-cat="intel" data-path="/mlb/weather/all" data-desc="Weather every ballpark hosting game today all parks wind temp"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/weather/all</div><div class="ep-desc">Weather for every ballpark hosting a game today.</div></div></div>
+      <div class="ep-card" data-cat="intel" data-path="/mlb/umpires" data-desc="Home plate umpire assignments today games date umpire grades"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/umpires</div><div class="ep-desc">Home plate umpire assignments for today's games.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- USE CASES -->
+<div class="section">
+  <div class="wrap">
+    <span class="eyebrow">What people build</span>
+    <h2 class="sfu">One API. Many products.</h2>
+    <p class="lead sfu" style="max-width:540px;">From quick weekend projects to production tools used by serious bettors. Here's what PropSports MLB API actually gets built into.</p>
+    <div class="use-grid">
+      <div class="use-card sfu">
+        <span class="use-icon">🎯</span>
+        <span class="use-tag">Fantasy Sports</span>
+        <h3>Daily fantasy lineup builders</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">Stack Statcast data against park factors and umpire tendencies to surface optimal DFS plays before slates lock.</p>
+        <div class="use-endpoints">
+          <span class="use-ep">/mlb/statcast/batters</span>
+          <span class="use-ep">/mlb/weather/all</span>
+          <span class="use-ep">/mlb/umpires</span>
+          <span class="use-ep">/mlb/lineups</span>
+        </div>
+      </div>
+      <div class="use-card sfu">
+        <span class="use-icon">⚡</span>
+        <span class="use-tag">Sports Betting</span>
+        <h3>Prop bet model overlays</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">Compare our Poisson model odds against DK/FanDuel book lines to identify +EV spots without building a model from scratch.</p>
+        <div class="use-endpoints">
+          <span class="use-ep">/mlb/odds/model/top</span>
+          <span class="use-ep">/mlb/odds/hr</span>
+          <span class="use-ep">/mlb/odds/totalbases</span>
+        </div>
+      </div>
+      <div class="use-card sfu">
+        <span class="use-icon">📊</span>
+        <span class="use-tag">Analytics</span>
+        <h3>Statcast research dashboards</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">Exit velocity trends, barrel rate spikes, velo drops — build the kind of internal tool that scouts and analysts actually use.</p>
+        <div class="use-endpoints">
+          <span class="use-ep">/mlb/statcast/batters</span>
+          <span class="use-ep">/mlb/statcast/pitchers</span>
+          <span class="use-ep">/mlb/player/:id/gamelog</span>
+        </div>
+      </div>
+      <div class="use-card sfu">
+        <span class="use-icon">📱</span>
+        <span class="use-tag">Apps & Media</span>
+        <h3>Live score & news apps</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6;">Power live score widgets, schedule pages, and boxscore overlays for fan apps, sports media sites, and second-screen experiences.</p>
+        <div class="use-endpoints">
+          <span class="use-ep">/mlb/games/live</span>
+          <span class="use-ep">/mlb/schedule/today</span>
+          <span class="use-ep">/mlb/game/:id/boxscore</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<div style="background:var(--off);padding:72px 0;">
+  <div class="wrap">
+    <span class="eyebrow">How we stack up</span>
+    <h2 class="sfu">The math is pretty simple.</h2>
+    <p class="lead sfu" style="max-width:500px;">SportRadar starts at $2,000+/month with a sales cycle. We give you an API key in 60 seconds for $19.</p>
+    <div class="compare-wrap sfu">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="ours">PropSports API</th>
+            <th>SportRadar</th>
+            <th>RapidAPI Others</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-row-hl">
+            <td>MLB-only starting price</td>
+            <td><span class="ct-val-red">$19/mo</span></td>
+            <td><span class="ct-val">$2,000+/mo</span></td>
+            <td><span class="ct-val">$29–$99/mo</span></td>
+          </tr>
+          <tr>
+            <td>Instant API key (no sales call)</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-yes">✓</span></td>
+          </tr>
+          <tr class="ct-row-hl">
+            <td>Poisson model odds (owned)</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+          <tr>
+            <td>Owned Statcast pipeline</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+          <tr class="ct-row-hl">
+            <td>DK + FanDuel prop merge</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+          <tr>
+            <td>Per-park weather + park factor</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+          <tr class="ct-row-hl">
+            <td>Umpire assignments</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+          <tr>
+            <td>No per-call fees</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+          <tr class="ct-row-hl">
+            <td>Cancel anytime</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Cloudflare edge delivery</td>
+            <td><span class="ct-yes">✓</span></td>
+            <td><span class="ct-no">✗</span></td>
+            <td><span class="ct-no">✗</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font:400 12px var(--mono);color:var(--muted);margin-top:14px;">SportRadar pricing based on published minimums. Other API pricing based on RapidAPI listed plans as of June 2026.</p>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-section">
+  <div class="wrap">
+    <span class="eyebrow">Pricing</span>
+    <h2 class="sfu">Flat rate. No surprises.</h2>
+    <p class="lead sfu" style="max-width:480px;">No per-call fees. No usage tiers that sneak up on you. MLB-only from $19/mo. All four sports from $49/mo.</p>
+    <div class="pricing-grid">
+
+      <!-- Demo -->
+      <div class="p-card sfu">
+        <span class="p-name">Demo</span>
+        <span class="p-sport">MLB eval only</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">0</span><span class="p-period">/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="pck">✓</span> MLB endpoints only</li>
+          <li><span class="pck">✓</span> 20 req/hr global cap</li>
+          <li><span class="pck">✓</span> Statcast preview</li>
+          <li><span class="pck">✓</span> Model odds preview</li>
+          <li><span class="pdash">–</span> Production use</li>
+          <li><span class="pdash">–</span> NFL · NBA · NHL</li>
         </ul>
+        <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" class="btn-p btn-p-out">Try Demo Key →</a>
       </div>
 
-      <!-- RESOURCES -->
-      <div class="psa-ft-col">
-        <span class="psa-ft-col-h">Resources</span>
-        <ul class="psa-ft-links">
-          <li><a href="/docs">Documentation</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/live">&#9889; See It Live</a></li>
-          <li><a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" rel="noopener">Live API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="tel:18887843881">1-888-784-3881</a></li>
+      <!-- Single Sport -->
+      <div class="p-card sfu featured">
+        <span class="p-hot">⚾ MLB</span>
+        <span class="p-name">Single Sport</span>
+        <span class="p-sport">MLB · NFL · NBA · or NHL</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">19</span><span class="p-period">/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="pck">✓</span> Your choice of 1 sport</li>
+          <li><span class="pck">✓</span> 50,000 req/day</li>
+          <li><span class="pck">✓</span> All endpoints for that sport</li>
+          <li><span class="pck">✓</span> ⚡ Poisson model odds (MLB)</li>
+          <li><span class="pck">✓</span> Owned Statcast (MLB)</li>
+          <li><span class="pck">✓</span> Key in 60 seconds</li>
         </ul>
+        <a href="/pricing" class="btn-p btn-p-red">Get MLB Key →</a>
       </div>
 
-      <!-- NETWORK -->
-      <div class="psa-ft-col">
-        <span class="psa-ft-col-h">Network</span>
-        <ul class="psa-ft-links">
-          <li><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="psa-ft-link-blue">PropData API <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai <span class="psa-ft-ext-arr">&#8599;</span></a></li>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/terms">Terms</a></li>
+      <!-- Basic -->
+      <div class="p-card sfu">
+        <span class="p-name">Basic</span>
+        <span class="p-sport">All 4 sports</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">49</span><span class="p-period">/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="pck">✓</span> MLB · NFL · NBA · NHL</li>
+          <li><span class="pck">✓</span> All 47 endpoints</li>
+          <li><span class="pck">✓</span> 50,000 req/day</li>
+          <li><span class="pck">✓</span> ⚡ Poisson model odds</li>
+          <li><span class="pck">✓</span> DK + FanDuel prop merge</li>
+          <li><span class="pck">✓</span> Email support (~48hr)</li>
         </ul>
+        <a href="/pricing" class="btn-p btn-p-ink">Get Basic →</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="p-card sfu">
+        <span class="p-name">Pro</span>
+        <span class="p-sport">All 4 sports</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">99</span><span class="p-period">/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="pck">✓</span> Everything in Basic</li>
+          <li><span class="pck">✓</span> 200,000 req/day</li>
+          <li><span class="pck">✓</span> 3 API keys</li>
+          <li><span class="pck">✓</span> Priority email (24hr)</li>
+          <li><span class="pck">✓</span> Early endpoint access</li>
+          <li><span class="pck">✓</span> Historical / backtest data</li>
+        </ul>
+        <a href="/pricing" class="btn-p btn-p-ink">Get Pro →</a>
+      </div>
+
+      <!-- Ultra -->
+      <div class="p-card sfu">
+        <span class="p-name">Ultra</span>
+        <span class="p-sport">All 4 sports</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">249</span><span class="p-period">/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="pck">✓</span> Everything in Pro</li>
+          <li><span class="pck">✓</span> 500,000 req/day</li>
+          <li><span class="pck">✓</span> 10 API keys</li>
+          <li><span class="pck">✓</span> Email + Slack (4hr)</li>
+          <li><span class="pck">✓</span> 99.5% uptime target</li>
+          <li><span class="pck">✓</span> Custom rate limits</li>
+        </ul>
+        <a href="/pricing" class="btn-p btn-p-ink">Get Ultra →</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="p-card sfu">
+        <span class="p-name">Enterprise</span>
+        <span class="p-sport">Mega / custom</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">1.5k</span><span class="p-period">+/mo</span></div>
+        <ul class="p-feats">
+          <li><span class="pck">✓</span> Unmetered requests</li>
+          <li><span class="pck">✓</span> Raw Supabase exports</li>
+          <li><span class="pck">✓</span> White-label rights</li>
+          <li><span class="pck">✓</span> Signed DPA</li>
+          <li><span class="pck">✓</span> Dedicated Slack + 1hr SLA</li>
+          <li><span class="pck">✓</span> Custom model variants</li>
+        </ul>
+        <a href="mailto:sales@proptechusa.ai" class="btn-p btn-p-out">Contact Sales →</a>
       </div>
 
     </div>
+    <p class="pricing-note">Also on <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" style="color:var(--red);text-decoration:none;font-weight:600;">RapidAPI</a> &nbsp;·&nbsp; Enterprise: <a href="mailto:sales@proptechusa.ai" style="color:var(--red);text-decoration:none;font-weight:600;">sales@proptechusa.ai</a> &nbsp;·&nbsp; <strong>1-888-784-3881</strong></p>
   </div>
+</div>
 
-  <!-- BOTTOM BAR -->
-  <div class="psa-ft-base">
-    <div class="psa-ft-base-in">
-      <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved</div>
-      <div class="psa-ft-badges">
-        <span class="psa-ft-badge">MLB Stats API</span>
-        <span class="psa-ft-badge">Baseball Savant</span>
-        <span class="psa-ft-badge">NHL Stats API</span>
-        <span class="psa-ft-badge">NBA Stats API</span>
-        <span class="psa-ft-badge">Cloudflare Workers</span>
+<!-- CTA -->
+<div class="cta-band">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <h2 class="sfu">Ready to build with MLB data?</h2>
+    <p class="lead sfu">Demo key available right now. No credit card required. Full key in 60 seconds when you're ready to ship.</p>
+    <div class="cta-btns sfu">
+      <a href="/pricing" class="btn-white">Get API Key — from $19/mo →</a>
+      <a href="/docs" class="btn-red-outline">Read the Docs</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div class="ft-grid">
+      <div>
+        <span class="ft-brand-t">Prop<em>Sports</em> API</span>
+        <p class="ft-desc">Real-time MLB, NFL, NBA & NHL data. Official sources. Flat pricing. No per-call fees.</p>
+        <a href="tel:18887843881" style="font:400 13px var(--body);color:rgba(255,255,255,.35);text-decoration:none;">1-888-784-3881</a>
+      </div>
+      <div class="ft-col">
+        <h4>Sports</h4>
+        <ul>
+          <li><a href="/mlb">⚾ MLB API</a></li>
+          <li><a href="/nfl">🏈 NFL API</a></li>
+          <li><a href="/nba">🏀 NBA API</a></li>
+          <li><a href="/nhl">🏒 NHL API</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Network</h4>
+        <ul>
+          <li><a href="https://proptechusa.ai" target="_blank">PropTechUSA.ai ↗</a></li>
+          <li><a href="https://propdata.proptechusa.ai" target="_blank">PropData API ↗</a></li>
+          <li><a href="https://propbetedge.ai" target="_blank">PropBetEdge.ai ↗</a></li>
+          <li><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2026 PropTechUSA.ai · Saint Paul, MN · All Rights Reserved</span>
+      <div class="ft-legal">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:sales@proptechusa.ai">Contact</a>
       </div>
     </div>
   </div>
 </footer>
-<script>// PropSports API — Shared JS v2
 
-// ── ALL ENDPOINTS (search database) ──────────────────────────────────────
-const ALL_ENDPOINTS = [
-  // MLB
-  {sport:'⚾',label:'MLB',path:'/mlb/schedule/today',desc:'Full slate with probable pitchers & venues',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/schedule?date=YYYY-MM-DD',desc:'Schedule for any date',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/games/live',desc:'Live games only with linescore',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/lineups?date=YYYY-MM-DD',desc:'Confirmed batting orders',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/game/:gamePk/plays',desc:'Real-time play-by-play data',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/game/:gamePk/boxscore',desc:'Full box score with player stats',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/game/:gamePk/linescore',desc:'Inning-by-inning linescore',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/schedule/today',desc:'Exit velocity, barrel%, hard hit% — MLB/AAA/AA',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/statcast/pitchers',desc:'SwStr%, velo, EV allowed, barrels',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/weather?park=Camden+Yards',desc:'Wind, temp, park factor for a specific park',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/schedule/today',desc:'Weather for every park today',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/umpires?date=YYYY-MM-DD',desc:'Home plate umpire assignments',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/player/:id/stats',desc:'Season hitting or pitching stats',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/player/:id/gamelog',desc:'Game-by-game log for any player',page:'/mlb.html'},
-  {sport:'⚾',label:'MLB',path:'/mlb/odds',desc:'Moneylines, spreads, over/unders',page:'/mlb.html'},
-  // NFL
-  {sport:'🏈',label:'NFL',path:'/nfl/schedule?week=1',desc:'Weekly schedule with matchups & venues',page:'/nfl.html'},
-  {sport:'🏈',label:'NFL',path:'/nfl/games/live',desc:'Live NFL games in progress',page:'/nfl.html'},
-  {sport:'🏈',label:'NFL',path:'/nfl/odds',desc:'Point spreads, totals, moneylines',page:'/nfl.html'},
-  // NBA
-  {sport:'🏀',label:'NBA',path:'/nba/schedule/today',desc:'Today\'s games with scores & odds',page:'/nba.html'},
-  {sport:'🏀',label:'NBA',path:'/nba/schedule?date=YYYYMMDD',desc:'Games for any date',page:'/nba.html'},
-  {sport:'🏀',label:'NBA',path:'/nba/games/live',desc:'Live games real-time',page:'/nba.html'},
-  {sport:'🏀',label:'NBA',path:'/nba/leaders?stat=PTS',desc:'Stat leaders — PTS/REB/AST/BLK/STL',page:'/nba.html'},
-  {sport:'🏀',label:'NBA',path:'/nba/player/:id/stats',desc:'Player season averages',page:'/nba.html'},
-  {sport:'🏀',label:'NBA',path:'/nba/odds',desc:'Game lines and totals',page:'/nba.html'},
-  // NHL
-  {sport:'🏒',label:'NHL',path:'/nhl/schedule/today',desc:'Puck drops with TV broadcast info',page:'/nhl.html'},
-  {sport:'🏒',label:'NHL',path:'/nhl/schedule?date=YYYY-MM-DD',desc:'Games for any date',page:'/nhl.html'},
-  {sport:'🏒',label:'NHL',path:'/nhl/games/live',desc:'Live games with period and score',page:'/nhl.html'},
-  {sport:'🏒',label:'NHL',path:'/nhl/standings',desc:'Full conference and division standings',page:'/nhl.html'},
-  {sport:'🏒',label:'NHL',path:'/nhl/leaders?category=goals',desc:'Goals, assists, points leaders',page:'/nhl.html'},
-  {sport:'🏒',label:'NHL',path:'/nhl/player/:id/stats',desc:'Player stats and career info',page:'/nhl.html'},
-  {sport:'🏒',label:'NHL',path:'/nhl/odds',desc:'Puck lines, totals, moneylines',page:'/nhl.html'},
-];
-
+<script>
 const BASE = 'https://propsports-api.sales-fd3.workers.dev';
 
-// ── GLOBAL SEARCH MODAL ───────────────────────────────────────────────────
-function openSearch() {
-  const bg = document.getElementById('search-modal-bg');
-  if (!bg) return;
-  bg.classList.add('open');
-  setTimeout(() => {
-    const inp = document.getElementById('global-search-input');
-    if (inp) inp.focus();
-  }, 50);
-}
-function closeSearch() {
-  const bg = document.getElementById('search-modal-bg');
-  if (bg) bg.classList.remove('open');
+const DEMO_CONFIG = {
+  schedule: { url: BASE + '/mlb/schedule/today', label: 'propsports-api.sales-fd3.workers.dev/mlb/schedule/today' },
+  statcast: { url: BASE + '/mlb/statcast/batters', label: 'propsports-api.sales-fd3.workers.dev/mlb/statcast/batters' },
+  model:    { url: BASE + '/mlb/odds/model/top',   label: 'propsports-api.sales-fd3.workers.dev/mlb/odds/model/top' },
+  weather:  { url: BASE + '/mlb/weather/all',      label: 'propsports-api.sales-fd3.workers.dev/mlb/weather/all' },
+};
+
+let activePane = 'schedule';
+
+function switchDemo(name, btn) {
+  document.querySelectorAll('.demo-pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.dtab').forEach(b => b.classList.remove('on'));
+  document.getElementById('dpane-' + name).classList.add('on');
+  btn.classList.add('on');
+  activePane = name;
+  const cfg = DEMO_CONFIG[name];
+  if (cfg) document.getElementById('demo-url-bar').textContent = cfg.label;
 }
 
-function renderSearchResults(query) {
-  const list = document.getElementById('search-results-list');
-  if (!list) return;
-  const q = query.toLowerCase().trim();
-  if (!q) {
-    list.innerHTML = '<div class="search-empty">Type to search all 31 endpoints…</div>';
-    return;
+function syntaxHL(obj, depth) {
+  depth = depth || 0;
+  const indent = '  '.repeat(depth);
+  const inner  = '  '.repeat(depth + 1);
+  if (Array.isArray(obj)) {
+    if (!obj.length) return '[]';
+    const items = obj.slice(0, 3).map(v => inner + syntaxHL(v, depth + 1));
+    const more = obj.length > 3 ? `\n${inner}<span style="color:#6E7681">… ${obj.length - 3} more</span>` : '';
+    return `[\n${items.join(',\n')}${more}\n${indent}]`;
   }
-  const results = ALL_ENDPOINTS.filter(ep =>
-    ep.path.toLowerCase().includes(q) ||
-    ep.desc.toLowerCase().includes(q) ||
-    ep.label.toLowerCase().includes(q)
-  );
-  if (!results.length) {
-    list.innerHTML = '<div class="search-empty">No endpoints found for "' + query + '"</div>';
-    return;
+  if (obj !== null && typeof obj === 'object') {
+    const keys = Object.keys(obj).slice(0, 8);
+    const pairs = keys.map(k => {
+      const val = syntaxHL(obj[k], depth + 1);
+      return `${inner}<span class="key">"${k}"</span>: ${val}`;
+    });
+    const more = Object.keys(obj).length > 8 ? `\n${inner}<span style="color:#6E7681">… ${Object.keys(obj).length - 8} more fields</span>` : '';
+    return `{\n${pairs.join(',\n')}${more}\n${indent}}`;
   }
-  list.innerHTML = results.map(ep => {
-    const hi = s => s.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
-    return `<a href="${ep.page}" class="search-result-item">
-      <span class="sr-sport">${ep.sport}</span>
-      <span class="sr-badge">GET</span>
-      <span class="sr-path">${hi(ep.path)}</span>
-      <span class="sr-desc">${ep.desc}</span>
-    </a>`;
-  }).join('');
+  if (typeof obj === 'string') return `<span class="str">"${obj}"</span>`;
+  if (typeof obj === 'number') return `<span class="num">${obj}</span>`;
+  if (obj === null) return `<span class="null">null</span>`;
+  return `<span class="num">${obj}</span>`;
 }
 
-// ── MOBILE MENU ───────────────────────────────────────────────────────────
-function toggleMenu() {
-  const menu = document.getElementById('mobile-menu');
-  const ham = document.getElementById('hamburger');
-  if (!menu) return;
-  const open = menu.style.display === 'flex';
-  menu.style.display = open ? 'none' : 'flex';
-  if (ham) {
-    ham.children[0].style.transform = open ? '' : 'rotate(45deg) translate(4px,4px)';
-    ham.children[1].style.opacity = open ? '1' : '0';
-    ham.children[2].style.transform = open ? '' : 'rotate(-45deg) translate(4px,-4px)';
-  }
-}
+async function runDemo(name) {
+  const out = document.getElementById('dout-' + name);
+  const btn = out.closest('.demo-pane').querySelector('.demo-run');
+  const cfg = DEMO_CONFIG[name];
+  if (!cfg || !out || !btn) return;
 
-// ── ANIMATED BALLS ────────────────────────────────────────────────────────
-function initBalls() {
-  const container = document.getElementById('balls-bg');
-  if (!container) return;
-  const types = ['baseball','basketball','basketball','baseball','soccer','hockey'];
-  const count = window.innerWidth < 600 ? 7 : 15;
-  for (let i = 0; i < count; i++) {
-    const ball = document.createElement('div');
-    const type = types[i % types.length];
-    const size = type === 'hockey' ? (12 + Math.random() * 20) : (24 + Math.random() * 70);
-    const dur = 14 + Math.random() * 22;
-    const delay = -(Math.random() * dur);
-    ball.className = 'ball ball-' + type;
-    ball.style.cssText = [
-      'width:' + size + 'px',
-      'height:' + (type === 'hockey' ? Math.round(size * 0.38) : size) + 'px',
-      'left:' + (Math.random() * 100) + '%',
-      'animation-duration:' + dur + 's',
-      'animation-delay:' + delay + 's',
-      'opacity:' + (0.04 + Math.random() * 0.07),
-    ].join(';');
-    container.appendChild(ball);
+  btn.disabled = true;
+  out.innerHTML = '<div class="demo-loading"><div class="demo-spin"></div>Fetching live data…</div>';
+  document.getElementById('demo-status-badge').textContent = '⟳ LOADING';
+  document.getElementById('demo-url-bar').textContent = cfg.label;
+
+  try {
+    const res = await fetch(cfg.url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    out.innerHTML = syntaxHL(data);
+    document.getElementById('demo-status-badge').textContent = '● 200 OK';
+    document.getElementById('demo-status-badge').style.color = 'var(--green)';
+  } catch (e) {
+    out.innerHTML = '<div class="demo-error">⚠ ' + (e.message || 'Request failed') + ' — check your network or try the live URL directly.</div>';
+    document.getElementById('demo-status-badge').textContent = '● ERROR';
+    document.getElementById('demo-status-badge').style.color = '#FF7B72';
+  } finally {
+    btn.disabled = false;
   }
 }
 
-// ── INLINE ENDPOINT SEARCH ────────────────────────────────────────────────
-function initEpSearch() {
-  const inp = document.getElementById('ep-search');
-  const countEl = document.getElementById('ep-count');
-  if (!inp) return;
-  inp.addEventListener('input', () => {
-    const q = inp.value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.ep-card[data-path]');
-    let visible = 0;
-    cards.forEach(card => {
-      const path = (card.dataset.path || '').toLowerCase();
-      const desc = (card.dataset.desc || '').toLowerCase();
-      const hit = !q || path.includes(q) || desc.includes(q);
-      card.classList.toggle('hidden', !hit);
-      if (hit) {
-        visible++;
-        // Highlight matching text
-        const pathEl = card.querySelector('.ep-path');
-        const descEl = card.querySelector('.ep-desc');
-        if (q && pathEl) pathEl.innerHTML = highlightMatch(card.dataset.path, q);
-        else if (pathEl) pathEl.textContent = card.dataset.path;
-        if (q && descEl) descEl.innerHTML = highlightMatch(card.dataset.desc, q);
-        else if (descEl) descEl.textContent = card.dataset.desc;
+// ── ENDPOINT FILTER ──
+const EP_CARDS = [];
+document.querySelectorAll('.ep-card[data-path]').forEach(c => EP_CARDS.push(c));
+let activeCat = 'all';
+
+function filterCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.ep-cat').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  applyFilter();
+}
+
+document.getElementById('ep-input').addEventListener('input', applyFilter);
+
+function applyFilter() {
+  const q = document.getElementById('ep-input').value.toLowerCase().trim();
+  let vis = 0;
+  EP_CARDS.forEach(c => {
+    const catMatch = activeCat === 'all' || c.dataset.cat === activeCat;
+    const path = (c.dataset.path || '').toLowerCase();
+    const desc = (c.dataset.desc || '').toLowerCase();
+    const qMatch = !q || path.includes(q) || desc.includes(q);
+    const show = catMatch && qMatch;
+    c.classList.toggle('hidden', !show);
+    if (show) {
+      vis++;
+      const pathEl = c.querySelector('.ep-path');
+      if (q && pathEl) {
+        const orig = c.dataset.path;
+        pathEl.innerHTML = orig.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
+      } else if (pathEl) {
+        pathEl.textContent = c.dataset.path;
       }
-    });
-    if (countEl) countEl.textContent = visible + ' endpoints';
+    }
   });
+  document.getElementById('ep-count').textContent = vis + ' endpoint' + (vis !== 1 ? 's' : '');
 }
 
-function highlightMatch(text, q) {
-  if (!q) return text;
-  return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
-}
-
-// ── SPORT TAB SWITCHER ────────────────────────────────────────────────────
-function showSport(sport, btn) {
-  document.querySelectorAll('[data-sport-panel]').forEach(p => {
-    p.style.display = p.dataset.sportPanel === sport ? 'grid' : 'none';
-  });
-  document.querySelectorAll('[data-sport-tab]').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-}
-
-// ── PREVIEW TABS ──────────────────────────────────────────────────────────
-function showPreview(name, btn) {
-  document.querySelectorAll('.prev-panel').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.prev-tab').forEach(b => b.classList.remove('on'));
-  const panel = document.getElementById('prev-' + name);
-  if (panel) panel.classList.add('on');
-  btn.classList.add('on');
-}
-
-// ── SCROLL FADE UP ────────────────────────────────────────────────────────
-function initScrollFu() {
-  const els = document.querySelectorAll('.scroll-fu');
-  if (!els.length) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  els.forEach(el => obs.observe(el));
-}
-
-// ── KEYBOARD SHORTCUTS ────────────────────────────────────────────────────
-document.addEventListener('keydown', e => {
-  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
-  if (e.key === 'Escape') closeSearch();
-});
-
-// ── INIT ──────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  initBalls();
-  initScrollFu();
-  initEpSearch();
-
-  // Search modal input
-  const globalInp = document.getElementById('global-search-input');
-  if (globalInp) {
-    globalInp.addEventListener('input', () => renderSearchResults(globalInp.value));
-    renderSearchResults('');
+// ── MOBILE NAV ──
+function toggleMob() {
+  const m = document.getElementById('mob-menu');
+  const h = document.getElementById('ham');
+  const open = m.style.display === 'flex';
+  m.style.display = open ? 'none' : 'flex';
+  if (h) {
+    h.children[0].style.transform = open ? '' : 'rotate(45deg) translate(4px,4px)';
+    h.children[1].style.opacity = open ? '' : '0';
+    h.children[2].style.transform = open ? '' : 'rotate(-45deg) translate(4px,-4px)';
   }
+}
 
-  // Close search on bg click
-  const bg = document.getElementById('search-modal-bg');
-  if (bg) bg.addEventListener('click', e => { if (e.target === bg) closeSearch(); });
+// ── SCROLL FADE ──
+const sObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); sObs.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.sfu').forEach(el => sObs.observe(el));
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', () => {
+  applyFilter();
 });
 </script>
-<script>
-// Set count on load
-document.addEventListener('DOMContentLoaded',()=>{
-  const ct = document.querySelect
+</body>
+</html>

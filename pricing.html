@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Pricing — PropSports API | From $19/mo</title>
-<meta name="description" content="PropSports API pricing. Single sport $19/mo. Basic all-sports $49/mo. Pro $99/mo. Ultra $249/mo. Mega $1,500+/mo. 47 endpoints, owned Statcast, owned Poisson model, and Stripe checkout.">
+<meta name="description" content="PropSports API pricing. Single sport $19/mo. Basic all-sports $49/mo. Pro $99/mo. Ultra $249/mo. Enterprise $1,500/mo with direct Stripe checkout. 47 endpoints, owned Statcast, owned Poisson model, and no per-call pricing traps.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -117,6 +117,28 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
 .math-bar-left .math-sub{font-size:12px;color:var(--muted);margin-top:3px;}
 .btn-math{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;background:var(--red);color:white;font:700 13px 'Instrument Sans',sans-serif;border-radius:9px;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(232,50,26,0.3);white-space:nowrap;}
 .btn-math:hover{background:var(--red2);transform:translateY(-1px);}
+
+
+.ph-btn-lite{background:#fff;color:var(--ink);border:1.5px solid var(--border);}
+.ph-btn-lite:hover{background:var(--off);transform:translateY(-1px);}
+.enterprise-panel{margin-top:20px;background:linear-gradient(135deg,#0D0D0D 0%,#17130f 48%,#26110b 100%);border:1px solid rgba(232,50,26,.28);border-radius:22px;padding:30px 34px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:center;box-shadow:0 22px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.06);position:relative;overflow:hidden;}
+.enterprise-panel::before{content:'';position:absolute;inset:-30%;background:radial-gradient(circle at 78% 30%,rgba(232,50,26,.26),transparent 38%),radial-gradient(circle at 12% 90%,rgba(255,255,255,.08),transparent 32%);pointer-events:none;}
+.enterprise-copy,.enterprise-card{position:relative;z-index:1;}
+.enterprise-kicker{font:800 9px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#ffb8a7;margin-bottom:10px;}
+.enterprise-copy h3{font:800 clamp(25px,3.2vw,40px) 'Syne',sans-serif;letter-spacing:-1.2px;line-height:1;color:#fff;margin:0 0 10px;}
+.enterprise-copy p{font-size:14px;color:rgba(255,255,255,.58);line-height:1.75;max-width:640px;margin:0;}
+.enterprise-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px;}
+.enterprise-tags span{font:700 9px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);border-radius:999px;padding:5px 10px;}
+.enterprise-card{background:rgba(255,255,255,.96);border-radius:18px;padding:24px 22px;color:var(--ink);box-shadow:0 18px 55px rgba(0,0,0,.28);}
+.enterprise-card-label{font:800 9px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.enterprise-card-price{font:800 54px 'Syne',sans-serif;letter-spacing:-2px;line-height:.95;color:var(--ink);}
+.enterprise-card-price small{font:600 15px 'Instrument Sans',sans-serif;color:var(--muted);letter-spacing:0;}
+.enterprise-card-sub{font-size:12px;color:var(--muted);line-height:1.55;margin:10px 0 18px;}
+.btn-enterprise-pay{display:block;width:100%;text-align:center;padding:13px 16px;background:var(--red);color:#fff;font:800 13px 'Instrument Sans',sans-serif;border-radius:10px;border:none;text-decoration:none;cursor:pointer;box-shadow:0 8px 22px rgba(232,50,26,.35);transition:all .2s;}
+.btn-enterprise-pay:hover{background:var(--red2);transform:translateY(-1px);}
+.enterprise-contact{display:block;text-align:center;margin-top:10px;font:600 11px 'JetBrains Mono',monospace;color:var(--muted);text-decoration:none;}
+.enterprise-contact:hover{color:var(--ink);}
+@media(max-width:900px){.enterprise-panel{grid-template-columns:1fr;padding:26px 22px}.enterprise-card{max-width:420px}.ph-actions{flex-direction:column;align-items:stretch}.ph-actions .ph-btn{justify-content:center}}
 
 /* ── STRIPE NOTICE ── */
 .stripe-notice{background:var(--off);border:1px solid var(--border);border-radius:12px;padding:16px 22px;display:flex;align-items:center;gap:14px;margin-top:24px;font-size:13px;color:var(--muted);}
@@ -634,6 +656,7 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
   <div style="height:1px;background:var(--border);margin:4px 8px;"></div>
   <a href="/docs" onclick="toggleMenu()">&#128214; Docs</a>
   <button class="btn-nav" onclick="doCheckout('BASIC');toggleMenu();" style="border:none;cursor:pointer;width:100%;margin-top:8px;">Get API Key &rarr;</button>
+  <button class="btn-nav" onclick="doCheckout('ENTERPRISE');toggleMenu();" style="border:none;cursor:pointer;width:100%;margin-top:8px;background:var(--red);">Enterprise — $1,500/mo &rarr;</button>
 </div>
 
 <!-- HERO -->
@@ -643,10 +666,11 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
     <div class="fu">
       <div class="ph-pill"><span class="ph-dot"></span> Paid production access</div>
       <h1 class="ph-title">Sports data pricing that <span>doesn’t punish scale.</span></h1>
-      <p class="ph-lead">Start with one sport at <strong style="color:var(--ink)">$19/mo</strong>, unlock all four sports at <strong style="color:var(--ink)">$49/mo</strong>, or scale into Pro, Ultra, and Mega without per-call pricing traps.</p>
+      <p class="ph-lead">Start with one sport at <strong style="color:var(--ink)">$19/mo</strong>, unlock all four sports at <strong style="color:var(--ink)">$49/mo</strong>, or activate Enterprise at <strong style="color:var(--ink)">$1,500/mo</strong> with direct Stripe checkout — no per-call pricing traps.</p>
       <div class="ph-actions">
         <button class="ph-btn ph-btn-red" onclick="doCheckout('BASIC')">Start All Sports — $49/mo →</button>
-        <a class="ph-btn ph-btn-dark" href="#single-sport">See $19 Single Sport Plans ↓</a>
+        <button class="ph-btn ph-btn-dark" onclick="doCheckout('ENTERPRISE')">Enterprise — $1,500/mo →</button>
+        <a class="ph-btn ph-btn-lite" href="#single-sport">See $19 Single Sport Plans ↓</a>
       </div>
       <div class="ph-proof">
         <span><strong>47</strong> endpoints</span>
@@ -766,16 +790,26 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
 
     </div>
 
-    <!-- MEGA BAR -->
-    <div class="mega-bar">
-      <div class="mega-bar-left">
-        <span class="mega-tier">Mega / Enterprise &mdash; $1,500+ /mo</span>
-        <h3>Unmetered. Raw Supabase exports. 99.9% SLA. White-label rights.</h3>
-        <p>Signed DPA &middot; Dedicated Slack channel &middot; 1-hour support response &middot; Custom model variants &middot; Resale / redistribution license &middot; Full Supabase read access &middot; Custom pricing and contract</p>
+    <!-- ENTERPRISE STRIPE CHECKOUT -->
+    <div class="enterprise-panel" id="enterprise">
+      <div class="enterprise-copy">
+        <div class="enterprise-kicker">Enterprise checkout · live on Stripe</div>
+        <h3>Pay the $1,500/mo enterprise deal right here.</h3>
+        <p>Built for serious operators that need unmetered scale, dedicated support, raw data access, white-label rights, and resale / redistribution terms. Skip the back-and-forth when the deal is already approved — checkout creates the Stripe subscription and starts the enterprise onboarding path.</p>
+        <div class="enterprise-tags">
+          <span>Unmetered options</span>
+          <span>Dedicated Slack</span>
+          <span>99.9% SLA path</span>
+          <span>White-label rights</span>
+          <span>Supabase exports</span>
+        </div>
       </div>
-      <div class="mega-bar-right">
-        <a href="mailto:sales@proptechusa.ai?subject=PropSports Mega / Enterprise" class="btn-mega">Contact for Mega &rarr;</a>
-        <span class="mega-email">sales@proptechusa.ai</span>
+      <div class="enterprise-card">
+        <div class="enterprise-card-label">Mega / Enterprise</div>
+        <div class="enterprise-card-price">$1,500<small>/mo</small></div>
+        <div class="enterprise-card-sub">Direct Stripe checkout for the enterprise product. For custom legal terms, use the contact link before paying.</div>
+        <button class="btn-enterprise-pay" id="btn-enterprise" onclick="doCheckout('ENTERPRISE')">Activate Enterprise — $1,500/mo →</button>
+        <a class="enterprise-contact" href="mailto:sales@proptechusa.ai?subject=PropSports Enterprise Contract">Need custom terms first?</a>
       </div>
     </div>
 
@@ -810,7 +844,7 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
           <th class="tc">Basic<br><span style="font-weight:400;color:var(--muted);">$49/mo</span></th>
           <th class="tc th-featured col-featured">Pro<br><span style="font-weight:400;">$99/mo</span></th>
           <th class="tc">Ultra<br><span style="font-weight:400;color:var(--muted);">$249/mo</span></th>
-          <th class="tc">Mega<br><span style="font-weight:400;color:var(--muted);">$1,500+</span></th>
+          <th class="tc">Enterprise<br><span style="font-weight:400;color:var(--muted);">$1,500/mo</span></th>
         </tr>
       </thead>
       <tbody>
@@ -841,7 +875,7 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
           <td class="tc" style="font-weight:700;">$49/mo</td>
           <td class="tc col-featured" style="font-weight:800;color:var(--red);font-size:15px;">$99/mo</td>
           <td class="tc" style="font-weight:700;">$249/mo</td>
-          <td class="tc" style="font-weight:700;">$1,500+/mo</td>
+          <td class="tc" style="font-weight:800;color:var(--red);">$1,500/mo</td>
         </tr>
       </tbody>
     </table>
@@ -989,7 +1023,7 @@ h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink)
       </div>
       <div class="faq-item">
         <div class="faq-q">Can I resell or redistribute the data?</div>
-        <div class="faq-a">Display within your application to your end users: yes. Resell raw API responses as a data product: not under Basic / Pro / Ultra. Yes under Mega / Enterprise with a signed Order Form and data license. Contact <a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a> for enterprise licensing.</div>
+        <div class="faq-a">Display within your application to your end users: yes. Resell raw API responses as a data product: not under Basic / Pro / Ultra. Yes under Enterprise with a signed Order Form and data license, or the $1,500/mo Enterprise checkout when the standard enterprise terms already fit. Contact <a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a> for enterprise licensing.</div>
       </div>
     </div>
   </div>
@@ -1157,11 +1191,12 @@ var PRICE_IDS = {
   MLB:   'price_1Tgl7SF3CaVzg4OROnbVwkJn',   // $19/mo
   NFL:   'price_1TglBvF3CaVzg4ORiqx6QDne',   // $19/mo
   NBA:   'price_1TglD6F3CaVzg4ORolvfntBE',   // $19/mo
-  NHL:   'price_1TglEDF3CaVzg4ORkrqBkQSf'    // $19/mo
+  NHL:   'price_1TglEDF3CaVzg4ORkrqBkQSf',   // $19/mo
+  ENTERPRISE: 'price_1Tnp8AF3CaVzg4OREtKmEdm9' // $1,500/mo
 };
 
-var BTN_IDS = { BASIC: 'btn-basic', PRO: 'btn-pro', ULTRA: 'btn-ultra', MLB: 'btn-mlb', NFL: 'btn-nfl', NBA: 'btn-nba', NHL: 'btn-nhl' };
-var BTN_LABELS = { BASIC: 'Subscribe — $49/mo →', PRO: 'Subscribe — $99/mo →', ULTRA: 'Subscribe — $249/mo →', MLB: 'Subscribe — $19/mo →', NFL: 'Subscribe — $19/mo →', NBA: 'Subscribe — $19/mo →', NHL: 'Subscribe — $19/mo →' };
+var BTN_IDS = { BASIC: 'btn-basic', PRO: 'btn-pro', ULTRA: 'btn-ultra', MLB: 'btn-mlb', NFL: 'btn-nfl', NBA: 'btn-nba', NHL: 'btn-nhl', ENTERPRISE: 'btn-enterprise' };
+var BTN_LABELS = { BASIC: 'Subscribe — $49/mo →', PRO: 'Subscribe — $99/mo →', ULTRA: 'Subscribe — $249/mo →', MLB: 'Subscribe — $19/mo →', NFL: 'Subscribe — $19/mo →', NBA: 'Subscribe — $19/mo →', NHL: 'Subscribe — $19/mo →', ENTERPRISE: 'Activate Enterprise — $1,500/mo →' };
 
 function doCheckout(tier) {
   var priceId = PRICE_IDS[tier];

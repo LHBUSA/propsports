@@ -164,9 +164,11 @@ h3{font-size:22px;color:var(--ink);letter-spacing:-.04em}
 .compare-card.winner p{color:rgba(255,255,255,.55)}
 
 /* pricing */
-.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
 .plan{background:#fff;border:1px solid var(--border);border-radius:22px;padding:26px;box-shadow:0 5px 28px rgba(0,0,0,.05);display:flex;flex-direction:column;min-height:100%}
 .plan.featured{border-color:rgba(232,50,26,.42);box-shadow:0 18px 60px rgba(232,50,26,.12)}
+.plan.enterprise{background:linear-gradient(160deg,#fff8f7,#fff);border-color:rgba(232,50,26,.45);box-shadow:0 18px 60px rgba(232,50,26,.12)}
+.plan.enterprise .plan-name{color:var(--red)}
 .plan-name{font:800 24px var(--display);letter-spacing:-.04em;color:var(--ink)}
 .plan-desc{font-size:13px;color:var(--muted);line-height:1.55;margin-top:5px;min-height:42px}
 .plan-price{margin:18px 0;font:800 54px var(--display);letter-spacing:-.07em;line-height:1;color:var(--ink)}
@@ -284,6 +286,7 @@ h3{font-size:22px;color:var(--ink);letter-spacing:-.04em}
 
 <div class="mobile" id="mobile">
   <button class="mob-cta" onclick="doCheckout('BASIC')">Get MLB Edge — $29/mo →</button>
+  <button class="mob-cta" style="background:var(--ink);" onclick="doCheckout('ENTERPRISE')">Enterprise — $1,500/mo →</button>
   <a href="#apis">See All 5 APIs</a>
   <a href="#pricing">Pricing</a>
   <a href="/mlb">MLB API</a>
@@ -428,7 +431,7 @@ h3{font-size:22px;color:var(--ink);letter-spacing:-.04em}
         <div class="eyebrow">Direct Pricing</div>
         <h2>Start small. Scale when it works.</h2>
       </div>
-      <p>Basic is the clean entry point. Pro and Ultra are for heavier products, production apps, and larger request volume.</p>
+      <p>Basic is the clean entry point. Pro and Ultra are for heavier products. Enterprise is now a direct $1,500/mo Stripe checkout — no contact-for-Mega dead end.</p>
     </div>
 
     <div class="plan-grid">
@@ -472,6 +475,20 @@ h3{font-size:22px;color:var(--ink);letter-spacing:-.04em}
           <li>Built for production volume</li>
         </ul>
         <button class="btn btn-dark" onclick="doCheckout('ULTRA')">Subscribe Ultra →</button>
+      </article>
+
+      <article class="plan enterprise">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-desc">For white-label, resale, and serious volume.</div>
+        <div class="plan-price">$1,500<span>/mo</span></div>
+        <ul>
+          <li>Everything in Ultra</li>
+          <li>Enterprise usage path</li>
+          <li>White-label / resale discussion</li>
+          <li>Priority support lane</li>
+          <li>Direct Stripe checkout</li>
+        </ul>
+        <button class="btn btn-red" onclick="doCheckout('ENTERPRISE')">Activate Enterprise →</button>
       </article>
     </div>
 
@@ -540,7 +557,8 @@ h3{font-size:22px;color:var(--ink);letter-spacing:-.04em}
 const MLB_PRICE_IDS = {
   BASIC: "price_1TgVoxF3CaVzg4ORm5niMmar",
   PRO: "price_1TgVpYF3CaVzg4ORBTywn1gR",
-  ULTRA: "price_1TgVqWF3CaVzg4OR3cxGnuAx"
+  ULTRA: "price_1TgVqWF3CaVzg4OR3cxGnuAx",
+  ENTERPRISE: "price_1Tnp8AF3CaVzg4OREtKmEdm9"
 };
 
 function setLoading(isLoading) {
@@ -548,7 +566,7 @@ function setLoading(isLoading) {
     if (btn.getAttribute('data-original-text') === null) {
       btn.setAttribute('data-original-text', btn.textContent);
     }
-    if (btn.textContent.includes('Subscribe') || btn.textContent.includes('Get MLB') || btn.textContent.includes('Access')) {
+    if (btn.textContent.includes('Subscribe') || btn.textContent.includes('Get MLB') || btn.textContent.includes('Access') || btn.textContent.includes('Enterprise') || btn.textContent.includes('Activate')) {
       btn.disabled = isLoading;
       if (isLoading) btn.textContent = 'Opening Stripe...';
       else btn.textContent = btn.getAttribute('data-original-text');

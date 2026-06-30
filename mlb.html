@@ -686,6 +686,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
   .mlb-hero-dek{font-size:15px;}
 }
 
+
+/* Enterprise checkout card */
+.p-card.enterprise-card{background:linear-gradient(160deg,#11110f 0%,#1d1b18 62%,rgba(232,50,26,.18) 100%);border-color:rgba(232,50,26,.55);box-shadow:0 18px 55px rgba(0,0,0,.22),0 0 0 1px rgba(232,50,26,.18);}
+.p-card.enterprise-card .p-name,.p-card.enterprise-card .p-dollar,.p-card.enterprise-card .p-amount{color:#fff;}
+.p-card.enterprise-card .p-sport,.p-card.enterprise-card .p-period{color:rgba(255,255,255,.52);}
+.p-card.enterprise-card .p-feats li{color:rgba(255,255,255,.78);border-bottom-color:rgba(255,255,255,.10);}
+.p-card.enterprise-card .pck{color:#5ee088;}
+.p-card.enterprise-card .btn-p-red{box-shadow:0 10px 28px rgba(232,50,26,.35);}
+
 </style>
 </head>
 <body>
@@ -1198,23 +1207,24 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
       </div>
 
       <!-- Enterprise -->
-      <div class="p-card sfu">
+      <div class="p-card sfu enterprise-card">
+        <span class="p-hot">Enterprise</span>
         <span class="p-name">Enterprise</span>
-        <span class="p-sport">Mega / custom</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">1.5k</span><span class="p-period">+/mo</span></div>
+        <span class="p-sport">Mega access · Stripe checkout</span>
+        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">1,500</span><span class="p-period">/mo</span></div>
         <ul class="p-feats">
-          <li><span class="pck">✓</span> Unmetered requests</li>
-          <li><span class="pck">✓</span> Raw Supabase exports</li>
-          <li><span class="pck">✓</span> White-label rights</li>
-          <li><span class="pck">✓</span> Signed DPA</li>
-          <li><span class="pck">✓</span> Dedicated Slack + 1hr SLA</li>
+          <li><span class="pck">✓</span> High-volume production access</li>
+          <li><span class="pck">✓</span> Raw Supabase export options</li>
+          <li><span class="pck">✓</span> White-label / resale rights</li>
+          <li><span class="pck">✓</span> Signed DPA available</li>
+          <li><span class="pck">✓</span> Dedicated Slack + 1hr support path</li>
           <li><span class="pck">✓</span> Custom model variants</li>
         </ul>
-        <a href="mailto:sales@proptechusa.ai" class="btn-p btn-p-out">Contact Sales →</a>
+        <button class="btn-p btn-p-red" onclick="doCheckout('ENTERPRISE')">Activate Enterprise — $1,500/mo →</button>
       </div>
 
     </div>
-    <p class="pricing-note">Also on <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" style="color:var(--red);text-decoration:none;font-weight:600;">RapidAPI</a> &nbsp;·&nbsp; Enterprise: <a href="mailto:sales@proptechusa.ai" style="color:var(--red);text-decoration:none;font-weight:600;">sales@proptechusa.ai</a> &nbsp;·&nbsp; <strong>1-888-784-3881</strong></p>
+    <p class="pricing-note">Also on <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" style="color:var(--red);text-decoration:none;font-weight:600;">RapidAPI</a> &nbsp;·&nbsp; Enterprise checkout: <button onclick="doCheckout('ENTERPRISE')" style="border:0;background:transparent;color:var(--red);text-decoration:none;font-weight:700;cursor:pointer;font:inherit;">$1,500/mo</button> &nbsp;·&nbsp; <strong>1-888-784-3881</strong></p>
   </div>
 </div>
 
@@ -1436,7 +1446,8 @@ var PRICE_IDS = {
   NHL:   'price_1TglEDF3CaVzg4ORkrqBkQSf',
   BASIC: 'price_1TgVGEF3CaVzg4ORwIgccsLq',
   PRO:   'price_1TgVIFF3CaVzg4ORBLnm7oV3',
-  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5'
+  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5',
+  ENTERPRISE: 'price_1Tnp8AF3CaVzg4OREtKmEdm9'
 };
 
 function doCheckout(tier) {

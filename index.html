@@ -814,6 +814,164 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 @media(min-width:1050px){.sport-price-grid-premium{grid-template-columns:repeat(4,1fr);}.sport-price-card{padding:20px 18px;}.spt-foot{grid-template-columns:1fr;align-items:stretch;}.spt-price{font-size:26px;}.spt-btn{width:100%;}}
 @media(max-width:600px){.single-sport-headline{align-items:stretch;}.single-sport-edge-link{width:100%;}.all-sports-upsell button{width:100%;}.spt-foot{grid-template-columns:1fr;}.spt-btn{width:100%;}}
 
+/* ─────────────────────────────────────────────────────────────────
+   ENTERPRISE STRIPE CHECKOUT PATCH
+───────────────────────────────────────────────────────────────── */
+.enterprise-checkout{
+  position:relative;
+  overflow:hidden;
+  margin-top:18px;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 18% 0%,rgba(215,59,26,.22),transparent 42%),
+    radial-gradient(circle at 92% 85%,rgba(11,122,69,.13),transparent 42%),
+    linear-gradient(135deg,#10100f,#191916 58%,#0f0f0d);
+  color:#fff;
+  box-shadow:var(--sh-lg);
+  border:1px solid rgba(255,255,255,.08);
+}
+.enterprise-checkout::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:48px 48px;
+  opacity:.45;
+  pointer-events:none;
+}
+.enterprise-checkout::after{
+  content:'ENTERPRISE';
+  position:absolute;
+  right:-26px;
+  top:18px;
+  font:800 clamp(48px,9vw,112px) var(--display);
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.035);
+  pointer-events:none;
+}
+.enterprise-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.35fr .85fr;
+  gap:24px;
+  align-items:stretch;
+  padding:28px;
+}
+.enterprise-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font:800 10px var(--mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#fff;
+  background:rgba(215,59,26,.18);
+  border:1px solid rgba(215,59,26,.35);
+  padding:5px 12px;
+  border-radius:999px;
+  margin-bottom:12px;
+}
+.enterprise-title{
+  font:800 clamp(28px,4vw,48px) var(--display);
+  line-height:.98;
+  letter-spacing:-1.6px;
+  color:#fff;
+  margin:0 0 12px;
+}
+.enterprise-title em{color:var(--red);font-style:normal;}
+.enterprise-copy{
+  color:rgba(255,255,255,.58);
+  font-size:14px;
+  line-height:1.7;
+  max-width:620px;
+}
+.enterprise-features{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin-top:18px;
+}
+.enterprise-feature{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:11px 12px;
+  color:rgba(255,255,255,.72);
+  font:600 12px var(--sans);
+  line-height:1.35;
+}
+.enterprise-feature::before{
+  content:'✓';
+  color:#4ade80;
+  font-weight:900;
+  flex:0 0 auto;
+}
+.enterprise-price-box{
+  align-self:stretch;
+  background:rgba(255,255,255,.965);
+  color:var(--ink);
+  border-radius:16px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 18px 56px rgba(0,0,0,.22);
+}
+.enterprise-price-label{
+  font:800 10px var(--mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--red);
+  margin-bottom:8px;
+}
+.enterprise-price{
+  font:800 clamp(42px,6vw,68px) var(--display);
+  letter-spacing:-3px;
+  line-height:.9;
+  color:var(--ink);
+}
+.enterprise-price sup{font-size:.42em;vertical-align:top;letter-spacing:0;}
+.enterprise-price sub{font:600 14px var(--sans);letter-spacing:0;color:var(--mid);}
+.enterprise-price-sub{
+  margin:12px 0 18px;
+  color:var(--mid);
+  font-size:13px;
+  line-height:1.55;
+}
+.enterprise-btn{
+  appearance:none;
+  border:0;
+  width:100%;
+  min-height:48px;
+  border-radius:11px;
+  background:var(--red);
+  color:#fff;
+  cursor:pointer;
+  font:900 12px var(--mono);
+  letter-spacing:.05em;
+  box-shadow:0 7px 24px rgba(215,59,26,.33);
+  transition:all .2s;
+}
+.enterprise-btn:hover{background:var(--red2);transform:translateY(-1px);}
+.enterprise-safe{
+  margin-top:10px;
+  text-align:center;
+  font:600 10px var(--mono);
+  letter-spacing:.04em;
+  color:var(--soft);
+}
+@media(max-width:860px){
+  .enterprise-grid{grid-template-columns:1fr;padding:20px;}
+  .enterprise-features{grid-template-columns:1fr;}
+  .enterprise-price-box{padding:20px;}
+}
+
 </style>
 
 </head>
@@ -950,6 +1108,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <a href="/privacy">Privacy</a>
 
   <button type="button" class="mob-cta" onclick="doCheckout('BASIC')">Get API Key →</button>
+  <button type="button" class="mob-cta" style="background:var(--ink)!important;" onclick="doCheckout('ENTERPRISE')">Enterprise — $1,500/mo →</button>
 </div>
 
 <!-- HERO -->
@@ -1559,7 +1718,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
           <li class="model-feat">⚡ Early access to new endpoints</li>
           <li class="model-feat">⚡ Historical / backtest data</li>
         </ul>
-        <a href="#" class="pc-cta pc-cta-red" onclick="doCheckout('BASIC');return false;">Start Basic →</a>
+        <a href="#" class="pc-cta pc-cta-red" onclick="doCheckout('PRO');return false;">Get Pro →</a>
       </div>
       <!-- ULTRA -->
       <div class="pricing-card">
@@ -1574,17 +1733,38 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
           <li>99.5% monthly uptime target</li>
           <li>Custom rate limit per key</li>
         </ul>
-        <a href="#" class="pc-cta pc-cta-outline" onclick="doCheckout('BASIC');return false;">Start Basic →</a>
+        <a href="#" class="pc-cta pc-cta-outline" onclick="doCheckout('ULTRA');return false;">Get Ultra →</a>
       </div>
     </div>
 
-    <!-- Mega / Enterprise -->
-    <div style="margin-top:14px;background:var(--ink);border-radius:14px;padding:22px 20px;box-shadow:var(--sh-lg);">
-      <div style="font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;">MEGA / ENTERPRISE — $1,500+ /mo</div>
-      <div style="font:800 17px var(--sans);color:#fff;margin-bottom:5px;">Unmetered. Raw Supabase exports. 99.9% SLA. White-label rights.</div>
-      <div style="font:400 13px var(--sans);color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:16px;">Signed DPA · Dedicated Slack · 1-hour support · Custom model variants · Resale license · Full Supabase access</div>
-      <a href="mailto:sales@proptechusa.ai" style="display:inline-flex;align-items:center;gap:7px;padding:12px 22px;background:#fff;color:var(--ink);font:700 12px var(--mono);letter-spacing:.05em;border-radius:7px;text-decoration:none;min-height:44px;">Contact for Mega →</a>
-      <div style="font:400 10px var(--mono);color:rgba(255,255,255,.3);margin-top:8px;">sales@proptechusa.ai</div>
+    <!-- Enterprise Stripe Checkout -->
+    <div class="enterprise-checkout" id="enterprise">
+      <div class="enterprise-grid">
+        <div>
+          <div class="enterprise-kicker"><span class="h-dot"></span> Enterprise Checkout Live</div>
+          <h3 class="enterprise-title">Mega access.<br><em>No sales call.</em></h3>
+          <p class="enterprise-copy">For white-label builders, high-volume dashboards, serious products, and teams that need the full PropSports stack without request anxiety. Pay through Stripe, get the enterprise workflow started immediately, then we provision the elevated limits and support lane.</p>
+          <div class="enterprise-features">
+            <div class="enterprise-feature">Unmetered / custom rate-limit path</div>
+            <div class="enterprise-feature">Raw Supabase export options</div>
+            <div class="enterprise-feature">99.9% SLA lane</div>
+            <div class="enterprise-feature">White-label / resale rights</div>
+            <div class="enterprise-feature">Dedicated Slack support</div>
+            <div class="enterprise-feature">Custom model variants</div>
+          </div>
+        </div>
+        <div class="enterprise-price-box">
+          <div>
+            <div class="enterprise-price-label">Mega / Enterprise</div>
+            <div class="enterprise-price"><sup>$</sup>1,500<sub>/mo</sub></div>
+            <p class="enterprise-price-sub">Stripe checkout is live. No “contact us” dead end. Activate the enterprise subscription and we handle provisioning from there.</p>
+          </div>
+          <div>
+            <button type="button" class="enterprise-btn" onclick="doCheckout('ENTERPRISE')">Activate Enterprise →</button>
+            <div class="enterprise-safe">Stripe billing · cancel in portal · instant checkout</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- The math -->
@@ -1599,7 +1779,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 
     <p style="text-align:center;margin-top:18px;font:400 13px var(--sans);color:var(--soft);">
       Also on <a href="https://rapidapi.com/proptechusa/api/propsports-api" style="color:var(--red);text-decoration:none;font-weight:600;" target="_blank">RapidAPI</a>
-      &nbsp;·&nbsp; Enterprise: <a href="mailto:sales@proptechusa.ai" style="color:var(--red);text-decoration:none;font-weight:600;">sales@proptechusa.ai</a>
+      &nbsp;·&nbsp; Enterprise: <a href="#" onclick="doCheckout('ENTERPRISE');return false;" style="color:var(--red);text-decoration:none;font-weight:600;">$1,500/mo Stripe checkout</a>
       &nbsp;·&nbsp; <a href="tel:18887843881" style="color:var(--red);text-decoration:none;font-weight:600;">1-888-784-3881</a>
     </p>
   </div>
@@ -1753,7 +1933,8 @@ var PRICE_IDS = {
   MLB: 'price_1Tgl7SF3CaVzg4OROnbVwkJn',
   NFL: 'price_1TglBvF3CaVzg4ORiqx6QDne',
   NBA: 'price_1TglD6F3CaVzg4ORolvfntBE',
-  NHL: 'price_1TglEDF3CaVzg4ORkrqBkQSf'
+  NHL: 'price_1TglEDF3CaVzg4ORkrqBkQSf',
+  ENTERPRISE: 'price_1Tnp8AF3CaVzg4OREtKmEdm9'
 };
 
 var CHECKOUT_WORKER = 'https://propsports-stripe.sales-fd3.workers.dev/create-checkout';

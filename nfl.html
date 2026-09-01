@@ -159,6 +159,12 @@ pre{padding:22px;overflow:auto;font:500 13px/1.75 'JetBrains Mono',monospace}
 @media(max-width:900px){.sandbox-head{grid-template-columns:1fr}.sandbox-head .section-copy{justify-self:start}.sandbox-shell{grid-template-columns:1fr}.sandbox-controls{border-right:0;border-bottom:1px solid var(--border)}.sandbox-endpoints{grid-template-columns:repeat(2,1fr)}.sandbox-callout{margin-top:0}.sandbox-actions{grid-template-columns:1fr 1fr}.sandbox-kpis{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.sandbox-section{padding:56px 0}.sandbox-controls,.sandbox-stage{padding:14px}.sandbox-endpoints{grid-template-columns:1fr}.sandbox-actions{grid-template-columns:1fr}.sandbox-product-top{display:block}.sandbox-demo-badge{display:inline-block;margin-top:10px}.sandbox-score{grid-template-columns:1fr;gap:10px}.sandbox-team,.sandbox-team:last-child{justify-content:flex-start;text-align:left}.sandbox-vs{text-align:left;padding-left:57px}.sandbox-kpis{grid-template-columns:1fr 1fr}.sandbox-json{min-height:240px;font-size:10px}}
 
+
+/* supporting endpoint catalog below the interactive sandbox */
+.endpoint-grid.endpoint-grid-single{grid-template-columns:1fr;max-width:1040px}
+.endpoint-grid-single .endpoint-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.endpoint-grid-single .endpoint-list{grid-template-columns:1fr}}
+
 /* pricing */
 .pricing-section{background:var(--ink);color:#fff;position:relative;overflow:hidden}
 .pricing-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 18% 0%,rgba(215,59,26,.16),transparent 36%),radial-gradient(circle at 85% 40%,rgba(27,101,240,.12),transparent 32%);pointer-events:none}
@@ -319,25 +325,7 @@ pre{padding:22px;overflow:auto;font:500 13px/1.75 'JetBrains Mono',monospace}
 
 <section id="endpoints" style="background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="wrap endpoint-grid">
-    <div class="code-shell">
-      <div class="code-top"><div class="dots"><i></i><i></i><i></i></div><span>propsports-api.sales-fd3.workers.dev</span><span>200 OK</span></div>
-<pre><span class="cm">// GET /nfl/odds</span>
-{
-  <span class="key">"sport"</span>: <span class="str">"NFL"</span>,
-  <span class="key">"market"</span>: <span class="str">"spreads_totals_moneylines"</span>,
-  <span class="key">"games"</span>: [
-    {
-      <span class="key">"away"</span>: <span class="str">"DAL"</span>,
-      <span class="key">"home"</span>: <span class="str">"PHI"</span>,
-      <span class="key">"spread"</span>: <span class="num">-2.5</span>,
-      <span class="key">"total"</span>: <span class="num">47.5</span>,
-      <span class="key">"status"</span>: <span class="str">"scheduled"</span>
-    }
-  ],
-  <span class="key">"powered_by"</span>: <span class="str">"PropSports API"</span>
-}</pre>
-    </div>
-    <div>
+        <div>
       <div class="eyebrow">NFL endpoints</div><h2 style="font-size:clamp(30px,4vw,48px);margin:8px 0 18px">Simple calls. Clean football JSON.</h2>
       <div class="endpoint-list">
         <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/schedule?week=1</h4><p>Weekly schedule with matchups, teams, and venue context.</p></div></div>

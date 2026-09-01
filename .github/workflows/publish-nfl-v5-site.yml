@@ -25,13 +25,10 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Apply NFL v5 site release
-        run: python3 release_propsports_nfl_v5.py
-
       - name: Remove obsolete NFL terminal demo
         run: python3 remove_obsolete_nfl_demo.py
 
-      - name: Validate release diff
+      - name: Validate NFL page
         run: |
           git diff --check
           grep -q '59 endpoints' index.html
@@ -46,17 +43,15 @@ jobs:
             echo 'Legacy NFL terminal chrome is still present.'
             exit 1
           fi
-          grep -q '59 Endpoints' docs.html
-          grep -q 'Schedules · live scores · odds' pricing.html
 
-      - name: Commit release
+      - name: Commit cleanup
         run: |
           if git diff --quiet; then
-            echo 'NFL v5 site is already published.'
+            echo 'NFL terminal demo is already removed.'
             exit 0
           fi
           git config user.name 'PropSports Release Bot'
           git config user.email 'sales@proptechusa.ai'
-          git add index.html nfl.html docs.html pricing.html
+          git add nfl.html
           git commit -m 'Remove obsolete NFL terminal demo'
           git push origin HEAD:main

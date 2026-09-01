@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Documentation — PropSports API | 47 Endpoints · MLB · NFL · NBA · NHL</title>
-<meta name="description" content="Full API documentation for PropSports API. 47 endpoints covering MLB, NFL, NBA, NHL. Statcast, model odds, live scores, weather, umpires, player props. Authentication, rate limits, and code examples.">
+<title>Documentation — PropSports API | 59 Endpoints · MLB · NFL · NBA · NHL</title>
+<meta name="description" content="Full API documentation for PropSports API. 59 endpoints covering MLB, NFL, NBA, NHL. Statcast, model odds, live scores, weather, umpires, player props. Authentication, rate limits, and code examples.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://propsports.proptechusa.ai/docs.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -201,7 +201,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
           <div class="nav-dd-section">&#9918; Sports</div>
           <a href="/pricing.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9889;</span>
-            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · NHL · 47 endpoints · Poisson model odds</div><div class="nav-dd-price">From $19/mo · All sports $49/mo</div></div>
+            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · NHL · 59 endpoints · Poisson model odds</div><div class="nav-dd-price">From $19/mo · All sports $49/mo</div></div>
           </a>
           <a href="/mlb-edge.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9918;</span>
@@ -330,6 +330,18 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
       <a href="#nfl-schedule" class="sb-link">GET /nfl/schedule</a>
       <a href="#nfl-live" class="sb-link">GET /nfl/games/live</a>
       <a href="#nfl-odds" class="sb-link">GET /nfl/odds</a>
+      <a href="#nfl-scoreboard" class="sb-link">GET /nfl/scoreboard</a>
+      <a href="#nfl-standings" class="sb-link">GET /nfl/standings</a>
+      <a href="#nfl-teams" class="sb-link">GET /nfl/teams</a>
+      <a href="#nfl-team" class="sb-link">GET /nfl/team/:id</a>
+      <a href="#nfl-roster" class="sb-link">GET /nfl/team/:id/roster</a>
+      <a href="#nfl-team-schedule" class="sb-link">GET /nfl/team/:id/schedule</a>
+      <a href="#nfl-game" class="sb-link">GET /nfl/game/:id</a>
+      <a href="#nfl-boxscore" class="sb-link">GET /nfl/game/:id/boxscore</a>
+      <a href="#nfl-plays" class="sb-link">GET /nfl/game/:id/plays</a>
+      <a href="#nfl-drives" class="sb-link">GET /nfl/game/:id/drives</a>
+      <a href="#nfl-leaders" class="sb-link">GET /nfl/game/:id/leaders</a>
+      <a href="#nfl-winprob" class="sb-link">GET /nfl/game/:id/winprob</a>
     </div>
     <div class="sb-section">
       <span class="sb-label">&#127936; NBA</span>
@@ -361,10 +373,10 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
     <div class="doc-section" id="overview">
       <div class="eyebrow">v4.2 &mdash; Updated June 2026</div>
       <h2>Overview</h2>
-      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, and NHL. 47 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
+      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, and NHL. 59 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
       <p>What makes PropSports different from every other sports API: we own our Statcast data pipeline and we generate our own Poisson model odds from it. No DraftKings. No FanDuel. No sportsbook dependency. The <code>/mlb/odds/model/*</code> family of endpoints has no equivalent anywhere else at this price point.</p>
       <div class="resp-chips">
-        <span class="resp-chip green">47 endpoints</span>
+        <span class="resp-chip green">59 endpoints</span>
         <span class="resp-chip green">MLB &middot; NFL &middot; NBA &middot; NHL</span>
         <span class="resp-chip">JSON only</span>
         <span class="resp-chip">GET requests</span>
@@ -915,6 +927,26 @@ plays.plays.forEach(p => {
       <p>Game-level NFL odds. Spread, over/under, home and away moneyline. Filters out games without odds.</p>
     </div>
 
+
+    <div class="doc-section" id="nfl-scoreboard">
+      <h2>GET /nfl/scoreboard</h2>
+      <div class="ep-badge"><span class="get-tag">GET</span>/nfl/scoreboard</div>
+      <p>Normalized NFL scoreboard by date or week. Returns teams, score, status, venue, broadcast context, current situation, and game-level odds when present upstream.</p>
+      <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td class="pn">date</td><td class="pt">YYYYMMDD</td><td><span class="po">optional</span></td><td>Scoreboard date. Defaults to the current Eastern date.</td></tr><tr><td class="pn">week</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>NFL week. When supplied, week mode takes precedence over date.</td></tr><tr><td class="pn">season</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>NFL season year. Defaults to the current year.</td></tr><tr><td class="pn">season_type</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>ESPN season type. Defaults to 2 for regular season.</td></tr></tbody></table>
+    </div>
+
+    <div class="doc-section" id="nfl-standings"><h2>GET /nfl/standings</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/standings</div><p>Current NFL standings normalized into all eight division groups with team metadata and provider-supplied standings statistics.</p></div>
+    <div class="doc-section" id="nfl-teams"><h2>GET /nfl/teams</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/teams</div><p>NFL team directory with stable ESPN IDs, abbreviations, names, logos, colors, active status, and links.</p></div>
+    <div class="doc-section" id="nfl-team"><h2>GET /nfl/team/:id</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/team/:id</div><p>Normalized profile for one NFL team. Use the team ID returned by <code>/nfl/teams</code>.</p></div>
+    <div class="doc-section" id="nfl-roster"><h2>GET /nfl/team/:id/roster</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/team/:id/roster</div><p>Current roster with player IDs, names, jersey, position, headshot, age, height, weight, experience, and roster status when supplied upstream.</p></div>
+    <div class="doc-section" id="nfl-team-schedule"><h2>GET /nfl/team/:id/schedule</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/team/:id/schedule</div><p>Team-specific event schedule with event IDs, dates, names, season/week references, competition references, and links.</p><table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td class="pn">season</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>Season year.</td></tr></tbody></table></div>
+    <div class="doc-section" id="nfl-game"><h2>GET /nfl/game/:id</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/game/:id</div><p>Full normalized game package: teams, score, status, venue, possession, down-and-distance, drives, play-by-play, player statistics, leaders, and win probability. Use an ESPN game ID returned by the schedule or scoreboard routes.</p></div>
+    <div class="doc-section" id="nfl-boxscore"><h2>GET /nfl/game/:id/boxscore</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/game/:id/boxscore</div><p>Player box-score groups and labels for both teams. Fields remain source-aware rather than inventing missing statistics.</p></div>
+    <div class="doc-section" id="nfl-plays"><h2>GET /nfl/game/:id/plays</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/game/:id/plays</div><p>Play-by-play with period, clock, field position, down-and-distance, participants, scoring state, and score context.</p></div>
+    <div class="doc-section" id="nfl-drives"><h2>GET /nfl/game/:id/drives</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/game/:id/drives</div><p>Drive history with offense, result, yards, play count, elapsed time, start/end field position, and contained plays.</p></div>
+    <div class="doc-section" id="nfl-leaders"><h2>GET /nfl/game/:id/leaders</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/game/:id/leaders</div><p>Passing, rushing, and receiving game leaders. If the provider omits a leader block, PropSports derives leaders only from factual box-score yardage.</p></div>
+    <div class="doc-section" id="nfl-winprob"><h2>GET /nfl/game/:id/winprob</h2><div class="ep-badge"><span class="get-tag">GET</span>/nfl/game/:id/winprob</div><p>Provider-supplied game win-probability series keyed to play IDs. Returns an empty series when the upstream game package does not supply win probability.</p></div>
+
     <!-- ═══════ NBA ═══════ -->
     <div class="doc-section" id="nba-schedule">
       <h2>GET /nba/schedule/today</h2>
@@ -1105,7 +1137,7 @@ plays.plays.forEach(p => {
       <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved &middot; Saint Paul, MN</div>
       <div class="psa-ft-badges">
         <span class="psa-ft-badge">v4.2.0</span>
-        <span class="psa-ft-badge">47 endpoints</span>
+        <span class="psa-ft-badge">59 endpoints</span>
         <span class="psa-ft-badge">Cloudflare Workers</span>
         <span class="psa-ft-badge">MLB Stats API</span>
         <span class="psa-ft-badge">Baseball Savant</span>

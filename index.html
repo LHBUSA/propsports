@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
 <title>PropSports API — MLB Prop Odds, Statcast & Live Sports Data | From $19/mo</title>
-<meta name="description" content="47 endpoints. Owned Statcast data. The only sports API that generates its own Poisson model odds — no DraftKings, no FanDuel dependency. MLB, NFL, NBA, NHL. Single sport from $19/mo · All sports $49/mo. Featured in The Globe and Mail.">
+<meta name="description" content="59 endpoints. Owned Statcast data. The only sports API that generates its own Poisson model odds — no DraftKings, no FanDuel dependency. MLB, NFL, NBA, NHL. Single sport from $19/mo · All sports $49/mo. Featured in The Globe and Mail.">
 <link rel="canonical" href="https://propsports.proptechusa.ai/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#D73B1A">
@@ -1027,7 +1027,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
             <span class="nav-dd-icon">⚡</span>
             <div>
               <div class="nav-dd-name">PropSports API</div>
-              <div class="nav-dd-desc">MLB · NFL · NBA · NHL · 47 endpoints · Poisson model odds</div>
+              <div class="nav-dd-desc">MLB · NFL · NBA · NHL · 59 endpoints · Poisson model odds</div>
               <div class="nav-dd-price">From $19/mo · All sports $49/mo</div>
             </div>
           </a>
@@ -1123,7 +1123,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
     <div>
       <div class="hero-eyebrow">
         <span class="h-dot"></span>
-        47 Endpoints · MLB · NFL · NBA · NHL
+        59 Endpoints · MLB · NFL · NBA · NHL
       </div>
       <h1>Sports data<br>that <em>thinks</em><br>for you</h1>
       <p class="hero-lead">
@@ -1131,7 +1131,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
       </p>
       <div class="hero-btns">
         <a href="#" class="btn-red" onclick="doCheckout('BASIC');return false;">Get API Key — From $49/mo →</a>
-        <a href="/docs" class="btn-outline">View All 47 Endpoints</a>
+        <a href="/docs" class="btn-outline">View All 59 Endpoints</a>
       </div>
       <div class="trust-row">
         <span class="tr-pill g">✓ Demo key for evaluation</span>
@@ -1301,7 +1301,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
       <div class="fc"><div class="fc-num">03</div><div class="fc-icon">📡</div><div class="fc-title">DK + FanDuel Props</div><div class="fc-body">Market odds from DraftKings and FanDuel merged and de-duped. Best line surfaced automatically. HR, total bases, hits, strikeouts, RBI.</div></div>
       <div class="fc"><div class="fc-num">04</div><div class="fc-icon">🏟️</div><div class="fc-title">MLB Intelligence Layer</div><div class="fc-body">Lineups, probable pitchers, park factors, real-time weather per ballpark, umpire assignments — the full picture before first pitch.</div></div>
       <div class="fc"><div class="fc-num">05</div><div class="fc-icon">🏀</div><div class="fc-title">NBA Deep Stats</div><div class="fc-body">Live boxscores with computed TS% and USG%, shot chart coordinates, play-by-play, current 5-man lineup via substitution walk.</div></div>
-      <div class="fc"><div class="fc-num">06</div><div class="fc-icon">🏒</div><div class="fc-title">NFL + NHL Complete</div><div class="fc-body">Full NFL schedule, live scores, spread and over/under. NHL schedule, standings, skater leaders. Everything in one auth header.</div></div>
+      <div class="fc"><div class="fc-num">06</div><div class="fc-icon">🏒</div><div class="fc-title">NFL + NHL Complete</div><div class="fc-body">NFL now includes schedules, live scores, odds, standings, rosters, box scores, play-by-play, drives, leaders, and win probability. NHL includes schedule, standings, skater leaders. Everything in one auth header.</div></div>
     </div>
   </div>
 </section>
@@ -1368,14 +1368,14 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 <section class="section" style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="wrap">
     <div class="eyebrow">API Reference</div>
-    <h2>47 endpoints.<br><em>All documented.</em></h2>
-    <p class="section-lead">Search all 47 endpoints. Model odds highlighted — no competitor ships a working Poisson model at $19/mo.</p>
+    <h2>59 endpoints.<br><em>All documented.</em></h2>
+    <p class="section-lead">Search all 59 endpoints. Model odds highlighted — no competitor ships a working Poisson model at $19/mo.</p>
     <div class="ep-bar">
       <div class="ep-search-w">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input class="ep-search" id="ep-search" placeholder="Search endpoints…" oninput="filterEP(this.value)">
       </div>
-      <span class="ep-ct" id="ep-ct">47 endpoints</span>
+      <span class="ep-ct" id="ep-ct">59 endpoints</span>
     </div>
     <div class="ep-grid" id="ep-grid">
       <div class="ep-card model-card" data-tags="mlb odds model poisson statcast"><span class="get-b model">GET</span><div><div class="ep-path">/mlb/odds/model <span class="ep-new-badge">NEW</span></div><div class="ep-desc">PropBetEdge Poisson model odds — all markets. No sportsbook needed.</div></div></div>
@@ -1406,6 +1406,18 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
       <div class="ep-card" data-tags="nfl schedule week season games"><span class="get-b">GET</span><div><div class="ep-path">/nfl/schedule</div><div class="ep-desc">NFL schedule. ?week= or current week. Spread, O/U, venue.</div></div></div>
       <div class="ep-card" data-tags="nfl live games in progress scores"><span class="get-b">GET</span><div><div class="ep-path">/nfl/games/live</div><div class="ep-desc">All NFL games currently in progress with live scores.</div></div></div>
       <div class="ep-card" data-tags="nfl odds spread moneyline over under"><span class="get-b">GET</span><div><div class="ep-path">/nfl/odds</div><div class="ep-desc">Game-level NFL odds — spread, over/under, home/away moneyline.</div></div></div>
+      <div class="ep-card" data-tags="nfl scoreboard scores date week status"><span class="get-b">GET</span><div><div class="ep-path">/nfl/scoreboard</div><div class="ep-desc">Normalized scoreboard by date or week. Scores, status, venue, broadcast, possession context.</div></div></div>
+      <div class="ep-card" data-tags="nfl standings conference division records"><span class="get-b">GET</span><div><div class="ep-path">/nfl/standings</div><div class="ep-desc">Current NFL standings across all eight divisions.</div></div></div>
+      <div class="ep-card" data-tags="nfl teams directory logos"><span class="get-b">GET</span><div><div class="ep-path">/nfl/teams</div><div class="ep-desc">NFL team directory with IDs, abbreviations, names, logos and colors.</div></div></div>
+      <div class="ep-card" data-tags="nfl team profile"><span class="get-b">GET</span><div><div class="ep-path">/nfl/team/:id</div><div class="ep-desc">Normalized NFL team profile.</div></div></div>
+      <div class="ep-card" data-tags="nfl roster players position jersey"><span class="get-b">GET</span><div><div class="ep-path">/nfl/team/:id/roster</div><div class="ep-desc">Current roster with player IDs, positions, jersey numbers, headshots and status.</div></div></div>
+      <div class="ep-card" data-tags="nfl team schedule games"><span class="get-b">GET</span><div><div class="ep-path">/nfl/team/:id/schedule</div><div class="ep-desc">Team-specific event schedule with dates, IDs, season/week references and competition metadata.</div></div></div>
+      <div class="ep-card" data-tags="nfl game detail possession down distance"><span class="get-b">GET</span><div><div class="ep-path">/nfl/game/:id</div><div class="ep-desc">Full game package: score, situation, drives, plays, leaders and player stats.</div></div></div>
+      <div class="ep-card" data-tags="nfl game boxscore player stats"><span class="get-b">GET</span><div><div class="ep-path">/nfl/game/:id/boxscore</div><div class="ep-desc">Player box-score groups for both teams.</div></div></div>
+      <div class="ep-card" data-tags="nfl play by play pbp"><span class="get-b">GET</span><div><div class="ep-path">/nfl/game/:id/plays</div><div class="ep-desc">Play-by-play with field position, down-and-distance, participants and score state.</div></div></div>
+      <div class="ep-card" data-tags="nfl drives drive history"><span class="get-b">GET</span><div><div class="ep-path">/nfl/game/:id/drives</div><div class="ep-desc">Drive history with result, yards, time and contained plays.</div></div></div>
+      <div class="ep-card" data-tags="nfl leaders passing rushing receiving"><span class="get-b">GET</span><div><div class="ep-path">/nfl/game/:id/leaders</div><div class="ep-desc">Passing, rushing and receiving game leaders.</div></div></div>
+      <div class="ep-card" data-tags="nfl win probability winprob"><span class="get-b">GET</span><div><div class="ep-path">/nfl/game/:id/winprob</div><div class="ep-desc">Game win-probability series when supplied by the upstream game package.</div></div></div>
       <div class="ep-card" data-tags="nba schedule today games"><span class="get-b">GET</span><div><div class="ep-path">/nba/schedule/today</div><div class="ep-desc">Today's NBA games. Playoff-aware. Scores, status, spread.</div></div></div>
       <div class="ep-card" data-tags="nba live in progress scores"><span class="get-b">GET</span><div><div class="ep-path">/nba/games/live</div><div class="ep-desc">All NBA games currently in progress.</div></div></div>
       <div class="ep-card" data-tags="nba game boxscore ts usg"><span class="get-b">GET</span><div><div class="ep-path">/nba/game/:id/boxscore</div><div class="ep-desc">Full boxscore with computed TS% and USG% for every player.</div></div></div>
@@ -1513,9 +1525,19 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/schedule</div><div class="sp-desc">Full NFL schedule. Week filter. Spread + O/U per game.</div></div></div>
         <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/games/live</div><div class="sp-desc">All games currently in progress with live scores.</div></div></div>
         <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/odds</div><div class="sp-desc">Game odds — spread, over/under, home and away moneyline.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/scoreboard</div><div class="sp-desc">Normalized scoreboard by date or week.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/standings</div><div class="sp-desc">Eight-division NFL standings.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/teams</div><div class="sp-desc">Team directory with IDs, abbreviations, logos and colors.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/team/:id/roster</div><div class="sp-desc">Current roster and player metadata.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/game/:id</div><div class="sp-desc">Normalized full-game package.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/game/:id/boxscore</div><div class="sp-desc">Player box score for both teams.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/game/:id/plays</div><div class="sp-desc">Play-by-play with situation and participants.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/game/:id/drives</div><div class="sp-desc">Drive history with yards, time and result.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/game/:id/leaders</div><div class="sp-desc">Passing, rushing and receiving leaders.</div></div></div>
+        <div class="sp-item"><span class="sp-badge">GET</span><div><div class="sp-path">/nfl/game/:id/winprob</div><div class="sp-desc">Game win-probability series when available.</div></div></div>
       </div>
       <div class="sp-box">
-        <div class="sp-box-head"><span>NFL — 3 endpoints</span><span class="sp-badge2">BASIC+</span></div>
+        <div class="sp-box-head"><span>NFL — 15 data endpoints</span><span class="sp-badge2">BASIC+</span></div>
         <div class="sp-box-body"><span class="jn">// GET /nfl/schedule</span>
 
 {
@@ -1696,7 +1718,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <div class="pc-desc">All 4 sports. 50K req/day. Key in your inbox in 60 seconds.</div>
         <ul class="pc-feats">
           <li>MLB · NFL · NBA · NHL</li>
-          <li>All 47 endpoints</li>
+          <li>All 59 endpoints</li>
           <li>Owned Statcast leaderboards</li>
           <li>DK + FanDuel prop merges</li>
           <li class="model-feat">⚡ PropBetEdge model odds</li>
@@ -1797,7 +1819,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
       <a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener" class="related-card">
         <div class="rc-tag" style="color:var(--green);">LIVE NOW</div>
         <div class="rc-name">PropSports API</div>
-        <div class="rc-desc">47 endpoints. MLB · NFL · NBA · NHL. Owned Statcast. Poisson model odds. The full bundle.</div>
+        <div class="rc-desc">59 endpoints. MLB · NFL · NBA · NHL. Owned Statcast. Poisson model odds. The full bundle.</div>
       </a>
       <a href="https://rapidapi.com/propdata-propdata-default/api/mlb-almost-bomb-streak-detector" target="_blank" rel="noopener" class="related-card">
         <div class="rc-tag" style="color:var(--red);">EDGE SIGNAL</div>

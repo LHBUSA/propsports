@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>NFL API — Live Scores, Schedules & Football Odds | PropSports API</title>
-<meta name="description" content="PropSports NFL API gives builders clean football schedules, live games, odds, and all-sports API access. NFL-only from $19/mo. All sports from $49/mo.">
+<title>NFL API — Scores, Box Scores, Play-by-Play, Rosters & Odds | PropSports API</title>
+<meta name="description" content="PropSports NFL API gives builders schedules, live games, odds, standings, team rosters, box scores, play-by-play, drives, leaders, and win-probability data. NFL-only from $19/mo. All sports from $49/mo.">
 <link rel="canonical" href="https://propsports.proptechusa.ai/nfl">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#D73B1A">
@@ -144,11 +144,11 @@ pre{padding:22px;overflow:auto;font:500 13px/1.75 'JetBrains Mono',monospace}
 </head>
 <body>
 <div class="ticker"><div class="ticker-track">
-  <span class="ticker-item"><strong>NFL API</strong> /nfl/schedule · /nfl/games/live · /nfl/odds</span>
+  <span class="ticker-item"><strong>NFL API v5</strong> 15 data endpoints · scores · rosters · box scores · play-by-play</span>
   <span class="ticker-item"><strong>Single sport</strong> <em>$19/mo</em></span>
   <span class="ticker-item"><strong>All sports</strong> <em>$49/mo</em></span>
   <span class="ticker-item"><strong>MLB · NFL · NBA · NHL</strong> one platform</span>
-  <span class="ticker-item"><strong>NFL API</strong> /nfl/schedule · /nfl/games/live · /nfl/odds</span>
+  <span class="ticker-item"><strong>NFL API v5</strong> 15 data endpoints · scores · rosters · box scores · play-by-play</span>
   <span class="ticker-item"><strong>Single sport</strong> <em>$19/mo</em></span>
   <span class="ticker-item"><strong>All sports</strong> <em>$49/mo</em></span>
   <span class="ticker-item"><strong>MLB · NFL · NBA · NHL</strong> one platform</span>
@@ -174,7 +174,7 @@ pre{padding:22px;overflow:auto;font:500 13px/1.75 'JetBrains Mono',monospace}
     <div class="hero-copy">
       <div class="kicker"><span class="live-dot"></span> NFL API · paid production access</div>
       <h1><span>NFL data for</span><span class="red">shipping.</span><span>Not scraping.</span></h1>
-      <p class="hero-lead">Clean football schedules, live game state, and odds from the same PropSports platform powering our public sports products. Start NFL-only, then upgrade to MLB, NFL, NBA, and NHL on one API key.</p>
+      <p class="hero-lead">Clean football data for production apps: schedules, live game state, odds, standings, rosters, box scores, play-by-play, drives, leaders, and win probability from one API surface. Start NFL-only, then upgrade to MLB, NFL, NBA, and NHL on one key.</p>
       <div class="hero-actions">
         <button class="btn btn-red" onclick="doCheckout('NFL')">Start NFL — $19/mo →</button>
         <button class="btn btn-ink" onclick="doCheckout('BASIC')">All Sports — $49/mo →</button>
@@ -194,7 +194,7 @@ pre{padding:22px;overflow:auto;font:500 13px/1.75 'JetBrains Mono',monospace}
 <div class="metric-row">
   <div class="metric"><strong>$19</strong><span>NFL only</span></div>
   <div class="metric"><strong>$49</strong><span>All sports basic</span></div>
-  <div class="metric"><strong>47</strong><span>Total endpoints</span></div>
+  <div class="metric"><strong>59</strong><span>Total endpoints</span></div>
   <div class="metric"><strong>4</strong><span>Sports covered</span></div>
 </div>
 <section>
@@ -236,6 +236,18 @@ pre{padding:22px;overflow:auto;font:500 13px/1.75 'JetBrains Mono',monospace}
         <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/schedule?week=1</h4><p>Weekly schedule with matchups, teams, and venue context.</p></div></div>
         <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/games/live</h4><p>Live NFL game state for scoreboards, alerts, and in-product displays.</p></div></div>
         <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/odds</h4><p>Point spreads, totals, and moneylines for NFL board views.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/scoreboard</h4><p>Normalized NFL scoreboard by date or week, including teams, scores, status, venue, broadcast, and game context.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/standings</h4><p>Current NFL standings normalized into all eight division groups.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/teams</h4><p>NFL team directory with IDs, abbreviations, names, colors, logos, and links.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/team/:id</h4><p>Normalized team profile for a single NFL team.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/team/:id/roster</h4><p>Current roster with player IDs, positions, jersey numbers, headshots, size, experience, and status when supplied upstream.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/team/:id/schedule</h4><p>Team-specific NFL event schedule with dates, IDs, season/week references, competitions, and links.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/game/:id</h4><p>Full normalized game package with score, possession, down-and-distance, venue, drives, plays, leaders, and player statistics.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/game/:id/boxscore</h4><p>Player box-score groups and labels for both teams.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/game/:id/plays</h4><p>Play-by-play with down, distance, field position, scoring state, participants, and score context.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/game/:id/drives</h4><p>Drive history with team, result, yards, elapsed time, start/end field position, and contained plays.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/game/:id/leaders</h4><p>Passing, rushing, and receiving game leaders using factual game-package statistics.</p></div></div>
+        <div class="endpoint-card"><span class="badge-get">GET</span><div><h4>/nfl/game/:id/winprob</h4><p>Game win-probability series when supplied by the upstream game package.</p></div></div>
       </div>
     </div>
   </div>

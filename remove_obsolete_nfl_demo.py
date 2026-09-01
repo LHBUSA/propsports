@@ -9,32 +9,25 @@ from pathlib import Path
 PAGE = Path("nfl.html")
 html = PAGE.read_text(encoding="utf-8")
 
-legacy_probe = '// GET /nfl/odds'
+legacy_chrome = 'propsports-api.sales-fd3.workers.dev</span><span>200 OK'
 legacy_shell = '<div class="code-shell">'
+catalog_wrapper = '    <div>\n      <div class="eyebrow">NFL endpoints</div>'
 endpoint_heading = '<div class="eyebrow">NFL endpoints</div>'
 
 removed = 0
-while legacy_probe in html:
-    probe_at = html.index(legacy_probe)
-    shell_at = html.rfind(legacy_shell, 0, probe_at)
-    heading_at = html.find(endpoint_heading, probe_at)
+while legacy_chrome in html:
+    chrome_at = html.index(legacy_chrome)
+    shell_at = html.rfind(legacy_shell, 0, chrome_at)
+    catalog_at = html.find(catalog_wrapper, chrome_at)
     if shell_at < 0:
-        raise SystemExit("ERROR: found legacy NFL odds preview without its code-shell wrapper")
-    if heading_at < 0:
-        raise SystemExit("ERROR: found legacy NFL odds preview without the following NFL endpoint catalog")
+        raise SystemExit("ERROR: found obsolete worker terminal chrome without its code-shell wrapper")
+    if catalog_at < 0:
+        raise SystemExit("ERROR: found obsolete worker terminal without the following NFL endpoint catalog")
 
-    # Keep the endpoint catalog's outer column div. Remove only the obsolete code-shell.
-    catalog_col_at = html.rfind('<div>', probe_at, heading_at)
-    if catalog_col_at < shell_at:
-        # Current markup uses an indented plain div directly before the eyebrow heading.
-        catalog_col_at = html.rfind('    <div>', probe_at, heading_at)
-    if catalog_col_at < shell_at:
-        raise SystemExit("ERROR: could not resolve the endpoint catalog column boundary")
-
-    html = html[:shell_at] + html[catalog_col_at:]
+    html = html[:shell_at] + html[catalog_at:]
     removed += 1
 
-# Convert the now-single-column endpoint section to a full-width supporting catalog.
+# Convert the now-single-column endpoint section to a deliberate full-width catalog.
 html = html.replace(
     '<div class="wrap endpoint-grid">\n    <div>\n      <div class="eyebrow">NFL endpoints</div>',
     '<div class="wrap endpoint-grid endpoint-grid-single">\n    <div>\n      <div class="eyebrow">NFL endpoints</div>',
@@ -53,15 +46,12 @@ if '/* supporting endpoint catalog below the interactive sandbox */' not in html
         raise SystemExit("ERROR: CSS insertion anchor not found")
     html = html.replace(css_anchor, catalog_css + '\n' + css_anchor, 1)
 
-# Hard validation: exactly one real demo surface remains.
-if legacy_probe in html:
-    raise SystemExit("ERROR: legacy terminal demo still present")
-if 'propsports-api.sales-fd3.workers.dev</span><span>200 OK' in html:
-    raise SystemExit("ERROR: legacy worker terminal chrome still present")
+if legacy_chrome in html:
+    raise SystemExit("ERROR: obsolete NFL worker terminal is still present")
 if html.count('id="sandbox"') != 1:
     raise SystemExit(f'ERROR: expected exactly one interactive sandbox, found {html.count("id=\"sandbox\"")}')
 if endpoint_heading not in html:
     raise SystemExit("ERROR: endpoint catalog was accidentally removed")
 
 PAGE.write_text(html, encoding="utf-8")
-print(f"PASS: removed {removed} obsolete NFL terminal demo block(s); interactive sandbox retained.")
+print(f"PASS: removed {removed} obsolete NFL worker-terminal block(s); interactive sandbox retained.")

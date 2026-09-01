@@ -1,41 +1,45 @@
 #!/usr/bin/env python3
 """Remove the obsolete static NFL terminal demo now that the interactive sandbox is live.
 
-This is intentionally strict and idempotent. It preserves the football hero image,
-the interactive sandbox, pricing, checkout wiring, and the full NFL endpoint catalog.
+Strict + idempotent. The football hero image, interactive sandbox, checkout wiring,
+and endpoint catalog stay intact. Only the old worker-terminal preview is removed.
 """
 from pathlib import Path
 
 PAGE = Path("nfl.html")
 html = PAGE.read_text(encoding="utf-8")
 
-section_marker = '<section id="endpoints" style="background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">'
-if section_marker not in html:
-    raise SystemExit("ERROR: NFL endpoints section not found")
+legacy_probe = '// GET /nfl/odds'
+legacy_shell = '<div class="code-shell">'
+endpoint_heading = '<div class="eyebrow">NFL endpoints</div>'
 
-section_start = html.index(section_marker)
-section_end = html.index('</section>', section_start) + len('</section>')
-section = html[section_start:section_end]
+removed = 0
+while legacy_probe in html:
+    probe_at = html.index(legacy_probe)
+    shell_at = html.rfind(legacy_shell, 0, probe_at)
+    heading_at = html.find(endpoint_heading, probe_at)
+    if shell_at < 0:
+        raise SystemExit("ERROR: found legacy NFL odds preview without its code-shell wrapper")
+    if heading_at < 0:
+        raise SystemExit("ERROR: found legacy NFL odds preview without the following NFL endpoint catalog")
 
-legacy_start = '    <div class="code-shell">'
-next_column = '    <div>\n      <div class="eyebrow">NFL endpoints</div>'
+    # Keep the endpoint catalog's outer column div. Remove only the obsolete code-shell.
+    catalog_col_at = html.rfind('<div>', probe_at, heading_at)
+    if catalog_col_at < shell_at:
+        # Current markup uses an indented plain div directly before the eyebrow heading.
+        catalog_col_at = html.rfind('    <div>', probe_at, heading_at)
+    if catalog_col_at < shell_at:
+        raise SystemExit("ERROR: could not resolve the endpoint catalog column boundary")
 
-if legacy_start in section:
-    start = section.index(legacy_start)
-    try:
-        end = section.index(next_column, start)
-    except ValueError as exc:
-        raise SystemExit("ERROR: could not locate endpoint-copy column after legacy terminal demo") from exc
-    section = section[:start] + section[end:]
+    html = html[:shell_at] + html[catalog_col_at:]
+    removed += 1
 
-# The old section was a 2-column demo + endpoint list. With the demo gone, make the
-# endpoint catalog a deliberate full-width supporting section beneath the sandbox.
-section = section.replace(
-    '<div class="wrap endpoint-grid">',
-    '<div class="wrap endpoint-grid endpoint-grid-single">',
+# Convert the now-single-column endpoint section to a full-width supporting catalog.
+html = html.replace(
+    '<div class="wrap endpoint-grid">\n    <div>\n      <div class="eyebrow">NFL endpoints</div>',
+    '<div class="wrap endpoint-grid endpoint-grid-single">\n    <div>\n      <div class="eyebrow">NFL endpoints</div>',
     1,
 )
-html = html[:section_start] + section + html[section_end:]
 
 catalog_css = '''
 /* supporting endpoint catalog below the interactive sandbox */
@@ -50,12 +54,14 @@ if '/* supporting endpoint catalog below the interactive sandbox */' not in html
     html = html.replace(css_anchor, catalog_css + '\n' + css_anchor, 1)
 
 # Hard validation: exactly one real demo surface remains.
-if '// GET /nfl/odds' in html:
+if legacy_probe in html:
     raise SystemExit("ERROR: legacy terminal demo still present")
 if 'propsports-api.sales-fd3.workers.dev</span><span>200 OK' in html:
     raise SystemExit("ERROR: legacy worker terminal chrome still present")
 if html.count('id="sandbox"') != 1:
     raise SystemExit(f'ERROR: expected exactly one interactive sandbox, found {html.count("id=\"sandbox\"")}')
+if endpoint_heading not in html:
+    raise SystemExit("ERROR: endpoint catalog was accidentally removed")
 
 PAGE.write_text(html, encoding="utf-8")
-print("PASS: obsolete NFL terminal demo removed; interactive sandbox retained.")
+print(f"PASS: removed {removed} obsolete NFL terminal demo block(s); interactive sandbox retained.")

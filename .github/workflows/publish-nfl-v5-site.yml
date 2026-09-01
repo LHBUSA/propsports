@@ -1,0 +1,46 @@
+name: Publish PropSports NFL v5 Site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-propsports-nfl-v5-site
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply NFL v5 site release
+        run: python3 release_propsports_nfl_v5.py
+
+      - name: Validate release diff
+        run: |
+          git diff --check
+          grep -q '59 endpoints' index.html
+          grep -q '/nfl/scoreboard' nfl.html
+          grep -q '/nfl/game/:id/plays' nfl.html
+          grep -q '59 Endpoints' docs.html
+          grep -q 'Schedules · live scores · odds' pricing.html
+
+      - name: Commit release
+        run: |
+          if git diff --quiet; then
+            echo 'NFL v5 site is already published.'
+            exit 0
+          fi
+          git config user.name 'PropSports Release Bot'
+          git config user.email 'sales@proptechusa.ai'
+          git add index.html nfl.html docs.html pricing.html
+          git commit -m 'Publish PropSports NFL v5 site and docs'
+          git push origin HEAD:main

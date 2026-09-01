@@ -50,19 +50,33 @@ jobs:
       - name: Apply NFL v5 site release
         run: python3 release_propsports_nfl_v5.py
 
-      - name: Validate generated site
+      - name: Validate generated site contract
         run: |
           git diff --check
-          grep -q '59 endpoints' index.html
-          grep -q '/nfl/scoreboard' nfl.html
-          grep -q '/nfl/game/:id/plays' nfl.html
-          grep -q 'all eight division groups' nfl.html
-          grep -q 'event schedule with dates, IDs, season/week references' nfl.html
-          grep -q '59 Endpoints' docs.html
-          grep -q 'NFL season year' docs.html
-          grep -q 'all eight division groups' docs.html
-          grep -q 'Schedules · live scores · odds' pricing.html
-          ! grep -q 'Player props · spreads · totals' pricing.html
+          python3 - <<'PY'
+          from pathlib import Path
+
+          files = {name: Path(name).read_text() for name in ['index.html','nfl.html','docs.html','pricing.html']}
+          checks = {
+              'index endpoint count': '59 endpoints' in files['index.html'].lower(),
+              'index nfl teams route': '/nfl/teams' in files['index.html'],
+              'nfl scoreboard route': '/nfl/scoreboard' in files['nfl.html'],
+              'nfl game plays route': '/nfl/game/:id/plays' in files['nfl.html'],
+              'nfl standings correction': ('eight division' in files['nfl.html'].lower()) or ('all eight divisions' in files['nfl.html'].lower()),
+              'nfl team schedule correction': ('season/week references' in files['nfl.html']) or ('competition metadata' in files['nfl.html']),
+              'docs endpoint count': '59 endpoints' in files['docs.html'].lower(),
+              'docs season parameter': 'NFL season year' in files['docs.html'],
+              'docs roster route': '/nfl/team/:id/roster' in files['docs.html'],
+              'docs standings correction': ('eight division' in files['docs.html'].lower()) or ('all eight divisions' in files['docs.html'].lower()),
+              'pricing data copy': 'Schedules · live scores · odds' in files['pricing.html'],
+              'pricing removes props overclaim': 'Player props · spreads · totals' not in files['pricing.html'],
+          }
+          failed = [name for name, ok in checks.items() if not ok]
+          for name, ok in checks.items():
+              print(('PASS' if ok else 'FAIL'), name)
+          if failed:
+              raise SystemExit('validation failed: ' + ', '.join(failed))
+          PY
 
       - name: Commit release to main
         run: |

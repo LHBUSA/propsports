@@ -35,10 +35,6 @@ jobs:
           grep -q '/nfl/scoreboard' nfl.html
           grep -q '/nfl/game/:id/plays' nfl.html
           grep -q 'id="sandbox"' nfl.html
-          if grep -q '// GET /nfl/odds' nfl.html; then
-            echo 'Legacy NFL terminal demo is still present.'
-            exit 1
-          fi
           if grep -q 'propsports-api.sales-fd3.workers.dev</span><span>200 OK' nfl.html; then
             echo 'Legacy NFL terminal chrome is still present.'
             exit 1

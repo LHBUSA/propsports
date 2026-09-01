@@ -2,6 +2,10 @@ name: Publish PropSports NFL v5 Site
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/publish-nfl-v5-site.yml'
+      - 'remove_obsolete_nfl_demo.py'
 
 permissions:
   contents: write
@@ -24,12 +28,24 @@ jobs:
       - name: Apply NFL v5 site release
         run: python3 release_propsports_nfl_v5.py
 
+      - name: Remove obsolete NFL terminal demo
+        run: python3 remove_obsolete_nfl_demo.py
+
       - name: Validate release diff
         run: |
           git diff --check
           grep -q '59 endpoints' index.html
           grep -q '/nfl/scoreboard' nfl.html
           grep -q '/nfl/game/:id/plays' nfl.html
+          grep -q 'id="sandbox"' nfl.html
+          if grep -q '// GET /nfl/odds' nfl.html; then
+            echo 'Legacy NFL terminal demo is still present.'
+            exit 1
+          fi
+          if grep -q 'propsports-api.sales-fd3.workers.dev</span><span>200 OK' nfl.html; then
+            echo 'Legacy NFL terminal chrome is still present.'
+            exit 1
+          fi
           grep -q '59 Endpoints' docs.html
           grep -q 'Schedules · live scores · odds' pricing.html
 
@@ -42,5 +58,5 @@ jobs:
           git config user.name 'PropSports Release Bot'
           git config user.email 'sales@proptechusa.ai'
           git add index.html nfl.html docs.html pricing.html
-          git commit -m 'Publish PropSports NFL v5 site and docs'
+          git commit -m 'Remove obsolete NFL terminal demo'
           git push origin HEAD:main

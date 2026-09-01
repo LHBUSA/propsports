@@ -1,0 +1,55 @@
+name: Fix PropSports v5 Homepage Stale Copy Once
+
+on:
+  push:
+    branches:
+      - fix/propsports-v5-homepage-stale-copy-20260901
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Patch stale homepage copy
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text()
+          replacements = {
+            '<div class="si"><span class="sn">47<em>+</em></span><span class="sl">Live Endpoints</span></div>': '<div class="si"><span class="sn">59</span><span class="sl">Live Endpoints</span></div>',
+            '<div class="spt-top"><span class="spt-emoji">🏈</span><span class="spt-badge">Lines + Props</span></div>': '<div class="spt-top"><span class="spt-emoji">🏈</span><span class="spt-badge">NFL Data</span></div>',
+            '<div class="spt-desc">Player props, spreads, totals, moneylines, team stats, live scores, and standings.</div>': '<div class="spt-desc">Schedules, live scores, odds, standings, rosters, box scores, play-by-play, drives, leaders, and win probability.</div>',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Expected homepage string not found: {old}')
+              text = text.replace(old, new, 1)
+          p.write_text(text)
+          PY
+
+      - name: Validate homepage contract
+        run: |
+          git diff --check
+          grep -q '<span class="sn">59</span><span class="sl">Live Endpoints</span>' index.html
+          grep -q '<span class="spt-badge">NFL Data</span>' index.html
+          grep -q 'Schedules, live scores, odds, standings, rosters, box scores, play-by-play, drives, leaders, and win probability.' index.html
+          ! grep -q '<span class="spt-badge">Lines + Props</span>' index.html
+          ! grep -q 'Player props, spreads, totals, moneylines, team stats, live scores, and standings.' index.html
+
+      - name: Commit cleanup to main
+        run: |
+          git config user.name 'PropSports Release Bot'
+          git config user.email 'sales@proptechusa.ai'
+          git add index.html
+          git commit -m 'Fix PropSports v5 homepage stale NFL copy'
+          git push origin HEAD:main

@@ -1,0 +1,77 @@
+name: Publish PropSports NFL v5 Now Once
+
+on:
+  push:
+    branches:
+      - release/publish-nfl-v5-now-20260901
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Tighten release copy to verified runtime
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('release_propsports_nfl_v5.py')
+          text = p.read_text()
+          replacements = {
+              'Current NFL standings normalized into conference and division groups.': 'Current NFL standings normalized into all eight division groups.',
+              'Team-specific NFL schedule with normalized game state.': 'Team-specific NFL event schedule with dates, IDs, season/week references, competitions, and links.',
+              'Current NFL conference and division standings.': 'Current NFL standings across all eight divisions.',
+              'Team-specific schedule with normalized game state.': 'Team-specific event schedule with dates, IDs, season/week references and competition metadata.',
+              'Conference + division standings.': 'Eight-division NFL standings.',
+              'Current NFL standings normalized into conference and division groups with team metadata and provider-supplied standings statistics.': 'Current NFL standings normalized into all eight division groups with team metadata and provider-supplied standings statistics.',
+              'Team-specific schedule using the same normalized game contract as the league scoreboard.': 'Team-specific event schedule with event IDs, dates, names, season/week references, competition references, and links.',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'missing expected release copy: {old}')
+              text = text.replace(old, new)
+          marker = '<tr><td class="pn">season_type</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>ESPN season type. Defaults to 2 for regular season.</td></tr>'
+          season_row = '<tr><td class="pn">season</td><td class="pt">integer</td><td><span class="po">optional</span></td><td>NFL season year. Defaults to the current year.</td></tr>'
+          if season_row not in text:
+              if marker not in text:
+                  raise SystemExit('scoreboard season_type row not found')
+              text = text.replace(marker, season_row + marker, 1)
+          p.write_text(text)
+          PY
+
+      - name: Apply NFL v5 site release
+        run: python3 release_propsports_nfl_v5.py
+
+      - name: Validate generated site
+        run: |
+          git diff --check
+          grep -q '59 endpoints' index.html
+          grep -q '/nfl/scoreboard' nfl.html
+          grep -q '/nfl/game/:id/plays' nfl.html
+          grep -q 'all eight division groups' nfl.html
+          grep -q 'event schedule with dates, IDs, season/week references' nfl.html
+          grep -q '59 Endpoints' docs.html
+          grep -q 'NFL season year' docs.html
+          grep -q 'all eight division groups' docs.html
+          grep -q 'Schedules · live scores · odds' pricing.html
+          ! grep -q 'Player props · spreads · totals' pricing.html
+
+      - name: Commit release to main
+        run: |
+          if git diff --quiet; then
+            echo 'PropSports NFL v5 site already published.'
+            exit 0
+          fi
+          git config user.name 'PropSports Release Bot'
+          git config user.email 'sales@proptechusa.ai'
+          git add release_propsports_nfl_v5.py index.html nfl.html docs.html pricing.html
+          git commit -m 'Publish PropSports NFL v5 site and docs'
+          git push origin HEAD:main

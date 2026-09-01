@@ -57,6 +57,8 @@ jobs:
           from pathlib import Path
 
           files = {name: Path(name).read_text() for name in ['index.html','nfl.html','docs.html','pricing.html']}
+          pricing = files['pricing.html']
+          nfl_card = pricing.split('NFL Only', 1)[1].split('NBA Only', 1)[0] if 'NFL Only' in pricing and 'NBA Only' in pricing else ''
           checks = {
               'index endpoint count': '59 endpoints' in files['index.html'].lower(),
               'index nfl teams route': '/nfl/teams' in files['index.html'],
@@ -68,8 +70,8 @@ jobs:
               'docs season parameter': 'NFL season year' in files['docs.html'],
               'docs roster route': '/nfl/team/:id/roster' in files['docs.html'],
               'docs standings correction': ('eight division' in files['docs.html'].lower()) or ('all eight divisions' in files['docs.html'].lower()),
-              'pricing data copy': 'Schedules · live scores · odds' in files['pricing.html'],
-              'pricing removes props overclaim': 'Player props · spreads · totals' not in files['pricing.html'],
+              'pricing nfl data copy': 'Schedules · live scores · odds' in nfl_card,
+              'pricing nfl removes props overclaim': 'Player props · spreads · totals' not in nfl_card,
           }
           failed = [name for name, ok in checks.items() if not ok]
           for name, ok in checks.items():

@@ -2,6 +2,11 @@ name: UFC product integration branch builder
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - ufc-product-link-v1
+    paths:
+      - '.github/ufc-product-link.trigger'
 
 permissions:
   contents: write

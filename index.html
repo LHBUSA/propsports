@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
-<title>PropSports API — MLB Prop Odds, Statcast & Live Sports Data | From $19/mo</title>
-<meta name="description" content="59 endpoints. Owned Statcast data. The only sports API that generates its own Poisson model odds — no DraftKings, no FanDuel dependency. MLB, NFL, NBA, NHL. Single sport from $19/mo · All sports $49/mo. Featured in The Globe and Mail.">
+<title>PropSports API — MLB, NFL, NBA, NHL & UFC Sports Data Infrastructure</title>
+<meta name="description" content="Sports data infrastructure for MLB, NFL, NBA, NHL and UFC. Owned Statcast, model odds, live game data, and a dedicated UFC Intelligence API with Fight DNA, weigh-ins, injuries, fighter status and card changes.">
 <link rel="canonical" href="https://propsports.proptechusa.ai/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#D73B1A">
@@ -972,6 +972,30 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   .enterprise-price-box{padding:20px;}
 }
 
+
+/* UFC INTELLIGENCE PLATFORM */
+.ufc-platform{background:#0d0d0c;color:#fff;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);}
+.ufc-platform::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(215,59,26,.22),transparent 38%),radial-gradient(circle at 88% 80%,rgba(193,127,36,.12),transparent 36%);pointer-events:none;}
+.ufc-platform-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center;padding:72px 0;}
+.ufc-kicker{display:inline-flex;align-items:center;gap:8px;font:800 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);padding:6px 11px;border-radius:999px;margin-bottom:16px;}
+.ufc-kicker strong{color:var(--red);}
+.ufc-platform h2{color:#fff;margin-bottom:16px;}
+.ufc-platform h2 em{color:var(--red);font-family:var(--display);font-style:normal;}
+.ufc-copy{font-size:15px;line-height:1.75;color:rgba(255,255,255,.58);max-width:650px;margin-bottom:22px;}
+.ufc-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:26px;}
+.ufc-tag{font:700 10px var(--mono);letter-spacing:.04em;color:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);padding:6px 10px;border-radius:999px;}
+.ufc-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.ufc-primary{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:9px;background:var(--red);color:#fff;text-decoration:none;font:800 12px var(--mono);letter-spacing:.04em;box-shadow:0 8px 24px rgba(215,59,26,.28);}
+.ufc-primary:hover{background:var(--red2);transform:translateY(-1px);}
+.ufc-secondary{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:9px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.78);text-decoration:none;font:700 12px var(--mono);}
+.ufc-secondary:hover{border-color:rgba(255,255,255,.45);color:#fff;}
+.ufc-terminal{background:#151513;border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.35);overflow:hidden;}
+.ufc-terminal-head{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-bottom:1px solid rgba(255,255,255,.08);font:700 10px var(--mono);letter-spacing:.1em;color:rgba(255,255,255,.38);}
+.ufc-terminal-head span:last-child{color:#4ade80;}
+.ufc-terminal-body{padding:18px;font:500 11px/1.9 var(--mono);color:#c9d1d9;overflow-x:auto;}
+.ufc-terminal-body .key{color:#7ee787}.ufc-terminal-body .val{color:#79c0ff}.ufc-terminal-body .dim{color:#6e7681}
+@media(max-width:860px){.ufc-platform-grid{grid-template-columns:1fr;padding:52px 0;gap:28px}.ufc-actions>a{width:100%}.ufc-terminal-body{font-size:10px}}
+
 </style>
 
 </head>
@@ -1013,6 +1037,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
     <a href="/nfl" class="ns-btn">NFL</a>
     <a href="/nba" class="ns-btn">NBA</a>
     <a href="/nhl" class="ns-btn">NHL</a>
+    <a href="https://ufc.proptechusa.ai" class="ns-btn" target="_blank" rel="noopener">UFC ↗</a>
 
     <div class="nav-r">
       <span class="nav-tag">⚡ Model Odds Live</span>
@@ -1029,6 +1054,14 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
               <div class="nav-dd-name">PropSports API</div>
               <div class="nav-dd-desc">MLB · NFL · NBA · NHL · 59 endpoints · Poisson model odds</div>
               <div class="nav-dd-price">From $19/mo · All sports $49/mo</div>
+            </div>
+          </a>
+          <a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
+            <span class="nav-dd-icon">🥊</span>
+            <div>
+              <div class="nav-dd-name">UFC Intelligence API</div>
+              <div class="nav-dd-desc">Fight DNA · weigh-ins · injuries · fighter status · card changes · event intelligence</div>
+              <div class="nav-dd-price">Dedicated developer platform ↗</div>
             </div>
           </a>
           <a href="/mlb-edge" class="nav-dd-item">
@@ -1092,6 +1125,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <a href="/nfl">🏈 NFL</a>
   <a href="/nba">🏀 NBA</a>
   <a href="/nhl">🏒 NHL</a>
+  <a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">🥊 UFC Intelligence ↗</a>
 
   <div class="mob-divider"></div>
   <div class="mob-section">Products</div>
@@ -1123,7 +1157,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
     <div>
       <div class="hero-eyebrow">
         <span class="h-dot"></span>
-        59 Endpoints · MLB · NFL · NBA · NHL
+        Sports Infrastructure · MLB · NFL · NBA · NHL · UFC
       </div>
       <h1>Sports data<br>that <em>thinks</em><br>for you</h1>
       <p class="hero-lead">
@@ -1256,7 +1290,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 <div class="stats-strip">
   <div class="stats-inner">
     <div class="si"><span class="sn">59</span><span class="sl">Live Endpoints</span></div>
-    <div class="si"><span class="sn">4</span><span class="sl">Sports Covered</span></div>
+    <div class="si"><span class="sn">5</span><span class="sl">Sports Platforms</span></div>
     <div class="si"><span class="sn">6<em>×</em></span><span class="sl">Daily Refresh</span></div>
     <div class="si"><span class="sn"><em>$</em>49</span><span class="sl">Basic Plan / Mo</span></div>
     <div class="si"><span class="sn">0</span><span class="sl">Sportsbook Deps</span></div>
@@ -1294,7 +1328,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <div class="wrap">
     <div class="eyebrow">Why PropSports</div>
     <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
-    <p class="section-lead">One API. Four sports. Statcast intelligence. Model-generated odds. No 20-vendor sprawl.</p>
+    <p class="section-lead">One sports infrastructure company. MLB, NFL, NBA and NHL through PropSports — plus a purpose-built UFC Intelligence developer platform.</p>
     <div class="feat-grid">
       <div class="fc"><div class="fc-num">01</div><div class="fc-icon">⚡</div><div class="fc-title">Poisson Model Odds</div><div class="fc-body">We don't scrape DraftKings. We build our own odds from owned Statcast using a Poisson model. Refreshed 6× daily. No sportsbook dependency, ever.</div></div>
       <div class="fc"><div class="fc-num">02</div><div class="fc-icon">🎯</div><div class="fc-title">Owned Statcast Data</div><div class="fc-body">Exit velocity, barrel %, xwOBA, sprint speed, pitch mix — aggregated nightly into our own Supabase. We own the pipeline. No third-party sports data bill.</div></div>
@@ -1609,6 +1643,31 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   </div>
 </section>
 
+
+<!-- UFC INTELLIGENCE PLATFORM -->
+<section class="ufc-platform" id="ufc-intelligence">
+  <div class="wrap">
+    <div class="ufc-platform-grid">
+      <div>
+        <div class="ufc-kicker"><strong>DEDICATED PLATFORM</strong> · Combat Sports Infrastructure</div>
+        <h2>UFC data built<br><em>beyond the scorecard.</em></h2>
+        <p class="ufc-copy">PropSports now connects directly to our purpose-built UFC Intelligence API — a separate developer platform for teams that need deeper combat-sports infrastructure than a generic sports feed can provide.</p>
+        <div class="ufc-tags">
+          <span class="ufc-tag">Fight DNA</span><span class="ufc-tag">Bout history</span><span class="ufc-tag">Round statistics</span><span class="ufc-tag">Weigh-ins</span><span class="ufc-tag">Injuries</span><span class="ufc-tag">Fighter status</span><span class="ufc-tag">Card changes</span><span class="ufc-tag">Event intelligence</span>
+        </div>
+        <div class="ufc-actions">
+          <a class="ufc-primary" href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">Explore UFC Intelligence API →</a>
+          <a class="ufc-secondary" href="https://ufc.proptechusa.ai/docs" target="_blank" rel="noopener">UFC Developer Docs ↗</a>
+        </div>
+      </div>
+      <div class="ufc-terminal" aria-label="UFC Intelligence API example">
+        <div class="ufc-terminal-head"><span>UFC INTELLIGENCE API</span><span>● LIVE</span></div>
+        <div class="ufc-terminal-body"><span class="dim">// Specialized combat-sports intelligence</span><br><span class="dim">// canonical platform: ufc.proptechusa.ai</span><br><br>{<br>&nbsp;&nbsp;<span class="key">"product"</span>: <span class="val">"UFC Intelligence API"</span>,<br>&nbsp;&nbsp;<span class="key">"capabilities"</span>: [<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"fight_dna"</span>, <span class="val">"weigh_ins"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"injuries"</span>, <span class="val">"fighter_status"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"card_changes"</span>, <span class="val">"event_intelligence"</span><br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;<span class="key">"delivery"</span>: <span class="val">"REST API"</span><br>}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="section">
   <div class="wrap">
@@ -1910,6 +1969,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <a href="/nfl">NFL</a>
         <a href="/nba">NBA</a>
         <a href="/nhl">NHL</a>
+        <a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener" class="footer-feature-link">UFC Intelligence API →</a>
         <a href="https://propsports.proptechusa.ai/mlb-edge" class="footer-feature-link">MLB Edge Suite →</a>
         <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI →</a>
       </div>

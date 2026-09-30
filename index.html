@@ -2385,11 +2385,19 @@ function addTennis(all,d){
       info:st==='Live'?(g.score||'Live'):(timeLabel(g.scheduled_at)||'Scheduled'),detail:[g.tour,g.tournament&&g.tournament.tournament,g.round].filter(Boolean).join(' · '),start:g.scheduled_at});
   });
 }
+function soccerCrest(team){
+  var crest=team&&team.crest;
+  var url=crest&&typeof crest==='object'?crest.url:crest;
+  if(!url)return '';
+  if(/^https?:\/\//i.test(url))return url;
+  if(url.charAt(0)==='/')return 'https://soccer.propbetedge.ai'+url;
+  return 'https://soccer.propbetedge.ai/'+url.replace(/^\.\//,'');
+}
 function addSoccer(all,d){
   arr(d&&d.data).forEach(function(g){
     var st=stateFrom(g.status),sc=g.score||{};
     all.push({sport:'soccer',state:st,away:g.away&&g.away.short_name||g.away&&g.away.name||'',home:g.home&&g.home.short_name||g.home&&g.home.name||'',
-      awayLogo:g.away&&g.away.crest||'',homeLogo:g.home&&g.home.crest||'',aS:sc.away,hS:sc.home,
+      awayLogo:soccerCrest(g.away),homeLogo:soccerCrest(g.home),aS:sc.away,hS:sc.home,
       info:st==='Final'?'Final':(st==='Live'?'Live':timeLabel(g.kickoff_at)),detail:g.competition&&g.competition.name||'',start:g.kickoff_at});
   });
 }

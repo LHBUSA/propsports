@@ -5,8 +5,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
-<title>PropSports API — MLB, NFL, NBA, NHL & UFC Sports Data Infrastructure</title>
-<meta name="description" content="Sports data infrastructure for MLB, NFL, NBA, NHL and UFC. Owned Statcast, model odds, live game data, and a dedicated UFC Intelligence API with Fight DNA, weigh-ins, injuries, fighter status and card changes.">
+<title>PropSports API — MLB, NFL, NBA, WNBA, NHL, UFC, Tennis & Soccer Data</title>
+<meta name="description" content="Sports data infrastructure across MLB, NFL, NBA, WNBA, NHL, UFC, tennis and soccer. Live game data, deep stats, model intelligence and dedicated sport platforms from PropTechUSA.ai.">
 <link rel="canonical" href="https://propsports.proptechusa.ai/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#D73B1A">
@@ -169,6 +169,20 @@ h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
 .sn{font-family:var(--display);font-size:30px;font-weight:800;letter-spacing:-.5px;color:#fff;line-height:1;display:block;}
 .sn em{color:var(--red);font-style:normal;}
 .sl{font:700 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:4px;display:block;}
+
+/* SPORTS NETWORK */
+.sports-network{background:var(--cream);padding:24px 0 10px;border-bottom:1px solid var(--border);}
+.sports-network-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px;flex-wrap:wrap;}
+.sports-network-title{font:800 clamp(20px,4vw,30px)/1.05 var(--display);letter-spacing:-.6px;color:var(--ink);}
+.sports-network-copy{font-size:12px;color:var(--mid);max-width:650px;line-height:1.6;}
+.sports-network-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.sport-network-card{display:flex;align-items:center;gap:10px;padding:12px 13px;background:var(--white);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--ink);box-shadow:var(--sh-sm);transition:transform .16s,border-color .16s,box-shadow .16s;}
+.sport-network-card:hover{transform:translateY(-1px);border-color:var(--border2);box-shadow:var(--sh-md);}
+.sport-network-icon{font-size:20px;line-height:1;}
+.sport-network-meta{min-width:0;}
+.sport-network-name{font:800 12px var(--sans);line-height:1.2;}
+.sport-network-state{font:600 8px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-top:3px;}
+@media(min-width:700px){.sports-network{padding:30px 0 18px}.sports-network-grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
 
 /* ─────────────────────────────────────────────────────────────────
    LIVE SCORES
@@ -1039,6 +1053,9 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
     <a href="/nfl" class="ns-btn">NFL</a>
     <a href="/nba" class="ns-btn">NBA</a>
     <a href="/nhl" class="ns-btn">NHL</a>
+    <a href="https://wnba.propbetedge.ai" class="ns-btn" target="_blank" rel="noopener">WNBA ↗</a>
+    <a href="https://tennis.propbetedge.ai" class="ns-btn" target="_blank" rel="noopener">Tennis ↗</a>
+    <a href="https://soccer.propbetedge.ai" class="ns-btn" target="_blank" rel="noopener">Soccer ↗</a>
     <a href="https://ufc.proptechusa.ai" class="ns-btn" target="_blank" rel="noopener">UFC ↗</a>
 
     <div class="nav-r">
@@ -1127,6 +1144,9 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <a href="/nfl">🏈 NFL</a>
   <a href="/nba">🏀 NBA</a>
   <a href="/nhl">🏒 NHL</a>
+  <a href="https://wnba.propbetedge.ai" target="_blank" rel="noopener">🏀 WNBA ↗</a>
+  <a href="https://tennis.propbetedge.ai" target="_blank" rel="noopener">🎾 Tennis ↗</a>
+  <a href="https://soccer.propbetedge.ai" target="_blank" rel="noopener">⚽ Soccer ↗</a>
   <a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">🥊 UFC Intelligence ↗</a>
 
   <div class="mob-divider"></div>
@@ -1159,7 +1179,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
     <div>
       <div class="hero-eyebrow">
         <span class="h-dot"></span>
-        Sports Infrastructure · MLB · NFL · NBA · NHL · UFC
+        Sports Infrastructure · MLB · NFL · NBA · WNBA · NHL · UFC · Tennis · Soccer
       </div>
       <h1>Sports data<br>that <em>thinks</em><br>for you</h1>
       <p class="hero-lead">
@@ -1292,12 +1312,35 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 <div class="stats-strip">
   <div class="stats-inner">
     <div class="si"><span class="sn">59</span><span class="sl">Live Endpoints</span></div>
-    <div class="si"><span class="sn">5</span><span class="sl">Sports Platforms</span></div>
+    <div class="si"><span class="sn">8</span><span class="sl">Sports Platforms</span></div>
     <div class="si"><span class="sn">6<em>×</em></span><span class="sl">Daily Refresh</span></div>
     <div class="si"><span class="sn"><em>$</em>49</span><span class="sl">Basic Plan / Mo</span></div>
     <div class="si"><span class="sn">0</span><span class="sl">Sportsbook Deps</span></div>
   </div>
 </div>
+
+<!-- SPORTS NETWORK -->
+<section class="sports-network" aria-label="PropTechUSA sports network">
+  <div class="wrap">
+    <div class="sports-network-head">
+      <div>
+        <div class="eyebrow">Sports Network</div>
+        <div class="sports-network-title">Eight live sports platforms. One growing data company.</div>
+      </div>
+      <p class="sports-network-copy">PropSports began with the major U.S. leagues and now powers a broader sports intelligence network across baseball, football, basketball, hockey, combat sports, tennis and global soccer.</p>
+    </div>
+    <div class="sports-network-grid">
+      <a class="sport-network-card" href="/mlb"><span class="sport-network-icon">⚾</span><span class="sport-network-meta"><span class="sport-network-name">MLB</span><span class="sport-network-state">PropSports API</span></span></a>
+      <a class="sport-network-card" href="/nfl"><span class="sport-network-icon">🏈</span><span class="sport-network-meta"><span class="sport-network-name">NFL</span><span class="sport-network-state">PropSports API</span></span></a>
+      <a class="sport-network-card" href="/nba"><span class="sport-network-icon">🏀</span><span class="sport-network-meta"><span class="sport-network-name">NBA</span><span class="sport-network-state">PropSports API</span></span></a>
+      <a class="sport-network-card" href="https://wnba.propbetedge.ai" target="_blank" rel="noopener"><span class="sport-network-icon">🏀</span><span class="sport-network-meta"><span class="sport-network-name">WNBA</span><span class="sport-network-state">Live intelligence ↗</span></span></a>
+      <a class="sport-network-card" href="/nhl"><span class="sport-network-icon">🏒</span><span class="sport-network-meta"><span class="sport-network-name">NHL</span><span class="sport-network-state">PropSports API</span></span></a>
+      <a class="sport-network-card" href="https://ufc.proptechusa.ai" target="_blank" rel="noopener"><span class="sport-network-icon">🥊</span><span class="sport-network-meta"><span class="sport-network-name">UFC</span><span class="sport-network-state">Intelligence API ↗</span></span></a>
+      <a class="sport-network-card" href="https://tennis.propbetedge.ai" target="_blank" rel="noopener"><span class="sport-network-icon">🎾</span><span class="sport-network-meta"><span class="sport-network-name">Tennis</span><span class="sport-network-state">Live intelligence ↗</span></span></a>
+      <a class="sport-network-card" href="https://soccer.propbetedge.ai" target="_blank" rel="noopener"><span class="sport-network-icon">⚽</span><span class="sport-network-meta"><span class="sport-network-name">Soccer</span><span class="sport-network-state">Live intelligence ↗</span></span></a>
+    </div>
+  </div>
+</section>
 
 <!-- LIVE SCORES -->
 <section id="live-scores">
@@ -1330,7 +1373,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <div class="wrap">
     <div class="eyebrow">Why PropSports</div>
     <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
-    <p class="section-lead">One sports infrastructure company. MLB, NFL, NBA and NHL through PropSports — plus a purpose-built UFC Intelligence developer platform.</p>
+    <p class="section-lead">One sports infrastructure company spanning MLB, NFL, NBA, WNBA, NHL, UFC, tennis and soccer — with league APIs, live intelligence products and deeper sport-specific data systems under one network.</p>
     <div class="feat-grid">
       <div class="fc"><div class="fc-num">01</div><div class="fc-icon">⚡</div><div class="fc-title">Poisson Model Odds</div><div class="fc-body">We don't scrape DraftKings. We build our own odds from owned Statcast using a Poisson model. Refreshed 6× daily. No sportsbook dependency, ever.</div></div>
       <div class="fc"><div class="fc-num">02</div><div class="fc-icon">🎯</div><div class="fc-title">Owned Statcast Data</div><div class="fc-body">Exit velocity, barrel %, xwOBA, sprint speed, pitch mix — aggregated nightly into our own Supabase. We own the pipeline. No third-party sports data bill.</div></div>
@@ -1971,6 +2014,9 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <a href="/nfl">NFL</a>
         <a href="/nba">NBA</a>
         <a href="/nhl">NHL</a>
+        <a href="https://wnba.propbetedge.ai" target="_blank" rel="noopener">WNBA →</a>
+        <a href="https://tennis.propbetedge.ai" target="_blank" rel="noopener">Tennis →</a>
+        <a href="https://soccer.propbetedge.ai" target="_blank" rel="noopener">Soccer →</a>
         <a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener" class="footer-feature-link">UFC Intelligence API →</a>
         <a href="https://propsports.proptechusa.ai/mlb-edge" class="footer-feature-link">MLB Edge Suite →</a>
         <a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI →</a>

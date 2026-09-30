@@ -205,7 +205,9 @@ h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
 .score-sched-badge{font:700 8px var(--mono);letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--greenbg);color:var(--green);border:1px solid rgba(11,122,69,0.2);}
 .score-matchup{display:flex;flex-direction:column;gap:5px;}
 .score-team{display:flex;align-items:center;justify-content:space-between;}
-.score-name{font:600 13px var(--sans);color:var(--ink);}
+.score-name{font:600 13px var(--sans);color:var(--ink);display:flex;align-items:center;gap:8px;min-width:0;}
+.score-team-logo{width:24px;height:24px;object-fit:contain;flex:0 0 24px;}
+.score-team-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .score-name.winner{font-weight:800;}
 .score-num{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);}
 .score-num.leader{color:var(--red);}
@@ -2327,12 +2329,20 @@ function loadScores(){
     });}
     var nhl=res[2];
     if(nhl&&nhl.games){nhl.games.forEach(function(g){
-      var live=g.status==='LIVE'||g.status==='CRIT';
-      var fin=g.status==='FINAL'||g.status==='OFF';
+      var sem=(g.status&&g.status.semantics)||g.status||'';
+      var live=sem==='LIVE'||sem==='CRIT';
+      var fin=sem==='FINAL'||sem==='OFF';
       var state=live?'Live':(fin?'Final':'Preview');
-      all.push({sport:'nhl',state:state,away:g.away||'',home:g.home||'',
-        aS:g.awayScore!=null?g.awayScore:null,hS:g.homeScore!=null?g.homeScore:null,
-        info:state==='Live'?(g.period?'P'+g.period:'Live'):(state==='Final'?'Final':(g.startTime||'')),pitcher:''});
+      var away=(g.teams&&g.teams.away)||{};
+      var home=(g.teams&&g.teams.home)||{};
+      var period=g.status&&g.status.period;
+      var clock=g.status&&g.status.clock;
+      var start=g.start_time_utc?new Date(g.start_time_utc).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'';
+      all.push({sport:'nhl',state:state,
+        away:away.name||away.abbrev||'',home:home.name||home.abbrev||'',
+        awayLogo:away.logo||'',homeLogo:home.logo||'',
+        aS:away.score!=null?away.score:null,hS:home.score!=null?home.score:null,
+        info:state==='Live'?((period?'P'+period:'Live')+(clock?' · '+clock:'')):(state==='Final'?'Final':start),pitcher:''});
     });}
     _cachedScores=all;renderScores(all);
     if(updated)updated.textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
@@ -2359,9 +2369,9 @@ function renderScores(games){
     return '<div class="'+cls+'">'+
       '<div class="score-sport">'+icons[g.sport]+' '+names[g.sport]+'<span style="margin-left:auto">'+badge+'</span></div>'+
       '<div class="score-matchup">'+
-        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+( g.away||'—')+'</span>'+(showSc?'<span class="score-num'+(aL?' leader':'')+'">'+g.aS+'</span>':'')+'</div>'+
+        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+(g.awayLogo?'<img class="score-team-logo" src="'+g.awayLogo+'" alt="" loading="lazy">':'')+'<span class="score-team-text">'+(g.away||'—')+'</span></span>'+(showSc?'<span class="score-num'+(aL?' leader':'')+'">'+g.aS+'</span>':'')+'</div>'+
         '<div class="score-divider"></div>'+
-        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+( g.home||'—')+'</span>'+(showSc?'<span class="score-num'+(hL?' leader':'')+'">'+g.hS+'</span>':'')+'</div>'+
+        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+(g.homeLogo?'<img class="score-team-logo" src="'+g.homeLogo+'" alt="" loading="lazy">':'')+'<span class="score-team-text">'+(g.home||'—')+'</span></span>'+(showSc?'<span class="score-num'+(hL?' leader':'')+'">'+g.hS+'</span>':'')+'</div>'+
       '</div>'+
       '<div class="score-info">'+(g.info||'')+'</div>'+
       (g.pitcher?'<div class="score-pitcher">'+g.pitcher+'</div>':'')+

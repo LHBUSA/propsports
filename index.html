@@ -43,17 +43,24 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 /* ─────────────────────────────────────────────────────────────────
    TICKER
 ───────────────────────────────────────────────────────────────── */
-#ticker{background:var(--ink);height:34px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:300;}
-#ticker::before{content:'LIVE';position:absolute;left:0;z-index:2;background:var(--red);color:#fff;font:700 9px/34px var(--mono);letter-spacing:1.5px;padding:0 12px;}
-#ticker::after{content:'';position:absolute;left:52px;z-index:2;width:20px;height:100%;background:linear-gradient(90deg,var(--ink),transparent);}
-.tk-track{display:flex;white-space:nowrap;animation:tk 80s linear infinite;padding-left:72px;}
+#ticker{background:#0B0B0A;height:40px;overflow:hidden;display:flex;align-items:center;position:relative;z-index:300;border-bottom:1px solid rgba(255,255,255,.08);}
+#ticker::before{content:'SPORTSWIRE';position:absolute;left:0;top:0;bottom:0;z-index:3;background:var(--red);color:#fff;font:800 9px/40px var(--mono);letter-spacing:1.4px;padding:0 13px;box-shadow:10px 0 24px rgba(0,0,0,.28);}
+#ticker::after{content:'';position:absolute;left:91px;z-index:2;width:28px;height:100%;background:linear-gradient(90deg,#0B0B0A,transparent);pointer-events:none;}
+.tk-track{display:flex;align-items:stretch;white-space:nowrap;animation:tk 105s linear infinite;padding-left:112px;will-change:transform;}
 .tk-track:hover{animation-play-state:paused;}
-.tk-item{display:inline-flex;align-items:center;gap:6px;padding:0 20px;font:500 10px var(--mono);color:rgba(255,255,255,.4);border-right:1px solid rgba(255,255,255,.07);}
-.tk-item .sport{color:rgba(255,255,255,.75);font-weight:700;}
-.tk-item .score{color:#F5A623;font-weight:700;}
-.tk-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;flex-shrink:0;}
+.tk-item{height:40px;display:inline-flex;align-items:center;gap:7px;padding:0 18px;font:600 10px var(--mono);color:rgba(255,255,255,.58);border-right:1px solid rgba(255,255,255,.08);}
+.tk-item .sport{color:#fff;font-weight:800;letter-spacing:.08em;}
+.tk-item .score{color:#F5B04C;font-weight:800;}
+.tk-item .status{font-size:8px;letter-spacing:.09em;padding:2px 6px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);}
+.tk-item.live .status{color:#FF8F7A;border-color:rgba(215,59,26,.45);background:rgba(215,59,26,.13);}
+.tk-item.final .status{color:rgba(255,255,255,.46);}
+.tk-item.next .status{color:#7EE787;border-color:rgba(126,231,135,.25);background:rgba(126,231,135,.06);}
+.tk-item.intel{color:rgba(255,255,255,.72);}
+.tk-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite;flex-shrink:0;box-shadow:0 0 0 3px rgba(215,59,26,.12);}
+.tk-logo{width:18px;height:18px;object-fit:contain;display:inline-block;}
 @keyframes tk{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.1;}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.18;}}
+@media(max-width:700px){#ticker{height:38px}#ticker::before{content:'LIVE';font-size:8px;line-height:38px;padding:0 10px}#ticker::after{left:45px}.tk-track{padding-left:64px}.tk-item{height:38px;padding:0 14px;font-size:9px;}}
 
 /* ─────────────────────────────────────────────────────────────────
    NAV — mobile first
@@ -191,11 +198,11 @@ h1 .serif{font-family:var(--serif);font-weight:700;letter-spacing:-1px;}
 .scores-header{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
 .scores-title{display:flex;align-items:center;gap:7px;font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--red);}
 .scores-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.score-stab-wrap{display:flex;gap:2px;padding:3px;background:var(--paper2);border:1px solid var(--border);border-radius:8px;}
+.score-stab-wrap{display:flex;gap:2px;padding:3px;background:var(--paper2);border:1px solid var(--border);border-radius:8px;overflow-x:auto;max-width:min(100%,820px);scrollbar-width:none;}.score-stab-wrap::-webkit-scrollbar{display:none;}
 .score-stab{font:700 10px var(--mono);letter-spacing:0.05em;padding:7px 12px;border-radius:5px;border:none;background:transparent;color:var(--mid);cursor:pointer;min-height:36px;}
 .score-stab.on{background:var(--white);color:var(--ink);box-shadow:var(--sh-sm);}
 .scores-refresh{font:600 10px var(--mono);padding:7px 10px;border-radius:6px;border:1px solid var(--border);background:var(--white);color:var(--mid);cursor:pointer;min-height:36px;}
-#scores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;min-height:80px;}
+#scores-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;min-height:80px;}.scores-summary{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:0 0 12px;}.scores-summary-pill{font:700 8px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:999px;background:var(--white);border:1px solid var(--border);color:var(--mid);}.scores-summary-pill.live{color:var(--red);border-color:rgba(215,59,26,.25);background:var(--redbg);}.score-comp{font:600 9px var(--mono);color:var(--soft);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .score-card{background:var(--white);border:1px solid var(--border);border-radius:11px;padding:14px 16px;box-shadow:var(--sh-sm);transition:all 0.2s;position:relative;overflow:hidden;}
 .score-card.live{border-color:rgba(215,59,26,0.3);}
 .score-card.live::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);}
@@ -1020,26 +1027,9 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
 <body>
 
 <!-- TICKER -->
-<div id="ticker">
+<div id="ticker" aria-label="PropSports live sportswire">
   <div class="tk-track" id="tk">
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Yankees 4 · Red Sox 2 — 7th</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Dodgers 6 · Giants 1 — Final</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">NBA</span> Celtics 98 · Knicks 94 — Q4</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">NHL</span> Rangers 2 · Bruins 2 — OT</div>
-    <div class="tk-item"><span class="sport">MODEL ODDS</span> Juan Soto <span class="score">TB OVER 1.5 +115</span></div>
-    <div class="tk-item"><span class="sport">MODEL ODDS</span> Aaron Judge <span class="score">HR OVER 0.5 +310</span></div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Braves 3 · Mets 1 — 5th</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Astros 5 · Rangers 3 — Final</div>
-    <div class="tk-item"><span class="sport">MODEL ODDS</span> Shohei Ohtani <span class="score">TB OVER 1.5 +105</span></div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Yankees 4 · Red Sox 2 — 7th</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Dodgers 6 · Giants 1 — Final</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">NBA</span> Celtics 98 · Knicks 94 — Q4</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">NHL</span> Rangers 2 · Bruins 2 — OT</div>
-    <div class="tk-item"><span class="sport">MODEL ODDS</span> Juan Soto <span class="score">TB OVER 1.5 +115</span></div>
-    <div class="tk-item"><span class="sport">MODEL ODDS</span> Aaron Judge <span class="score">HR OVER 0.5 +310</span></div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Braves 3 · Mets 1 — 5th</div>
-    <div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> Astros 5 · Rangers 3 — Final</div>
-    <div class="tk-item"><span class="sport">MODEL ODDS</span> Shohei Ohtani <span class="score">TB OVER 1.5 +105</span></div>
+    <div class="tk-item intel"><span class="tk-dot"></span><span class="sport">PROPSPORTS</span> Loading the live sports network…</div>
   </div>
 </div>
 
@@ -1315,7 +1305,7 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
   <div class="stats-inner">
     <div class="si"><span class="sn">106</span><span class="sl">Live Endpoints</span></div>
     <div class="si"><span class="sn">8</span><span class="sl">Sports Platforms</span></div>
-    <div class="si"><span class="sn">6<em>×</em></span><span class="sl">Daily Refresh</span></div>
+    <div class="si"><span class="sn">15<em>s</em></span><span class="sl">Live Data Refresh</span></div>
     <div class="si"><span class="sn"><em>$</em>49</span><span class="sl">Basic Plan / Mo</span></div>
     <div class="si"><span class="sn">0</span><span class="sl">Sportsbook Deps</span></div>
   </div>
@@ -1359,14 +1349,20 @@ button.btn-red,button.btn-white,button.btn-outline,button.pc-cta,button.nav-key-
         <div class="score-stab-wrap">
           <button class="score-stab on" onclick="scoresSetSport('all',this)">All</button>
           <button class="score-stab" onclick="scoresSetSport('mlb',this)">MLB</button>
+          <button class="score-stab" onclick="scoresSetSport('nfl',this)">NFL</button>
           <button class="score-stab" onclick="scoresSetSport('nba',this)">NBA</button>
+          <button class="score-stab" onclick="scoresSetSport('wnba',this)">WNBA</button>
           <button class="score-stab" onclick="scoresSetSport('nhl',this)">NHL</button>
+          <button class="score-stab" onclick="scoresSetSport('tennis',this)">Tennis</button>
+          <button class="score-stab" onclick="scoresSetSport('soccer',this)">Soccer</button>
+          <button class="score-stab" onclick="scoresSetSport('ufc',this)">UFC</button>
         </div>
         <button class="scores-refresh" id="scores-refresh-btn" onclick="loadScores()">↻ Refresh</button>
       </div>
     </div>
-    <div id="scores-grid"><div style="grid-column:1/-1;text-align:center;padding:32px;font:400 12px var(--mono);color:var(--soft);">Loading live scores...</div></div>
-    <div style="margin-top:10px;font:400 10px var(--mono);color:var(--soft);text-align:center;">Powered by <a href="https://propsports-api.sales-fd3.workers.dev/" target="_blank" style="color:var(--red);text-decoration:none;">propsports-api.sales-fd3.workers.dev</a> · Auto-refreshes every 90s</div>
+    <div id="scores-summary" class="scores-summary"></div>
+    <div id="scores-grid"><div style="grid-column:1/-1;text-align:center;padding:32px;font:400 12px var(--mono);color:var(--soft);">Loading the PropSports live network...</div></div>
+    <div style="margin-top:10px;font:400 10px var(--mono);color:var(--soft);text-align:center;">PropSports live network · MLB · NFL · NBA · WNBA · NHL · Tennis · Soccer · UFC · <strong>15-second live refresh</strong></div>
   </div>
 </section>
 
@@ -2307,124 +2303,193 @@ async function loadModelOdds(){
   }
 }
 
-/* TICKER LIVE UPDATE */
-async function updateTicker(){
-  try{
-    var r=await fetch('https://propsports-api.sales-fd3.workers.dev/mlb/games/live?key=psa_demo_propsports2026');
-    var d=await r.json();
-    if(!d.games||!d.games.length)return;
-    var track=document.getElementById('tk');
-    var liveItems=d.games.slice(0,4).map(function(g){
-      var away=(g.teams&&g.teams.away&&g.teams.away.team&&g.teams.away.team.abbreviation)||'';
-      var home=(g.teams&&g.teams.home&&g.teams.home.team&&g.teams.home.team.abbreviation)||'';
-      var as=(g.teams&&g.teams.away&&g.teams.away.score!=null)?g.teams.away.score:'';
-      var hs=(g.teams&&g.teams.home&&g.teams.home.score!=null)?g.teams.home.score:'';
-      var inn=(g.linescore&&g.linescore.currentInning)||'';
-      return '<div class="tk-item"><span class="tk-dot"></span><span class="sport">MLB</span> '+away+' '+as+' · '+home+' '+hs+(inn?' — '+inn+'th':'')+'</div>';
-    }).join('');
-    if(liveItems){track.innerHTML=liveItems+track.innerHTML;}
-  }catch(e){}
+/* PROPSPORTS LIVE NETWORK — all public sport surfaces, 15s refresh */
+var _scoresSport='all';
+var _cachedScores=[];
+var _ufcNext=null;
+
+function safe(v){return v==null?'':String(v);}
+function arr(v){return Array.isArray(v)?v:[];}
+function timeLabel(v){
+  if(!v)return '';
+  var d=new Date(v);
+  if(isNaN(d.getTime()))return safe(v);
+  return d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+}
+function dayISO(){
+  var d=new Date(),y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
+  return y+'-'+m+'-'+day;
+}
+function fetchJSON(url){return fetch(url,{headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw new Error(String(r.status));return r.json();}).catch(function(){return null;});}
+function stateFrom(value){
+  var x=safe(value).toLowerCase();
+  if(x==='live'||x==='in'||x==='in_progress'||x.indexOf('progress')>=0||x.indexOf('halftime')>=0)return 'Live';
+  if(x==='final'||x==='post'||x==='completed'||x==='finished'||x==='retired'||x==='off')return 'Final';
+  return 'Preview';
+}
+function playerSide(side){
+  var ps=side&&side.players?side.players:[];
+  return ps.map(function(p){return p&&(p.last_name||p.name)||'';}).filter(Boolean).join(' / ');
+}
+function addMLB(all,d){
+  arr(d&&d.games).forEach(function(g){
+    var st=(g.status&&g.status.abstractGameState)||'Preview';
+    var away=g.teams&&g.teams.away||{},home=g.teams&&g.teams.home||{};
+    var at=away.team||{},ht=home.team||{};
+    var pp=away.probablePitcher&&away.probablePitcher.fullName||'',hp=home.probablePitcher&&home.probablePitcher.fullName||'';
+    var inning=g.linescore?('Inn '+safe(g.linescore.currentInning)+' '+safe(g.linescore.inningHalf)):'';
+    all.push({sport:'mlb',state:stateFrom(st),away:at.shortName||at.name||'',home:ht.shortName||ht.name||'',aS:away.score,hS:home.score,
+      info:stateFrom(st)==='Live'?inning:(stateFrom(st)==='Final'?'Final':timeLabel(g.gameDate)),
+      detail:pp&&hp?pp.split(' ').pop()+' vs '+hp.split(' ').pop():'',start:g.gameDate});
+  });
+}
+function addNFL(all,d){
+  arr(d&&d.games).forEach(function(g){
+    var away=g.teams&&g.teams.away||{},home=g.teams&&g.teams.home||{},st=stateFrom(g.status&&g.status.semantics);
+    all.push({sport:'nfl',state:st,away:away.short_name||away.abbreviation||away.display_name||'',home:home.short_name||home.abbreviation||home.display_name||'',
+      awayLogo:away.logo||'',homeLogo:home.logo||'',aS:away.score,hS:home.score,
+      info:st==='Live'?([g.status&&g.status.period?'Q'+g.status.period:'',g.status&&g.status.clock].filter(Boolean).join(' · ')):(st==='Final'?'Final':timeLabel(g.date)),
+      detail:g.week?'Week '+g.week:'',start:g.date});
+  });
+}
+function addNBA(all,d){
+  arr(d&&d.games).forEach(function(g){
+    var st=stateFrom(g.statusState||g.status);
+    all.push({sport:'nba',state:st,away:g.awayAbbr||g.away||'',home:g.homeAbbr||g.home||'',awayLogo:g.awayLogo||'',homeLogo:g.homeLogo||'',
+      aS:g.awayScore,hS:g.homeScore,info:st==='Live'?([g.period?'Q'+g.period:'',g.clock].filter(Boolean).join(' · ')):(st==='Final'?'Final':timeLabel(g.date)),
+      detail:g.spread||'',start:g.date});
+  });
+}
+function addWNBA(all,d){
+  var data=d&&d.data||{},slate=data.slate||{};
+  arr(slate.games).forEach(function(g){
+    var st=stateFrom(g.status&&g.status.state),away=g.away||{},home=g.home||{};
+    all.push({sport:'wnba',state:st,away:away.abbr||away.short_name||away.name||'',home:home.abbr||home.short_name||home.name||'',
+      aS:away.score,hS:home.score,info:st==='Live'?([g.status&&g.status.period?'Q'+g.status.period:'',g.status&&g.status.clock].filter(Boolean).join(' · ')):(st==='Final'?'Final':timeLabel(g.start_utc)),
+      detail:slate.kind==='NEXT'?'Next WNBA slate':'',start:g.start_utc});
+  });
+}
+function addNHL(all,d){
+  arr(d&&d.games).forEach(function(g){
+    var away=g.teams&&g.teams.away||{},home=g.teams&&g.teams.home||{},st=stateFrom(g.status&&g.status.semantics||g.status);
+    all.push({sport:'nhl',state:st,away:away.name||away.abbrev||'',home:home.name||home.abbrev||'',awayLogo:away.logo||'',homeLogo:home.logo||'',
+      aS:away.score,hS:home.score,info:st==='Live'?([g.status&&g.status.period?'P'+g.status.period:'',g.status&&g.status.clock].filter(Boolean).join(' · ')):(st==='Final'?'Final':timeLabel(g.start_time_utc)),
+      detail:'',start:g.start_time_utc});
+  });
+}
+function addTennis(all,d){
+  var data=d&&d.data||{},matches=arr(data.live).concat(arr(data.upcoming).slice(0,12));
+  matches.forEach(function(g){
+    var st=stateFrom(g.status),a=playerSide(g.sides&&g.sides.A),b=playerSide(g.sides&&g.sides.B);
+    all.push({sport:'tennis',state:st,away:a||'TBD',home:b||'TBD',aS:null,hS:null,
+      info:st==='Live'?(g.score||'Live'):(timeLabel(g.scheduled_at)||'Scheduled'),detail:[g.tour,g.tournament&&g.tournament.tournament,g.round].filter(Boolean).join(' · '),start:g.scheduled_at});
+  });
+}
+function addSoccer(all,d){
+  arr(d&&d.data).forEach(function(g){
+    var st=stateFrom(g.status),sc=g.score||{};
+    all.push({sport:'soccer',state:st,away:g.away&&g.away.short_name||g.away&&g.away.name||'',home:g.home&&g.home.short_name||g.home&&g.home.name||'',
+      awayLogo:g.away&&g.away.crest||'',homeLogo:g.home&&g.home.crest||'',aS:sc.away,hS:sc.home,
+      info:st==='Final'?'Final':(st==='Live'?'Live':timeLabel(g.kickoff_at)),detail:g.competition&&g.competition.name||'',start:g.kickoff_at});
+  });
+}
+function addUFC(all,d){
+  var events=arr(d&&d.data);
+  _ufcNext=events[0]||null;
+  if(!_ufcNext)return;
+  var e=_ufcNext,name=e.name||e.event_name||e.title||'Upcoming UFC event',date=e.event_date||e.date||e.start_time||null;
+  all.push({sport:'ufc',state:'Preview',away:'UFC',home:name,aS:null,hS:null,info:date?timeLabel(date):'Upcoming',detail:'Fight card intelligence',start:date});
 }
 
-/* SCORES */
-var _scoresSport='all';
-var _cachedScores=null;
 function scoresSetSport(sport,btn){
   _scoresSport=sport;
   document.querySelectorAll('.score-stab').forEach(function(b){b.classList.remove('on');});
   if(btn)btn.classList.add('on');
   renderScores(_cachedScores);
 }
-function loadScores(){
-  var grid=document.getElementById('scores-grid');
-  var updated=document.getElementById('scores-updated');
-  var btn=document.getElementById('scores-refresh-btn');
-  if(!grid)return;
-  if(btn){btn.textContent='↻ Loading...';btn.disabled=true;}
-  var API='https://propsports-api.sales-fd3.workers.dev';
-  Promise.all([
-    fetch(API+'/mlb/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
-    fetch(API+'/nba/schedule/today').then(function(r){return r.json();}).catch(function(){return null;}),
-    fetch(API+'/nhl/schedule/today').then(function(r){return r.json();}).catch(function(){return null;})
-  ]).then(function(res){
-    var all=[];
-    var mlb=res[0];
-    if(mlb&&mlb.games){mlb.games.forEach(function(g){
-      var state=(g.status&&g.status.abstractGameState)||'Preview';
-      var away=g.teams&&g.teams.away&&g.teams.away.team?(g.teams.away.team.shortName||g.teams.away.team.name):'';
-      var home=g.teams&&g.teams.home&&g.teams.home.team?(g.teams.home.team.shortName||g.teams.home.team.name):'';
-      var aS=g.teams&&g.teams.away&&g.teams.away.score!=null?g.teams.away.score:null;
-      var hS=g.teams&&g.teams.home&&g.teams.home.score!=null?g.teams.home.score:null;
-      var inning=g.linescore?('Inn '+(g.linescore.currentInning||'')+' '+(g.linescore.inningHalf||'')):((g.status&&g.status.detailedState)||'');
-      var gtime=g.gameDate?new Date(g.gameDate).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'';
-      var pp=g.teams&&g.teams.away&&g.teams.away.probablePitcher?g.teams.away.probablePitcher.fullName:'';
-      var hp=g.teams&&g.teams.home&&g.teams.home.probablePitcher?g.teams.home.probablePitcher.fullName:'';
-      all.push({sport:'mlb',state:state,away:away,home:home,aS:aS,hS:hS,
-        info:state==='Live'?inning:(state==='Final'?'Final':gtime),
-        pitcher:pp&&hp?pp.split(' ').pop()+' vs '+hp.split(' ').pop():''});
-    });}
-    var nba=res[1];
-    if(nba&&nba.games){nba.games.forEach(function(g){
-      var name=(g.name||'').split(' at ');
-      var away=(name[0]||g.away||'').split(' ').pop();
-      var home=(name[1]||g.home||'').split(' ').pop();
-      var live=g.status==='in'||g.status==='LIVE';
-      var fin=g.status==='post'||g.status==='FINAL';
-      var state=live?'Live':(fin?'Final':'Preview');
-      all.push({sport:'nba',state:state,away:away,home:home,
-        aS:g.awayScore!=null?g.awayScore:null,hS:g.homeScore!=null?g.homeScore:null,
-        info:state==='Live'?(g.quarter?'Q'+g.quarter:'Live'):(state==='Final'?'Final':(g.time||'')),pitcher:''});
-    });}
-    var nhl=res[2];
-    if(nhl&&nhl.games){nhl.games.forEach(function(g){
-      var sem=(g.status&&g.status.semantics)||g.status||'';
-      var live=sem==='LIVE'||sem==='CRIT';
-      var fin=sem==='FINAL'||sem==='OFF';
-      var state=live?'Live':(fin?'Final':'Preview');
-      var away=(g.teams&&g.teams.away)||{};
-      var home=(g.teams&&g.teams.home)||{};
-      var period=g.status&&g.status.period;
-      var clock=g.status&&g.status.clock;
-      var start=g.start_time_utc?new Date(g.start_time_utc).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'}):'';
-      all.push({sport:'nhl',state:state,
-        away:away.name||away.abbrev||'',home:home.name||home.abbrev||'',
-        awayLogo:away.logo||'',homeLogo:home.logo||'',
-        aS:away.score!=null?away.score:null,hS:home.score!=null?home.score:null,
-        info:state==='Live'?((period?'P'+period:'Live')+(clock?' · '+clock:'')):(state==='Final'?'Final':start),pitcher:''});
-    });}
-    _cachedScores=all;renderScores(all);
-    if(updated)updated.textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-    if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}
-  }).catch(function(){if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}});
+
+function renderTicker(games){
+  var track=document.getElementById('tk'); if(!track)return;
+  var ordered=games.slice().sort(function(a,b){
+    var rank={Live:0,Preview:1,Final:2}; return (rank[a.state]||1)-(rank[b.state]||1);
+  });
+  var seen={},items=[];
+  ordered.forEach(function(g){
+    if(items.length>=22)return;
+    var k=g.sport+'|'+g.away+'|'+g.home;if(seen[k])return;seen[k]=1;
+    var hasScore=g.aS!=null&&g.hS!=null,cls=g.state==='Live'?'live':(g.state==='Final'?'final':'next');
+    var logos=(g.awayLogo?'<img class="tk-logo" src="'+g.awayLogo+'" alt="">':'');
+    items.push('<div class="tk-item '+cls+'">'+(g.state==='Live'?'<span class="tk-dot"></span>':'')+'<span class="sport">'+g.sport.toUpperCase()+'</span>'+logos+
+      ' '+safe(g.away)+(hasScore?' <span class="score">'+safe(g.aS)+'</span>':'')+' · '+safe(g.home)+(hasScore?' <span class="score">'+safe(g.hS)+'</span>':'')+
+      '<span class="status">'+(g.state==='Preview'?(g.info||'NEXT'):g.state.toUpperCase())+'</span></div>');
+  });
+  [
+    ['API','106 ENDPOINTS · 7 CORE API SPORTS'],
+    ['WNBA','WINBA · PLAYER DNA · LIVE DATA'],
+    ['TENNIS','ATP + WTA · TENNIS DNA · LIVE'],
+    ['SOCCER','MLS + EPL + UCL + BUNDESLIGA'],
+    ['UFC','FIGHT DNA · CARD INTELLIGENCE'],
+    ['FRESHNESS','LIVE FEEDS REFRESH EVERY 15 SECONDS']
+  ].forEach(function(x){items.push('<div class="tk-item intel"><span class="sport">'+x[0]+'</span> '+x[1]+'</div>');});
+  var html=items.join('');
+  track.innerHTML=html+html;
 }
+
 function renderScores(games){
-  var grid=document.getElementById('scores-grid');
-  if(!grid||!games)return;
+  var grid=document.getElementById('scores-grid'),summary=document.getElementById('scores-summary');
+  if(!grid)return;
   var filtered=_scoresSport==='all'?games:games.filter(function(g){return g.sport===_scoresSport;});
-  if(!filtered.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:28px;font:400 12px var(--mono);color:var(--soft);">No '+(_scoresSport==='all'?'':_scoresSport.toUpperCase()+' ')+'games today.</div>';return;}
-  filtered=filtered.slice().sort(function(a,b){var o={Live:0,Preview:1,Final:2};return (o[a.state]||1)-(o[b.state]||1);});
-  var icons={mlb:'⚾',nba:'🏀',nhl:'🏒'};
-  var names={mlb:'MLB',nba:'NBA',nhl:'NHL'};
-  grid.innerHTML=filtered.map(function(g){
-    var isL=g.state==='Live',isF=g.state==='Final';
-    var cls='score-card'+(isL?' live':(isF?' final':''));
-    var badge=isL?'<span class="score-live-badge">● LIVE</span>':(isF?'<span class="score-final-badge">FINAL</span>':'<span class="score-sched-badge">SCHEDULED</span>');
-    var aW=isF&&g.aS!=null&&g.hS!=null&&g.aS>g.hS;
-    var hW=isF&&g.aS!=null&&g.hS!=null&&g.hS>g.aS;
-    var aL=isL&&g.aS!=null&&g.hS!=null&&g.aS>g.hS;
-    var hL=isL&&g.aS!=null&&g.hS!=null&&g.hS>g.aS;
-    var showSc=g.aS!=null&&g.hS!=null;
-    return '<div class="'+cls+'">'+
+  var live=games.filter(function(g){return g.state==='Live';}).length;
+  if(summary){
+    var sports={};games.forEach(function(g){sports[g.sport]=1;});
+    summary.innerHTML='<span class="scores-summary-pill'+(live?' live':'')+'">'+live+' live now</span>'+
+      '<span class="scores-summary-pill">'+Object.keys(sports).length+' sports reporting</span>'+
+      '<span class="scores-summary-pill">15s refresh</span><span class="scores-summary-pill">106 API endpoints</span>';
+  }
+  if(!filtered.length){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:30px;font:500 12px var(--mono);color:var(--soft);">No '+(_scoresSport==='all'?'network':' '+_scoresSport.toUpperCase())+' events in the current slate.</div>';
+    return;
+  }
+  filtered=filtered.slice().sort(function(a,b){
+    var o={Live:0,Preview:1,Final:2},r=(o[a.state]||1)-(o[b.state]||1);
+    return r||String(a.start||'').localeCompare(String(b.start||''));
+  });
+  var icons={mlb:'⚾',nfl:'🏈',nba:'🏀',wnba:'🏀',nhl:'🏒',tennis:'🎾',soccer:'⚽',ufc:'🥊'};
+  var names={mlb:'MLB',nfl:'NFL',nba:'NBA',wnba:'WNBA',nhl:'NHL',tennis:'TENNIS',soccer:'SOCCER',ufc:'UFC'};
+  grid.innerHTML=filtered.slice(0,_scoresSport==='all'?24:40).map(function(g){
+    var isL=g.state==='Live',isF=g.state==='Final',has=g.aS!=null&&g.hS!=null;
+    var badge=isL?'<span class="score-live-badge">● LIVE</span>':(isF?'<span class="score-final-badge">FINAL</span>':'<span class="score-sched-badge">NEXT</span>');
+    var aW=isF&&has&&Number(g.aS)>Number(g.hS),hW=isF&&has&&Number(g.hS)>Number(g.aS);
+    return '<div class="score-card'+(isL?' live':(isF?' final':''))+'">'+
       '<div class="score-sport">'+icons[g.sport]+' '+names[g.sport]+'<span style="margin-left:auto">'+badge+'</span></div>'+
       '<div class="score-matchup">'+
-        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+(g.awayLogo?'<img class="score-team-logo" src="'+g.awayLogo+'" alt="" loading="lazy">':'')+'<span class="score-team-text">'+(g.away||'—')+'</span></span>'+(showSc?'<span class="score-num'+(aL?' leader':'')+'">'+g.aS+'</span>':'')+'</div>'+
+        '<div class="score-team"><span class="score-name'+(aW?' winner':'')+'">'+(g.awayLogo?'<img class="score-team-logo" src="'+g.awayLogo+'" alt="" loading="lazy">':'')+'<span class="score-team-text">'+safe(g.away||'—')+'</span></span>'+(has?'<span class="score-num">'+safe(g.aS)+'</span>':'')+'</div>'+
         '<div class="score-divider"></div>'+
-        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+(g.homeLogo?'<img class="score-team-logo" src="'+g.homeLogo+'" alt="" loading="lazy">':'')+'<span class="score-team-text">'+(g.home||'—')+'</span></span>'+(showSc?'<span class="score-num'+(hL?' leader':'')+'">'+g.hS+'</span>':'')+'</div>'+
-      '</div>'+
-      '<div class="score-info">'+(g.info||'')+'</div>'+
-      (g.pitcher?'<div class="score-pitcher">'+g.pitcher+'</div>':'')+
-    '</div>';
+        '<div class="score-team"><span class="score-name'+(hW?' winner':'')+'">'+(g.homeLogo?'<img class="score-team-logo" src="'+g.homeLogo+'" alt="" loading="lazy">':'')+'<span class="score-team-text">'+safe(g.home||'—')+'</span></span>'+(has?'<span class="score-num">'+safe(g.hS)+'</span>':'')+'</div>'+
+      '</div><div class="score-info">'+safe(g.info)+'</div>'+(g.detail?'<div class="score-comp">'+safe(g.detail)+'</div>':'')+'</div>';
   }).join('');
+}
+
+function loadScores(){
+  var grid=document.getElementById('scores-grid'),updated=document.getElementById('scores-updated'),btn=document.getElementById('scores-refresh-btn');
+  if(!grid)return;
+  if(btn){btn.textContent='↻ Syncing';btn.disabled=true;}
+  var API='https://propsports-api.sales-fd3.workers.dev',today=dayISO();
+  Promise.all([
+    fetchJSON(API+'/mlb/schedule/today'),
+    fetchJSON(API+'/nfl/schedule'),
+    fetchJSON(API+'/nba/schedule/today'),
+    fetchJSON(API+'/wnba/today'),
+    fetchJSON(API+'/nhl/schedule/today'),
+    fetchJSON(API+'/tennis/today'),
+    fetchJSON(API+'/soccer/matches?date='+encodeURIComponent(today)+'&order=asc&limit=40'),
+    fetchJSON('https://ufc-api.propbetedge.ai/v1/ufc/events?status=upcoming&limit=2')
+  ]).then(function(res){
+    var all=[];addMLB(all,res[0]);addNFL(all,res[1]);addNBA(all,res[2]);addWNBA(all,res[3]);addNHL(all,res[4]);addTennis(all,res[5]);addSoccer(all,res[6]);addUFC(all,res[7]);
+    _cachedScores=all;renderScores(all);renderTicker(all);
+    if(updated)updated.textContent='Live network synced '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit'});
+    if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}
+  }).catch(function(){if(btn){btn.textContent='↻ Refresh';btn.disabled=false;}});
 }
 
 /* PRODUCTS DROPDOWN — desktop hardened */
@@ -2470,9 +2535,8 @@ function renderScores(games){
 /* INIT */
 document.addEventListener('DOMContentLoaded',function(){
   loadModelOdds();
-  updateTicker();
   setTimeout(loadScores,400);
-  setInterval(loadScores,90000);
+  setInterval(loadScores,15000);
 });
 </script>
 </body>

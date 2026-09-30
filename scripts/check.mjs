@@ -9,7 +9,8 @@ const read = (p) => readFileSync(join(root, p), 'utf8');
 const ctx = {};
 vm.runInNewContext(read('assets/ps-config.js'), { globalThis: ctx, window: undefined });
 const C = ctx.PS_CONFIG, N = C.COUNTS;
-const CATALOG = JSON.parse(read('assets/catalog.json')).endpoints;
+const CAT = JSON.parse(read('assets/catalog.json'));
+const CATALOG = CAT.endpoints;
 const SITE = C.SITE;
 const failures = [];
 let checks = 0;
@@ -20,10 +21,20 @@ const allRoutes = [];
 Object.entries(C.ROUTES).forEach(([sport, groups]) => groups.forEach(([, routes]) => routes.forEach((r) => {
   allRoutes.push(r[0]);
   check(r[0].startsWith('/' + sport + '/'), `route ${r[0]} is not under /${sport}/`);
-  check(['pub', 'demo', 'key'].includes(r[2]), `route ${r[0]} has unknown access ${r[2]}`);
+  check(['open', 'demo', 'key'].includes(r[2]), `route ${r[0]} has unknown access ${r[2]}`);
 })));
 check(new Set(allRoutes).size === allRoutes.length, 'duplicate routes in registry');
 check(allRoutes.length === N.DOCUMENTED_ROUTES, 'DOCUMENTED_ROUTES does not match registry');
+// Production is canonical: the build writes catalog.json from GET /health + GET /sports after reconciling the registry.
+check(CAT.live === true && CAT.registry_matches_production === true, 'catalog.json was not built from production (/health + /sports)');
+check(CATALOG === N.DOCUMENTED_ROUTES, `production catalog ${CATALOG} ≠ registry ${N.DOCUMENTED_ROUTES}`);
+check(CAT.access && CAT.access.open === N.OPEN && CAT.access.demo === N.DEMO && CAT.access.key === N.KEY, 'access totals differ from production');
+for (const [sp, t] of Object.entries(CAT.by_sport || {}))
+  check(t.total === N.PER_SPORT[sp] && t.open === N.OPEN_PER_SPORT[sp] && t.demo === N.DEMO_PER_SPORT[sp] && t.key === N.KEY_PER_SPORT[sp], `${sp} counts differ from production`);
+const TEAM_CAPS = ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'];
+const teamsOf = (id) => JSON.stringify(C.SPORTS.find((x) => x.id === id).matrix.teams);
+check(teamsOf('mlb') === JSON.stringify(TEAM_CAPS), 'MLB Teams & Standings must list ' + TEAM_CAPS.join(', '));
+check(teamsOf('nba') === JSON.stringify(TEAM_CAPS.concat('Team stats')), 'NBA Teams & Standings must list ' + TEAM_CAPS.concat('Team stats').join(', '));
 const examples = JSON.parse(read('assets/api-examples.json')).examples;
 const ufcRoutes = C.UFC_ROUTES.flatMap(([, r]) => r.map((x) => x[0]));
 for (const [id, ex] of Object.entries(examples)) check(allRoutes.includes(ex.path.split('?')[0]) || ufcRoutes.includes(ex.path.split('?')[0]), `example ${id} not in registry`);
@@ -71,12 +82,17 @@ for (const f of PAGES) {
   const text = allText(html);
   for (const re of [/\bfour sports\b/i, /\ball four\b/i, /\b4 sports\b/i, /\bWINBA\b/, /\b6[x×] daily\b/i, /\b(31|47|59|125) endpoints\b/i])
     { const m = text.match(re); check(!m, `${f}: stale copy "${m && m[0]}"`); }
+  // RapidAPI is gone everywhere (text and links); empty coverage cells are never labelled "Not offered";
+  // access is only ever "Open without key", "Demo access" or "API key required".
+  { const m = html.match(/rapidapi/i); check(!m, `${f}: RapidAPI reference remains`); }
+  for (const re of [/Not offered/i, /\bPublic \(no key\)/i, /\bPublic routes\b/, /\d+ public\b/, /class="acc acc-pub"/, /\bDemo key<\/em>/])
+    { const m = html.match(re); check(!m, `${f}: ambiguous access wording "${m && m[0]}"`); }
   for (const m of text.matchAll(/(\d[\d,]*)(?:<\/?(?:b|span|strong|em)[^>]*>)?\s+(?:catalog\s+)?endpoints/gi)) {
     if (/^0\d$/.test(m[1])) continue; // section index labels such as "02 Endpoints"
     const n = Number(m[1].replace(/,/g, ''));
     const ctxt = text.slice(Math.max(0, m.index - 90), m.index);
     const sportPage = /^(mlb|nfl|nba|nhl)\.html$/.test(f) ? f.slice(0, 3) : null;
-    check(n === CATALOG || n === N.PUBLIC_ENDPOINTS || (sportPage && n === N.PER_SPORT[sportPage]) || /parcels|PropData/i.test(ctxt) || PROPDATA.has(f),
+    check(n === CATALOG || n === N.OPEN || (sportPage && n === N.PER_SPORT[sportPage]) || /parcels|PropData/i.test(ctxt) || PROPDATA.has(f),
       `${f}: endpoint count "${m[0]}" is neither the live catalog (${CATALOG}) nor a documented count`);
   }
   if (!PROPDATA.has(f)) {
@@ -114,15 +130,34 @@ for (const f of PAGES) {
 }
 
 /* 5. scripts compile */
-for (const f of ['assets/ps-config.js', 'assets/ps.js', 'assets/ps-live.js']) { try { new vm.Script(read(f)); check(true); } catch (e) { check(false, `${f}: ${e.message}`); } }
+for (const f of ['assets/ps-config.js', 'assets/ps.js', 'assets/ps-network.js', 'assets/ps-live.js']) { try { new vm.Script(read(f)); check(true); } catch (e) { check(false, `${f}: ${e.message}`); } }
 for (const f of ['index.html', 'pricing.html', 'reference.html', ...C.SPORTS.map((s) => `sports/${s.id}.html`)])
   [...read(f).matchAll(/<script(?![^>]*\b(?:src|type)=)[^>]*>([\s\S]*?)<\/script>/g)].forEach(([, js], i) => { try { new vm.Script(js); check(true); } catch (e) { check(false, `${f} inline script ${i}: ${e.message}`); } });
 
-/* 6. checkout wiring on generated pages */
-for (const f of ['index.html', 'pricing.html', ...C.SPORTS.map((s) => `sports/${s.id}.html`)]) {
-  for (const [, t] of read(f).matchAll(/data-checkout="([A-Za-z_]+)"/g)) check(t === 'single' || t === 'developer' || EXPECTED_PRICES[t], `${f}: checkout tier ${t} has no V2 price`);
+/* 6. checkout wiring on generated pages (MLB Edge tiers only once the billing Worker accepts them) */
+const EDGE_TIERS = C.EDGE.checkoutReady ? C.EDGE.plans.map((p) => p.id) : [];
+for (const f of ['index.html', 'pricing.html', 'mlb-edge.html', ...C.SPORTS.map((s) => `sports/${s.id}.html`)]) {
+  for (const [, t] of read(f).matchAll(/data-checkout="([A-Za-z_]+)"/g)) check(t === 'single' || t === 'developer' || EXPECTED_PRICES[t] || EDGE_TIERS.includes(t), `${f}: checkout tier ${t} has no live price`);
 }
+check(!/doCheckout\(|price_1TgV(?:ox|pY|qW)/.test(read('mlb-edge.html')) || C.EDGE.checkoutReady, 'mlb-edge: Edge prices offered before the billing Worker accepts them');
+
 const idx = read('index.html');
+/* 6b. every production route is documented; live features are wired */
+const ref = read('reference.html');
+for (const r of allRoutes) check(ref.includes(`<code>${r}</code>`), `reference: route ${r} is not documented`);
+check((ref.match(/<li><span class="method">GET<\/span>/g) || []).length === N.DOCUMENTED_ROUTES, 'reference: listed route count differs from the catalog');
+for (const s of C.SPORTS) {
+  const html = read(`sports/${s.id}.html`);
+  check(html.includes(`data-live-preview="${s.id}"`), `sports/${s.id}: live preview missing`);
+  check(html.indexOf('/assets/ps-network.js') > 0 && html.indexOf('/assets/ps-network.js') < html.indexOf('/assets/ps-live.js'), `sports/${s.id}: ps-network.js must load before ps-live.js`);
+  if (s.api) for (const [, routes] of C.ROUTES[s.id]) for (const [p] of routes) check(html.includes(`<code>${p}</code>`), `sports/${s.id}: route ${p} missing`);
+}
+{
+  const th = (idx.match(/<table class="ops-table">[\s\S]*?<\/thead>/) || [''])[0];
+  check((th.match(/<th\b/g) || []).length === 8 && /c-cast/.test(th), 'index: live table needs the PBEcast column');
+  check(idx.indexOf('/assets/ps-network.js') > 0 && idx.indexOf('/assets/ps-network.js') < idx.indexOf('/assets/ps-live.js'), 'index: ps-network.js must load before ps-live.js');
+  check(idx.includes('id="m-online-detail"'), 'index: network status detail missing');
+}
 check((idx.match(/data-dev-sport/g) || []).length === 3, 'index: Developer needs exactly three sport selectors');
 check(/<select id="single-sport">(?:<option value="(?:MLB|NFL|NBA|WNBA|NHL|TENNIS|SOCCER)">[^<]+<\/option>){7}<\/select>/.test(idx), 'index: single-sport selector must offer the 7 core sports');
 

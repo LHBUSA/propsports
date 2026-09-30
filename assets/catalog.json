@@ -1,7 +1,60 @@
 {
-  "endpoints": 106,
-  "api_version": "6.0.0",
-  "source": "https://propsports-api.sales-fd3.workers.dev/health",
-  "fetched_at": "2026-09-30T21:17:40.340Z",
-  "live": true
+  "endpoints": 151,
+  "api_version": "6.1.0",
+  "access": {
+    "open": 65,
+    "demo": 7,
+    "key": 79
+  },
+  "by_sport": {
+    "mlb": {
+      "total": 45,
+      "open": 38,
+      "demo": 7,
+      "key": 0
+    },
+    "nfl": {
+      "total": 15,
+      "open": 3,
+      "demo": 0,
+      "key": 12
+    },
+    "nba": {
+      "total": 19,
+      "open": 10,
+      "demo": 0,
+      "key": 9
+    },
+    "nhl": {
+      "total": 24,
+      "open": 8,
+      "demo": 0,
+      "key": 16
+    },
+    "wnba": {
+      "total": 25,
+      "open": 2,
+      "demo": 0,
+      "key": 23
+    },
+    "tennis": {
+      "total": 10,
+      "open": 2,
+      "demo": 0,
+      "key": 8
+    },
+    "soccer": {
+      "total": 13,
+      "open": 2,
+      "demo": 0,
+      "key": 11
+    }
+  },
+  "source": [
+    "https://propsports-api.sales-fd3.workers.dev/health",
+    "https://propsports-api.sales-fd3.workers.dev/sports"
+  ],
+  "fetched_at": "2026-09-30T22:49:26.266Z",
+  "live": true,
+  "registry_matches_production": true
 }

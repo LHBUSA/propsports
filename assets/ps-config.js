@@ -1,54 +1,82 @@
-/* PropSports site configuration — the single source of truth.
-   Counts on every page are derived from ROUTES below; do not hardcode them in HTML.
-   Route registry audited against propsports-api-worker (index.js, propsports-entry.js,
-   nhl-intelligence/src, sports-expansion/gateway.js) on 2026-09-30.
+/* PropSports site configuration — the single source of truth for copy and route descriptions.
+   Route paths and access levels mirror the production catalog (GET /sports, counted by GET /health).
+   scripts/build.mjs refuses to build when this registry and production disagree.
    Loaded by browsers (window.PS_CONFIG) and by scripts/build.mjs (vm). */
 (function (root) {
   var API_BASE = 'https://propsports-api.sales-fd3.workers.dev';
   var UFC_BASE = 'https://ufc-api.propbetedge.ai';
 
-  // [path, description, access] — access: 'pub' (no key), 'demo' (demo or any key), 'key' (sport entitlement)
+  // Access levels, named exactly as production reports them in GET /sports.
+  var ACCESS = {
+    open: { label: 'Open without key', short: 'open without key', css: 'acc-open' },
+    demo: { label: 'Demo access', short: 'demo access', css: 'acc-demo' },
+    key: { label: 'API key required', short: 'API key required', css: 'acc-key' }
+  };
+
+  // [path, description, access] — access: 'open' (no key), 'demo' (no key or the shared demo key, rate-limited; any MLB key), 'key' (API key entitled to the sport)
   var ROUTES = {
     mlb: [
       ['Schedule & live', [
-        ['/mlb/schedule', 'Schedule by date with probable pitchers, venue and linescore', 'pub'],
-        ['/mlb/schedule/today', "Today's slate", 'pub'],
-        ['/mlb/games/live', 'Games currently in progress', 'pub'],
-        ['/mlb/lineups', 'Posted lineups and probable pitchers', 'pub']]],
+        ['/mlb/schedule', 'Schedule by date with probable pitchers, venue and linescore', 'open'],
+        ['/mlb/schedule/today', "Today's slate", 'open'],
+        ['/mlb/games/live', 'Games currently in progress', 'open'],
+        ['/mlb/lineups', 'Posted lineups and probable pitchers', 'open']]],
       ['Game detail', [
-        ['/mlb/game/:pk/linescore', 'Inning-by-inning linescore', 'pub'],
-        ['/mlb/game/:pk/boxscore', 'Full box score', 'pub'],
-        ['/mlb/game/:pk/plays', 'Most recent plays (?limit)', 'pub']]],
+        ['/mlb/game/:pk/linescore', 'Inning-by-inning linescore', 'open'],
+        ['/mlb/game/:pk/boxscore', 'Full box score', 'open'],
+        ['/mlb/game/:pk/plays', 'Most recent plays (?limit)', 'open']]],
       ['Players', [
         ['/mlb/player/:id/stats', 'Season stats', 'demo'],
         ['/mlb/player/:id/gamelog', 'Game log', 'demo']]],
+      ['Teams & standings', [
+        ['/mlb/standings', 'League and division standings with records (?season)', 'demo'],
+        ['/mlb/teams', 'All 30 clubs with league, division and venue', 'demo'],
+        ['/mlb/team/:id', 'Team profile', 'demo'],
+        ['/mlb/team/:id/roster', 'Active roster', 'demo'],
+        ['/mlb/team/:id/schedule', 'Team schedule and results', 'demo']]],
       ['Statcast', [
-        ['/mlb/statcast/batters', 'Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits', 'pub'],
-        ['/mlb/statcast/pitchers', 'Pitcher Statcast table with pagination', 'pub']]],
+        ['/mlb/statcast/batters', 'Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits', 'open'],
+        ['/mlb/statcast/pitchers', 'Pitcher Statcast table with pagination', 'open']]],
       ['Game environment', [
-        ['/mlb/weather', 'Wind, temperature and park factor for one park', 'pub'],
-        ['/mlb/weather/all', 'Weather for every game on the slate', 'pub'],
-        ['/mlb/umpires', 'Umpire crews by game', 'pub']]],
+        ['/mlb/weather', 'Wind, temperature and park factor for one park', 'open'],
+        ['/mlb/weather/all', 'Weather for every game on the slate', 'open'],
+        ['/mlb/umpires', 'Umpire crews by game', 'open']]],
       ['Market data', [
-        ['/mlb/odds', 'Game lines: spread, total, moneyline', 'pub'],
-        ['/mlb/odds/hr', 'Home-run props, best book across DraftKings and FanDuel', 'pub'],
-        ['/mlb/odds/totalbases', 'Total-bases props', 'pub'],
-        ['/mlb/odds/hits', 'Hits props', 'pub'],
-        ['/mlb/odds/strikeouts', 'Pitcher strikeout props', 'pub'],
-        ['/mlb/odds/rbi', 'RBI props', 'pub'],
-        ['/mlb/odds/all', 'All prop markets combined', 'pub'],
-        ['/mlb/odds/player', 'One player across prop markets (?name)', 'pub']]],
+        ['/mlb/odds', 'Game lines: spread, total, moneyline', 'open'],
+        ['/mlb/odds/hr', 'Home-run props, best book across DraftKings and FanDuel', 'open'],
+        ['/mlb/odds/totalbases', 'Total-bases props', 'open'],
+        ['/mlb/odds/hits', 'Hits props', 'open'],
+        ['/mlb/odds/strikeouts', 'Pitcher strikeout props', 'open'],
+        ['/mlb/odds/rbi', 'RBI props', 'open'],
+        ['/mlb/odds/all', 'All prop markets combined', 'open'],
+        ['/mlb/odds/player', 'One player across prop markets (?name)', 'open']]],
       ['Model output', [
-        ['/mlb/odds/model', 'PropBetEdge Poisson model prices (?market, ?player, ?direction)', 'pub'],
-        ['/mlb/odds/model/top', 'Top model OVER plays', 'pub'],
-        ['/mlb/odds/model/player', 'One player across model markets (?name)', 'pub']]]
+        ['/mlb/odds/model', 'PropBetEdge Poisson model prices (?market, ?player, ?direction)', 'open'],
+        ['/mlb/odds/model/top', 'Top model OVER plays', 'open'],
+        ['/mlb/odds/model/player', 'One player across model markets (?name)', 'open']]],
+      ['Minor leagues (MiLB)', [
+        ['/mlb/minors/meta', 'Minor-league API metadata and schema version', 'open'],
+        ['/mlb/minors/levels', 'Levels: Triple-A, Double-A, High-A, Single-A, Rookie', 'open'],
+        ['/mlb/minors/organizations', 'MLB organizations and their affiliates (?season)', 'open'],
+        ['/mlb/minors/teams', 'Affiliated teams (?season, ?level, ?org, ?league)', 'open'],
+        ['/mlb/minors/teams/:id', 'Team detail', 'open'],
+        ['/mlb/minors/standings', 'Standings by level and league (?season, ?level, ?type)', 'open'],
+        ['/mlb/minors/scores', 'Scores by date (?date, ?level, ?org)', 'open'],
+        ['/mlb/minors/games/:pk', 'Game detail', 'open'],
+        ['/mlb/minors/leaders', 'Qualified leaders (?level, ?group, ?stat, ?limit)', 'open'],
+        ['/mlb/minors/players/:id', 'Player career across minor-league and MLB levels', 'open'],
+        ['/mlb/minors/players/:id/form', 'Recent player form (?as_of)', 'open'],
+        ['/mlb/minors/postseason', 'Postseason series (?season, ?level)', 'open'],
+        ['/mlb/minors/postseason/champions', 'League champions across stored seasons', 'open'],
+        ['/mlb/minors/search', 'Team, league and player lookup (?q)', 'open'],
+        ['/mlb/minors/coverage', 'Coverage and freshness by season', 'open']]]
     ],
     nfl: [
       ['Schedule & live', [
-        ['/nfl/schedule', 'Normalized scoreboard for the current slate (?date, ?week)', 'pub'],
+        ['/nfl/schedule', 'Normalized scoreboard for the current slate (?date, ?week)', 'open'],
         ['/nfl/scoreboard', 'Scoreboard by date or week', 'key'],
-        ['/nfl/games/live', 'Games in progress', 'pub'],
-        ['/nfl/odds', 'Game odds', 'pub']]],
+        ['/nfl/games/live', 'Games in progress', 'open'],
+        ['/nfl/odds', 'Game odds', 'open']]],
       ['Teams & standings', [
         ['/nfl/standings', 'Current standings', 'key'],
         ['/nfl/teams', 'Team directory', 'key'],
@@ -65,17 +93,24 @@
     ],
     nba: [
       ['Schedule & live', [
-        ['/nba/schedule', 'Scoreboard by date (playoffs, then regular season)', 'pub'],
-        ['/nba/schedule/today', "Today's slate", 'pub'],
-        ['/nba/games/live', 'Games in progress', 'pub']]],
+        ['/nba/schedule', 'Scoreboard by date (playoffs, then regular season)', 'open'],
+        ['/nba/schedule/today', "Today's slate", 'open'],
+        ['/nba/games/live', 'Games in progress', 'open']]],
       ['Game detail', [
-        ['/nba/game/:id/summary', 'Game summary with header', 'pub'],
-        ['/nba/game/:id/boxscore', 'Normalized box score with computed TS% and USG%', 'pub'],
-        ['/nba/game/:id/plays', 'Play-by-play with court coordinates and event category', 'pub'],
-        ['/nba/game/:id/shotchart', 'Made and missed shots with x/y coordinates', 'pub'],
-        ['/nba/game/:id/lineup', 'On-court five reconstructed from starters and substitutions (estimated)', 'pub'],
-        ['/nba/game/:id/winprob', 'Win-probability series (ESPN source)', 'pub'],
-        ['/nba/game/:id/hustle', 'Hustle box when the source allows it (may return available:false)', 'pub']]],
+        ['/nba/game/:id/summary', 'Game summary with header', 'open'],
+        ['/nba/game/:id/boxscore', 'Normalized box score with computed TS% and USG%', 'open'],
+        ['/nba/game/:id/plays', 'Play-by-play with court coordinates and event category', 'open'],
+        ['/nba/game/:id/shotchart', 'Made and missed shots with x/y coordinates', 'open'],
+        ['/nba/game/:id/lineup', 'On-court five reconstructed from starters and substitutions (estimated)', 'open'],
+        ['/nba/game/:id/winprob', 'Win-probability series (ESPN source)', 'open'],
+        ['/nba/game/:id/hustle', 'Hustle box when the source allows it (may return available:false)', 'open']]],
+      ['Teams & standings', [
+        ['/nba/standings', 'Conference standings', 'key'],
+        ['/nba/teams', 'All 30 teams', 'key'],
+        ['/nba/team/:id', 'Team profile', 'key'],
+        ['/nba/team/:id/roster', 'Current roster', 'key'],
+        ['/nba/team/:id/schedule', 'Team schedule and results', 'key'],
+        ['/nba/team/:id/stats', 'Team statistics', 'key']]],
       ['Players & markets', [
         ['/nba/leaders', 'League leaders (?stat, ?season)', 'key'],
         ['/nba/player/:id/stats', 'Year-over-year player stats', 'key'],
@@ -83,15 +118,15 @@
     ],
     nhl: [
       ['Schedule & live', [
-        ['/nhl/board', 'Slate with season phase, calendar and next puck drop', 'pub'],
-        ['/nhl/schedule', 'Normalized schedule', 'pub'],
-        ['/nhl/schedule/today', "Today's slate", 'pub'],
-        ['/nhl/scoreboard', 'Scoreboard', 'pub'],
-        ['/nhl/games/live', 'Games in progress', 'pub']]],
+        ['/nhl/board', 'Slate with season phase, calendar and next puck drop', 'open'],
+        ['/nhl/schedule', 'Normalized schedule', 'open'],
+        ['/nhl/schedule/today', "Today's slate", 'open'],
+        ['/nhl/scoreboard', 'Scoreboard', 'open'],
+        ['/nhl/games/live', 'Games in progress', 'open']]],
       ['Standings & leaders', [
-        ['/nhl/standings', 'Standings (flags prior-season final before opening night)', 'pub'],
-        ['/nhl/leaders', 'Skater leaders (?category, ?season, ?limit)', 'pub'],
-        ['/nhl/goalies/leaders', 'Goalie leaders', 'pub']]],
+        ['/nhl/standings', 'Standings (flags prior-season final before opening night)', 'open'],
+        ['/nhl/leaders', 'Skater leaders (?category, ?season, ?limit)', 'open'],
+        ['/nhl/goalies/leaders', 'Goalie leaders', 'open']]],
       ['Game detail', [
         ['/nhl/game/:id', 'Game landing and header', 'key'],
         ['/nhl/game/:id/boxscore', 'Box score', 'key'],
@@ -113,8 +148,8 @@
     ],
     wnba: [
       ['Schedule & live', [
-        ['/wnba/today', "Today's slate (or the next slate)", 'pub'],
-        ['/wnba/schedule', 'Schedule', 'pub'],
+        ['/wnba/today', "Today's slate (or the next slate)", 'open'],
+        ['/wnba/schedule', 'Schedule', 'open'],
         ['/wnba/season', 'Season context', 'key'],
         ['/wnba/games/:id', 'Game detail', 'key'],
         ['/wnba/games/:id/live', 'Live game state', 'key'],
@@ -144,8 +179,8 @@
     ],
     tennis: [
       ['Matches & live', [
-        ['/tennis/today', "Today's order of play across tournaments", 'pub'],
-        ['/tennis/live', 'Live matches with point score, server and set detail', 'pub'],
+        ['/tennis/today', "Today's order of play across tournaments", 'open'],
+        ['/tennis/live', 'Live matches with point score, server and set detail', 'open'],
         ['/tennis/matches/:id', 'Match detail', 'key']]],
       ['Tournaments', [
         ['/tennis/tournaments', 'Tournaments', 'key'],
@@ -159,8 +194,8 @@
     ],
     soccer: [
       ['Matches & live', [
-        ['/soccer/matches', 'Fixtures and results (?date, ?competition, ?limit)', 'pub'],
-        ['/soccer/live', 'Live and recently finished matches', 'pub'],
+        ['/soccer/matches', 'Fixtures and results (?date, ?competition, ?limit)', 'open'],
+        ['/soccer/live', 'Live and recently finished matches', 'open'],
         ['/soccer/matches/:id', 'Match detail', 'key'],
         ['/soccer/matches/:id/cast', 'Match cast', 'key']]],
       ['Competitions', [
@@ -180,19 +215,19 @@
   // UFC runs on its own host and is not counted in the PropSports API route total.
   var UFC_ROUTES = [
     ['Events & cards', [
-      ['/v1/ufc/events', 'Events (?status=upcoming)', 'pub'],
-      ['/v1/ufc/events/:id/card', 'Fight card', 'pub'],
-      ['/v1/ufc/events/:id/weigh-ins', 'Event weigh-ins', 'pub'],
-      ['/v1/ufc/weigh-ins', 'Weigh-in results', 'pub'],
-      ['/v1/ufc/results', 'Results', 'pub'],
-      ['/v1/ufc/rankings', 'Official rankings snapshot', 'pub']]],
+      ['/v1/ufc/events', 'Events (?status=upcoming)', 'open'],
+      ['/v1/ufc/events/:id/card', 'Fight card', 'open'],
+      ['/v1/ufc/events/:id/weigh-ins', 'Event weigh-ins', 'open'],
+      ['/v1/ufc/weigh-ins', 'Weigh-in results', 'open'],
+      ['/v1/ufc/results', 'Results', 'open'],
+      ['/v1/ufc/rankings', 'Official rankings snapshot', 'open']]],
     ['Fighters & bouts', [
-      ['/v1/ufc/fighters', 'Fighters', 'pub'],
-      ['/v1/ufc/fighters/:id', 'Fighter profile', 'pub'],
-      ['/v1/ufc/fighters/:id/history', 'Fight history and career stats', 'pub'],
-      ['/v1/ufc/bouts/:id/stats', 'Round-by-round bout statistics', 'pub']]],
+      ['/v1/ufc/fighters', 'Fighters', 'open'],
+      ['/v1/ufc/fighters/:id', 'Fighter profile', 'open'],
+      ['/v1/ufc/fighters/:id/history', 'Fight history and career stats', 'open'],
+      ['/v1/ufc/bouts/:id/stats', 'Round-by-round bout statistics', 'open']]],
     ['Fight DNA & intelligence', [
-      ['/v1/ufc/dna/metrics', 'Fight DNA metric definitions', 'pub'],
+      ['/v1/ufc/dna/metrics', 'Fight DNA metric definitions', 'open'],
       ['/v1/ufc/fighters/:id/dna', 'Fighter DNA (not a pick, price or probability)', 'key'],
       ['/v1/ufc/events/:id/intelligence', 'Card intelligence', 'key'],
       ['/v1/ufc/bouts/:id/ledger', 'Fight state ledger checkpoints', 'key']]]
@@ -200,26 +235,26 @@
 
   var SPORTS = [
     { id: 'mlb', status: 'PropSports API', line: 'Pitch-level Statcast, live games and the MLB Poisson model.', media: '/assets/media/sport-mlb.webp', alt: 'A baseball kicking up infield dirt under stadium lights', name: 'MLB', long: 'Major League Baseball', color: '#E2574C', api: true,
-      deep: '/mlb', platform: null, examples: ['mlb', 'mlb-statcast'],
+      deep: '/mlb', platform: null, examples: ['mlb', 'mlb-standings', 'mlb-statcast', 'mlb-minors'],
       headline: 'Schedules, live games, Statcast and model output.',
-      summary: 'MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor, umpires), market data and the PropBetEdge Poisson model.',
-      sources: 'MLB StatsAPI, Supabase Statcast tables, Open-Meteo, DraftKings and FanDuel props',
+      summary: 'MLB is the deepest dataset on the network: live game state, standings, teams and rosters, owned Statcast tables, game environment (weather, park factor, umpires), market data, the PropBetEdge Poisson model and affiliated minor leagues from Triple-A to Rookie.',
+      sources: 'MLB Stats API (games, standings, teams, rosters, minor leagues), Supabase Statcast tables, Open-Meteo, DraftKings and FanDuel props',
       cache: 'Statcast 15 min · odds 2–5 min',
-      matrix: { live: ['Schedule & slate', 'Live games', 'Lineups & probables'], pbp: ['Plays', 'Box score', 'Linescore'], players: ['Season stats', 'Game logs'], teams: [], adv: ['Statcast batters & pitchers', 'Weather & park factor', 'Umpire crews'], models: ['Poisson model prices'] } },
+      matrix: { live: ['Schedule & slate', 'Live games', 'Lineups & probables', 'MiLB scores, Triple-A to Rookie'], pbp: ['Plays', 'Box score', 'Linescore', 'MiLB game detail'], players: ['Season stats', 'Game logs', 'MiLB careers & form'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Statcast batters & pitchers', 'Weather & park factor', 'Umpire crews', 'Sportsbook props'], models: ['Poisson model prices', 'Top model plays'] } },
     { id: 'nfl', status: 'PropSports API', line: 'Normalized scoreboards, drives, play-by-play and standings.', media: '/assets/media/sport-nfl.webp', alt: 'A football spinning through spray under green stadium lights', name: 'NFL', long: 'National Football League', color: '#5FAE63', api: true,
       deep: '/nfl', platform: null, examples: ['nfl'],
       headline: 'Normalized scoreboards, drives and play-by-play.',
       summary: 'A normalized NFL layer: scoreboards by date or week, standings, team directory and rosters, and per-game detail down to plays, drives, leaders and the win-probability series.',
       sources: 'ESPN site and core APIs, normalized by the PropSports NFL adapter',
       cache: 'Live 2–3 s',
-      matrix: { live: ['Scoreboard by date or week', 'Live games', 'Game odds'], pbp: ['Play-by-play', 'Drives', 'Box score', 'Game leaders'], players: ['Rosters', 'Player box stats'], teams: ['Standings', 'Teams & schedules'], adv: ['Win-probability series'], models: [] } },
+      matrix: { live: ['Scoreboard by date or week', 'Live games', 'Game odds'], pbp: ['Play-by-play', 'Drives', 'Box score', 'Game leaders'], players: ['Rosters', 'Player box stats'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Win-probability series', 'Drive history'], models: [] } },
     { id: 'nba', status: 'PropSports API', line: 'Play-by-play with coordinates, shot charts and TS% / USG%.', media: '/assets/media/sport-nba.webp', alt: 'An empty basketball court under arena lights', name: 'NBA', long: 'National Basketball Association', color: '#E8843C', api: true,
       deep: '/nba', platform: null, examples: ['nba'],
-      headline: 'Shot coordinates, lineups and advanced box scores.',
-      summary: 'Game-level NBA detail: play-by-play with court coordinates, shot charts, reconstructed on-court lineups and box scores with computed TS% and USG%.',
-      sources: 'ESPN game summaries and stats.nba.com',
+      headline: 'Shot coordinates, advanced box scores, standings and teams.',
+      summary: 'Game-level NBA detail — play-by-play with court coordinates, shot charts, reconstructed lineups and box scores with computed TS% and USG% — plus standings, teams, rosters, team schedules and team stats.',
+      sources: 'ESPN game summaries, stats.nba.com and the PropBetEdge NBA data layer (standings, teams, rosters, schedules, team stats)',
       cache: 'Live 10 s',
-      matrix: { live: ['Schedule & slate', 'Live games'], pbp: ['Plays with coordinates', 'Shot chart', 'Box score'], players: ['Player stats', 'League leaders'], teams: [], adv: ['TS% & USG%', 'Estimated lineups', 'Win-probability series'], models: [] } },
+      matrix: { live: ['Schedule & slate', 'Live games', 'Game lines'], pbp: ['Plays with coordinates', 'Shot chart', 'Box score', 'Game summary'], players: ['Player stats', 'League leaders', 'Rosters'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules', 'Team stats'], adv: ['TS% & USG%', 'Estimated lineups', 'Win-probability series', 'Hustle box'], models: [] } },
     { id: 'wnba', status: 'API + live platform', line: 'Live game state, WinBA and Player DNA from the WNBA platform.', media: '/assets/media/sport-wnba.webp', alt: 'A lit basketball arena floor seen from the baseline', name: 'WNBA', long: "Women's National Basketball Association", color: '#E0708F', api: true,
       deep: null, platform: 'https://wnba.propbetedge.ai', examples: ['wnba'],
       headline: 'Games, players, WinBA and Player DNA.',
@@ -233,14 +268,14 @@
       summary: 'NHL slate, standings and leaders are public; keyed routes add play-by-play, live cast, shot geometry, goalie starters and line deployment derived from shift charts. Shot data is raw geometry — no xG or GSAx is claimed.',
       sources: 'api-web.nhle.com and api.nhle.com; daily archive to Supabase',
       cache: 'Live 5–8 s · standings 15 min',
-      matrix: { live: ['Board, schedule & scoreboard', 'Live games'], pbp: ['Play-by-play', 'Live cast', 'Box score'], players: ['Profiles, stats & game logs', 'Leaders', 'Goalie Edge detail'], teams: ['Standings', 'Rosters, stats & schedules'], adv: ['Shot geometry (raw)', 'Goalie starters', 'Line deployment'], models: [] } },
+      matrix: { live: ['Board, schedule & scoreboard', 'Live games'], pbp: ['Play-by-play', 'Live cast', 'Box score'], players: ['Profiles, stats & game logs', 'Leaders', 'Goalie Edge detail'], teams: ['Standings', 'Rosters', 'Team stats', 'Team schedules', 'Team deployment'], adv: ['Shot geometry (raw)', 'Goalie starters', 'Line deployment'], models: [] } },
     { id: 'tennis', status: 'API + live platform', line: 'Point-level live scores, rankings and head-to-head records.', media: '/assets/media/sport-tennis.webp', alt: 'A tennis ball hitting a clay court in a burst of dust', name: 'Tennis', long: 'ATP and WTA tennis', color: '#C9D84E', api: true,
       deep: null, platform: 'https://tennis.propbetedge.ai', examples: ['tennis'],
       headline: 'Live point score, tournaments, rankings and H2H.',
       summary: 'Served through the PropSports gateway from the dedicated tennis platform: live matches with point score and server, order of play, tournaments, player profiles, rankings and head-to-head records.',
       sources: 'Dedicated tennis platform (tennis-api.propbetedge.ai); live polling every minute',
       cache: 'Upstream cache headers',
-      matrix: { live: ["Today's order of play", 'Live point score & server'], pbp: ['Match detail'], players: ['Profiles', 'Head-to-head'], teams: ['WTA & ATP rankings', 'Tournaments'], adv: [], models: [], gated: ['Tennis DNA (access-gated)'] } },
+      matrix: { live: ["Today's order of play", 'Live point score & server'], pbp: ['Match detail', 'Set-by-set score'], players: ['Player directory', 'Profiles'], teams: ['WTA & ATP rankings', 'Tournaments & editions'], adv: ['Head-to-head records', 'Point-level live state'], models: ['Tennis DNA'] } },
     { id: 'soccer', status: 'API + live platform', line: 'Fixtures, live matches, league tables and player DNA.', media: '/assets/media/sport-soccer.webp', alt: 'A soccer ball splashing across wet grass under floodlights', name: 'Soccer', long: 'Club and international soccer', color: '#3FC093', api: true,
       deep: null, platform: 'https://soccer.propbetedge.ai', examples: ['soccer'],
       headline: 'Fixtures, live matches, tables and DNA.',
@@ -256,6 +291,79 @@
       cache: 'Platform-managed',
       matrix: { live: ['Events & cards', 'Weigh-ins', 'Results'], pbp: ['Round statistics'], players: ['Fighter profiles', 'Fight history'], teams: ['Official rankings'], adv: ['Fight state ledger'], models: ['Fight DNA', 'Card intelligence'] } }
   ];
+
+  // Product-story content per sport page. Every claim maps to a documented route or verified platform behavior.
+  var STORY = {
+    mlb: { value: 'The deepest MLB data layer on the network — live games, owned Statcast and a first-party model.',
+      points: [['Owned Statcast tables', 'Batter and pitcher exit velocity, barrel %, xBA / xSLG / xwOBA and handedness splits from our own database.'],
+        ['Game environment', 'Per-park wind and temperature with park factor, plus umpire crews for every game on the slate.'],
+        ['Live game state', 'Inning, count, outs and runners from the live slate; linescore, box score and recent plays per game.'],
+        ['Model output, kept separate', 'PropBetEdge Poisson model prices published under their own /mlb/odds/model routes.'],
+        ['Standings, teams and rosters', 'League and division standings, all 30 clubs, team profiles, active rosters and team schedules from the MLB Stats API.'],
+        ['The minor leagues, on the same key', 'Triple-A to Rookie: affiliates, standings, scores, leaders, player careers and recent form — open without a key.']],
+      uses: [['Live score and slate apps', 'Schedule, probables, lineups, live state and standings in one feed.'], ['Prospect and farm-system tools', 'MiLB careers, form and leaders tied to MLB player IDs.'], ['Research and model builds', 'Statcast tables with pagination for backtests and features.'], ['Betting and props tools', 'Book props and model prices side by side.'], ['Media products', 'Game environment and umpire context for previews.']] },
+    nfl: { value: 'A normalized NFL layer — scoreboards, drives, play-by-play and standings on one key.',
+      points: [['Normalized scoreboard', 'One scoreboard shape by date or week, with records, broadcasts and possession.'],
+        ['Drives and plays', 'Full drive history, the current drive and every play for a game.'],
+        ['Win-probability series', 'ESPN\'s win-probability series per game, passed through as a clearly sourced field.'],
+        ['Teams and rosters', 'Standings, team directory, rosters and team schedules.']],
+      uses: [['Live score products', 'Scoreboards and live games refreshed in seconds.'], ['Game-detail apps', 'Drives, plays and leaders for every game page.'], ['Fantasy and analysis tools', 'Rosters, box scores and schedules.'], ['Media dashboards', 'Standings and week-by-week slates.']] },
+    nba: { value: 'Game-level basketball detail — shot coordinates, lineups and advanced box scores.',
+      points: [['Shot coordinates', 'Every made and missed shot with court x/y, plus a ready shot chart.'],
+        ['Reconstructed lineups', 'On-court five rebuilt from starters and substitutions (estimates, labelled as such).'],
+        ['Advanced box scores', 'Box scores with computed TS% and USG%.'],
+        ['Win-probability series', 'ESPN\'s win-probability series per game, clearly sourced.'],
+        ['Standings and teams', 'Conference standings, all 30 teams, team profiles, rosters, team schedules and team statistics.']],
+      uses: [['Shot-chart visualizations', 'Court-coordinate plays ready to plot.'], ['Game-center products', 'Summary, box score, plays and lineups per game.'], ['Player analysis', 'Efficiency metrics computed per game.'], ['Live score apps', 'Slate and live games.'], ['Team pages', 'Standings, rosters, schedules and team stats per club.']] },
+    wnba: { value: 'The WNBA with real depth — live games, player and team stats, WinBA and Player DNA.',
+      points: [['Live game state', 'Today\'s slate, live game state, events, box scores and shots.'],
+        ['Player and team stats', 'Player and team statistics, game logs, injuries and transactions.'],
+        ['WinBA', 'A winning-impact index that measures association with winning, not causation.'],
+        ['Player DNA', 'Current-season Player DNA profiles, with a meta route listing which fields are proxies.']],
+      uses: [['WNBA score and slate apps', 'Today, schedule and live state.'], ['Player analysis', 'Game logs, stats and DNA profiles.'], ['Media and newsroom tools', 'Standings, playoffs, injuries and transactions.'], ['Model research', 'WinBA and stat tables as inputs.']] },
+    nhl: { value: 'Hockey beyond the box score — live cast, shot geometry, goalie starters and line deployment.',
+      points: [['Live cast', 'Manpower, goalies in net and running totals during the game.'],
+        ['Shot geometry', 'Raw shot features per game, marked raw-features-only — no xG is claimed.'],
+        ['Goalie starters', 'Confirmed or projected starters with rest and recent form; GSAx is reported as unavailable, never estimated.'],
+        ['Line deployment', 'Lines and pairs derived from shift charts for completed games.']],
+      uses: [['Live hockey apps', 'Board, scoreboard and live cast.'], ['Goalie and lineup tools', 'Starters and deployment by team.'], ['Shot-location research', 'Raw shot geometry for your own models.'], ['Standings and leaders pages', 'Public standings and leader routes.']] },
+    tennis: { value: 'Point-level tennis — live score and server, tournaments, rankings and head-to-head.',
+      points: [['Live point score', 'Live matches with point score, server and set-by-set detail.'],
+        ['Order of play', 'Today\'s matches across ATP and WTA events.'],
+        ['Rankings and H2H', 'WTA rankings by default, ATP via ?tour=atp, and head-to-head records.'],
+        ['Tournament editions', 'Tournament and edition detail with match lists.']],
+      uses: [['Live tennis score apps', 'Point, game and set state as it happens.'], ['Player profile pages', 'Profiles, rankings and H2H.'], ['Tournament trackers', 'Editions, draws and order of play.'], ['Match research', 'Match detail and history for analysis.']] },
+    soccer: { value: 'Club and international soccer — fixtures, live matches, tables and player and team DNA.',
+      points: [['Fixtures and live matches', 'Fixtures and results by date or competition, plus live and recent matches.'],
+        ['Match cast', 'A per-match cast alongside match detail.'],
+        ['League tables and competitions', 'Premier League, Bundesliga, UEFA Champions League, UEFA Nations League and MLS.'],
+        ['Player and team DNA', 'DNA profiles for players and teams.']],
+      uses: [['Soccer score apps', 'Fixtures, live matches and results.'], ['League table widgets', 'Tables by competition.'], ['Scouting and analysis', 'Player and team DNA profiles.'], ['Media products', 'Match detail and cast per game.']] },
+    ufc: { value: 'Combat-sports intelligence on its own platform — cards, weigh-ins, round stats and Fight DNA.',
+      points: [['Events and cards', 'Upcoming events, fight cards, card changes and results.'],
+        ['Weigh-ins', 'Event weigh-in results as they post.'],
+        ['Round statistics', 'Round-by-round bout statistics and fighter histories.'],
+        ['Fight DNA and card intelligence', 'Fight DNA describes style and output — not a pick, price or probability.']],
+      uses: [['Fight-week products', 'Cards, weigh-ins and card changes.'], ['Fighter profile pages', 'Histories and career statistics.'], ['Analysis tools', 'Round statistics and Fight DNA.'], ['Media coverage', 'Event intelligence and results.']] }
+  };
+
+  // MLB Edge Suite: a separate specialist product (not part of PropSports API plans).
+  // checkoutReady stays false until the billing Worker accepts these prices and provisioning is verified.
+  var EDGE = {
+    checkoutReady: false,
+    products: [
+      ['Almost Bomb Streak Detector', 'Hitters producing homer-quality contact without the box-score result — exit velocity, launch angle, distance, xBA and streak length.'],
+      ['Pitcher Intelligence', 'Probable starters ranked by a last-five-start punishment score from hard-hit %, barrel %, exit velocity and K/9 trend.'],
+      ['Lucky Bombs', 'Yesterday\'s home runs that were more gift than signal: soft contact, bad angle, short distance or park-aided.'],
+      ['Ball Flight Intelligence', 'Tonight\'s games scored on temperature, humidity, altitude and air density, with estimated extra carry.'],
+      ['MLB Intelligence', 'Park factor, wind, temperature, umpire grades and HR scores in one composite layer.']
+    ],
+    plans: [
+      { id: 'EDGE_BASIC', name: 'Basic', price: 29, limit: 10000, priceId: 'price_1TgVoxF3CaVzg4ORm5niMmar' },
+      { id: 'EDGE_PRO', name: 'Pro', price: 59, limit: 50000, priceId: 'price_1TgVpYF3CaVzg4ORBTywn1gR', featured: true },
+      { id: 'EDGE_ULTRA', name: 'Ultra', price: 99, limit: 200000, priceId: 'price_1TgVqWF3CaVzg4OR3cxGnuAx' }
+    ]
+  };
 
   // PropSports 2026 V2 forward-facing plans (billing catalog 2026-09-30-pricing-v2).
   // Legacy prices stay grandfathered in the billing Worker and are never offered here.
@@ -293,9 +401,12 @@
   var DEVELOPER_MAX_SPORTS = 3;
 
   function count(list) { return list.reduce(function (n, g) { return n + g[1].length; }, 0); }
-  function countPub(list) { return list.reduce(function (n, g) { return n + g[1].filter(function (r) { return r[2] === 'pub'; }).length; }, 0); }
-  var perSport = {}, pubPerSport = {}, total = 0, pub = 0;
-  Object.keys(ROUTES).forEach(function (s) { perSport[s] = count(ROUTES[s]); pubPerSport[s] = countPub(ROUTES[s]); total += perSport[s]; pub += pubPerSport[s]; });
+  function countAccess(list, a) { return list.reduce(function (n, g) { return n + g[1].filter(function (r) { return r[2] === a; }).length; }, 0); }
+  var perSport = {}, byAccess = { open: {}, demo: {}, key: {} }, totals = { open: 0, demo: 0, key: 0 }, total = 0;
+  Object.keys(ROUTES).forEach(function (s) {
+    perSport[s] = count(ROUTES[s]); total += perSport[s];
+    Object.keys(totals).forEach(function (a) { byAccess[a][s] = countAccess(ROUTES[s], a); totals[a] += byAccess[a][s]; });
+  });
 
   root.PS_CONFIG = {
     API_BASE: API_BASE, UFC_BASE: UFC_BASE,
@@ -305,12 +416,14 @@
     REFRESH_SECONDS: 15,
     // Endpoint count shown on the site = the live API catalog (GET /health "endpoints").
     // Build fetches it; pages re-read it at runtime. This is only the offline fallback.
-    CATALOG_ENDPOINTS_FALLBACK: 106,
-    SPORTS: SPORTS, ROUTES: ROUTES, UFC_ROUTES: UFC_ROUTES, PLANS: PLANS, PRICE_IDS: PRICE_IDS, DEVELOPER_MAX_SPORTS: DEVELOPER_MAX_SPORTS,
+    CATALOG_ENDPOINTS_FALLBACK: 151,
+    ACCESS: ACCESS, SPORTS: SPORTS, STORY: STORY, EDGE: EDGE, ROUTES: ROUTES, UFC_ROUTES: UFC_ROUTES, PLANS: PLANS, PRICE_IDS: PRICE_IDS, DEVELOPER_MAX_SPORTS: DEVELOPER_MAX_SPORTS,
     COUNTS: {
       SPORT_PLATFORMS: SPORTS.length,
       CORE_API_SPORTS: SPORTS.filter(function (s) { return s.api; }).length,
-      DOCUMENTED_ROUTES: total, PUBLIC_ENDPOINTS: pub, PER_SPORT: perSport, PUBLIC_PER_SPORT: pubPerSport,
+      DOCUMENTED_ROUTES: total, PER_SPORT: perSport,
+      OPEN: totals.open, DEMO: totals.demo, KEY: totals.key,
+      OPEN_PER_SPORT: byAccess.open, DEMO_PER_SPORT: byAccess.demo, KEY_PER_SPORT: byAccess.key,
       UFC_ENDPOINTS_LISTED: count(UFC_ROUTES)
     }
   };

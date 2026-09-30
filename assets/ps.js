@@ -36,7 +36,8 @@
   /* ── Checkout (billing Worker /create-checkout is authoritative) ── */
   function doCheckout(tier, el, extra) {
     tier = tier || 'ALL_SPORTS';
-    var priceId = C.PRICE_IDS[tier];
+    var edge = C.EDGE && C.EDGE.checkoutReady ? C.EDGE.plans.filter(function (p) { return p.id === tier; })[0] : null;
+    var priceId = C.PRICE_IDS[tier] || (edge && edge.priceId);
     if (!priceId) {
       alert('Checkout is not configured for ' + tier + '. Email sales@proptechusa.ai or call 1-888-784-3881.');
       return;
@@ -145,20 +146,20 @@
         current = ex;
         var info = routeInfo(ex.path);
         pathEl.innerHTML = '<span class="host">' + esc(ex.host.replace('https://', '')) + '</span>' + esc(ex.path);
-        descEl.innerHTML = info ? esc(info[1]) + ' · <code>' + (info[2] === 'pub' ? 'public, no key' : info[2] === 'demo' ? 'demo key accepted' : 'API key required') + '</code>' : '';
+        descEl.innerHTML = info ? esc(info[1]) + ' · <code>' + esc(C.ACCESS[info[2]].label) + '</code>' : '';
         var ok = ex.status >= 200 && ex.status < 300;
         var trimmed = ex.trims && ex.trims.length ? ' · arrays trimmed for display' : '';
         statusEl.innerHTML = '<span class="code' + (ok ? '' : ' err') + '">' + (ex.status || 'ERR') + '</span><span>' + ex.ms + ' ms</span><span>captured ' + esc(String(data.captured_at).slice(0, 10)) + trimmed + '</span>';
         bodyEl.innerHTML = ex.body == null ? esc(ex.error || 'No body') : highlight(JSON.stringify(ex.body, null, 2));
         bodyEl.scrollTop = 0;
-        if (runBtn) runBtn.hidden = !(info && info[2] === 'pub');
+        if (runBtn) runBtn.hidden = !(info && (info[2] === 'open' || info[2] === 'demo'));
       });
     }
     tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.getAttribute('data-ex')); }); });
     if (copyBtn) copyBtn.addEventListener('click', function () {
       if (!current) return;
       var info = routeInfo(current.path);
-      var keyed = !(info && info[2] === 'pub');
+      var keyed = !(info && (info[2] === 'open' || info[2] === 'demo'));
       copy('curl ' + (keyed ? '-H "X-API-Key: $PROPSPORTS_KEY" ' : '') + '"' + current.url + '"', copyBtn);
     });
     if (copyJson) copyJson.addEventListener('click', function () { if (current && current.body) copy(JSON.stringify(current.body, null, 2), copyJson); });

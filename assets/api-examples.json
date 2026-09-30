@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-30T20:09:47.365Z",
+  "captured_at": "2026-09-30T22:42:34.903Z",
   "note": "Real responses captured from production. Arrays trimmed for display; see trims.",
   "examples": {
     "mlb": {
@@ -7,7 +7,7 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/mlb/schedule/today",
       "status": 200,
-      "ms": 610,
+      "ms": 477,
       "error": null,
       "trims": [
         {
@@ -18,7 +18,7 @@
         {
           "path": "games[0].linescore.innings",
           "kept": 1,
-          "total": 7
+          "total": 10
         }
       ],
       "body": {
@@ -33,12 +33,12 @@
             "gameDate": "2026-09-30T18:00:00Z",
             "officialDate": "2026-09-30",
             "status": {
-              "abstractGameState": "Live",
-              "codedGameState": "I",
-              "detailedState": "In Progress",
-              "statusCode": "I",
+              "abstractGameState": "Final",
+              "codedGameState": "F",
+              "detailedState": "Final",
+              "statusCode": "F",
               "startTimeTBD": false,
-              "abstractGameCode": "L"
+              "abstractGameCode": "F"
             },
             "teams": {
               "away": {
@@ -90,12 +90,13 @@
                   "active": true
                 },
                 "leagueRecord": {
-                  "wins": 0,
+                  "wins": 1,
                   "losses": 1,
                   "ties": 0,
-                  "pct": ".000"
+                  "pct": ".500"
                 },
-                "score": 1,
+                "score": 4,
+                "isWinner": true,
                 "probablePitcher": {
                   "id": 650911,
                   "fullName": "Cristopher Sánchez",
@@ -160,11 +161,12 @@
                 },
                 "leagueRecord": {
                   "wins": 1,
-                  "losses": 0,
+                  "losses": 1,
                   "ties": 0,
-                  "pct": "1.000"
+                  "pct": ".500"
                 },
-                "score": 1,
+                "score": 3,
+                "isWinner": false,
                 "probablePitcher": {
                   "id": 641816,
                   "fullName": "Tyler Mahle",
@@ -181,8 +183,8 @@
               }
             },
             "linescore": {
-              "currentInning": 7,
-              "currentInningOrdinal": "7th",
+              "currentInning": 10,
+              "currentInningOrdinal": "10th",
               "inningState": "Bottom",
               "inningHalf": "Bottom",
               "isTopInning": false,
@@ -207,23 +209,23 @@
               ],
               "teams": {
                 "home": {
-                  "runs": 1,
-                  "hits": 5,
+                  "runs": 3,
+                  "hits": 9,
                   "errors": 0,
-                  "leftOnBase": 6
+                  "leftOnBase": 11
                 },
                 "away": {
-                  "runs": 1,
-                  "hits": 6,
+                  "runs": 4,
+                  "hits": 12,
                   "errors": 0,
-                  "leftOnBase": 6
+                  "leftOnBase": 9
                 }
               },
               "defense": {
                 "pitcher": {
-                  "id": 650911,
-                  "fullName": "Cristopher Sánchez",
-                  "link": "/api/v1/people/650911"
+                  "id": 691725,
+                  "fullName": "Andrew Painter",
+                  "link": "/api/v1/people/691725"
                 },
                 "catcher": {
                   "id": 592663,
@@ -231,9 +233,9 @@
                   "link": "/api/v1/people/592663"
                 },
                 "first": {
-                  "id": 664761,
-                  "fullName": "Alec Bohm",
-                  "link": "/api/v1/people/664761"
+                  "id": 547180,
+                  "fullName": "Bryce Harper",
+                  "link": "/api/v1/people/547180"
                 },
                 "second": {
                   "id": 681082,
@@ -241,9 +243,9 @@
                   "link": "/api/v1/people/681082"
                 },
                 "third": {
-                  "id": 624641,
-                  "fullName": "Edmundo Sosa",
-                  "link": "/api/v1/people/624641"
+                  "id": 664761,
+                  "fullName": "Alec Bohm",
+                  "link": "/api/v1/people/664761"
                 },
                 "shortstop": {
                   "id": 607208,
@@ -251,9 +253,9 @@
                   "link": "/api/v1/people/607208"
                 },
                 "left": {
-                  "id": 669016,
-                  "fullName": "Brandon Marsh",
-                  "link": "/api/v1/people/669016"
+                  "id": 650559,
+                  "fullName": "Bryan De La Cruz",
+                  "link": "/api/v1/people/650559"
                 },
                 "center": {
                   "id": 702222,
@@ -261,26 +263,26 @@
                   "link": "/api/v1/people/702222"
                 },
                 "right": {
-                  "id": 547180,
-                  "fullName": "Bryce Harper",
-                  "link": "/api/v1/people/547180"
+                  "id": 656537,
+                  "fullName": "Derek Hill",
+                  "link": "/api/v1/people/656537"
                 },
                 "batter": {
-                  "id": 656941,
-                  "fullName": "Kyle Schwarber",
-                  "link": "/api/v1/people/656941"
+                  "id": 702222,
+                  "fullName": "Justin Crawford",
+                  "link": "/api/v1/people/702222"
                 },
                 "onDeck": {
-                  "id": 547180,
-                  "fullName": "Bryce Harper",
-                  "link": "/api/v1/people/547180"
+                  "id": 592663,
+                  "fullName": "J.T. Realmuto",
+                  "link": "/api/v1/people/592663"
                 },
                 "inHole": {
-                  "id": 664761,
-                  "fullName": "Alec Bohm",
-                  "link": "/api/v1/people/664761"
+                  "id": 607208,
+                  "fullName": "Trea Turner",
+                  "link": "/api/v1/people/607208"
                 },
-                "battingOrder": 2,
+                "battingOrder": 8,
                 "team": {
                   "id": 143,
                   "name": "Philadelphia Phillies",
@@ -289,14 +291,14 @@
               },
               "offense": {
                 "batter": {
-                  "id": 669221,
-                  "fullName": "Sean Murphy",
-                  "link": "/api/v1/people/669221"
+                  "id": 642086,
+                  "fullName": "Dominic Smith",
+                  "link": "/api/v1/people/642086"
                 },
                 "onDeck": {
-                  "id": 673490,
-                  "fullName": "Ha-Seong Kim",
-                  "link": "/api/v1/people/673490"
+                  "id": 573262,
+                  "fullName": "Mike Yastrzemski",
+                  "link": "/api/v1/people/573262"
                 },
                 "inHole": {
                   "id": 660670,
@@ -304,9 +306,9 @@
                   "link": "/api/v1/people/660670"
                 },
                 "pitcher": {
-                  "id": 641816,
-                  "fullName": "Tyler Mahle",
-                  "link": "/api/v1/people/641816"
+                  "id": 800311,
+                  "fullName": "Didier Fuentes",
+                  "link": "/api/v1/people/800311"
                 },
                 "battingOrder": 8,
                 "team": {
@@ -315,9 +317,9 @@
                   "link": "/api/v1/teams/144"
                 }
               },
-              "balls": 2,
-              "strikes": 1,
-              "outs": 0
+              "balls": 0,
+              "strikes": 3,
+              "outs": 3
             },
             "venue": {
               "id": 4705,
@@ -329,6 +331,7 @@
             "content": {
               "link": "/api/v1/game/849841/content"
             },
+            "isTie": false,
             "gameNumber": 1,
             "publicFacing": true,
             "doubleHeader": "N",
@@ -356,7 +359,7 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/mlb/statcast/pitchers?limit=2",
       "status": 200,
-      "ms": 139,
+      "ms": 145,
       "error": null,
       "trims": [],
       "body": {
@@ -425,12 +428,181 @@
         ]
       }
     },
+    "mlb-standings": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/standings",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/mlb/standings",
+      "status": 200,
+      "ms": 323,
+      "error": null,
+      "trims": [
+        {
+          "path": "divisions",
+          "kept": 1,
+          "total": 6
+        },
+        {
+          "path": "divisions[0].teams",
+          "kept": 1,
+          "total": 5
+        }
+      ],
+      "body": {
+        "season": "2026",
+        "source": "MLB Stats API",
+        "source_route": "/api/v1/standings",
+        "count": 30,
+        "divisions": [
+          {
+            "league": {
+              "id": 103,
+              "name": "American League"
+            },
+            "division": {
+              "id": 201,
+              "name": "American League East"
+            },
+            "last_updated": "2026-09-28T01:00:50.111Z",
+            "teams": [
+              {
+                "team": {
+                  "id": 139,
+                  "name": "Tampa Bay Rays",
+                  "abbreviation": "TB",
+                  "short_name": "Tampa Bay"
+                },
+                "wins": 98,
+                "losses": 64,
+                "pct": ".605",
+                "games_back": "-",
+                "wild_card_games_back": "-",
+                "division_rank": "1",
+                "league_rank": "1",
+                "games_played": 162,
+                "streak": "L1",
+                "runs_scored": 736,
+                "runs_allowed": 650,
+                "run_differential": 86,
+                "home": "55-26",
+                "away": "43-38",
+                "last_ten": "5-5",
+                "clinch": "z"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mlb-minors": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/minors/standings?level=11",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/mlb/minors/standings?level=11",
+      "status": 200,
+      "ms": 519,
+      "error": null,
+      "trims": [
+        {
+          "path": "data",
+          "kept": 1,
+          "total": 4
+        },
+        {
+          "path": "data[0].teams",
+          "kept": 1,
+          "total": 10
+        },
+        {
+          "path": "available_types",
+          "kept": 1,
+          "total": 3
+        }
+      ],
+      "body": {
+        "schema": "mlb-dev.v1",
+        "version": "1.0.0",
+        "source": "statsapi.mlb.com",
+        "captured_at": "2026-09-30T22:42:42.305Z",
+        "access": "public",
+        "competition": "milb",
+        "level": "Triple-A",
+        "season": 2026,
+        "freshness": {
+          "standings": {
+            "last_ok_at": "2026-09-30T21:07:49.829541+00:00",
+            "age_s": 5692,
+            "stale": false
+          }
+        },
+        "stale": false,
+        "partial": false,
+        "unavailable": [],
+        "data": [
+          {
+            "league_id": 117,
+            "league": "International League",
+            "division_id": 219,
+            "division": "International League East",
+            "teams": [
+              {
+                "season": 2026,
+                "standings_type": "regularSeason",
+                "team_id": 534,
+                "sport_id": 11,
+                "league_id": 117,
+                "division_id": 219,
+                "wins": 90,
+                "losses": 58,
+                "pct": ".608",
+                "games_back": "-",
+                "league_games_back": "-",
+                "wild_card_games_back": "-",
+                "streak": "W2",
+                "division_rank": "1",
+                "league_rank": "1",
+                "home_wins": 45,
+                "home_losses": 29,
+                "away_wins": 45,
+                "away_losses": 29,
+                "last_ten_wins": 7,
+                "last_ten_losses": 3,
+                "runs_scored": 843,
+                "runs_allowed": 701,
+                "games_played": 148,
+                "clinched": true,
+                "source": "statsapi.mlb.com",
+                "captured_at": "2026-09-30T21:07:37.973+00:00",
+                "team": {
+                  "team_id": 534,
+                  "name": "Rochester Red Wings",
+                  "abbreviation": "ROC",
+                  "sport_id": 11,
+                  "level": "Triple-A",
+                  "level_short": "AAA",
+                  "league": "International League",
+                  "org_id": 120
+                },
+                "parent_org_name": "Washington Nationals"
+              }
+            ]
+          }
+        ],
+        "standings_type": "regularSeason",
+        "available_types": [
+          "regularSeason"
+        ],
+        "sport": "mlb",
+        "canonicalCompetition": "affiliated minor leagues + MLB",
+        "gatewaySource": "https://mlb-dev-api.propbetedge.ai",
+        "capturedAt": "2026-09-30T22:42:42.305Z",
+        "count": 4
+      }
+    },
     "nfl": {
       "url": "https://propsports-api.sales-fd3.workers.dev/nfl/schedule",
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/nfl/schedule",
       "status": 200,
-      "ms": 99,
+      "ms": 162,
       "error": null,
       "trims": [
         {
@@ -453,7 +625,7 @@
         "ok": true,
         "source": {
           "provider": "espn_cdn_scoreboard",
-          "fetched_at": "2026-09-30T20:09:53.983Z"
+          "fetched_at": "2026-09-30T22:42:42.457Z"
         },
         "week": null,
         "season_type": 2,
@@ -560,13 +732,25 @@
       "url": "https://propsports-api.sales-fd3.workers.dev/nba/schedule/today",
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/nba/schedule/today",
-      "status": 500,
-      "ms": 129,
+      "status": 200,
+      "ms": 173,
       "error": null,
       "trims": [],
       "body": {
-        "error": "ESPN 403",
-        "ts": "2026-09-30T20:09:54.126Z"
+        "date": "20260930",
+        "games": [],
+        "meta": {
+          "sport": "nba",
+          "service": "healthy",
+          "lifecycle": "preseason",
+          "season": 2027,
+          "source": "ESPN site API",
+          "next_slate": {
+            "date": "20261003",
+            "first_start": "2026-10-03T23:00Z",
+            "games": 1
+          }
+        }
       }
     },
     "nhl": {
@@ -574,7 +758,7 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/nhl/standings",
       "status": 200,
-      "ms": 548,
+      "ms": 80,
       "error": null,
       "trims": [
         {
@@ -590,12 +774,12 @@
         "source_urls": [
           "https://api-web.nhle.com/v1/standings/now"
         ],
-        "fetched_at": "2026-09-30T20:09:54.655Z",
+        "fetched_at": "2026-09-30T22:42:42.709Z",
         "ttl_s": 900,
         "stale_after_s": 21600,
         "as_of": "now",
         "standings_date": "2026-09-30",
-        "standings_updated_utc": "2026-09-30T20:09:45Z",
+        "standings_updated_utc": "2026-09-30T22:42:30Z",
         "semantics": "CURRENT",
         "count": 32,
         "standings": [
@@ -667,7 +851,7 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/nhl/board",
       "status": 200,
-      "ms": 58,
+      "ms": 45,
       "error": null,
       "trims": [
         {
@@ -703,7 +887,7 @@
         "source_urls": [
           "https://api-web.nhle.com/v1/score/2026-09-30"
         ],
-        "fetched_at": "2026-09-30T20:09:54.729Z",
+        "fetched_at": "2026-09-30T22:42:42.773Z",
         "ttl_s": 30,
         "stale_after_s": 300,
         "date": "2026-09-30",
@@ -835,7 +1019,7 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/wnba/today",
       "status": 200,
-      "ms": 224,
+      "ms": 751,
       "error": null,
       "trims": [
         {
@@ -944,63 +1128,63 @@
                   "provider": "DraftKings",
                   "details": "ATL -3.5",
                   "spread": 3.5,
-                  "over_under": 165.5,
+                  "over_under": 166.5,
                   "note": "Single-sportsbook line as relayed by ESPN. Not a PropBetEdge price or model."
                 },
                 "market": {
                   "source": "The Odds API",
                   "semantics": "LAST_VERIFIED_MARKET",
-                  "captured_at": "2026-09-30T17:01:08.071Z",
-                  "age_s": 11327,
+                  "captured_at": "2026-09-30T22:01:06.612Z",
+                  "age_s": 2497,
                   "stale": false,
                   "odds_event_id": "2e0dc047f09840084e34e02f5d39b8fb",
                   "books": 10,
                   "moneyline": {
                     "home_best": {
-                      "price": 133,
-                      "book": "betonlineag",
-                      "point": null
-                    },
-                    "away_best": {
-                      "price": -145,
+                      "price": 140,
                       "book": "bovada",
                       "point": null
                     },
-                    "home_no_vig": 0.417,
-                    "away_no_vig": 0.583,
+                    "away_best": {
+                      "price": -155,
+                      "book": "draftkings",
+                      "point": null
+                    },
+                    "home_no_vig": 0.4127,
+                    "away_no_vig": 0.5873,
                     "consensus_books": 10
                   },
                   "spread": {
                     "home_line": 3,
                     "home_best": {
-                      "price": -110,
-                      "book": "mybookieag",
+                      "price": 100,
+                      "book": "bovada",
                       "point": 3
                     },
                     "away_best": {
-                      "price": -103,
-                      "book": "lowvig",
+                      "price": -110,
+                      "book": "mybookieag",
                       "point": 3
                     }
                   },
                   "total": {
-                    "line": 165.5,
+                    "line": 166.5,
                     "over_best": {
-                      "price": -112,
-                      "book": "draftkings",
-                      "point": 165.5
+                      "price": -109,
+                      "book": "betrivers",
+                      "point": 166.5
                     },
                     "under_best": {
-                      "price": 100,
-                      "book": "williamhill_us",
-                      "point": 165.5
+                      "price": -103,
+                      "book": "lowvig",
+                      "point": 166.5
                     }
                   },
                   "props": {
                     "available": true,
-                    "count": 61,
+                    "count": 60,
                     "players": 12,
-                    "captured_at": "2026-09-30T17:01:08.071Z"
+                    "captured_at": "2026-09-30T22:01:06.612Z"
                   },
                   "market_fair_value_model": {
                     "status": "not_published",
@@ -1095,11 +1279,11 @@
             "count": 48,
             "out": 48,
             "day_to_day": 0,
-            "fetched_at": "2026-09-30T20:05:26.651Z",
+            "fetched_at": "2026-09-30T22:39:26.733Z",
             "freshness": "CACHED"
           },
           "market": {
-            "captured_at": "2026-09-30T17:01:08.071Z",
+            "captured_at": "2026-09-30T22:01:06.612Z",
             "events": 3,
             "books_max": 11,
             "semantics": "LAST_VERIFIED_MARKET"
@@ -1114,9 +1298,9 @@
             "name": "ESPN",
             "authority": "EXTERNAL_PROVIDER"
           },
-          "fetched_at": "2026-09-30T20:09:54.900Z",
+          "fetched_at": "2026-09-30T22:42:42.983Z",
           "source_updated_at": null,
-          "served_at": "2026-09-30T20:09:54.921Z",
+          "served_at": "2026-09-30T22:42:43.417Z",
           "age_s": 0,
           "stale_after_s": 8,
           "freshness": "CURRENT",
@@ -1136,14 +1320,9 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/tennis/live",
       "status": 200,
-      "ms": 939,
+      "ms": 935,
       "error": null,
       "trims": [
-        {
-          "path": "data[0].sets",
-          "kept": 1,
-          "total": 2
-        },
         {
           "path": "meta.semantics",
           "kept": 160,
@@ -1153,122 +1332,13 @@
       ],
       "body": {
         "ok": true,
-        "data": [
-          {
-            "id": "03403c79-e9e7-586f-ae76-b52655725ff1",
-            "event_type": "WS",
-            "round": "M-2",
-            "format": "BO3_TB7",
-            "status": "in_progress",
-            "winner_side": null,
-            "end_reason": null,
-            "score": "7-6(5) 1-1",
-            "duration_s": 5449,
-            "scheduled_at": null,
-            "court": null,
-            "schedule_note": null,
-            "live": {
-              "point": {
-                "A": "15",
-                "B": "0"
-              },
-              "server": "A"
-            },
-            "sets": [
-              {
-                "A": 7,
-                "B": 6,
-                "tb": {
-                  "A": 7,
-                  "B": 5
-                },
-                "match_tiebreak": false,
-                "winner": "A"
-              }
-            ],
-            "sides": {
-              "A": {
-                "participant_key": "S:02faee46-438a-57ce-94fe-60323fec96fc",
-                "seed": null,
-                "entry_type": "Wc",
-                "players": [
-                  {
-                    "id": "02faee46-438a-57ce-94fe-60323fec96fc",
-                    "slug": "cagla-buyukakcay",
-                    "name": "Cagla Buyukakcay",
-                    "last_name": "Buyukakcay",
-                    "nationality": "TUR",
-                    "gender": "F",
-                    "photo": {
-                      "portrait": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/portrait.webp?v=5bdfdb6d72",
-                      "square": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/square.webp?v=5bdfdb6d72",
-                      "thumb": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/thumb.webp?v=5bdfdb6d72",
-                      "wide": null,
-                      "square_jpg": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/square.jpg?v=5bdfdb6d72",
-                      "credit": "Assaf Yekuel / CC BY-SA 3.0 / Wikimedia Commons",
-                      "author": "Assaf Yekuel",
-                      "license": "CC BY-SA 3.0",
-                      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-                      "source_page": "https://commons.wikimedia.org/wiki/File:Fed_Cup_Group_I_2013_Europe_Africa_day_2_%C3%87a%C4%9Fla_B%C3%BCy%C3%BCkak%C3%A7ay_003.JPG"
-                    }
-                  }
-                ]
-              },
-              "B": {
-                "participant_key": "S:2c70301b-39f2-5284-a936-f92d7e632df3",
-                "seed": 6,
-                "entry_type": null,
-                "players": [
-                  {
-                    "id": "2c70301b-39f2-5284-a936-f92d7e632df3",
-                    "slug": "lucrezia-stefanini",
-                    "name": "Lucrezia Stefanini",
-                    "last_name": "Stefanini",
-                    "nationality": "ITA",
-                    "gender": "F",
-                    "photo": {
-                      "portrait": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/portrait.webp?v=eddba7b4c6",
-                      "square": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/square.webp?v=eddba7b4c6",
-                      "thumb": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/thumb.webp?v=eddba7b4c6",
-                      "wide": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/wide.webp?v=eddba7b4c6",
-                      "square_jpg": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/square.jpg?v=eddba7b4c6",
-                      "credit": "si.robi / CC BY-SA 2.0 / Wikimedia Commons",
-                      "author": "si.robi",
-                      "license": "CC BY-SA 2.0",
-                      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-                      "source_page": "https://commons.wikimedia.org/wiki/File:Stefanini_RGQ22_(13)_(52129534531).jpg"
-                    }
-                  }
-                ]
-              }
-            },
-            "tournament": {
-              "slug": "adana-125",
-              "tournament": "Adana 125",
-              "name": "Adana Open - Adana, TUR",
-              "year": 2026,
-              "level": "WTA 125",
-              "surface": "hard",
-              "indoor": false,
-              "start_date": "2026-09-28",
-              "end_date": "2026-10-04",
-              "city": "Adana",
-              "country": "TUR"
-            },
-            "stats": "pending",
-            "source": "wta",
-            "source_updated_at": "2026-09-30T20:09:07.807+00:00",
-            "updated_at": "2026-09-30T20:09:44.337+00:00"
-          }
-        ],
+        "data": [],
         "meta": {
-          "source": [
-            "wta"
-          ],
-          "fetched_at": "2026-09-30T20:09:55.890Z",
-          "source_updated_at": "2026-09-30T20:09:44.337+00:00",
-          "age_s": 12,
-          "freshness": "CURRENT",
+          "source": [],
+          "fetched_at": "2026-09-30T22:42:44.462Z",
+          "source_updated_at": null,
+          "age_s": null,
+          "freshness": "UNAVAILABLE",
           "semantics": "matches whose latest observed source state is in progress, every tour and event type (MS, WS, MD, WD, XD); point score + server only where the source publish...",
           "degraded": []
         }
@@ -1279,7 +1349,7 @@
       "host": "https://propsports-api.sales-fd3.workers.dev",
       "path": "/soccer/matches?limit=2",
       "status": 200,
-      "ms": 790,
+      "ms": 277,
       "error": null,
       "trims": [
         {
@@ -1372,9 +1442,9 @@
           "attribution": [
             "Structured facts: ESPN (secondary source)"
           ],
-          "generated_at": "2026-09-30T20:09:56.651Z",
+          "generated_at": "2026-09-30T22:42:44.728Z",
           "api_version": "soccer-api/1.2.0",
-          "timing_ms": 210,
+          "timing_ms": 77,
           "store_requests": 7
         }
       }
@@ -1384,7 +1454,7 @@
       "host": "https://ufc-api.propbetedge.ai",
       "path": "/v1/ufc/events?status=upcoming&limit=2",
       "status": 200,
-      "ms": 221,
+      "ms": 236,
       "error": null,
       "trims": [],
       "body": {
@@ -1403,7 +1473,7 @@
             "commission": null,
             "is_ppv": null,
             "card_status": "announced",
-            "updated_at": "2026-09-30T20:05:53.882+00:00"
+            "updated_at": "2026-09-30T22:35:29.19+00:00"
           },
           {
             "id": "502cba16-70e9-4831-8795-c3423515006e",
@@ -1418,13 +1488,13 @@
             "commission": null,
             "is_ppv": null,
             "card_status": "announced",
-            "updated_at": "2026-09-30T20:06:03.729+00:00"
+            "updated_at": "2026-09-30T22:35:38.363+00:00"
           }
         ],
         "meta": {
           "api": "PropSports UFC",
           "version": "2026-09-14.1",
-          "request_id": "137bb49d-55a5-4a54-84e9-03b962374d7c",
+          "request_id": "4c9a8ba7-87a1-474b-a02e-1f1b60844239",
           "count": 2,
           "total": 11,
           "status": "upcoming",

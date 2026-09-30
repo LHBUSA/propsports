@@ -1,4 +1,4 @@
-// Probes every registry route marked public ('pub') or demo-accessible ('demo') against production.
+// Probes every registry route marked open ('open') or demo access ('demo') against production.
 // A route is "recognized" when production does not answer with its unknown-route 404 or the
 // keyed-access 403. Keyed routes cannot be verified without a customer key and are reported as such.
 // Usage: node scripts/verify-routes.mjs
@@ -14,13 +14,14 @@ const C = ctx.PS_CONFIG;
 const SAMPLE = { ':pk': '849841', ':id': '660271', ':abbr': 'EDM', ':slug': 'premier-league', ':a': 'a', ':b': 'b', ':year': '2026' };
 const QUERY = { '/mlb/weather': '?park=Truist%20Park', '/mlb/odds/player': '?name=Soto', '/mlb/odds/model/player': '?name=Soto' };
 const NBA_GAME = '401704923';
+const MLB_TEAM = '147';
 
 const rows = [];
 for (const [sport, groups] of Object.entries(C.ROUTES)) {
   for (const [, routes] of groups) {
     for (const [path, , access] of routes) {
       if (access === 'key') { rows.push({ sport, path, access, result: 'keyed (not externally verifiable)' }); continue; }
-      let url = path.replace(/:\w+/g, (m) => (sport === 'nba' && m === ':id' ? NBA_GAME : SAMPLE[m] || '1'));
+      let url = path.replace(/:\w+/g, (m) => (sport === 'nba' && m === ':id' ? NBA_GAME : path.startsWith('/mlb/team/') ? MLB_TEAM : SAMPLE[m] || '1'));
       url += QUERY[path] || '';
       if (access === 'demo') url += (url.includes('?') ? '&' : '?') + 'key=' + C.DEMO_KEY;
       let status = 0, body = '';

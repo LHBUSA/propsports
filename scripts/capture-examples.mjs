@@ -12,6 +12,8 @@ const UFC = 'https://ufc-api.propbetedge.ai';
 const EXAMPLES = [
   { id: 'mlb', host: API, path: '/mlb/schedule/today', keep: 1 },
   { id: 'mlb-statcast', host: API, path: '/mlb/statcast/pitchers?limit=2', keep: 2 },
+  { id: 'mlb-standings', host: API, path: '/mlb/standings', keep: 1 },
+  { id: 'mlb-minors', host: API, path: '/mlb/minors/standings?level=11', keep: 1 },
   { id: 'nfl', host: API, path: '/nfl/schedule', keep: 1 },
   { id: 'nba', host: API, path: '/nba/schedule/today', keep: 1 },
   { id: 'nhl', host: API, path: '/nhl/standings', keep: 2 },

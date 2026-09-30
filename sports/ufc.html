@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muolwkf4">
+<link rel="stylesheet" href="/assets/ps.css?v=muop6kvx">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Sports","item":"https://propsports.proptechusa.ai/#network"},{"@type":"ListItem","position":3,"name":"UFC Intelligence","item":"https://propsports.proptechusa.ai/sports/ufc"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/sports/ufc#webpage","url":"https://propsports.proptechusa.ai/sports/ufc","name":"UFC API — Fight DNA & Round Statistics | PropSports","description":"UFC runs on the dedicated combat-sports intelligence platform, not through the PropSports API key: events and cards, weigh-ins, fighter history,…","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US"}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
@@ -90,17 +90,35 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>14</b></div>
-      <div><span>Public (no key)</span><b>11</b></div>
+      <div><span>Open without key</span><b>11</b></div>
+      <div><span>API key required</span><b>3</b></div>
       <div><span>Base path</span><b class="mono">/v1/ufc</b></div>
       <div><span>Host</span><b class="mono">ufc-api.propbetedge.ai</b></div>
-      <div><span>Served via</span><b>Separate host</b></div>
       <div><span>Live cache</span><b>Platform-managed</b></div>
     </div>
   </div>
 </section>
-<section class="sec" aria-labelledby="cap-h">
+<section class="sec white" aria-labelledby="story-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>01</b> Capabilities</p><h2 id="cap-h">What the UFC API covers.</h2></div></div>
+    <div class="story">
+      <div class="story-lead"><p class="label"><b>01</b> Why UFC</p><h2 id="story-h">Combat-sports intelligence on its own platform — cards, weigh-ins, round stats and Fight DNA.</h2>
+        <div class="story-uses"><p class="story-k">Built for</p><ul><li><strong>Fight-week products</strong><span>Cards, weigh-ins and card changes.</span></li><li><strong>Fighter profile pages</strong><span>Histories and career statistics.</span></li><li><strong>Analysis tools</strong><span>Round statistics and Fight DNA.</span></li><li><strong>Media coverage</strong><span>Event intelligence and results.</span></li></ul></div></div>
+      <div class="story-points"><article><h3>Events and cards</h3><p>Upcoming events, fight cards, card changes and results.</p></article><article><h3>Weigh-ins</h3><p>Event weigh-in results as they post.</p></article><article><h3>Round statistics</h3><p>Round-by-round bout statistics and fighter histories.</p></article><article><h3>Fight DNA and card intelligence</h3><p>Fight DNA describes style and output — not a pick, price or probability.</p></article></div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="live" aria-labelledby="pv-h">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="label"><b>02</b> Live now</p><h2 id="pv-h">UFC on the network, right now.</h2><p class="sec-lead">A real event read from the same UFC platform feed, refreshed every 15 seconds.</p></div></div>
+    <div class="pv" data-live-preview="ufc" aria-live="polite">
+      <div class="pv-meta" data-preview-meta><i class="pv-dot"></i>Connecting…</div>
+      <div class="pv-body" data-preview-body><div class="pv-card pv-skel"><span></span><span></span><span></span></div></div>
+    </div>
+  </div>
+</section>
+<section class="sec alt" aria-labelledby="cap-h">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="label"><b>03</b> Capabilities</p><h2 id="cap-h">What the UFC API covers.</h2></div></div>
     <div class="caps">
       <div><h3>Schedule &amp; live</h3><ul><li>Events &amp; cards</li><li>Weigh-ins</li><li>Results</li></ul></div>
       <div><h3>Play-by-play &amp; game</h3><ul><li>Round statistics</li></ul></div>
@@ -111,35 +129,36 @@
     </div>
   </div>
 </section>
-<section class="sec alt" id="endpoints" aria-labelledby="ep-h">
+<section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>02</b> Endpoints</p><h2 id="ep-h">14 documented UFC routes.</h2><p class="sec-lead">All routes are <code>GET</code> on <code>https://ufc-api.propbetedge.ai</code>. Public routes need no key; the rest take a UFC platform key.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">14 documented UFC routes.</h2><p class="sec-lead">Every UFC route in the UFC platform, all <code>GET</code> on <code>https://ufc-api.propbetedge.ai</code>: 11 open without key · 3 API key required. Keyed routes take a UFC platform key.</p></div></div>
+    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
     <div class="ep-groups">
-  <div class="ep-group"><h3>Events &amp; cards</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/v1/ufc/events</code><span>Events (?status=upcoming) · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/card</code><span>Fight card · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/weigh-ins</code><span>Event weigh-ins · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/weigh-ins</code><span>Weigh-in results · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/results</code><span>Results · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/rankings</code><span>Official rankings snapshot · <em class="acc acc-pub">Public</em></span></div></li>
+  <div class="ep-group"><h3>Events &amp; cards <span class="ep-n">6</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/v1/ufc/events</code><span>Events (?status=upcoming)</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/card</code><span>Fight card</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/weigh-ins</code><span>Event weigh-ins</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/weigh-ins</code><span>Weigh-in results</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/results</code><span>Results</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/rankings</code><span>Official rankings snapshot</span><em class="acc acc-open">Open without key</em></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Fighters &amp; bouts</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters</code><span>Fighters · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id</code><span>Fighter profile · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/history</code><span>Fight history and career stats · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/stats</code><span>Round-by-round bout statistics · <em class="acc acc-pub">Public</em></span></div></li>
+  <div class="ep-group"><h3>Fighters &amp; bouts <span class="ep-n">4</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters</code><span>Fighters</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id</code><span>Fighter profile</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/history</code><span>Fight history and career stats</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/stats</code><span>Round-by-round bout statistics</span><em class="acc acc-open">Open without key</em></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Fight DNA &amp; intelligence</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/v1/ufc/dna/metrics</code><span>Fight DNA metric definitions · <em class="acc acc-pub">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/dna</code><span>Fighter DNA (not a pick, price or probability) · <em class="acc acc-key">API key</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/intelligence</code><span>Card intelligence · <em class="acc acc-key">API key</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/ledger</code><span>Fight state ledger checkpoints · <em class="acc acc-key">API key</em></span></div></li>
+  <div class="ep-group"><h3>Fight DNA &amp; intelligence <span class="ep-n">4</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/v1/ufc/dna/metrics</code><span>Fight DNA metric definitions</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/dna</code><span>Fighter DNA (not a pick, price or probability)</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/intelligence</code><span>Card intelligence</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/ledger</code><span>Fight state ledger checkpoints</span><em class="acc acc-key">API key required</em></div></li>
   </ul></div></div>
   </div>
 </section>
-<section class="sec" aria-labelledby="ex-h">
+<section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>03</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Public routes re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
     <div class="console dark" data-console data-first="ufc">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="ufc" aria-selected="true" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span><strong>/events</strong><span class="p">/v1/ufc/events</span></button>
@@ -156,7 +175,7 @@
 </section>
 <section class="sec white" aria-labelledby="notes-h">
   <div class="wrap split">
-    <div><p class="label"><b>04</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
+    <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated UFC platform (ufc-api.propbetedge.ai); weigh-in ingest every minute</li>
       <li><b>ACCESS</b>Keys and billing are handled on the UFC platform.</li>
@@ -179,17 +198,19 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>106</span> catalog endpoints and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>151</span> documented API routes and a dedicated UFC intelligence platform.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
       <div><p class="foot-h">SPORT GUIDES</p><a href="/mlb">MLB API guide</a><a href="/nfl">NFL API guide</a><a href="/nba">NBA API guide</a><a href="/nhl">NHL API guide</a><a href="/mlb-edge">MLB Edge Suite</a><a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">UFC Intelligence platform</a></div>
-      <div><p class="foot-h">COMPANY</p><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai</a><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai</a><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">PropData API</a><a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI listing</a><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a><a href="tel:18887843881">1-888-784-3881</a></div>
+      <div><p class="foot-h">COMPANY</p><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai</a><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai</a><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">PropData API</a><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a><a href="tel:18887843881">1-888-784-3881</a></div>
     </div>
     <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muolwkf4"></script>
-<script src="/assets/ps.js?v=muolwkf4" defer></script>
+<script src="/assets/ps-config.js?v=muop6kvx"></script>
+<script src="/assets/ps.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-network.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-live.js?v=muop6kvx" defer></script>
 </body>
 </html>

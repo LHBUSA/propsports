@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>PropSports API Documentation — 106 Endpoints, 7 Sports</title>
+<title>PropSports API Documentation — 151 Endpoints, 7 Sports</title>
 <!-- ps:seo -->
 <link rel="canonical" href="https://propsports.proptechusa.ai/docs">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PropSports API">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="PropSports API Documentation — 106 Endpoints, 7 Sports">
-<meta property="og:description" content="PropSports API documentation: authentication, rate limits and code examples for 106 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.">
+<meta property="og:title" content="PropSports API Documentation — 151 Endpoints, 7 Sports">
+<meta property="og:description" content="PropSports API documentation: authentication, rate limits and code examples for 151 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.">
 <meta property="og:url" content="https://propsports.proptechusa.ai/docs">
 <meta property="og:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
 <meta property="og:image:secure_url" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
@@ -19,8 +19,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PropSports API Documentation — 106 Endpoints, 7 Sports">
-<meta name="twitter:description" content="PropSports API documentation: authentication, rate limits and code examples for 106 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.">
+<meta name="twitter:title" content="PropSports API Documentation — 151 Endpoints, 7 Sports">
+<meta name="twitter:description" content="PropSports API documentation: authentication, rate limits and code examples for 151 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.">
 <meta name="twitter:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
 <meta name="twitter:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
 <meta name="theme-color" content="#07090C">
@@ -30,9 +30,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Documentation","item":"https://propsports.proptechusa.ai/docs"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/docs#webpage","url":"https://propsports.proptechusa.ai/docs","name":"PropSports API Documentation — 106 Endpoints, 7 Sports","description":"PropSports API documentation: authentication, rate limits and code examples for 106 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Documentation","item":"https://propsports.proptechusa.ai/docs"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/docs#webpage","url":"https://propsports.proptechusa.ai/docs","name":"PropSports API Documentation — 151 Endpoints, 7 Sports","description":"PropSports API documentation: authentication, rate limits and code examples for 151 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US"}]}</script>
 <!-- /ps:seo -->
-<meta name="description" content="PropSports API documentation: authentication, rate limits and code examples for 106 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.">
+<meta name="description" content="PropSports API documentation: authentication, rate limits and code examples for 151 endpoints across MLB, NFL, NBA, WNBA, NHL, tennis and soccer.">
 <meta name="robots" content="index, follow">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
@@ -227,7 +227,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
           <div class="nav-dd-section">&#9918; Sports</div>
           <a href="/pricing" class="nav-dd-item">
             <span class="nav-dd-icon">&#9889;</span>
-            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · WNBA · NHL · Tennis · Soccer · 106 endpoints · Poisson model odds</div><div class="nav-dd-price">From $29/mo · All sports $149/mo</div></div>
+            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · WNBA · NHL · Tennis · Soccer · 151 endpoints · Poisson model odds</div><div class="nav-dd-price">From $29/mo · All sports $149/mo</div></div>
           </a>
           <a href="/mlb-edge" class="nav-dd-item">
             <span class="nav-dd-icon">&#9918;</span>
@@ -250,11 +250,6 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
           <a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener" class="nav-dd-item">
             <span class="nav-dd-icon">&#127968;</span>
             <div><div class="nav-dd-name">PropData API</div><div class="nav-dd-desc">165M+ parcels · address lookup · AVM · leads · 19 endpoints</div><div class="nav-dd-price" style="color:var(--blue);">propdata.proptechusa.ai &#8599;</div></div>
-          </a>
-          <div class="nav-dd-divider"></div>
-          <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener" class="nav-dd-item">
-            <span class="nav-dd-icon">&#128279;</span>
-            <div><div class="nav-dd-name">All 18 APIs on RapidAPI</div><div class="nav-dd-desc">Browse every PropTechUSA.ai API on the marketplace</div></div>
           </a>
         </div>
       </div>
@@ -309,7 +304,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
       <a href="#rate-limits" class="sb-link">Rate Limits</a>
       <a href="#errors" class="sb-link">Errors &amp; Status Codes</a>
       <a href="#demo-key" class="sb-link">Demo Key</a>
-      <a href="#rapidapi" class="sb-link">RapidAPI</a>
+      <a href="#catalog" class="sb-link">Route catalog</a>
     </div>
     <div class="sb-section">
       <span class="sb-label">&#9889; Model Odds</span>
@@ -397,19 +392,19 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
 
     <!-- OVERVIEW -->
     <div class="doc-section" id="overview">
-      <div class="eyebrow">API v6.0</div>
+      <div class="eyebrow">API v6.1.0</div>
       <h1 style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);margin-bottom:10px;">PropSports API documentation</h1>
-      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, WNBA, NHL, tennis and soccer. 106 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
+      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, WNBA, NHL, tennis and soccer. 151 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
       <p>What makes PropSports different from every other sports API: we own our Statcast data pipeline and we generate our own Poisson model odds from it. No DraftKings. No FanDuel. No sportsbook dependency. The <code>/mlb/odds/model/*</code> family of endpoints has no equivalent anywhere else at this price point.</p>
       <div class="resp-chips">
-        <span class="resp-chip green">106 endpoints</span>
-        <span class="resp-chip green">MLB &middot; NFL &middot; NBA &middot; NHL</span>
+        <span class="resp-chip green">151 endpoints</span>
+        <span class="resp-chip green">MLB &middot; NFL &middot; NBA &middot; WNBA &middot; NHL &middot; Tennis &middot; Soccer</span>
         <span class="resp-chip">JSON only</span>
         <span class="resp-chip">GET requests</span>
         <span class="resp-chip">CORS enabled</span>
         <span class="resp-chip">Cloudflare edge</span>
       </div>
-      <div class="alert alert-gold">&#9889; <strong>New in v4.2:</strong> No free tier. RapidAPI tiers now map to correct daily limits (Basic 50K, Pro 200K, Ultra 500K). Demo key is evaluation-only MLB, 20 req/hr global cap.</div>
+      <div class="alert alert-gold">&#9889; <strong>New in v6.1.0:</strong> MLB standings, teams, team profiles, rosters and team schedules; NBA standings, teams, team profiles, rosters, team schedules and team stats; affiliated minor leagues from Triple-A to Rookie. 151 documented routes.</div>
     </div>
 
     <!-- AUTH -->
@@ -496,8 +491,8 @@ data = r.json()
       <div class="code-block">
         <div class="code-header"><span>Error response shape</span></div>
         <pre>{
-  <span class="key">"error"</span>:   <span class="str">"Active paid RapidAPI subscription required."</span>,
-  <span class="key">"hint"</span>:    <span class="str">"Subscribe at rapidapi.com/team/propdata-propdata-default"</span>,
+  <span class="key">"error"</span>:   <span class="str">"Invalid API key."</span>,
+  <span class="key">"hint"</span>:    <span class="str">"Get a key at propsports.proptechusa.ai/pricing.html"</span>,
   <span class="key">"docs"</span>:    <span class="str">"https://propsports.proptechusa.ai/docs.html"</span>,
   <span class="key">"pricing"</span>: <span class="str">"https://propsports.proptechusa.ai/pricing.html"</span>
 }</pre>
@@ -508,7 +503,6 @@ data = r.json()
           <tr><td class="pn">200</td><td>OK</td></tr>
           <tr><td class="pn">400</td><td>Bad request &mdash; missing or invalid parameter</td></tr>
           <tr><td class="pn">401</td><td>Invalid or missing API key</td></tr>
-          <tr><td class="pn">402</td><td>No active paid subscription (RapidAPI callers)</td></tr>
           <tr><td class="pn">403</td><td>Your plan does not include this sport or endpoint</td></tr>
           <tr><td class="pn">404</td><td>Endpoint not found &mdash; check the path</td></tr>
           <tr><td class="pn">429</td><td>Daily rate limit or demo hourly cap exceeded</td></tr>
@@ -537,28 +531,34 @@ data = r.json()
       </table>
     </div>
 
-    <!-- RAPIDAPI -->
-    <div class="doc-section" id="rapidapi">
-      <h2>RapidAPI</h2>
-      <p>PropSports API is also available on RapidAPI. Subscription tier maps directly to your daily limit.</p>
-      <div class="code-block">
-        <div class="code-header"><span>RapidAPI links</span></div>
-        <pre><span class="cm"># Team / Hub page</span>
-<span class="url">https://rapidapi.com/team/propdata-propdata-default</span>
-
-<span class="cm"># Direct API listing</span>
-<span class="url">https://rapidapi.com/propdata-propdata-default/api/propsports</span></pre>
-      </div>
+    <!-- CATALOG -->
+<!-- ps:catalog -->
+    <div class="doc-section" id="catalog">
+      <h2>Route catalog</h2>
+      <p>The production catalog has <strong>151 documented routes</strong> across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer. Every route is listed with its access level in the <a href="/reference" style="color:var(--red);">API reference</a>, and machine-readably at <code>GET /sports</code>. <code>GET /health</code> reports the same totals.</p>
       <table class="param-table">
-        <thead><tr><th>RapidAPI Tier</th><th>Daily Requests</th><th>Maps To</th></tr></thead>
+        <thead><tr><th>Sport</th><th>Routes</th><th>Open without key</th><th>Demo access</th><th>API key required</th></tr></thead>
         <tbody>
-          <tr><td>BASIC</td><td>50,000</td><td>Basic plan</td></tr>
-          <tr><td>PRO</td><td>200,000</td><td>Pro plan</td></tr>
-          <tr><td>ULTRA</td><td>500,000</td><td>Ultra plan</td></tr>
+          <tr><td><a href="/reference#mlb" style="color:var(--red);">MLB</a></td><td>45</td><td>38</td><td>7</td><td>0</td></tr>
+          <tr><td><a href="/reference#nfl" style="color:var(--red);">NFL</a></td><td>15</td><td>3</td><td>0</td><td>12</td></tr>
+          <tr><td><a href="/reference#nba" style="color:var(--red);">NBA</a></td><td>19</td><td>10</td><td>0</td><td>9</td></tr>
+          <tr><td><a href="/reference#wnba" style="color:var(--red);">WNBA</a></td><td>25</td><td>2</td><td>0</td><td>23</td></tr>
+          <tr><td><a href="/reference#nhl" style="color:var(--red);">NHL</a></td><td>24</td><td>8</td><td>0</td><td>16</td></tr>
+          <tr><td><a href="/reference#tennis" style="color:var(--red);">Tennis</a></td><td>10</td><td>2</td><td>0</td><td>8</td></tr>
+          <tr><td><a href="/reference#soccer" style="color:var(--red);">Soccer</a></td><td>13</td><td>2</td><td>0</td><td>11</td></tr>
+          <tr><td><strong>All sports</strong></td><td><strong>151</strong></td><td>65</td><td>7</td><td>79</td></tr>
         </tbody>
       </table>
-      <div class="alert alert-blue">&#128161; RapidAPI callers are authenticated via <code>X-RapidAPI-User</code> and <code>X-RapidAPI-Subscription</code> headers injected by RapidAPI's proxy. Your <code>X-API-Key</code> header is not required when calling through RapidAPI. Any unauthenticated or unpaid caller receives <code>402</code>.</div>
+      <table class="param-table">
+        <thead><tr><th>Access level</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td>Open without key</td><td>Answers with no key at all.</td></tr>
+          <tr><td>Demo access</td><td>No key, or the shared demo key (rate-limited), or any MLB key.</td></tr>
+          <tr><td>API key required</td><td>A paid PropSports key entitled to the sport.</td></tr>
+        </tbody>
+      </table>
     </div>
+<!-- /ps:catalog -->
 
     <!-- ═══════════════════════════════════════════════ -->
     <!-- MODEL ODDS                                      -->
@@ -1110,7 +1110,7 @@ plays.plays.forEach(p => {
       <p>Plans from $29/mo; all 7 core sports from $149/mo. Key in your inbox after checkout. Cancel anytime.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="/pricing" class="btn-red">Get API Key &mdash; From $29/mo &rarr;</a>
-        <a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener" class="btn-outline">Also on RapidAPI &#8599;</a>
+        <a href="/reference" class="btn-outline">Full API reference &rarr;</a>
       </div>
       <p style="margin-top:16px;font-size:12px;">Questions? <a href="mailto:support@proptechusa.ai" style="color:var(--red);">support@proptechusa.ai</a> &middot; <a href="tel:18887843881" style="color:var(--red);">1-888-784-3881</a></p>
     </div>
@@ -1128,7 +1128,7 @@ plays.plays.forEach(p => {
           <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg>
           <span class="psa-ft-logo-t">Prop<span>Sports</span> API</span>
         </a>
-        <p class="psa-ft-desc">Real-time MLB, NFL, NBA &amp; NHL. Owned Statcast. Owned Poisson model odds. Flat monthly. No per-call fees. Featured in The Globe and Mail.</p>
+        <p class="psa-ft-desc">Real-time MLB, NFL, NBA, WNBA, NHL, tennis &amp; soccer. Owned Statcast. Owned Poisson model odds. Flat monthly. No per-call fees. Featured in The Globe and Mail.</p>
       </div>
       <div>
         <span class="psa-ft-col-h">Sports</span>
@@ -1144,8 +1144,7 @@ plays.plays.forEach(p => {
         <ul class="psa-ft-links">
           <li><a href="/docs">Documentation</a></li>
           <li><a href="/pricing">Pricing</a></li>
-          <li><a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener">RapidAPI Hub &#8599;</a></li>
-          <li><a href="https://rapidapi.com/propdata-propdata-default/api/propsports" target="_blank" rel="noopener">API Listing &#8599;</a></li>
+          <li><a href="/reference">API Reference</a></li>
           <li><a href="tel:18887843881">1-888-784-3881</a></li>
         </ul>
       </div>
@@ -1165,7 +1164,7 @@ plays.plays.forEach(p => {
       <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved &middot; Saint Paul, MN</div>
       <div class="psa-ft-badges">
         <span class="psa-ft-badge">v4.2.0</span>
-        <span class="psa-ft-badge">106 endpoints</span>
+        <span class="psa-ft-badge">151 endpoints</span>
         <span class="psa-ft-badge">Cloudflare Workers</span>
         <span class="psa-ft-badge">MLB Stats API</span>
         <span class="psa-ft-badge">Baseball Savant</span>

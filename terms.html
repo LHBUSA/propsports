@@ -116,7 +116,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
   <div class="doc-header">
     <div class="eyebrow">Legal</div>
     <h1>Terms of Service</h1>
-    <div class="updated">Last updated: June 29, 2026 &nbsp;&middot;&nbsp; Effective immediately upon account creation</div>
+    <div class="updated">Last updated: September 30, 2026 &nbsp;&middot;&nbsp; Effective immediately upon account creation</div>
   </div>
 
   <div class="toc">
@@ -127,6 +127,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
       <li><a href="#accounts">API Keys &amp; Accounts</a></li>
       <li><a href="#plans">Plans, Pricing &amp; Rate Limits</a></li>
       <li><a href="#permitted">Permitted Use</a></li>
+      <li><a href="#historical-storage">Historical Storage &amp; Data Licensing</a></li>
       <li><a href="#prohibited">Prohibited Use</a></li>
       <li><a href="#data">Data Sources &amp; Accuracy</a></li>
       <li><a href="#ip">Intellectual Property</a></li>
@@ -139,7 +140,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
   </div>
 
   <div class="callout">
-    <strong>Plain English summary:</strong> Use PropSports API to build products. Don't scrape it, resell raw data, or hammer it past your rate limit. Pay your subscription. We'll keep it running. That's the deal.
+    <strong>Plain English summary:</strong> Use PropSports API to build products. Standard plans allow temporary caching, not a permanent copy of the API dataset. If your product needs to permanently store completed-game data or keep using retained data after cancellation, you need a written data-license or Enterprise agreement that expressly grants those rights. Don't scrape the Service, resell raw data, or exceed your rate limit.
   </div>
 
   <!-- 01 -->
@@ -246,14 +247,55 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
       <li>Create derivative works and products based on the API's output</li>
       <li>Use data in commercial products, provided such use does not violate these Terms</li>
       <li>Access the Service programmatically within your plan's rate limits</li>
-      <li>Cache API responses temporarily (up to 1 hour) to reduce request volume</li>
+      <li>Cache API responses temporarily (up to 1 hour) to reduce request volume. This temporary caching right does not by itself authorize permanent archival storage; see Historical Storage &amp; Data Licensing below.</li>
       <li>Reference PropSports API as your data provider in your product documentation</li>
     </ul>
   </div>
 
+
   <!-- 06 -->
+  <div class="section" id="historical-storage">
+    <h2><span class="num">06</span> Historical Storage &amp; Data Licensing</h2>
+    <p>PropSports API offers different data-use rights depending on your plan and any written order form or addendum. <strong>The one-hour caching allowance in the standard Terms is a temporary performance/cache right, not a permanent archival-data license.</strong></p>
+    <table class="plan-table">
+      <thead>
+        <tr>
+          <th>Plan / License</th>
+          <th>Historical Storage</th>
+          <th>Use After Subscription Ends</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Demo</td>
+          <td>Temporary evaluation use only</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Single Sport / Basic / Pro / Ultra</td>
+          <td>Temporary caching up to 1 hour unless a written addendum says otherwise</td>
+          <td>No continued production use of retained API data after access ends</td>
+        </tr>
+        <tr>
+          <td>Mega / Enterprise / Data License</td>
+          <td>Permanent storage may be granted in a written order form or addendum</td>
+          <td>As stated in the applicable written license; this may include continued use of data lawfully retrieved while the license was active</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Permanent storage.</strong> If your application needs to maintain a historical database of completed-game play-by-play, box scores, game metadata, statistics, or other API output beyond the temporary caching period, you must have a Mega / Enterprise plan or separate written data-license addendum that expressly authorizes that storage. The written license may define permitted data categories, products, users, retention periods, attribution, and redistribution rights.</p>
+    <p><strong>Use after cancellation or expiration.</strong> Standard-plan rights to access and use the Service end when the subscription or applicable access period ends. Unless your written order form or addendum expressly grants post-termination rights, you may not continue production use, commercialization, redistribution, or derivative-data refresh workflows based on retained PropSports API data after access ends. Reasonable backup copies maintained solely for disaster recovery, legal compliance, or security purposes may be retained only as required and may not be used for production or commercial purposes.</p>
+    <p><strong>Enterprise retained-data license.</strong> Where an Enterprise or data-license agreement expressly grants a perpetual or continuing retained-data right, you may continue using the specific historical data lawfully retrieved during the active license period after cancellation, subject to the scope, redistribution limits, source-specific restrictions, and other conditions stated in that agreement. Cancellation still ends access to new data, updates, corrections, and future API responses unless otherwise agreed in writing.</p>
+    <p><strong>Redistribution is separate.</strong> Permission to store data does not automatically include permission to resell, sublicense, bulk-export, expose through another API, or otherwise redistribute raw or substantially similar PropSports API data. Those rights require express written authorization.</p>
+    <p><strong>Source-specific restrictions.</strong> Some data made available through the Service originates from third-party or public data sources with their own terms, licenses, or restrictions. Any historical-storage or retained-data rights we grant are subject to applicable source-specific restrictions and do not grant rights that PropSports API does not have authority to grant.</p>
+    <div class="callout-green">
+      <strong>Need permanent historical storage?</strong> Contact <a href="mailto:sales@proptechusa.ai" class="inline">sales@proptechusa.ai</a> before subscribing so we can confirm the correct data-license terms for your application.
+    </div>
+  </div>
+
+  <!-- 07 -->
   <div class="section" id="prohibited">
-    <h2><span class="num">06</span> Prohibited Use</h2>
+    <h2><span class="num">07</span> Prohibited Use</h2>
     <div class="callout">
       <strong>You may not:</strong>
     </div>
@@ -270,26 +312,26 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
     <p>Violation of these prohibitions may result in immediate key revocation and account termination without refund.</p>
   </div>
 
-  <!-- 07 -->
+  <!-- 08 -->
   <div class="section" id="data">
-    <h2><span class="num">07</span> Data Sources &amp; Accuracy</h2>
+    <h2><span class="num">08</span> Data Sources &amp; Accuracy</h2>
     <p>PropSports API aggregates data from public sources including the MLB Stats API, NHL Stats API, NBA Stats API, Baseball Savant (Statcast), ESPN, and Open-Meteo (weather). Proprietary Poisson model odds are generated from our own Statcast pipeline — not scraped from sportsbooks. These sources are consistent with those used by major sports analytics platforms.</p>
     <p>While we make best efforts to provide accurate, timely data, we make <strong>no guarantees</strong> of data accuracy, completeness, or timeliness. Sports data is inherently real-time and subject to correction, revision, and delay. Model odds are generated outputs, not official sportsbook lines, and carry their own margin of error.</p>
     <p><strong>You should not use PropSports API data as the sole basis for financial decisions.</strong> We are not responsible for losses arising from reliance on API data in any context, including sports betting, fantasy sports, or financial trading.</p>
     <p>Source APIs may change without notice. We will make reasonable efforts to maintain endpoint compatibility but cannot guarantee uninterrupted access to any specific data field or model output.</p>
   </div>
 
-  <!-- 08 -->
+  <!-- 09 -->
   <div class="section" id="ip">
-    <h2><span class="num">08</span> Intellectual Property</h2>
+    <h2><span class="num">09</span> Intellectual Property</h2>
     <p>The PropSports API platform — including its infrastructure, Poisson model, documentation, code, design, and branding — is owned by PropTechUSA.ai. These Terms grant you a limited, non-exclusive, non-transferable license to access and use the Service within the scope of your plan.</p>
     <p>Underlying sports data (game scores, statistics, player information) is sourced from public APIs. We make no claim to ownership of raw sports data. Your use of such data remains subject to the terms of the original data sources.</p>
     <p>"PropSports API," "PropTechUSA.ai," "PropBetEdge," and associated logos are trademarks of PropTechUSA.ai. You may not use these marks without prior written permission.</p>
   </div>
 
-  <!-- 09 -->
+  <!-- 10 -->
   <div class="section" id="termination">
-    <h2><span class="num">09</span> Termination &amp; Suspension</h2>
+    <h2><span class="num">10</span> Termination &amp; Suspension</h2>
     <p><strong>By you:</strong> You may cancel your subscription at any time through the Stripe customer portal or by contacting us at <a href="mailto:sales@proptechusa.ai" class="inline">sales@proptechusa.ai</a>. Your key will remain active until the end of the current billing period.</p>
     <p><strong>By us:</strong> We may suspend or terminate your API key and account immediately and without notice if:</p>
     <ul>
@@ -298,34 +340,34 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
       <li>We determine your usage is abusive or harmful to the Service or other customers</li>
       <li>Required by law or to protect the rights of third parties</li>
     </ul>
-    <p>Upon termination, your API key will be revoked and access to the Service will cease. Termination for cause does not entitle you to a refund.</p>
+    <p>Upon termination, your API key will be revoked and access to the Service will cease. Rights concerning previously retrieved or stored API data are governed by the Historical Storage &amp; Data Licensing section and any applicable written order form or addendum. Termination for cause does not entitle you to a refund.</p>
   </div>
 
-  <!-- 10 -->
+  <!-- 11 -->
   <div class="section" id="warranty">
-    <h2><span class="num">10</span> Warranty Disclaimer</h2>
+    <h2><span class="num">11</span> Warranty Disclaimer</h2>
     <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
     <p>WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR THAT DATA OR MODEL OUTPUTS PROVIDED WILL BE ACCURATE OR COMPLETE. YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK.</p>
   </div>
 
-  <!-- 11 -->
+  <!-- 12 -->
   <div class="section" id="liability">
-    <h2><span class="num">11</span> Limitation of Liability</h2>
+    <h2><span class="num">12</span> Limitation of Liability</h2>
     <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, PROPTECHUSA.AI SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITIES, ARISING FROM YOUR USE OF OR INABILITY TO USE THE SERVICE.</p>
     <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU EXCEED THE AMOUNT YOU PAID US IN THE THREE (3) MONTHS PRECEDING THE CLAIM.</p>
     <p>Some jurisdictions do not allow limitation of liability for incidental or consequential damages, so the above limitation may not apply to you.</p>
   </div>
 
-  <!-- 12 -->
+  <!-- 13 -->
   <div class="section" id="governing">
-    <h2><span class="num">12</span> Governing Law</h2>
+    <h2><span class="num">13</span> Governing Law</h2>
     <p>These Terms are governed by the laws of the State of Minnesota, United States, without regard to conflict of law principles. Any disputes arising under these Terms shall be resolved in the state or federal courts located in Ramsey County, Minnesota.</p>
     <p>If any provision of these Terms is found unenforceable, the remaining provisions will remain in full force and effect.</p>
   </div>
 
-  <!-- 13 -->
+  <!-- 14 -->
   <div class="section" id="contact">
-    <h2><span class="num">13</span> Contact</h2>
+    <h2><span class="num">14</span> Contact</h2>
     <p>For questions about these Terms, billing issues, key revocation, or anything else:</p>
     <div class="contact-box">
       <h3>PropTechUSA.ai — PropSports API</h3>

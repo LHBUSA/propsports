@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>API Reference — PropSports API</title>
+<meta name="description" content="Every PropSports API endpoint: 125 GET routes across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer, with access level and authentication.">
+<link rel="canonical" href="https://propsports.proptechusa.ai/reference">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PropSports API">
+<meta property="og:title" content="API Reference — PropSports API">
+<meta property="og:description" content="Every PropSports API endpoint: 125 GET routes across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer, with access level and authentication.">
+<meta property="og:url" content="https://propsports.proptechusa.ai/reference">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#07090C">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Barlow+Condensed:wght@600&display=swap">
+<link rel="stylesheet" href="/assets/ps.css?v=muok4qyb">
+<script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="PropSports home"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#4F8CFF" stroke-width="2"/><path d="M13.2 7.5L9 17h5.6l-3 7.5 11-11h-6l3.2-6z" fill="#E9EDF2"/></svg>PropSports<small>API</small></a>
+    <nav class="nav-links" aria-label="Primary">
+      <div class="dd"><button type="button" aria-expanded="false" aria-haspopup="true">Products <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></button>
+        <div class="dd-menu">
+          <a href="/#platform"><strong>Core Sports API</strong><span>7 sports and 125 endpoints on one key</span></a>
+          <a href="/#live"><strong>Live Sports Data</strong><span>Schedules, scores and live game state</span></a>
+          <a href="/#depth"><strong>Advanced Analytics</strong><span>Statcast, play-by-play, shot and event coordinates</span></a>
+          <a href="/#intelligence"><strong>Model Intelligence</strong><span>Model output and DNA systems where available</span></a>
+          <a href="/sports/ufc"><strong>UFC Intelligence</strong><span>Dedicated combat-sports platform</span></a>
+        </div>
+      </div>
+      <div class="dd"><button type="button" aria-expanded="false" aria-haspopup="true">Sports <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></button>
+        <div class="dd-menu dd-sports"><a href="/sports/mlb" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span><strong>MLB</strong></a><a href="/sports/nfl" style="--c:#5FAE63"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span><strong>NFL</strong></a><a href="/sports/nba" style="--c:#E8843C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>NBA</strong></a><a href="/sports/wnba" style="--c:#E0708F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>WNBA</strong></a><a href="/sports/nhl" style="--c:#5AA9E6"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span><strong>NHL</strong></a><a href="/sports/tennis" style="--c:#C9D84E"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span><strong>Tennis</strong></a><a href="/sports/soccer" style="--c:#3FC093"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span><strong>Soccer</strong></a><a href="/sports/ufc" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span><strong>UFC</strong></a><a class="dd-foot" href="/#platform"><strong>Compare coverage</strong><span>Sport-by-sport matrix</span></a></div>
+      </div>
+      <a href="/reference" aria-current="page">API Reference</a>
+      <a href="/#live">Live Network</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/docs">Docs</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Sign in</a>
+      <a class="btn btn-primary btn-sm" href="/#pricing">Get API Key <span aria-hidden="true">→</span></a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" aria-label="Menu">
+  <h4>SPORTS</h4>
+  <div class="drawer-sports"><a href="/sports/mlb" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB</a><a href="/sports/nfl" style="--c:#5FAE63"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span>NFL</a><a href="/sports/nba" style="--c:#E8843C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>NBA</a><a href="/sports/wnba" style="--c:#E0708F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>WNBA</a><a href="/sports/nhl" style="--c:#5AA9E6"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span>NHL</a><a href="/sports/tennis" style="--c:#C9D84E"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span>Tennis</a><a href="/sports/soccer" style="--c:#3FC093"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span>Soccer</a><a href="/sports/ufc" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span>UFC</a></div>
+  <h4>PLATFORM</h4>
+  <a href="/#live">Live Network</a><a href="/#platform">Coverage</a><a href="/#console">API Console</a><a href="/reference">API Reference</a><a href="/docs">Docs</a><a href="/#pricing">Pricing</a>
+  <h4>ACCOUNT</h4>
+  <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a>
+  <a class="btn btn-primary" href="/#pricing">Get API Key →</a>
+</div>
+<main id="main">
+<section class="sp-hero" style="--c:var(--blue)">
+  <div class="wrap sp-hero-in">
+    <div class="crumbs"><a href="/">PropSports</a> / API Reference</div>
+    <div class="sp-hero-copy"><div class="eyebrow">API REFERENCE</div><h1>125 endpoints. One key.</h1><p class="hero-lead">Every route the PropSports API serves, grouped by sport, with its access level. Request and response walkthroughs live in the <a class="link" href="/docs">docs</a>.</p></div>
+    <div class="sp-facts">
+      <div><span>BASE URL</span><b>propsports-api.sales-fd3.workers.dev</b></div>
+      <div><span>AUTH</span><b>X-API-Key or ?key=</b></div>
+      <div><span>METHOD</span><b>GET · JSON</b></div>
+      <div><span>PUBLIC ROUTES</span><b class="num">50</b></div>
+      <div><span>DEMO KEY</span><b>psa_demo_propsports2026</b></div>
+      <div><span>PREFIXES</span><b>/v1/ and /api/ accepted</b></div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="mlb">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#E2574C"><span class="sport-tag" style="--c:#E2574C">MLB</span></div><h2>MLB · 25 endpoints</h2><p class="sec-lead">23 public. <a class="link" href="/sports/mlb">MLB overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>SCHEDULE &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/schedule/today</code><span>Today's slate · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/games/live</code><span>Games currently in progress · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/lineups</code><span>Posted lineups and probable pitchers · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>GAME DETAIL</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/linescore</code><span>Inning-by-inning linescore · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/boxscore</code><span>Full box score · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/plays</code><span>Most recent plays (?limit) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>PLAYERS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/player/:id/stats</code><span>Season stats · <em style="font-style:normal;color:var(--warn)">Demo key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/player/:id/gamelog</code><span>Game log · <em style="font-style:normal;color:var(--warn)">Demo key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>STATCAST</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/statcast/batters</code><span>Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/statcast/pitchers</code><span>Pitcher Statcast table with pagination · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>GAME ENVIRONMENT</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/weather</code><span>Wind, temperature and park factor for one park · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/weather/all</code><span>Weather for every game on the slate · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/umpires</code><span>Umpire crews by game · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>MARKET DATA</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/odds</code><span>Game lines: spread, total, moneyline · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/hr</code><span>Home-run props, best book across DraftKings and FanDuel · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/totalbases</code><span>Total-bases props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/hits</code><span>Hits props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/strikeouts</code><span>Pitcher strikeout props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/rbi</code><span>RBI props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/all</code><span>All prop markets combined · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/player</code><span>One player across prop markets (?name) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>MODEL OUTPUT</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/odds/model</code><span>PropBetEdge Poisson model prices (?market, ?player, ?direction) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model/top</code><span>Top model OVER plays · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model/player</code><span>One player across model markets (?name) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec alt" id="nfl">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#5FAE63"><span class="sport-tag" style="--c:#5FAE63">NFL</span></div><h2>NFL · 15 endpoints</h2><p class="sec-lead">3 public. <a class="link" href="/sports/nfl">NFL overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>SCHEDULE &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/scoreboard</code><span>Scoreboard by date or week · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/games/live</code><span>Games in progress · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/odds</code><span>Game odds · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>TEAMS &amp; STANDINGS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/standings</code><span>Current standings · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/teams</code><span>Team directory · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id</code><span>Team profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id/roster</code><span>Current roster · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id/schedule</code><span>Team schedule · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>GAME DETAIL</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/game/:id</code><span>Normalized game detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/boxscore</code><span>Player box score · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/plays</code><span>Play-by-play · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/drives</code><span>Drive history and current drive · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/leaders</code><span>Game leaders · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series (ESPN source, last 200 points) · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec" id="nba">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#E8843C"><span class="sport-tag" style="--c:#E8843C">NBA</span></div><h2>NBA · 13 endpoints</h2><p class="sec-lead">10 public. <a class="link" href="/sports/nba">NBA overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>SCHEDULE &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nba/schedule</code><span>Scoreboard by date (playoffs, then regular season) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/schedule/today</code><span>Today's slate · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/games/live</code><span>Games in progress · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>GAME DETAIL</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nba/game/:id/summary</code><span>Game summary with header · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/boxscore</code><span>Normalized box score with computed TS% and USG% · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/plays</code><span>Play-by-play with court coordinates and event category · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/shotchart</code><span>Made and missed shots with x/y coordinates · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/lineup</code><span>On-court five reconstructed from starters and substitutions (estimated) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/winprob</code><span>Win-probability series (ESPN source) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/hustle</code><span>Hustle box when the source allows it (may return available:false) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>PLAYERS &amp; MARKETS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nba/leaders</code><span>League leaders (?stat, ?season) · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/player/:id/stats</code><span>Year-over-year player stats · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/odds</code><span>Game lines · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec alt" id="wnba">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#E0708F"><span class="sport-tag" style="--c:#E0708F">WNBA</span></div><h2>WNBA · 25 endpoints</h2><p class="sec-lead">2 public. <a class="link" href="/sports/wnba">WNBA overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>SCHEDULE &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/schedule</code><span>Schedule · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/season</code><span>Season context · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id</code><span>Game detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/live</code><span>Live game state · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/events</code><span>Play-by-play events · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/boxscore</code><span>Box score · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/shots</code><span>Shot events · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/matchups/:id</code><span>Matchup detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>TEAMS &amp; STANDINGS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/wnba/standings</code><span>Standings · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/playoffs</code><span>Playoff picture · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams</code><span>Teams · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams/:id</code><span>Team profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams/:id/roster</code><span>Roster · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>PLAYERS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/wnba/players</code><span>Players · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players/:id</code><span>Player profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players/:id/gamelog</code><span>Game log · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/injuries</code><span>Injury report · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/transactions</code><span>Transactions · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>STATS &amp; INTELLIGENCE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/wnba/stats/players</code><span>Player statistics · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/teams</code><span>Team statistics · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index (association with winning, not causal) · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/meta</code><span>Player DNA method, version and field availability · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/index</code><span>Player DNA index · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/players/:id</code><span>Player DNA profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec" id="nhl">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#5AA9E6"><span class="sport-tag" style="--c:#5AA9E6">NHL</span></div><h2>NHL · 24 endpoints</h2><p class="sec-lead">8 public. <a class="link" href="/sports/nhl">NHL overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>SCHEDULE &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nhl/board</code><span>Slate with season phase, calendar and next puck drop · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/schedule</code><span>Normalized schedule · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/schedule/today</code><span>Today's slate · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/scoreboard</code><span>Scoreboard · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/games/live</code><span>Games in progress · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>STANDINGS &amp; LEADERS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nhl/standings</code><span>Standings (flags prior-season final before opening night) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/leaders</code><span>Skater leaders (?category, ?season, ?limit) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/goalies/leaders</code><span>Goalie leaders · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>GAME DETAIL</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nhl/game/:id</code><span>Game landing and header · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/boxscore</code><span>Box score · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/plays</code><span>Normalized play-by-play · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/cast</code><span>Live cast: manpower, goalies in net, totals · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/shots</code><span>Shot geometry — raw features, not xG probabilities · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/goalies</code><span>Confirmed or projected starters, rest and recent form · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/deployment</code><span>Lines and pairs derived from shift charts (final games) · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>PLAYERS &amp; TEAMS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nhl/player/:id</code><span>Player profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id/stats</code><span>Player stats · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id/game-log</code><span>Game log · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/goalie/:id/edge</code><span>NHL Edge goalie detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/roster</code><span>Roster · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/stats</code><span>Team stats · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/schedule</code><span>Team schedule · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/deployment</code><span>Deployment from the team's last completed game · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/odds</code><span>Game lines · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec alt" id="tennis">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#C9D84E"><span class="sport-tag" style="--c:#C9D84E">TENNIS</span></div><h2>Tennis · 10 endpoints</h2><p class="sec-lead">2 public. <a class="link" href="/sports/tennis">Tennis overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>MATCHES &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/tennis/today</code><span>Today's order of play across tournaments · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/live</code><span>Live matches with point score, server and set detail · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matches/:id</code><span>Match detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>TOURNAMENTS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/tennis/tournaments</code><span>Tournaments · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/tournaments/:slug/:year</code><span>Tournament edition · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>PLAYERS &amp; RANKINGS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/tennis/players</code><span>Players · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug</code><span>Player profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot (access-gated upstream) · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA rankings by default; ATP with ?tour=atp · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/h2h/:a/:b</code><span>Head-to-head record · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec" id="soccer">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label" style="--c:#3FC093"><span class="sport-tag" style="--c:#3FC093">SOCCER</span></div><h2>Soccer · 13 endpoints</h2><p class="sec-lead">2 public. <a class="link" href="/sports/soccer">Soccer overview →</a></p></div></div>
+    <div class="ep-groups">
+  <div class="ep-group"><h3>MATCHES &amp; LIVE</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>COMPETITIONS</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>PLAYERS, TEAMS &amp; DNA</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA · <em style="font-style:normal;color:var(--steel)">API key</em></span></div></li>
+  </ul></div></div>
+  </div>
+</section>
+<section class="sec" id="ufc"><div class="wrap"><div class="cta-band"><div><h3>UFC Intelligence API</h3><p>UFC routes are served from ufc-api.propbetedge.ai with their own keys. <a class="link" href="/sports/ufc">UFC overview →</a></p></div><div class="acts"><a class="btn btn-line" href="https://ufc.proptechusa.ai/docs" target="_blank" rel="noopener">UFC docs ↗</a></div></div></div></section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#4F8CFF" stroke-width="2"/><path d="M13.2 7.5L9 17h5.6l-3 7.5 11-11h-6l3.2-6z" fill="#E9EDF2"/></svg>PropSports<small>API</small></a>
+        <p>Real-time sports infrastructure from PropTechUSA.ai. 7 core API sports, 125 endpoints and a dedicated UFC intelligence platform.</p>
+      </div>
+      <div><h4>PLATFORM</h4><a href="/#live">Live Network</a><a href="/#platform">Coverage</a><a href="/#console">API Console</a><a href="/reference">API Reference</a><a href="/docs">Docs</a><a href="/#pricing">Pricing</a></div>
+      <div><h4>SPORTS</h4><a href="/sports/mlb">MLB</a><a href="/sports/nfl">NFL</a><a href="/sports/nba">NBA</a><a href="/sports/wnba">WNBA</a><a href="/sports/nhl">NHL</a><a href="/sports/tennis">Tennis</a><a href="/sports/soccer">Soccer</a><a href="/sports/ufc">UFC</a></div>
+      <div><h4>PRODUCTS</h4><a href="/mlb-edge">MLB Edge Suite</a><a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">UFC Intelligence</a><a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI listing</a><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">PropData (real estate)</a><a href="/live">Powering PropBetEdge</a></div>
+      <div><h4>COMPANY</h4><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai</a><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai</a><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a><a href="tel:18887843881">1-888-784-3881</a><a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms" style="display:inline">Terms</a> · <a href="/privacy" style="display:inline">Privacy</a></span></div>
+  </div>
+</footer>
+<script src="/assets/ps-config.js?v=muok4qyb"></script>
+<script src="/assets/ps.js?v=muok4qyb" defer></script>
+</body>
+</html>

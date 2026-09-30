@@ -1,0 +1,1437 @@
+{
+  "captured_at": "2026-09-30T20:09:47.365Z",
+  "note": "Real responses captured from production. Arrays trimmed for display; see trims.",
+  "examples": {
+    "mlb": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/mlb/schedule/today",
+      "status": 200,
+      "ms": 610,
+      "error": null,
+      "trims": [
+        {
+          "path": "games",
+          "kept": 1,
+          "total": 4
+        },
+        {
+          "path": "games[0].linescore.innings",
+          "kept": 1,
+          "total": 7
+        }
+      ],
+      "body": {
+        "date": "2026-09-30",
+        "games": [
+          {
+            "gamePk": 849841,
+            "gameGuid": "955de52a-92a3-4570-ada3-85f2a6deb463",
+            "link": "/api/v1.1/game/849841/feed/live",
+            "gameType": "F",
+            "season": "2026",
+            "gameDate": "2026-09-30T18:00:00Z",
+            "officialDate": "2026-09-30",
+            "status": {
+              "abstractGameState": "Live",
+              "codedGameState": "I",
+              "detailedState": "In Progress",
+              "statusCode": "I",
+              "startTimeTBD": false,
+              "abstractGameCode": "L"
+            },
+            "teams": {
+              "away": {
+                "team": {
+                  "springLeague": {
+                    "id": 115,
+                    "name": "Grapefruit League",
+                    "link": "/api/v1/league/115",
+                    "abbreviation": "GL"
+                  },
+                  "allStarStatus": "N",
+                  "id": 143,
+                  "name": "Philadelphia Phillies",
+                  "link": "/api/v1/teams/143",
+                  "season": 2026,
+                  "venue": {
+                    "id": 2681,
+                    "name": "Citizens Bank Park",
+                    "link": "/api/v1/venues/2681"
+                  },
+                  "springVenue": {
+                    "id": 2700,
+                    "link": "/api/v1/venues/2700"
+                  },
+                  "teamCode": "phi",
+                  "fileCode": "phi",
+                  "abbreviation": "PHI",
+                  "teamName": "Phillies",
+                  "locationName": "Philadelphia",
+                  "firstYearOfPlay": "1883",
+                  "league": {
+                    "id": 104,
+                    "name": "National League",
+                    "link": "/api/v1/league/104"
+                  },
+                  "division": {
+                    "id": 204,
+                    "name": "National League East",
+                    "link": "/api/v1/divisions/204"
+                  },
+                  "sport": {
+                    "id": 1,
+                    "link": "/api/v1/sports/1",
+                    "name": "Major League Baseball"
+                  },
+                  "shortName": "Philadelphia",
+                  "franchiseName": "Philadelphia",
+                  "clubName": "Phillies",
+                  "active": true
+                },
+                "leagueRecord": {
+                  "wins": 0,
+                  "losses": 1,
+                  "ties": 0,
+                  "pct": ".000"
+                },
+                "score": 1,
+                "probablePitcher": {
+                  "id": 650911,
+                  "fullName": "Cristopher Sánchez",
+                  "link": "/api/v1/people/650911"
+                },
+                "splitSquad": false,
+                "seriesNumber": 3,
+                "springLeague": {
+                  "id": 115,
+                  "name": "Grapefruit League",
+                  "link": "/api/v1/league/115",
+                  "abbreviation": "GL"
+                }
+              },
+              "home": {
+                "team": {
+                  "springLeague": {
+                    "id": 115,
+                    "name": "Grapefruit League",
+                    "link": "/api/v1/league/115",
+                    "abbreviation": "GL"
+                  },
+                  "allStarStatus": "N",
+                  "id": 144,
+                  "name": "Atlanta Braves",
+                  "link": "/api/v1/teams/144",
+                  "season": 2026,
+                  "venue": {
+                    "id": 4705,
+                    "name": "Truist Park",
+                    "link": "/api/v1/venues/4705"
+                  },
+                  "springVenue": {
+                    "id": 5380,
+                    "link": "/api/v1/venues/5380"
+                  },
+                  "teamCode": "atl",
+                  "fileCode": "atl",
+                  "abbreviation": "ATL",
+                  "teamName": "Braves",
+                  "locationName": "Atlanta",
+                  "firstYearOfPlay": "1871",
+                  "league": {
+                    "id": 104,
+                    "name": "National League",
+                    "link": "/api/v1/league/104"
+                  },
+                  "division": {
+                    "id": 204,
+                    "name": "National League East",
+                    "link": "/api/v1/divisions/204"
+                  },
+                  "sport": {
+                    "id": 1,
+                    "link": "/api/v1/sports/1",
+                    "name": "Major League Baseball"
+                  },
+                  "shortName": "Atlanta",
+                  "franchiseName": "Atlanta",
+                  "clubName": "Braves",
+                  "active": true
+                },
+                "leagueRecord": {
+                  "wins": 1,
+                  "losses": 0,
+                  "ties": 0,
+                  "pct": "1.000"
+                },
+                "score": 1,
+                "probablePitcher": {
+                  "id": 641816,
+                  "fullName": "Tyler Mahle",
+                  "link": "/api/v1/people/641816"
+                },
+                "splitSquad": false,
+                "seriesNumber": 3,
+                "springLeague": {
+                  "id": 115,
+                  "name": "Grapefruit League",
+                  "link": "/api/v1/league/115",
+                  "abbreviation": "GL"
+                }
+              }
+            },
+            "linescore": {
+              "currentInning": 7,
+              "currentInningOrdinal": "7th",
+              "inningState": "Bottom",
+              "inningHalf": "Bottom",
+              "isTopInning": false,
+              "scheduledInnings": 9,
+              "innings": [
+                {
+                  "num": 1,
+                  "ordinalNum": "1st",
+                  "home": {
+                    "runs": 1,
+                    "hits": 1,
+                    "errors": 0,
+                    "leftOnBase": 1
+                  },
+                  "away": {
+                    "runs": 1,
+                    "hits": 3,
+                    "errors": 0,
+                    "leftOnBase": 2
+                  }
+                }
+              ],
+              "teams": {
+                "home": {
+                  "runs": 1,
+                  "hits": 5,
+                  "errors": 0,
+                  "leftOnBase": 6
+                },
+                "away": {
+                  "runs": 1,
+                  "hits": 6,
+                  "errors": 0,
+                  "leftOnBase": 6
+                }
+              },
+              "defense": {
+                "pitcher": {
+                  "id": 650911,
+                  "fullName": "Cristopher Sánchez",
+                  "link": "/api/v1/people/650911"
+                },
+                "catcher": {
+                  "id": 592663,
+                  "fullName": "J.T. Realmuto",
+                  "link": "/api/v1/people/592663"
+                },
+                "first": {
+                  "id": 664761,
+                  "fullName": "Alec Bohm",
+                  "link": "/api/v1/people/664761"
+                },
+                "second": {
+                  "id": 681082,
+                  "fullName": "Bryson Stott",
+                  "link": "/api/v1/people/681082"
+                },
+                "third": {
+                  "id": 624641,
+                  "fullName": "Edmundo Sosa",
+                  "link": "/api/v1/people/624641"
+                },
+                "shortstop": {
+                  "id": 607208,
+                  "fullName": "Trea Turner",
+                  "link": "/api/v1/people/607208"
+                },
+                "left": {
+                  "id": 669016,
+                  "fullName": "Brandon Marsh",
+                  "link": "/api/v1/people/669016"
+                },
+                "center": {
+                  "id": 702222,
+                  "fullName": "Justin Crawford",
+                  "link": "/api/v1/people/702222"
+                },
+                "right": {
+                  "id": 547180,
+                  "fullName": "Bryce Harper",
+                  "link": "/api/v1/people/547180"
+                },
+                "batter": {
+                  "id": 656941,
+                  "fullName": "Kyle Schwarber",
+                  "link": "/api/v1/people/656941"
+                },
+                "onDeck": {
+                  "id": 547180,
+                  "fullName": "Bryce Harper",
+                  "link": "/api/v1/people/547180"
+                },
+                "inHole": {
+                  "id": 664761,
+                  "fullName": "Alec Bohm",
+                  "link": "/api/v1/people/664761"
+                },
+                "battingOrder": 2,
+                "team": {
+                  "id": 143,
+                  "name": "Philadelphia Phillies",
+                  "link": "/api/v1/teams/143"
+                }
+              },
+              "offense": {
+                "batter": {
+                  "id": 669221,
+                  "fullName": "Sean Murphy",
+                  "link": "/api/v1/people/669221"
+                },
+                "onDeck": {
+                  "id": 673490,
+                  "fullName": "Ha-Seong Kim",
+                  "link": "/api/v1/people/673490"
+                },
+                "inHole": {
+                  "id": 660670,
+                  "fullName": "Ronald Acuña Jr.",
+                  "link": "/api/v1/people/660670"
+                },
+                "pitcher": {
+                  "id": 641816,
+                  "fullName": "Tyler Mahle",
+                  "link": "/api/v1/people/641816"
+                },
+                "battingOrder": 8,
+                "team": {
+                  "id": 144,
+                  "name": "Atlanta Braves",
+                  "link": "/api/v1/teams/144"
+                }
+              },
+              "balls": 2,
+              "strikes": 1,
+              "outs": 0
+            },
+            "venue": {
+              "id": 4705,
+              "name": "Truist Park",
+              "link": "/api/v1/venues/4705",
+              "active": true,
+              "season": "2026"
+            },
+            "content": {
+              "link": "/api/v1/game/849841/content"
+            },
+            "gameNumber": 1,
+            "publicFacing": true,
+            "doubleHeader": "N",
+            "gamedayType": "P",
+            "tiebreaker": "N",
+            "calendarEventID": "14-849841-2026-09-30",
+            "seasonDisplay": "2026",
+            "dayNight": "day",
+            "description": "NL Wild Card 'A' Game 2",
+            "scheduledInnings": 9,
+            "reverseHomeAwayStatus": false,
+            "inningBreakLength": 145,
+            "gamesInSeries": 3,
+            "seriesGameNumber": 2,
+            "seriesDescription": "NL Wild Card Series",
+            "recordSource": "S",
+            "ifNecessary": "N",
+            "ifNecessaryDescription": "Normal Game"
+          }
+        ]
+      }
+    },
+    "mlb-statcast": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/statcast/pitchers?limit=2",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/mlb/statcast/pitchers?limit=2",
+      "status": 200,
+      "ms": 139,
+      "error": null,
+      "trims": [],
+      "body": {
+        "count": 2,
+        "total": 727,
+        "source": "Supabase nightly",
+        "season": 2026,
+        "pagination": {
+          "limit": 2,
+          "offset": 0,
+          "hasMore": true
+        },
+        "pitchers": [
+          {
+            "id": "621345",
+            "name": "A.J. Minter",
+            "team": "2 Tms",
+            "avgEVAllowed": 87.2,
+            "hardHitAllowed": 36.8,
+            "barrelRateAllowed": 10.3,
+            "hrsAllowed": 9,
+            "paPerHR": 20.7,
+            "avgVelo": 93.3,
+            "recentVelo": 93.3,
+            "veloDown": 0,
+            "pitchMix": {
+              "CH": 12.9,
+              "FC": 55.1,
+              "FF": 27.6,
+              "SI": 4.4,
+              "SL": 55.1
+            },
+            "sampleSize": 136,
+            "avgLA": 18.9,
+            "maxEV": 107.6,
+            "l7EV": null,
+            "evSpike": null,
+            "updatedAt": "2026-09-30T13:00:08.772047+00:00"
+          },
+          {
+            "id": "676879",
+            "name": "Aaron Ashby",
+            "team": "MIL",
+            "avgEVAllowed": 88.4,
+            "hardHitAllowed": 40.2,
+            "barrelRateAllowed": 4.9,
+            "hrsAllowed": 8,
+            "paPerHR": 47.9,
+            "avgVelo": 97.3,
+            "recentVelo": 97.3,
+            "veloDown": 0,
+            "pitchMix": {
+              "CH": 11.4,
+              "CU": 22.4,
+              "FF": 1.7,
+              "SI": 52.7,
+              "SL": 11.8
+            },
+            "sampleSize": 224,
+            "avgLA": 4.1,
+            "maxEV": 116.9,
+            "l7EV": null,
+            "evSpike": null,
+            "updatedAt": "2026-09-30T13:00:08.769764+00:00"
+          }
+        ]
+      }
+    },
+    "nfl": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/nfl/schedule",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/nfl/schedule",
+      "status": 200,
+      "ms": 99,
+      "error": null,
+      "trims": [
+        {
+          "path": "games",
+          "kept": 1,
+          "total": 16
+        },
+        {
+          "path": "games[0].teams.away.records",
+          "kept": 1,
+          "total": 3
+        },
+        {
+          "path": "games[0].teams.home.records",
+          "kept": 1,
+          "total": 3
+        }
+      ],
+      "body": {
+        "ok": true,
+        "source": {
+          "provider": "espn_cdn_scoreboard",
+          "fetched_at": "2026-09-30T20:09:53.983Z"
+        },
+        "week": null,
+        "season_type": 2,
+        "date": "20261002",
+        "games": [
+          {
+            "id": "401872964",
+            "date": "2026-10-02T00:15Z",
+            "name": "Pittsburgh Steelers at Cleveland Browns",
+            "short_name": "PIT @ CLE",
+            "season": {
+              "year": 2026,
+              "type": 2,
+              "slug": "regular-season"
+            },
+            "week": 4,
+            "status": {
+              "semantics": "SCHEDULED",
+              "state": "pre",
+              "name": "STATUS_SCHEDULED",
+              "detail": "Thu, October 1st at 8:15 PM EDT",
+              "short_detail": "10/1 - 8:15 PM EDT",
+              "period": 0,
+              "clock": "0:00",
+              "completed": false
+            },
+            "venue": {
+              "id": "3679",
+              "name": "Huntington Bank Field",
+              "city": "Cleveland",
+              "state": "OH"
+            },
+            "broadcast": [
+              "Prime Video"
+            ],
+            "attendance": 0,
+            "teams": {
+              "away": {
+                "id": "23",
+                "abbreviation": "PIT",
+                "display_name": "Pittsburgh Steelers",
+                "short_name": "Steelers",
+                "location": "Pittsburgh",
+                "color": "000000",
+                "alternate_color": "ffb612",
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png",
+                "score": 0,
+                "winner": false,
+                "possession": false,
+                "records": [
+                  {
+                    "name": "overall",
+                    "summary": "2-1",
+                    "type": "total"
+                  }
+                ]
+              },
+              "home": {
+                "id": "5",
+                "abbreviation": "CLE",
+                "display_name": "Cleveland Browns",
+                "short_name": "Browns",
+                "location": "Cleveland",
+                "color": "472a08",
+                "alternate_color": "ff3c00",
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cle.png",
+                "score": 0,
+                "winner": false,
+                "possession": false,
+                "records": [
+                  {
+                    "name": "overall",
+                    "summary": "2-1",
+                    "type": "total"
+                  }
+                ]
+              }
+            },
+            "odds": {
+              "details": "PIT -2.5",
+              "over_under": 38.5,
+              "spread": 2.5,
+              "home_moneyline": null,
+              "away_moneyline": null,
+              "provider": "DraftKings"
+            },
+            "situation": {
+              "possession_id": null,
+              "down": null,
+              "distance": null,
+              "yard_line": null,
+              "down_distance_text": null,
+              "possession_text": null,
+              "red_zone": null,
+              "home_timeouts": null,
+              "away_timeouts": null
+            }
+          }
+        ],
+        "count": 16
+      }
+    },
+    "nba": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/nba/schedule/today",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/nba/schedule/today",
+      "status": 500,
+      "ms": 129,
+      "error": null,
+      "trims": [],
+      "body": {
+        "error": "ESPN 403",
+        "ts": "2026-09-30T20:09:54.126Z"
+      }
+    },
+    "nhl": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/nhl/standings",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/nhl/standings",
+      "status": 200,
+      "ms": 548,
+      "error": null,
+      "trims": [
+        {
+          "path": "standings",
+          "kept": 2,
+          "total": 32
+        }
+      ],
+      "body": {
+        "ok": true,
+        "schema": "nhl-intel-v2",
+        "source": "NHL",
+        "source_urls": [
+          "https://api-web.nhle.com/v1/standings/now"
+        ],
+        "fetched_at": "2026-09-30T20:09:54.655Z",
+        "ttl_s": 900,
+        "stale_after_s": 21600,
+        "as_of": "now",
+        "standings_date": "2026-09-30",
+        "standings_updated_utc": "2026-09-30T20:09:45Z",
+        "semantics": "CURRENT",
+        "count": 32,
+        "standings": [
+          {
+            "team": "VGK",
+            "name": "Golden Knights",
+            "full_name": "Vegas Golden Knights",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "conference": "Western",
+            "conference_abbrev": "W",
+            "division": "Pacific",
+            "division_abbrev": "P",
+            "division_seq": 1,
+            "conference_seq": 1,
+            "league_seq": 1,
+            "wildcard_seq": 0,
+            "games_played": 1,
+            "wins": 1,
+            "losses": 0,
+            "ot_losses": 0,
+            "points": 2,
+            "point_pct": 1,
+            "regulation_wins": 1,
+            "goals_for": 5,
+            "goals_against": 2,
+            "goal_diff": 3,
+            "home": "1-0-0",
+            "road": "0-0-0",
+            "l10": "1-0-0",
+            "streak": "W1",
+            "clinch": null,
+            "date": "2026-09-30"
+          },
+          {
+            "team": "BOS",
+            "name": "Bruins",
+            "full_name": "Boston Bruins",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
+            "conference": "Eastern",
+            "conference_abbrev": "E",
+            "division": "Atlantic",
+            "division_abbrev": "A",
+            "division_seq": 1,
+            "conference_seq": 1,
+            "league_seq": 2,
+            "wildcard_seq": 0,
+            "games_played": 1,
+            "wins": 1,
+            "losses": 0,
+            "ot_losses": 0,
+            "points": 2,
+            "point_pct": 1,
+            "regulation_wins": 1,
+            "goals_for": 3,
+            "goals_against": 0,
+            "goal_diff": 3,
+            "home": "1-0-0",
+            "road": "0-0-0",
+            "l10": "1-0-0",
+            "streak": "W1",
+            "clinch": null,
+            "date": "2026-09-30"
+          }
+        ]
+      }
+    },
+    "nhl-board": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/nhl/board",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/nhl/board",
+      "status": 200,
+      "ms": 58,
+      "error": null,
+      "trims": [
+        {
+          "path": "source_urls",
+          "kept": 1,
+          "total": 2
+        },
+        {
+          "path": "next_puck_drop.games_at_start",
+          "kept": 1,
+          "total": 2
+        },
+        {
+          "path": "next_puck_drop.games_at_start[0].broadcasts",
+          "kept": 1,
+          "total": 3
+        },
+        {
+          "path": "games",
+          "kept": 1,
+          "total": 3
+        },
+        {
+          "path": "games[0].broadcasts",
+          "kept": 1,
+          "total": 3
+        }
+      ],
+      "body": {
+        "ok": true,
+        "schema": "nhl-intel-v2",
+        "source": "NHL",
+        "source_urls": [
+          "https://api-web.nhle.com/v1/score/2026-09-30"
+        ],
+        "fetched_at": "2026-09-30T20:09:54.729Z",
+        "ttl_s": 30,
+        "stale_after_s": 300,
+        "date": "2026-09-30",
+        "season_phase": "REGULAR_SEASON",
+        "calendar": {
+          "preseason_start": "2026-09-19",
+          "regular_season_start": "2026-09-29",
+          "regular_season_end": "2027-04-10",
+          "playoff_end": "2027-06-10"
+        },
+        "counts": {
+          "total": 3,
+          "SCHEDULED": 3
+        },
+        "next_puck_drop": {
+          "start_time_utc": "2026-09-30T23:30:00Z",
+          "date": "2026-09-30",
+          "game_type": 2,
+          "games_at_start": [
+            {
+              "id": "2026020006",
+              "season": 20262027,
+              "game_type": 2,
+              "date": "2026-09-30",
+              "start_time_utc": "2026-09-30T23:30:00Z",
+              "status": {
+                "state": "FUT",
+                "schedule_state": "OK",
+                "semantics": "SCHEDULED",
+                "period": 1,
+                "period_type": "REG",
+                "clock": null,
+                "seconds_remaining": null,
+                "clock_running": null,
+                "in_intermission": null,
+                "last_period_type": null
+              },
+              "venue": "Xfinity Mobile Arena",
+              "neutral_site": false,
+              "teams": {
+                "away": {
+                  "id": 5,
+                  "abbrev": "PIT",
+                  "name": "Penguins",
+                  "place": "Pittsburgh",
+                  "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+                  "dark_logo": "https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg",
+                  "score": null,
+                  "sog": null
+                },
+                "home": {
+                  "id": 4,
+                  "abbrev": "PHI",
+                  "name": "Flyers",
+                  "place": "Philadelphia",
+                  "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+                  "dark_logo": "https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg",
+                  "score": null,
+                  "sog": null
+                }
+              },
+              "broadcasts": [
+                {
+                  "network": "TNT",
+                  "market": "N",
+                  "country": "US"
+                }
+              ]
+            }
+          ],
+          "games_that_day": 3
+        },
+        "games": [
+          {
+            "id": "2026020006",
+            "season": 20262027,
+            "game_type": 2,
+            "date": "2026-09-30",
+            "start_time_utc": "2026-09-30T23:30:00Z",
+            "status": {
+              "state": "FUT",
+              "schedule_state": "OK",
+              "semantics": "SCHEDULED",
+              "period": null,
+              "period_type": null,
+              "clock": null,
+              "seconds_remaining": null,
+              "clock_running": null,
+              "in_intermission": null,
+              "last_period_type": null
+            },
+            "venue": "Xfinity Mobile Arena",
+            "neutral_site": false,
+            "teams": {
+              "away": {
+                "id": 5,
+                "abbrev": "PIT",
+                "name": "Penguins",
+                "place": null,
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+                "dark_logo": null,
+                "score": null,
+                "sog": null
+              },
+              "home": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": "Flyers",
+                "place": null,
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+                "dark_logo": null,
+                "score": null,
+                "sog": null
+              }
+            },
+            "broadcasts": [
+              {
+                "network": "TNT",
+                "market": "N",
+                "country": "US"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "wnba": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/wnba/today",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/wnba/today",
+      "status": 200,
+      "ms": 224,
+      "error": null,
+      "trims": [
+        {
+          "path": "data.slate.games",
+          "kept": 1,
+          "total": 2
+        },
+        {
+          "path": "data.slate.games[0].market.market_fair_value_model.note",
+          "kept": 160,
+          "total": 173,
+          "kind": "string"
+        },
+        {
+          "path": "data.last_results.games",
+          "kept": 1,
+          "total": 2
+        }
+      ],
+      "body": {
+        "ok": true,
+        "data": {
+          "today_et": "20260930",
+          "season": {
+            "year": 2026,
+            "type": 2,
+            "label": "2026 Regular Season"
+          },
+          "phase": "Postseason",
+          "next_phase": {
+            "name": "Off Season",
+            "starts": "2026-11-01T07:00Z"
+          },
+          "slate": {
+            "kind": "TODAY",
+            "date": "20260930",
+            "games": [
+              {
+                "game_id": "401918019",
+                "source": "espn",
+                "season": {
+                  "year": 2026,
+                  "type": 3,
+                  "label": "2026 Postseason"
+                },
+                "name": "Atlanta Dream at Washington Mystics",
+                "short_name": "ATL @ WSH",
+                "start_utc": "2026-09-30T23:00Z",
+                "status": {
+                  "state": "pre",
+                  "name": "STATUS_SCHEDULED",
+                  "completed": false,
+                  "detail": "Wed, September 30th at 7:00 PM EDT",
+                  "short_detail": "9/30 - 7:00 PM EDT",
+                  "period": 0,
+                  "clock": "0.0",
+                  "clock_s": 0
+                },
+                "home": {
+                  "team_id": "16",
+                  "abbr": "WSH",
+                  "name": "Washington Mystics",
+                  "short_name": "Mystics",
+                  "location": "Washington",
+                  "color": "#e03a3e",
+                  "alt_color": "#002b5c",
+                  "home_away": "home",
+                  "score": 0,
+                  "winner": null,
+                  "record": "28-16",
+                  "linescores": [],
+                  "possession": null
+                },
+                "away": {
+                  "team_id": "20",
+                  "abbr": "ATL",
+                  "name": "Atlanta Dream",
+                  "short_name": "Dream",
+                  "location": "Atlanta",
+                  "color": "#e31837",
+                  "alt_color": "#5091cc",
+                  "home_away": "away",
+                  "score": 0,
+                  "winner": null,
+                  "record": "30-14",
+                  "linescores": [],
+                  "possession": null
+                },
+                "venue": {
+                  "name": "CareFirst Arena",
+                  "city": "Washington",
+                  "state": "DC"
+                },
+                "neutral_site": false,
+                "broadcasts": [
+                  "ESPN"
+                ],
+                "notes": [
+                  "First Round - Game 2"
+                ],
+                "series": {
+                  "summary": "ATL leads series 1-0",
+                  "title": "Playoff Series"
+                },
+                "odds_espn": {
+                  "provider": "DraftKings",
+                  "details": "ATL -3.5",
+                  "spread": 3.5,
+                  "over_under": 165.5,
+                  "note": "Single-sportsbook line as relayed by ESPN. Not a PropBetEdge price or model."
+                },
+                "market": {
+                  "source": "The Odds API",
+                  "semantics": "LAST_VERIFIED_MARKET",
+                  "captured_at": "2026-09-30T17:01:08.071Z",
+                  "age_s": 11327,
+                  "stale": false,
+                  "odds_event_id": "2e0dc047f09840084e34e02f5d39b8fb",
+                  "books": 10,
+                  "moneyline": {
+                    "home_best": {
+                      "price": 133,
+                      "book": "betonlineag",
+                      "point": null
+                    },
+                    "away_best": {
+                      "price": -145,
+                      "book": "bovada",
+                      "point": null
+                    },
+                    "home_no_vig": 0.417,
+                    "away_no_vig": 0.583,
+                    "consensus_books": 10
+                  },
+                  "spread": {
+                    "home_line": 3,
+                    "home_best": {
+                      "price": -110,
+                      "book": "mybookieag",
+                      "point": 3
+                    },
+                    "away_best": {
+                      "price": -103,
+                      "book": "lowvig",
+                      "point": 3
+                    }
+                  },
+                  "total": {
+                    "line": 165.5,
+                    "over_best": {
+                      "price": -112,
+                      "book": "draftkings",
+                      "point": 165.5
+                    },
+                    "under_best": {
+                      "price": 100,
+                      "book": "williamhill_us",
+                      "point": 165.5
+                    }
+                  },
+                  "props": {
+                    "available": true,
+                    "count": 61,
+                    "players": 12,
+                    "captured_at": "2026-09-30T17:01:08.071Z"
+                  },
+                  "market_fair_value_model": {
+                    "status": "not_published",
+                    "note": "No validated PropBetEdge WNBA market model is published. Sportsbook fair value is unavailable by design, not missing data. This says nothing about the game p..."
+                  },
+                  "market_edge": {
+                    "status": "unavailable",
+                    "reason": "market_fair_value_model_not_validated",
+                    "note": "Model gap needs both a validated market model and current sportsbook pricing."
+                  }
+                }
+              }
+            ],
+            "summary": {
+              "live": 0,
+              "final": 0,
+              "scheduled": 2,
+              "total": 2,
+              "state": "SCHEDULED"
+            }
+          },
+          "last_results": {
+            "date": "20260929",
+            "games": [
+              {
+                "game_id": "401918017",
+                "source": "espn",
+                "season": {
+                  "year": 2026,
+                  "type": null,
+                  "label": "2026"
+                },
+                "name": "Minnesota Lynx at New York Liberty",
+                "short_name": "MIN @ NY",
+                "start_utc": "2026-09-30T00:30Z",
+                "status": {
+                  "state": "post",
+                  "name": "STATUS_FINAL",
+                  "completed": true,
+                  "detail": "Final",
+                  "short_detail": "Final",
+                  "period": 4,
+                  "clock": "0.0",
+                  "clock_s": 0
+                },
+                "home": {
+                  "team_id": "9",
+                  "abbr": "NY",
+                  "name": "New York Liberty",
+                  "short_name": "Liberty",
+                  "location": "New York",
+                  "color": null,
+                  "alt_color": null,
+                  "home_away": "home",
+                  "score": 87,
+                  "winner": true,
+                  "record": "26-18",
+                  "linescores": [],
+                  "possession": null
+                },
+                "away": {
+                  "team_id": "8",
+                  "abbr": "MIN",
+                  "name": "Minnesota Lynx",
+                  "short_name": "Lynx",
+                  "location": "Minnesota",
+                  "color": null,
+                  "alt_color": null,
+                  "home_away": "away",
+                  "score": 71,
+                  "winner": false,
+                  "record": "33-11",
+                  "linescores": [],
+                  "possession": null
+                },
+                "venue": {
+                  "name": "Barclays Center",
+                  "city": "Brooklyn",
+                  "state": "NY"
+                },
+                "neutral_site": false,
+                "broadcasts": [],
+                "notes": [
+                  "First Round - Game 2"
+                ],
+                "series": null,
+                "odds_espn": null
+              }
+            ]
+          },
+          "availability": {
+            "count": 48,
+            "out": 48,
+            "day_to_day": 0,
+            "fetched_at": "2026-09-30T20:05:26.651Z",
+            "freshness": "CACHED"
+          },
+          "market": {
+            "captured_at": "2026-09-30T17:01:08.071Z",
+            "events": 3,
+            "books_max": 11,
+            "semantics": "LAST_VERIFIED_MARKET"
+          }
+        },
+        "meta": {
+          "service": "wnba-api",
+          "version": "1.3.0",
+          "route": "/v1/today",
+          "source": {
+            "id": "espn",
+            "name": "ESPN",
+            "authority": "EXTERNAL_PROVIDER"
+          },
+          "fetched_at": "2026-09-30T20:09:54.900Z",
+          "source_updated_at": null,
+          "served_at": "2026-09-30T20:09:54.921Z",
+          "age_s": 0,
+          "stale_after_s": 8,
+          "freshness": "CURRENT",
+          "cache": "network",
+          "semantics": "TODAY_SLATE",
+          "season": {
+            "year": 2026,
+            "type": 2,
+            "label": "2026 Regular Season"
+          },
+          "degraded": []
+        }
+      }
+    },
+    "tennis": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/tennis/live",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/tennis/live",
+      "status": 200,
+      "ms": 939,
+      "error": null,
+      "trims": [
+        {
+          "path": "data[0].sets",
+          "kept": 1,
+          "total": 2
+        },
+        {
+          "path": "meta.semantics",
+          "kept": 160,
+          "total": 246,
+          "kind": "string"
+        }
+      ],
+      "body": {
+        "ok": true,
+        "data": [
+          {
+            "id": "03403c79-e9e7-586f-ae76-b52655725ff1",
+            "event_type": "WS",
+            "round": "M-2",
+            "format": "BO3_TB7",
+            "status": "in_progress",
+            "winner_side": null,
+            "end_reason": null,
+            "score": "7-6(5) 1-1",
+            "duration_s": 5449,
+            "scheduled_at": null,
+            "court": null,
+            "schedule_note": null,
+            "live": {
+              "point": {
+                "A": "15",
+                "B": "0"
+              },
+              "server": "A"
+            },
+            "sets": [
+              {
+                "A": 7,
+                "B": 6,
+                "tb": {
+                  "A": 7,
+                  "B": 5
+                },
+                "match_tiebreak": false,
+                "winner": "A"
+              }
+            ],
+            "sides": {
+              "A": {
+                "participant_key": "S:02faee46-438a-57ce-94fe-60323fec96fc",
+                "seed": null,
+                "entry_type": "Wc",
+                "players": [
+                  {
+                    "id": "02faee46-438a-57ce-94fe-60323fec96fc",
+                    "slug": "cagla-buyukakcay",
+                    "name": "Cagla Buyukakcay",
+                    "last_name": "Buyukakcay",
+                    "nationality": "TUR",
+                    "gender": "F",
+                    "photo": {
+                      "portrait": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/portrait.webp?v=5bdfdb6d72",
+                      "square": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/square.webp?v=5bdfdb6d72",
+                      "thumb": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/thumb.webp?v=5bdfdb6d72",
+                      "wide": null,
+                      "square_jpg": "https://tennis-api.propbetedge.ai/media/players/02faee46-438a-57ce-94fe-60323fec96fc/square.jpg?v=5bdfdb6d72",
+                      "credit": "Assaf Yekuel / CC BY-SA 3.0 / Wikimedia Commons",
+                      "author": "Assaf Yekuel",
+                      "license": "CC BY-SA 3.0",
+                      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+                      "source_page": "https://commons.wikimedia.org/wiki/File:Fed_Cup_Group_I_2013_Europe_Africa_day_2_%C3%87a%C4%9Fla_B%C3%BCy%C3%BCkak%C3%A7ay_003.JPG"
+                    }
+                  }
+                ]
+              },
+              "B": {
+                "participant_key": "S:2c70301b-39f2-5284-a936-f92d7e632df3",
+                "seed": 6,
+                "entry_type": null,
+                "players": [
+                  {
+                    "id": "2c70301b-39f2-5284-a936-f92d7e632df3",
+                    "slug": "lucrezia-stefanini",
+                    "name": "Lucrezia Stefanini",
+                    "last_name": "Stefanini",
+                    "nationality": "ITA",
+                    "gender": "F",
+                    "photo": {
+                      "portrait": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/portrait.webp?v=eddba7b4c6",
+                      "square": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/square.webp?v=eddba7b4c6",
+                      "thumb": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/thumb.webp?v=eddba7b4c6",
+                      "wide": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/wide.webp?v=eddba7b4c6",
+                      "square_jpg": "https://tennis-api.propbetedge.ai/media/players/2c70301b-39f2-5284-a936-f92d7e632df3/square.jpg?v=eddba7b4c6",
+                      "credit": "si.robi / CC BY-SA 2.0 / Wikimedia Commons",
+                      "author": "si.robi",
+                      "license": "CC BY-SA 2.0",
+                      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+                      "source_page": "https://commons.wikimedia.org/wiki/File:Stefanini_RGQ22_(13)_(52129534531).jpg"
+                    }
+                  }
+                ]
+              }
+            },
+            "tournament": {
+              "slug": "adana-125",
+              "tournament": "Adana 125",
+              "name": "Adana Open - Adana, TUR",
+              "year": 2026,
+              "level": "WTA 125",
+              "surface": "hard",
+              "indoor": false,
+              "start_date": "2026-09-28",
+              "end_date": "2026-10-04",
+              "city": "Adana",
+              "country": "TUR"
+            },
+            "stats": "pending",
+            "source": "wta",
+            "source_updated_at": "2026-09-30T20:09:07.807+00:00",
+            "updated_at": "2026-09-30T20:09:44.337+00:00"
+          }
+        ],
+        "meta": {
+          "source": [
+            "wta"
+          ],
+          "fetched_at": "2026-09-30T20:09:55.890Z",
+          "source_updated_at": "2026-09-30T20:09:44.337+00:00",
+          "age_s": 12,
+          "freshness": "CURRENT",
+          "semantics": "matches whose latest observed source state is in progress, every tour and event type (MS, WS, MD, WD, XD); point score + server only where the source publish...",
+          "degraded": []
+        }
+      }
+    },
+    "soccer": {
+      "url": "https://propsports-api.sales-fd3.workers.dev/soccer/matches?limit=2",
+      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "path": "/soccer/matches?limit=2",
+      "status": 200,
+      "ms": 790,
+      "error": null,
+      "trims": [
+        {
+          "path": "data",
+          "kept": 1,
+          "total": 2
+        },
+        {
+          "path": "data[0].home.crest.license",
+          "kept": 160,
+          "total": 164,
+          "kind": "string"
+        },
+        {
+          "path": "data[0].away.crest.license",
+          "kept": 160,
+          "total": 169,
+          "kind": "string"
+        }
+      ],
+      "body": {
+        "data": [
+          {
+            "id": "20a364ad-0dae-57d3-b880-5cec1f7ae927",
+            "matchday": null,
+            "round": null,
+            "kickoff_at": "2027-05-30T15:00:00+00:00",
+            "status": "scheduled",
+            "competition": {
+              "slug": "premier-league",
+              "name": "Premier League"
+            },
+            "home": {
+              "id": "bc2c300a-e720-5419-bbec-24792cb3cb64",
+              "slug": "sunderland",
+              "name": "Sunderland",
+              "short_name": "Sunderland",
+              "crest": {
+                "media_type": "crest",
+                "url": "/api/soccer/media/aee718a79be592a8bb36ab68b0960a1dbb5763692f4d91c3f4249f95edbf19af",
+                "width": 500,
+                "height": 500,
+                "license": "Not free-licensed. Club crest: copyright and trademark of Sunderland. Provider artwork (ESPN); displayed to identify the club under the owner identification ...",
+                "license_url": null,
+                "author": "ESPN",
+                "attribution": "Sunderland crest. Image: ESPN",
+                "source": "provider_artwork",
+                "source_url": "https://www.espn.com/soccer/team/_/id/366",
+                "primary": true,
+                "basis": "owner_approved_identification"
+              }
+            },
+            "away": {
+              "id": "3bae7b11-9a30-5e3a-8f88-0151e490ab95",
+              "slug": "manchester-city",
+              "name": "Manchester City",
+              "short_name": "Man City",
+              "crest": {
+                "media_type": "crest",
+                "url": "/api/soccer/media/70e005bdab0ada41a153760398b4a2ef99f956bf9e72954686caa70da8c30c0b",
+                "width": 500,
+                "height": 500,
+                "license": "Not free-licensed. Club crest: copyright and trademark of Manchester City. Provider artwork (ESPN); displayed to identify the club under the owner identifica...",
+                "license_url": null,
+                "author": "ESPN",
+                "attribution": "Manchester City crest. Image: ESPN",
+                "source": "provider_artwork",
+                "source_url": "https://www.espn.com/soccer/team/_/id/382",
+                "primary": true,
+                "basis": "owner_approved_identification"
+              }
+            },
+            "score": null,
+            "result_source": "espn",
+            "intel": {
+              "lineups": false,
+              "stats": false,
+              "event_map": false
+            }
+          }
+        ],
+        "meta": {
+          "source": "pbe",
+          "source_updated_at": "2026-09-27T17:21:05.641Z",
+          "semantics": "Canonical matches (max 100 per page); intel flags which Match Intelligence layers exist.",
+          "coverage": {
+            "state": "ok",
+            "notes": []
+          },
+          "attribution": [
+            "Structured facts: ESPN (secondary source)"
+          ],
+          "generated_at": "2026-09-30T20:09:56.651Z",
+          "api_version": "soccer-api/1.2.0",
+          "timing_ms": 210,
+          "store_requests": 7
+        }
+      }
+    },
+    "ufc": {
+      "url": "https://ufc-api.propbetedge.ai/v1/ufc/events?status=upcoming&limit=2",
+      "host": "https://ufc-api.propbetedge.ai",
+      "path": "/v1/ufc/events?status=upcoming&limit=2",
+      "status": 200,
+      "ms": 221,
+      "error": null,
+      "trims": [],
+      "body": {
+        "ok": true,
+        "data": [
+          {
+            "id": "845c3b2c-c201-4873-91eb-f5115d65b549",
+            "ufcstats_id": "ad3fdba28a7540cf",
+            "espn_event_id": "600061182",
+            "name": "UFC 332: Silva vs. Wang",
+            "event_date": "2026-10-03",
+            "venue": "Delta Center",
+            "city": "Salt Lake City",
+            "region": "UT",
+            "country": "USA",
+            "commission": null,
+            "is_ppv": null,
+            "card_status": "announced",
+            "updated_at": "2026-09-30T20:05:53.882+00:00"
+          },
+          {
+            "id": "502cba16-70e9-4831-8795-c3423515006e",
+            "ufcstats_id": null,
+            "espn_event_id": "600060740",
+            "name": "Dana White's Contender Series: Season 10, Week 9",
+            "event_date": "2026-10-06",
+            "venue": "Meta APEX",
+            "city": "Las Vegas",
+            "region": "NV",
+            "country": "USA",
+            "commission": null,
+            "is_ppv": null,
+            "card_status": "announced",
+            "updated_at": "2026-09-30T20:06:03.729+00:00"
+          }
+        ],
+        "meta": {
+          "api": "PropSports UFC",
+          "version": "2026-09-14.1",
+          "request_id": "137bb49d-55a5-4a54-84e9-03b962374d7c",
+          "count": 2,
+          "total": 11,
+          "status": "upcoming",
+          "date": null,
+          "access_tier": "public"
+        }
+      }
+    }
+  }
+}

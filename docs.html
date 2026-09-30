@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Documentation — PropSports API | 59 Endpoints · MLB · NFL · NBA · NHL</title>
-<meta name="description" content="Full API documentation for PropSports API. 59 endpoints covering MLB, NFL, NBA, NHL. Statcast, model odds, live scores, weather, umpires, player props. Authentication, rate limits, and code examples.">
+<title>Documentation — PropSports API | 125 Endpoints · MLB · NFL · NBA · WNBA · NHL · Tennis · Soccer</title>
+<meta name="description" content="Full API documentation for PropSports API. 125 endpoints covering MLB, NFL, NBA, WNBA, NHL, tennis and soccer. Statcast, model odds, live scores, weather, umpires, player props. Authentication, rate limits, and code examples.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://propsports.proptechusa.ai/docs.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -201,7 +201,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
           <div class="nav-dd-section">&#9918; Sports</div>
           <a href="/pricing.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9889;</span>
-            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · NHL · 59 endpoints · Poisson model odds</div><div class="nav-dd-price">From $19/mo · All sports $49/mo</div></div>
+            <div><div class="nav-dd-name">PropSports API</div><div class="nav-dd-desc">MLB · NFL · NBA · WNBA · NHL · Tennis · Soccer · 125 endpoints · Poisson model odds</div><div class="nav-dd-price">From $19/mo · All sports $49/mo</div></div>
           </a>
           <a href="/mlb-edge.html" class="nav-dd-item">
             <span class="nav-dd-icon">&#9918;</span>
@@ -373,10 +373,10 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
     <div class="doc-section" id="overview">
       <div class="eyebrow">v4.2 &mdash; Updated June 2026</div>
       <h2>Overview</h2>
-      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, and NHL. 59 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
+      <p>PropSports API is a REST API delivering real-time sports data for MLB, NFL, NBA, WNBA, NHL, tennis and soccer. 125 endpoints. All responses are JSON. All requests use GET. Cloudflare Workers edge network &mdash; sub-100ms globally.</p>
       <p>What makes PropSports different from every other sports API: we own our Statcast data pipeline and we generate our own Poisson model odds from it. No DraftKings. No FanDuel. No sportsbook dependency. The <code>/mlb/odds/model/*</code> family of endpoints has no equivalent anywhere else at this price point.</p>
       <div class="resp-chips">
-        <span class="resp-chip green">59 endpoints</span>
+        <span class="resp-chip green">125 endpoints</span>
         <span class="resp-chip green">MLB &middot; NFL &middot; NBA &middot; NHL</span>
         <span class="resp-chip">JSON only</span>
         <span class="resp-chip">GET requests</span>
@@ -1137,7 +1137,7 @@ plays.plays.forEach(p => {
       <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved &middot; Saint Paul, MN</div>
       <div class="psa-ft-badges">
         <span class="psa-ft-badge">v4.2.0</span>
-        <span class="psa-ft-badge">59 endpoints</span>
+        <span class="psa-ft-badge">125 endpoints</span>
         <span class="psa-ft-badge">Cloudflare Workers</span>
         <span class="psa-ft-badge">MLB Stats API</span>
         <span class="psa-ft-badge">Baseball Savant</span>

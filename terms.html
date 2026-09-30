@@ -4,10 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
 <title>Terms of Service — PropSports API</title>
-<meta name="description" content="PropSports API Terms of Service. What you can build, what's not permitted, and how the service works.">
+<!-- ps:seo -->
 <link rel="canonical" href="https://propsports.proptechusa.ai/terms">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#D73B1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PropSports API">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Terms of Service — PropSports API">
+<meta property="og:description" content="PropSports API Terms of Service. What you can build, what's not permitted, and how the service works.">
+<meta property="og:url" content="https://propsports.proptechusa.ai/terms">
+<meta property="og:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:secure_url" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms of Service — PropSports API">
+<meta name="twitter:description" content="PropSports API Terms of Service. What you can build, what's not permitted, and how the service works.">
+<meta name="twitter:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta name="twitter:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="theme-color" content="#07090C">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Terms","item":"https://propsports.proptechusa.ai/terms"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/terms#webpage","url":"https://propsports.proptechusa.ai/terms","name":"Terms of Service — PropSports API","description":"PropSports API Terms of Service. What you can build, what's not permitted, and how the service works.","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US"}]}</script>
+<!-- /ps:seo -->
+<meta name="description" content="PropSports API Terms of Service. What you can build, what's not permitted, and how the service works.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -156,7 +181,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
     <h2><span class="num">02</span> The Service</h2>
     <p>PropSports API provides real-time sports data via a REST API. The Service includes:</p>
     <ul>
-      <li>API endpoints for MLB, NFL, NBA, and NHL data (schedule, live scores, statistics, odds, weather, umpires, Statcast)</li>
+      <li>API endpoints for MLB, NFL, NBA, WNBA, NHL, tennis and soccer data (schedule, live scores, statistics, odds, weather, umpires, Statcast)</li>
       <li>Proprietary Poisson model odds generated from owned Statcast data, live data refreshed every 15 seconds</li>
       <li>API key-based authentication and rate limiting</li>
       <li>Developer documentation at <a href="https://propsports.proptechusa.ai/docs" class="inline">propsports.proptechusa.ai/docs</a></li>
@@ -199,33 +224,39 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
         </tr>
         <tr>
           <td>Single Sport</td>
-          <td>1 sport — MLB, NFL, NBA, or NHL</td>
+          <td>1 sport — MLB, NFL, NBA, WNBA, NHL, Tennis or Soccer</td>
           <td>50,000 req/day</td>
-          <td>$19/mo</td>
+          <td>$29/mo</td>
         </tr>
         <tr>
-          <td>Basic <span class="plan-badge">All Sports</span></td>
-          <td>MLB + NFL + NBA + NHL</td>
-          <td>50,000 req/day</td>
-          <td>$49/mo</td>
+          <td>Developer</td>
+          <td>Up to 3 sports from the 7 core sports</td>
+          <td>100,000 req/day</td>
+          <td>$79/mo</td>
+        </tr>
+        <tr>
+          <td>All Sports</td>
+          <td>MLB + NFL + NBA + WNBA + NHL + Tennis + Soccer</td>
+          <td>200,000 req/day</td>
+          <td>$149/mo</td>
         </tr>
         <tr>
           <td>Pro</td>
-          <td>MLB + NFL + NBA + NHL</td>
-          <td>200,000 req/day</td>
-          <td>$99/mo</td>
-        </tr>
-        <tr>
-          <td>Ultra</td>
-          <td>MLB + NFL + NBA + NHL</td>
+          <td>MLB + NFL + NBA + WNBA + NHL + Tennis + Soccer</td>
           <td>500,000 req/day</td>
-          <td>$249/mo</td>
+          <td>$299/mo</td>
         </tr>
         <tr>
-          <td>Mega / Enterprise</td>
-          <td>All sports + custom</td>
-          <td>Unmetered</td>
-          <td>$1,500+/mo</td>
+          <td>Scale</td>
+          <td>MLB + NFL + NBA + WNBA + NHL + Tennis + Soccer</td>
+          <td>2,000,000 req/day</td>
+          <td>$599/mo</td>
+        </tr>
+        <tr>
+          <td>Enterprise</td>
+          <td>MLB + NFL + NBA + WNBA + NHL + Tennis + Soccer</td>
+          <td>5,000,000 req/day</td>
+          <td>$1,500/mo</td>
         </tr>
       </tbody>
     </table>

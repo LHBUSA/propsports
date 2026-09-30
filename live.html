@@ -4,10 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
 <title>See It Live — PropSports API powering PropBetEdge.ai</title>
-<meta name="description" content="See PropSports API running inside PropBetEdge.ai: sports news, betting angles, MLB Edge signals, model odds, live data, and paid API plans from $19/mo.">
+<!-- ps:seo -->
 <link rel="canonical" href="https://propsports.proptechusa.ai/live">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D73B1A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#D73B1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PropSports API">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="See It Live — PropSports API powering PropBetEdge.ai">
+<meta property="og:description" content="See PropSports API running inside PropBetEdge.ai: sports news, betting angles, MLB Edge signals, model odds, live data, and paid API plans from $29/mo.">
+<meta property="og:url" content="https://propsports.proptechusa.ai/live">
+<meta property="og:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:secure_url" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="See It Live — PropSports API powering PropBetEdge.ai">
+<meta name="twitter:description" content="See PropSports API running inside PropBetEdge.ai: sports news, betting angles, MLB Edge signals, model odds, live data, and paid API plans from $29/mo.">
+<meta name="twitter:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta name="twitter:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="theme-color" content="#07090C">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Powering PropBetEdge","item":"https://propsports.proptechusa.ai/live"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/live#webpage","url":"https://propsports.proptechusa.ai/live","name":"See It Live — PropSports API powering PropBetEdge.ai","description":"See PropSports API running inside PropBetEdge.ai: sports news, betting angles, MLB Edge signals, model odds, live data, and paid API plans from $29/mo.","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US"}]}</script>
+<!-- /ps:seo -->
+<meta name="description" content="See PropSports API running inside PropBetEdge.ai: sports news, betting angles, MLB Edge signals, model odds, live data, and paid API plans from $29/mo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -83,7 +108,7 @@ h1 .brand-line{display:block;color:var(--red);font-size:clamp(36px,3.65vw,52px);
       <a href="/mlb-edge" class="edge-pill">MLB Edge</a>
       <a href="/docs">Docs</a><a href="/pricing">Pricing</a><a href="/live" class="on">Live</a>
     </div>
-    <a href="#plans" class="btn-red nav-cta">Get API Key</a>
+    <a href="#pricing" class="btn-red nav-cta">Get API Key</a>
     <button class="ham" id="ham" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -93,7 +118,7 @@ h1 .brand-line{display:block;color:var(--red);font-size:clamp(36px,3.65vw,52px);
   <div class="mob-sec">Products</div>
   <a href="/mlb-edge" onclick="toggleMenu()">⚡ MLB Edge Suite</a><a href="/pricing" onclick="toggleMenu()">💳 Pricing</a><a href="/docs" onclick="toggleMenu()">📖 Docs</a><a href="/live" onclick="toggleMenu()">🚀 See It Live</a>
   <div class="mob-divider"></div>
-  <button class="mob-cta" onclick="doCheckout('BASIC')">Start Basic — $49/mo →</button>
+  <button class="mob-cta" onclick="doCheckout('ALL_SPORTS')">Start All Sports — $149/mo →</button>
 </div>
 
 <header class="hero">
@@ -105,10 +130,10 @@ h1 .brand-line{display:block;color:var(--red);font-size:clamp(36px,3.65vw,52px);
       <div class="hero-actions">
         <a href="#live-preview" class="btn-red">View Live Site ↓</a>
         <a href="https://www.propbetedge.ai/" target="_blank" rel="noopener" class="btn-outline">Open PropBetEdge ↗</a>
-        <button class="btn-dark" onclick="doCheckout('BASIC')">Start API — $49/mo</button>
+        <button class="btn-dark" onclick="doCheckout('ALL_SPORTS')">Start API — $149/mo</button>
       </div>
       <div class="proof-row">
-        <span class="pill red">47 endpoints</span><span class="pill green">Single sport $19/mo</span><span class="pill">All sports $49/mo</span><span class="pill">Stripe paywall live</span>
+        <span class="pill red">106 endpoints</span><span class="pill green">Single sport $29/mo</span><span class="pill">All sports $149/mo</span><span class="pill">Stripe paywall live</span>
       </div>
     </div>
     <div class="hero-card" aria-label="PropSports live proof card">
@@ -118,9 +143,9 @@ h1 .brand-line{display:block;color:var(--red);font-size:clamp(36px,3.65vw,52px);
         <div class="hc-title">Sports news + data products + paid API checkout.</div>
         <p class="hc-copy">A real public-facing brand using the same PropSports platform: content layer, API layer, Stripe layer, and MLB Edge upsell path.</p>
         <div class="hc-metrics">
-          <div class="hc-metric"><div class="hc-num">$19</div><div class="hc-text">Single sport</div></div>
-          <div class="hc-metric"><div class="hc-num">$49</div><div class="hc-text">All sports</div></div>
-          <div class="hc-metric"><div class="hc-num">47</div><div class="hc-text">Endpoints</div></div>
+          <div class="hc-metric"><div class="hc-num">$29</div><div class="hc-text">Single sport</div></div>
+          <div class="hc-metric"><div class="hc-num">$149</div><div class="hc-text">All sports</div></div>
+          <div class="hc-metric"><div class="hc-num">106</div><div class="hc-text">Endpoints</div></div>
           <div class="hc-metric"><div class="hc-num">4</div><div class="hc-text">Sports</div></div>
         </div>
       </div>
@@ -160,29 +185,41 @@ h1 .brand-line{display:block;color:var(--red);font-size:clamp(36px,3.65vw,52px);
     <div class="feature-grid">
       <div class="feature"><span class="feature-tag">News</span><h3>Sports News Feed</h3><p>Public content layer for traffic, trust, and brand authority. The API sits underneath the sports data products.</p><div class="endpoint">Public site: propbetedge.ai</div></div>
       <div class="feature"><span class="feature-tag">MLB Edge</span><h3>Model Signals</h3><p>MLB Edge creates the premium upsell path: player tools, matchup context, and proprietary baseball intelligence.</p><div class="endpoint">/mlb-edge</div></div>
-      <div class="feature"><span class="feature-tag">API</span><h3>Developer Access</h3><p>Paid builders can buy single-sport data or all-sports access through the Stripe worker with instant checkout flow.</p><div class="endpoint">$19/mo or $49/mo</div></div>
+      <div class="feature"><span class="feature-tag">API</span><h3>Developer Access</h3><p>Paid builders can buy single-sport data or all-sports access through the Stripe worker with instant checkout flow.</p><div class="endpoint">$29/mo or $149/mo</div></div>
       <div class="feature"><span class="feature-tag">Paywall</span><h3>Working Checkout</h3><p>Buttons call the live PropSports Stripe worker and route customers into the correct plan instead of dead pricing links.</p><div class="endpoint">create-checkout</div></div>
     </div>
   </div>
 </section>
 
-<section class="paywall" id="plans">
-  <div class="wrap">
-    <div class="kicker">Correct paid paths</div>
-    <h2>Choose one sport or unlock all seven.</h2>
-    <p class="section-p">Single-sport plans are $19/mo. Basic unlocks MLB, NFL, NBA, and NHL for $49/mo. Pro and Ultra remain available for heavier builders.</p>
-    <div class="plan-grid">
-      <div class="plan"><div class="plan-sport">⚾</div><div class="plan-name">MLB Only</div><div class="price">$19<span>/mo</span></div><p>Baseball endpoints, Statcast context, scores, schedule, weather, and model-ready data.</p><ul><li>50K req/day</li><li>MLB endpoints</li><li>Cancel anytime</li></ul><button class="btn-red" id="btn-mlb" onclick="doCheckout('MLB')">Start MLB →</button></div>
-      <div class="plan"><div class="plan-sport">🏈</div><div class="plan-name">NFL Only</div><div class="price">$19<span>/mo</span></div><p>NFL schedules, standings, game context, odds-ready data, and developer access.</p><ul><li>50K req/day</li><li>NFL endpoints</li><li>Cancel anytime</li></ul><button class="btn-red" id="btn-nfl" onclick="doCheckout('NFL')">Start NFL →</button></div>
-      <div class="plan"><div class="plan-sport">🏀</div><div class="plan-name">NBA Only</div><div class="price">$19<span>/mo</span></div><p>NBA scores, box scores, advanced data, game context, and prop-ready signals.</p><ul><li>50K req/day</li><li>NBA endpoints</li><li>Cancel anytime</li></ul><button class="btn-red" id="btn-nba" onclick="doCheckout('NBA')">Start NBA →</button></div>
-      <div class="plan"><div class="plan-sport">🏒</div><div class="plan-name">NHL Only</div><div class="price">$19<span>/mo</span></div><p>NHL schedule, scores, standings, goalie context, and hockey data products.</p><ul><li>50K req/day</li><li>NHL endpoints</li><li>Cancel anytime</li></ul><button class="btn-red" id="btn-nhl" onclick="doCheckout('NHL')">Start NHL →</button></div>
-    </div>
-    <div class="all-sports">
-      <div><h3>Want every sport?</h3><p>Basic gets MLB + NFL + NBA + NHL for $49/mo. Pro unlocks higher usage and priority support for $99/mo.</p></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn-white" id="btn-basic" onclick="doCheckout('BASIC')">Start Basic — $49/mo</button><button class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,.25)" id="btn-pro" onclick="doCheckout('PRO')">Go Pro — $99/mo</button></div>
-    </div>
+<!-- ps:pricing -->
+<section id="pricing" style="padding:80px 20px;background:#F5F3EE;border-top:1px solid #EAE7DF;border-bottom:1px solid #EAE7DF">
+  <div style="max-width:1160px;margin:0 auto">
+    <p style="font:700 12px/1 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#D73B1A;margin:0">PropSports API pricing</p>
+    <h2 style="margin:14px 0 0;font:700 clamp(28px,3.4vw,40px)/1.1 system-ui,sans-serif;letter-spacing:-.02em;color:#12151B">Plans from $29/mo.</h2>
+    <p style="margin:12px 0 0;max-width:640px;font:400 17px/1.6 system-ui,sans-serif;color:#454C57">One sport $29/mo · up to three sports $79/mo · all 7 core sports $149/mo. Pro, Scale and Enterprise add production volume. API key emailed after checkout; cancel anytime.</p>
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px"><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Single Sport</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$29<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">One selected sport<br>50,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Developer</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$79<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">Up to 3 selected sports<br>100,000 requests/day</div></div><div style="background:#fff;border:1px solid #D73B1A;border-radius:12px;padding:18px 18px 16px;box-shadow:0 18px 40px -20px rgba(215,59,26,.5);">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#D73B1A">All Sports · Best value</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$149<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>200,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Pro</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$299<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>500,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Scale</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$599<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>2,000,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Enterprise</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$1,500<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>5,000,000 requests/day</div></div></div>
+    <div style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px"><button type="button" onclick="doCheckout('ALL_SPORTS')" style="cursor:pointer;border:0;border-radius:8px;background:#D73B1A;color:#fff;font:600 15px system-ui,sans-serif;padding:14px 20px">Get All Sports — $149/mo →</button><a href="/pricing" style="font:600 15px system-ui,sans-serif;color:#12151B;text-decoration:underline;text-underline-offset:3px">Compare all plans, including Developer →</a></div>
   </div>
 </section>
+<!-- /ps:pricing -->
 
 <div class="portal">Already a subscriber? <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage Subscription &amp; Cancel</a></div>
 
@@ -191,7 +228,7 @@ h1 .brand-line{display:block;color:var(--red);font-size:clamp(36px,3.65vw,52px);
   <div class="footer-grid">
     <div>
       <a href="/" class="footer-logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#D73B1A"/><path d="M10 6L6 17H13L9 26L26 13H18L22 6H10Z" fill="white"/></svg><span class="footer-logo-t">Prop<span>Sports</span> API</span></a>
-      <p>Sports data infrastructure by PropTechUSA.ai. MLB, NFL, NBA, and NHL APIs with flat monthly pricing and working Stripe checkout.</p>
+      <p>Sports data infrastructure by PropTechUSA.ai. MLB, NFL, NBA, WNBA, NHL, tennis and soccer APIs with flat monthly pricing and working Stripe checkout.</p>
       <p><a href="tel:18887843881">1-888-784-3881</a><br><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a></p>
     </div>
     <div><h4>Sports APIs</h4><ul><li><a href="/mlb">MLB API</a></li><li><a href="/nfl">NFL API</a></li><li><a href="/nba">NBA API</a></li><li><a href="/nhl">NHL API</a></li><li><a class="hot-link" href="/mlb-edge">MLB Edge Suite</a></li><li><a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" rel="noopener">RapidAPI ↗</a></li></ul></div>
@@ -213,16 +250,8 @@ function toggleMenu(){
     h.children[2].style.transform=o?'':'rotate(-45deg) translate(4px,-4px)';
   }
 }
-var PRICE_IDS={
-  BASIC:'price_1TgVGEF3CaVzg4ORwIgccsLq',
-  PRO:'price_1TgVIFF3CaVzg4ORBLnm7oV3',
-  ULTRA:'price_1TgVK2F3CaVzg4ORyH92T0n5',
-  MLB:'price_1Tgl7SF3CaVzg4OROnbVwkJn',
-  NFL:'price_1TglBvF3CaVzg4ORiqx6QDne',
-  NBA:'price_1TglD6F3CaVzg4ORolvfntBE',
-  NHL:'price_1TglEDF3CaVzg4ORkrqBkQSf'
-};
-var BTN_IDS={BASIC:'btn-basic',PRO:'btn-pro',ULTRA:'btn-ultra',MLB:'btn-mlb',NFL:'btn-nfl',NBA:'btn-nba',NHL:'btn-nhl'};
+var PRICE_IDS={"MLB":"price_1ULUM6F3CaVzg4ORYIP0C8QL","NFL":"price_1ULUM8F3CaVzg4ORWk5GyS2x","NBA":"price_1ULUMAF3CaVzg4ORAZ6dhDq2","WNBA":"price_1ULUMDF3CaVzg4ORWEU2jpul","NHL":"price_1ULUMFF3CaVzg4ORTnhbbiST","TENNIS":"price_1ULUMHF3CaVzg4ORnDZu5Wtg","SOCCER":"price_1ULUMJF3CaVzg4ORkXDAXrxA","DEVELOPER":"price_1ULUMYF3CaVzg4ORpHsYNH6v","ALL_SPORTS":"price_1ULUMaF3CaVzg4ORW37dQT5M","PRO":"price_1ULUMcF3CaVzg4ORNDzMI20y","SCALE":"price_1ULUMeF3CaVzg4ORfxBoHHbF","ENTERPRISE":"price_1ULUMgF3CaVzg4OR3CrWZ1FV"};
+var BTN_IDS={ALL_SPORTS:'btn-basic',PRO:'btn-pro',SCALE:'btn-ultra',MLB:'btn-mlb',NFL:'btn-nfl',NBA:'btn-nba',NHL:'btn-nhl'};
 function doCheckout(tier){
   var priceId=PRICE_IDS[tier];
   if(!priceId){alert('Plan not configured. Email sales@proptechusa.ai.');return;}

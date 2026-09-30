@@ -3,146 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MLB API — Schedules, Live Games, Statcast &amp; Model Output | PropSports</title>
-<meta name="description" content="MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor, umpires), market data and the PropBetEdge Poisson model.">
+<title>MLB API — Live Games, Statcast &amp; Model Output | PropSports</title>
+<meta name="description" content="MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor,…">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://propsports.proptechusa.ai/sports/mlb">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PropSports API">
-<meta property="og:title" content="MLB API — Schedules, Live Games, Statcast &amp; Model Output | PropSports">
-<meta property="og:description" content="MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor, umpires), market data and the PropBetEdge Poisson model.">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="MLB API — Live Games, Statcast &amp; Model Output | PropSports">
+<meta property="og:description" content="MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor,…">
 <meta property="og:url" content="https://propsports.proptechusa.ai/sports/mlb">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:secure_url" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MLB API — Live Games, Statcast &amp; Model Output | PropSports">
+<meta name="twitter:description" content="MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor,…">
+<meta name="twitter:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta name="twitter:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
 <meta name="theme-color" content="#07090C">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muok4qyb">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
+<link rel="stylesheet" href="/assets/ps.css?v=muolwkf4">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Sports","item":"https://propsports.proptechusa.ai/#network"},{"@type":"ListItem","position":3,"name":"MLB API","item":"https://propsports.proptechusa.ai/sports/mlb"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/sports/mlb#webpage","url":"https://propsports.proptechusa.ai/sports/mlb","name":"MLB API — Live Games, Statcast & Model Output | PropSports","description":"MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor,…","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US","about":{"@id":"https://propsports.proptechusa.ai/sports/mlb#api"}},{"@type":"SoftwareApplication","@id":"https://propsports.proptechusa.ai/sports/mlb#api","name":"PropSports MLB API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://propsports.proptechusa.ai/sports/mlb","description":"MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor,…","publisher":{"@id":"https://proptechusa.ai/#organization"},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"isAccessibleForFree":false,"offers":{"@type":"Offer","name":"Single Sport — MLB","price":"29","priceCurrency":"USD","url":"https://propsports.proptechusa.ai/pricing","priceSpecification":{"@type":"UnitPriceSpecification","price":"29","priceCurrency":"USD","unitText":"MONTH"}}}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
-<header class="nav" id="top">
+<header class="nav dark">
   <div class="wrap nav-in">
-    <a class="brand" href="/" aria-label="PropSports home"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#4F8CFF" stroke-width="2"/><path d="M13.2 7.5L9 17h5.6l-3 7.5 11-11h-6l3.2-6z" fill="#E9EDF2"/></svg>PropSports<small>API</small></a>
+    <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <div class="dd"><button type="button" aria-expanded="false" aria-haspopup="true">Products <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></button>
+      <div class="dd"><button type="button" aria-expanded="false" aria-haspopup="true">Products <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg></button>
         <div class="dd-menu">
-          <a href="/#platform"><strong>Core Sports API</strong><span>7 sports and 125 endpoints on one key</span></a>
+          <a href="/#platform"><strong>Core Sports API</strong><span>7 core sports on one API key</span></a>
           <a href="/#live"><strong>Live Sports Data</strong><span>Schedules, scores and live game state</span></a>
           <a href="/#depth"><strong>Advanced Analytics</strong><span>Statcast, play-by-play, shot and event coordinates</span></a>
           <a href="/#intelligence"><strong>Model Intelligence</strong><span>Model output and DNA systems where available</span></a>
           <a href="/sports/ufc"><strong>UFC Intelligence</strong><span>Dedicated combat-sports platform</span></a>
         </div>
       </div>
-      <div class="dd"><button type="button" aria-expanded="false" aria-haspopup="true">Sports <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5l3 3 3-3"/></svg></button>
-        <div class="dd-menu dd-sports"><a href="/sports/mlb" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span><strong>MLB</strong></a><a href="/sports/nfl" style="--c:#5FAE63"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span><strong>NFL</strong></a><a href="/sports/nba" style="--c:#E8843C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>NBA</strong></a><a href="/sports/wnba" style="--c:#E0708F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>WNBA</strong></a><a href="/sports/nhl" style="--c:#5AA9E6"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span><strong>NHL</strong></a><a href="/sports/tennis" style="--c:#C9D84E"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span><strong>Tennis</strong></a><a href="/sports/soccer" style="--c:#3FC093"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span><strong>Soccer</strong></a><a href="/sports/ufc" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span><strong>UFC</strong></a><a class="dd-foot" href="/#platform"><strong>Compare coverage</strong><span>Sport-by-sport matrix</span></a></div>
+      <div class="dd"><button type="button" aria-expanded="false" aria-haspopup="true">Sports <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg></button>
+        <div class="dd-menu dd-sports"><a href="/sports/mlb" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span><strong>MLB</strong><span>PropSports API</span></a><a href="/sports/nfl" style="--c:#5FAE63"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span><strong>NFL</strong><span>PropSports API</span></a><a href="/sports/nba" style="--c:#E8843C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>NBA</strong><span>PropSports API</span></a><a href="/sports/wnba" style="--c:#E0708F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>WNBA</strong><span>API + live platform</span></a><a href="/sports/nhl" style="--c:#5AA9E6"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span><strong>NHL</strong><span>PropSports API</span></a><a href="/sports/tennis" style="--c:#C9D84E"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span><strong>Tennis</strong><span>API + live platform</span></a><a href="/sports/soccer" style="--c:#3FC093"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span><strong>Soccer</strong><span>API + live platform</span></a><a href="/sports/ufc" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span><strong>UFC</strong><span>Fight Intelligence</span></a><a class="dd-foot" href="/#network"><strong>Compare all eight sports</strong><span>Coverage and access by sport</span></a></div>
       </div>
       <a href="/reference">API Reference</a>
       <a href="/#live">Live Network</a>
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing">Pricing</a>
       <a href="/docs">Docs</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-ghost btn-sm" href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Sign in</a>
-      <a class="btn btn-primary btn-sm" href="/#pricing">Get API Key <span aria-hidden="true">→</span></a>
-      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+      <a class="btn btn-ghost btn-sm" href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage plan</a>
+      <a class="btn btn-primary btn-sm" href="/pricing">Get API Key <span aria-hidden="true">→</span></a>
+      <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
 </header>
-<div class="drawer" aria-label="Menu">
-  <h4>SPORTS</h4>
+<div class="drawer dark" aria-label="Menu">
+  <p class="drawer-h">SPORTS</p>
   <div class="drawer-sports"><a href="/sports/mlb" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB</a><a href="/sports/nfl" style="--c:#5FAE63"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span>NFL</a><a href="/sports/nba" style="--c:#E8843C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>NBA</a><a href="/sports/wnba" style="--c:#E0708F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>WNBA</a><a href="/sports/nhl" style="--c:#5AA9E6"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span>NHL</a><a href="/sports/tennis" style="--c:#C9D84E"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span>Tennis</a><a href="/sports/soccer" style="--c:#3FC093"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span>Soccer</a><a href="/sports/ufc" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span>UFC</a></div>
-  <h4>PLATFORM</h4>
-  <a href="/#live">Live Network</a><a href="/#platform">Coverage</a><a href="/#console">API Console</a><a href="/reference">API Reference</a><a href="/docs">Docs</a><a href="/#pricing">Pricing</a>
-  <h4>ACCOUNT</h4>
+  <p class="drawer-h">PLATFORM</p>
+  <a href="/#live">Live Network</a><a href="/#network">Sports Network</a><a href="/#console">API Console</a><a href="/reference">API Reference</a><a href="/docs">Docs</a><a href="/pricing">Pricing</a>
+  <p class="drawer-h">ACCOUNT</p>
   <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a>
-  <a class="btn btn-primary" href="/#pricing">Get API Key →</a>
+  <a class="btn btn-primary" href="/pricing">Get API Key →</a>
 </div>
 <main id="main" style="--c:#E2574C">
-<section class="sp-hero">
+<section class="sp-hero dark">
+  <div class="sp-hero-media"><img src="/assets/media/sport-mlb.webp" alt="" width="720" height="480" decoding="async"></div>
   <div class="wrap sp-hero-in">
-    <div class="crumbs"><a href="/">PropSports</a> / <a href="/#platform">Sports</a> / MLB</div>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">PropSports</a> / <a href="/#network">Sports</a> / MLB</nav>
     <div class="sp-hero-copy">
-      <div class="eyebrow" style="gap:12px"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB API</div>
+      <p class="eyebrow" style="gap:12px">MLB API</p>
       <h1>Schedules, live games, Statcast and model output.</h1>
       <p class="hero-lead">MLB is the deepest dataset on the network: live game state, owned Statcast tables for batters and pitchers, game environment (weather, park factor, umpires), market data and the PropBetEdge Poisson model.</p>
-      <div class="hero-actions"><button type="button" class="btn btn-primary" data-checkout="MLB">Get MLB key — $19/mo</button><a class="btn btn-line" href="/#pricing">All-sports plans</a></div>
+      <div class="hero-actions"><button type="button" class="btn btn-primary" data-checkout="MLB">Get MLB API key — $29/mo</button><a class="btn btn-line" href="/pricing">Compare all plans</a></div>
     </div>
     <div class="sp-facts">
-      <div><span>ENDPOINTS</span><b class="num">25</b></div>
-      <div><span>PUBLIC (NO KEY)</span><b class="num">23</b></div>
-      <div><span>BASE</span><b>/mlb</b></div>
-      <div><span>HOST</span><b>propsports-api.sales-fd3.workers.dev</b></div>
-      <div><span>SERVED VIA</span><b>Core API worker</b></div>
-      <div><span>LIVE CACHE</span><b>Statcast 15 min · odds 2–5 min</b></div>
+      <div><span>Documented routes</span><b>25</b></div>
+      <div><span>Public (no key)</span><b>23</b></div>
+      <div><span>Base path</span><b class="mono">/mlb</b></div>
+      <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
+      <div><span>Served via</span><b>Core API worker</b></div>
+      <div><span>Live cache</span><b>Statcast 15 min · odds 2–5 min</b></div>
     </div>
   </div>
 </section>
-
-<section class="sec">
+<section class="sec" aria-labelledby="cap-h">
   <div class="wrap">
-    <div class="sec-head"><div><div class="label"><b>01</b> / CAPABILITIES</div><h2>What the MLB API covers</h2></div></div>
+    <div class="sec-head"><div><p class="label"><b>01</b> Capabilities</p><h2 id="cap-h">What the MLB API covers.</h2></div></div>
     <div class="caps">
-      <div><h3>SCHEDULE &amp; LIVE</h3><ul><li>Schedule &amp; slate</li><li>Live games</li><li>Lineups &amp; probables</li></ul></div>
-      <div><h3>PLAY-BY-PLAY &amp; GAME</h3><ul><li>Plays</li><li>Box score</li><li>Linescore</li></ul></div>
-      <div><h3>PLAYERS</h3><ul><li>Season stats</li><li>Game logs</li></ul></div>
-      <div><h3>ADVANCED</h3><ul><li>Statcast batters &amp; pitchers</li><li>Weather &amp; park factor</li><li>Umpire crews</li></ul></div>
-      <div><h3>MODELS &amp; DNA</h3><ul><li>Poisson model prices</li></ul></div>
+      <div><h3>Schedule &amp; live</h3><ul><li>Schedule &amp; slate</li><li>Live games</li><li>Lineups &amp; probables</li></ul></div>
+      <div><h3>Play-by-play &amp; game</h3><ul><li>Plays</li><li>Box score</li><li>Linescore</li></ul></div>
+      <div><h3>Players</h3><ul><li>Season stats</li><li>Game logs</li></ul></div>
+      <div><h3>Advanced</h3><ul><li>Statcast batters &amp; pitchers</li><li>Weather &amp; park factor</li><li>Umpire crews</li></ul></div>
+      <div><h3>Models &amp; DNA</h3><ul><li>Poisson model prices</li></ul></div>
     </div>
   </div>
 </section>
-
-<section class="sec alt" id="endpoints">
+<section class="sec alt" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><div class="label"><b>02</b> / ENDPOINTS</div><h2>25 MLB endpoints</h2><p class="sec-lead">All routes are <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>. Public routes need no key; the rest take <code>X-API-Key</code> or <code>?key=</code>.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>02</b> Endpoints</p><h2 id="ep-h">25 documented MLB routes.</h2><p class="sec-lead">All routes are <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>. Public routes need no key; the rest take <code>X-API-Key</code> or <code>?key=</code>.</p></div></div>
     <div class="ep-groups">
-  <div class="ep-group"><h3>SCHEDULE &amp; LIVE</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/schedule/today</code><span>Today's slate · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/games/live</code><span>Games currently in progress · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/lineups</code><span>Posted lineups and probable pitchers · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  <div class="ep-group"><h3>Schedule &amp; live</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/schedule/today</code><span>Today's slate · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/games/live</code><span>Games currently in progress · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/lineups</code><span>Posted lineups and probable pitchers · <em class="acc acc-pub">Public</em></span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>GAME DETAIL</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/game/:pk/linescore</code><span>Inning-by-inning linescore · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/game/:pk/boxscore</code><span>Full box score · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/game/:pk/plays</code><span>Most recent plays (?limit) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  <div class="ep-group"><h3>Game detail</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/linescore</code><span>Inning-by-inning linescore · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/boxscore</code><span>Full box score · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/plays</code><span>Most recent plays (?limit) · <em class="acc acc-pub">Public</em></span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>PLAYERS</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/player/:id/stats</code><span>Season stats · <em style="font-style:normal;color:var(--warn)">Demo key</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/player/:id/gamelog</code><span>Game log · <em style="font-style:normal;color:var(--warn)">Demo key</em></span></div></li>
+  <div class="ep-group"><h3>Players</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/player/:id/stats</code><span>Season stats · <em class="acc acc-demo">Demo key</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/player/:id/gamelog</code><span>Game log · <em class="acc acc-demo">Demo key</em></span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>STATCAST</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/statcast/batters</code><span>Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/statcast/pitchers</code><span>Pitcher Statcast table with pagination · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  <div class="ep-group"><h3>Statcast</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/statcast/batters</code><span>Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/statcast/pitchers</code><span>Pitcher Statcast table with pagination · <em class="acc acc-pub">Public</em></span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>GAME ENVIRONMENT</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/weather</code><span>Wind, temperature and park factor for one park · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/weather/all</code><span>Weather for every game on the slate · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/umpires</code><span>Umpire crews by game · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  <div class="ep-group"><h3>Game environment</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/weather</code><span>Wind, temperature and park factor for one park · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/weather/all</code><span>Weather for every game on the slate · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/umpires</code><span>Umpire crews by game · <em class="acc acc-pub">Public</em></span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>MARKET DATA</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/odds</code><span>Game lines: spread, total, moneyline · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/hr</code><span>Home-run props, best book across DraftKings and FanDuel · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/totalbases</code><span>Total-bases props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/hits</code><span>Hits props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/strikeouts</code><span>Pitcher strikeout props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/rbi</code><span>RBI props · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/all</code><span>All prop markets combined · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/player</code><span>One player across prop markets (?name) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  <div class="ep-group"><h3>Market data</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/odds</code><span>Game lines: spread, total, moneyline · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/hr</code><span>Home-run props, best book across DraftKings and FanDuel · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/totalbases</code><span>Total-bases props · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/hits</code><span>Hits props · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/strikeouts</code><span>Pitcher strikeout props · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/rbi</code><span>RBI props · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/all</code><span>All prop markets combined · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/player</code><span>One player across prop markets (?name) · <em class="acc acc-pub">Public</em></span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>MODEL OUTPUT</h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/odds/model</code><span>PropBetEdge Poisson model prices (?market, ?player, ?direction) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/model/top</code><span>Top model OVER plays · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/model/player</code><span>One player across model markets (?name) · <em style="font-style:normal;color:var(--ok)">Public</em></span></div></li>
+  <div class="ep-group"><h3>Model output</h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/mlb/odds/model</code><span>PropBetEdge Poisson model prices (?market, ?player, ?direction) · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model/top</code><span>Top model OVER plays · <em class="acc acc-pub">Public</em></span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model/player</code><span>One player across model markets (?name) · <em class="acc acc-pub">Public</em></span></div></li>
   </ul></div></div>
   </div>
 </section>
-
-<section class="sec">
+<section class="sec" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><div class="label"><b>03</b> / EXAMPLE</div><h2>Example request and response</h2><p class="sec-lead">Captured from production. Public routes can be re-run live.</p></div></div>
-    <div class="console" data-console data-first="mlb">
+    <div class="sec-head"><div><p class="label"><b>03</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Public routes re-run live.</p></div></div>
+    <div class="console dark" data-console data-first="mlb">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="mlb" aria-selected="true" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span><strong>/mlb/schedule/today</strong><span class="p">/mlb/schedule/today</span></button>
     <button type="button" role="tab" data-ex="mlb-statcast" aria-selected="false" style="--c:#E2574C"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span><strong>/mlb/statcast/pitchers</strong><span class="p">/mlb/statcast/pitchers</span></button>
@@ -157,44 +173,42 @@
 </div>
   </div>
 </section>
-
-<section class="sec alt">
+<section class="sec white" aria-labelledby="notes-h">
   <div class="wrap split">
-    <div><div class="label"><b>04</b> / DATA NOTES</div><h2 style="margin-top:14px;font:600 26px/1.2 var(--sans);color:#fff;letter-spacing:-.02em">Depth and availability</h2><p class="sec-lead">What the data is, where it comes from, and what it deliberately does not claim.</p></div>
+    <div><p class="label"><b>04</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>MLB StatsAPI, Supabase Statcast tables, Open-Meteo, DraftKings and FanDuel props</li>
-      <li><b>ACCESS</b>Included in the MLB-only plan ($19/mo) and every all-sports plan.</li>
+      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo.</li>
       <li><b>NOTE</b>Model prices come from the PropBetEdge odds engine and are served from a separate route family.</li>
       <li><b>NOTE</b>Park factor is a field on /mlb/weather; indoor parks return none.</li>
       <li><b>NOTE</b>Player routes accept the demo key under a shared 20 requests/hour cap.</li>
     </ul>
   </div>
 </section>
-
-<section class="sec">
+<section class="sec" aria-labelledby="cta-h">
   <div class="wrap">
-    <div class="cta-band"><div><h3>Build on MLB data</h3><p><a class="link arrow" href="/mlb">Full MLB reference &amp; examples</a><span style="color:var(--line-3)"> · </span><a class="link arrow" href="/reference#mlb">MLB routes in the API reference</a></p></div><div class="acts"><button type="button" class="btn btn-primary" data-checkout="MLB">Get MLB key — $19/mo</button><a class="btn btn-line" href="/#pricing">All-sports plans</a></div></div>
-    <div class="label" style="margin-top:48px">OTHER SPORTS</div>
-    <div class="rail" style="margin-top:12px;border:1px solid var(--line);background:none"><div class="rail-in"><a href="/sports/mlb" style="--c:#E2574C;background:var(--bg-2)" aria-current="page"><span class="rail-top"><span class="rail-name">MLB</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span></span></a><a href="/sports/nfl" style="--c:#5FAE63"><span class="rail-top"><span class="rail-name">NFL</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span></span></a><a href="/sports/nba" style="--c:#E8843C"><span class="rail-top"><span class="rail-name">NBA</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span></span></a><a href="/sports/wnba" style="--c:#E0708F"><span class="rail-top"><span class="rail-name">WNBA</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span></span></a><a href="/sports/nhl" style="--c:#5AA9E6"><span class="rail-top"><span class="rail-name">NHL</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span></span></a><a href="/sports/tennis" style="--c:#C9D84E"><span class="rail-top"><span class="rail-name">Tennis</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span></span></a><a href="/sports/soccer" style="--c:#3FC093"><span class="rail-top"><span class="rail-name">Soccer</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span></span></a><a href="/sports/ufc" style="--c:#D8483F"><span class="rail-top"><span class="rail-name">UFC</span><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span></span></a></div></div>
+    <div class="cta-band"><div><h2 id="cta-h" style="font:700 24px var(--display);color:var(--ink);letter-spacing:-.02em">Build on MLB data</h2><p><a class="link arrow" href="/mlb">MLB API guide and examples</a> · <a class="link arrow" href="/reference#mlb">MLB routes in the API reference</a></p></div><div class="acts"><button type="button" class="btn btn-primary" data-checkout="MLB">Get MLB API key — $29/mo</button><a class="btn btn-line" href="/pricing">Compare all plans</a></div></div>
+    <p class="label" style="margin-top:48px">Other sports</p>
+    <nav class="sport-strip" aria-label="Other sports"><a href="/sports/mlb" style="--c:#E2574C" aria-current="page">MLB<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span></a><a href="/sports/nfl" style="--c:#5FAE63">NFL<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span></a><a href="/sports/nba" style="--c:#E8843C">NBA<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span></a><a href="/sports/wnba" style="--c:#E0708F">WNBA<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span></a><a href="/sports/nhl" style="--c:#5AA9E6">NHL<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span></a><a href="/sports/tennis" style="--c:#C9D84E">Tennis<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span></a><a href="/sports/soccer" style="--c:#3FC093">Soccer<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span></a><a href="/sports/ufc" style="--c:#D8483F">UFC<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span></a></nav>
   </div>
 </section>
 </main>
-<footer class="foot">
+<footer class="foot dark">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#4F8CFF" stroke-width="2"/><path d="M13.2 7.5L9 17h5.6l-3 7.5 11-11h-6l3.2-6z" fill="#E9EDF2"/></svg>PropSports<small>API</small></a>
-        <p>Real-time sports infrastructure from PropTechUSA.ai. 7 core API sports, 125 endpoints and a dedicated UFC intelligence platform.</p>
+        <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>106</span> catalog endpoints and a dedicated UFC intelligence platform.</p>
       </div>
-      <div><h4>PLATFORM</h4><a href="/#live">Live Network</a><a href="/#platform">Coverage</a><a href="/#console">API Console</a><a href="/reference">API Reference</a><a href="/docs">Docs</a><a href="/#pricing">Pricing</a></div>
-      <div><h4>SPORTS</h4><a href="/sports/mlb">MLB</a><a href="/sports/nfl">NFL</a><a href="/sports/nba">NBA</a><a href="/sports/wnba">WNBA</a><a href="/sports/nhl">NHL</a><a href="/sports/tennis">Tennis</a><a href="/sports/soccer">Soccer</a><a href="/sports/ufc">UFC</a></div>
-      <div><h4>PRODUCTS</h4><a href="/mlb-edge">MLB Edge Suite</a><a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">UFC Intelligence</a><a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI listing</a><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">PropData (real estate)</a><a href="/live">Powering PropBetEdge</a></div>
-      <div><h4>COMPANY</h4><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai</a><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai</a><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a><a href="tel:18887843881">1-888-784-3881</a><a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></div>
+      <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
+      <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
+      <div><p class="foot-h">SPORT GUIDES</p><a href="/mlb">MLB API guide</a><a href="/nfl">NFL API guide</a><a href="/nba">NBA API guide</a><a href="/nhl">NHL API guide</a><a href="/mlb-edge">MLB Edge Suite</a><a href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">UFC Intelligence platform</a></div>
+      <div><p class="foot-h">COMPANY</p><a href="https://proptechusa.ai" target="_blank" rel="noopener">PropTechUSA.ai</a><a href="https://propbetedge.ai" target="_blank" rel="noopener">PropBetEdge.ai</a><a href="https://propdata.proptechusa.ai" target="_blank" rel="noopener">PropData API</a><a href="https://rapidapi.com/proptechusa/api/propsports-api" target="_blank" rel="noopener">RapidAPI listing</a><a href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a><a href="tel:18887843881">1-888-784-3881</a></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms" style="display:inline">Terms</a> · <a href="/privacy" style="display:inline">Privacy</a></span></div>
+    <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muok4qyb"></script>
-<script src="/assets/ps.js?v=muok4qyb" defer></script>
+<script src="/assets/ps-config.js?v=muolwkf4"></script>
+<script src="/assets/ps.js?v=muolwkf4" defer></script>
 </body>
 </html>

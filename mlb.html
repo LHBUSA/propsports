@@ -4,11 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
 <title>MLB API — Live Scores, Statcast, Odds & Poisson Model | PropSports API</title>
-<meta name="description" content="The only MLB API with a built-in Poisson probability model. Live scores, Statcast, props, weather, umpires — 25 endpoints from $19/mo. No sportsbook dependency.">
+<!-- ps:seo -->
 <link rel="canonical" href="https://propsports.proptechusa.ai/mlb">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E8321A'/%3E%3Cpath d='M10 6L6 17H13L9 26L26 13H18L22 6H10Z' fill='white'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#E8321A">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"MLB API","item":"https://propsports.proptechusa.ai/mlb"}]},{"@type":"SoftwareApplication","name":"PropSports MLB API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"19","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"19","priceCurrency":"USD","billingDuration":"P1M"}},"description":"Real-time MLB API with live scores, Statcast, player props, weather, umpires, and proprietary Poisson model odds. 25 endpoints from $19/mo.","publisher":{"@type":"Organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai"}}]}</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PropSports API">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="MLB API — Live Scores, Statcast, Odds &amp; Poisson Model | PropSports API">
+<meta property="og:description" content="The only MLB API with a built-in Poisson probability model. Live scores, Statcast, props, weather, umpires — 25 endpoints from $29/mo. No sportsbook dependency.">
+<meta property="og:url" content="https://propsports.proptechusa.ai/mlb">
+<meta property="og:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:secure_url" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MLB API — Live Scores, Statcast, Odds &amp; Poisson Model | PropSports API">
+<meta name="twitter:description" content="The only MLB API with a built-in Poisson probability model. Live scores, Statcast, props, weather, umpires — 25 endpoints from $29/mo. No sportsbook dependency.">
+<meta name="twitter:image" content="https://propsports.proptechusa.ai/assets/social/propsports-og.jpg">
+<meta name="twitter:image:alt" content="PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC">
+<meta name="theme-color" content="#07090C">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- /ps:seo -->
+<meta name="description" content="The only MLB API with a built-in Poisson probability model. Live scores, Statcast, props, weather, umpires — 25 endpoints from $29/mo. No sportsbook dependency.">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"MLB API","item":"https://propsports.proptechusa.ai/mlb"}]},{"@type":"SoftwareApplication","name":"PropSports MLB API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"29","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"29","priceCurrency":"USD","billingDuration":"P1M"}},"description":"Real-time MLB API with live scores, Statcast, player props, weather, umpires, and proprietary Poisson model odds. 25 endpoints from $29/mo.","publisher":{"@type":"Organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai"}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -752,7 +776,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
   <a href="/docs" onclick="toggleMob()">📖 Docs</a>
   <a href="/pricing" onclick="toggleMob()">💳 Pricing</a>
   <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener" onclick="toggleMob()">🔑 Manage Subscription</a>
-  <button onclick="doCheckout('MLB');toggleMob();" style="display:block;width:100%;text-align:center;padding:13px;margin-top:8px;background:var(--red);color:#fff;font:700 13px var(--body);border-radius:8px;border:none;cursor:pointer;">Get MLB Key — $19/mo →</button>
+  <button onclick="doCheckout('MLB');toggleMob();" style="display:block;width:100%;text-align:center;padding:13px;margin-top:8px;background:var(--red);color:#fff;font:700 13px var(--body);border-radius:8px;border:none;cursor:pointer;">Get MLB Key — $29/mo →</button>
 </div>
 
 <!-- HERO -->
@@ -774,7 +798,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
         </p>
 
         <div class="mlb-hero-actions fu d3">
-          <button class="btn-red" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
+          <button class="btn-red" onclick="doCheckout('MLB')">Get MLB Key — $29/mo →</button>
           <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" rel="noopener" class="btn-outline">▶ Try Live API</a>
         </div>
 
@@ -857,7 +881,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
       <div class="mlb-stat"><b>25</b><span>MLB Endpoints</span></div>
       <div class="mlb-stat"><b>150</b><span>Statcast Batters</span></div>
       <div class="mlb-stat"><b>6×</b><span>Daily Model Refresh</span></div>
-      <div class="mlb-stat"><b class="red">$19</b><span>Starting /mo</span></div>
+      <div class="mlb-stat"><b class="red">$29</b><span>Starting /mo</span></div>
       <div class="mlb-stat"><b>0</b><span>Sportsbook Deps</span></div>
     </div>
   </div>
@@ -945,7 +969,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
     <div class="ep-grid" id="ep-grid">
       <!-- Model Odds -->
       <div class="ep-card" data-cat="model" data-path="/mlb/odds/model" data-desc="Poisson model odds all markets HR total bases hits strikeouts"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model</div><div class="ep-desc">Poisson model odds — all markets. No sportsbook needed.</div></div></div>
-      <div class="ep-card" data-cat="model" data-path="/mlb/odds/model/top" data-desc="Top OVER value plays ranked expected stat poisson"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model/top</div><div class="ep-desc">Top OVER value plays ranked by expected stat. Updated 6× daily.</div></div></div>
+      <div class="ep-card" data-cat="model" data-path="/mlb/odds/model/top" data-desc="Top OVER value plays ranked expected stat poisson"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model/top</div><div class="ep-desc">Top OVER value plays ranked by expected stat. Refreshed by the PropBetEdge odds engine.</div></div></div>
       <div class="ep-card" data-cat="model" data-path="/mlb/odds/model/player" data-desc="All model markets one player name Soto HR total bases hits K"><span class="ep-badge badge-model">MODEL</span><div><div class="ep-path">/mlb/odds/model/player</div><div class="ep-desc">All model markets for one player. <code style="font-size:10px;">?name=Soto</code> → HR, TB, hits, K.</div></div></div>
       <!-- Book Props -->
       <div class="ep-card" data-cat="book" data-path="/mlb/odds/hr" data-desc="HR home run prop odds DraftKings FanDuel merged best line"><span class="ep-badge badge-get">GET</span><div><div class="ep-path">/mlb/odds/hr</div><div class="ep-desc">HR prop odds — DK + FanDuel merged, best line surfaced.</div></div></div>
@@ -1038,7 +1062,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
   <div class="wrap">
     <span class="eyebrow">How we stack up</span>
     <h2 class="sfu">The math is pretty simple.</h2>
-    <p class="lead sfu" style="max-width:500px;">SportRadar starts at $2,000+/month with a sales cycle. We give you an API key in 60 seconds for $19.</p>
+    <p class="lead sfu" style="max-width:500px;">SportRadar starts at $2,000+/month with a sales cycle. We give you an API key in 60 seconds for $29.</p>
     <div class="compare-wrap sfu">
       <table class="compare-table">
         <thead>
@@ -1052,7 +1076,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
         <tbody>
           <tr class="ct-row-hl">
             <td>MLB-only starting price</td>
-            <td><span class="ct-val-red">$19/mo</span></td>
+            <td><span class="ct-val-red">$29/mo</span></td>
             <td><span class="ct-val">$2,000+/mo</span></td>
             <td><span class="ct-val">$29–$99/mo</span></td>
           </tr>
@@ -1118,115 +1142,35 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
 </div>
 
 <!-- PRICING -->
-<div class="pricing-section">
-  <div class="wrap">
-    <span class="eyebrow">Pricing</span>
-    <h2 class="sfu">Flat rate. No surprises.</h2>
-    <p class="lead sfu" style="max-width:480px;">No per-call fees. No usage tiers that sneak up on you. MLB-only from $19/mo. All seven core sports from $49/mo.</p>
-    <div class="pricing-grid">
-
-      <!-- Demo -->
-      <div class="p-card sfu">
-        <span class="p-name">Demo</span>
-        <span class="p-sport">MLB eval only</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">0</span><span class="p-period">/mo</span></div>
-        <ul class="p-feats">
-          <li><span class="pck">✓</span> MLB endpoints only</li>
-          <li><span class="pck">✓</span> 20 req/hr global cap</li>
-          <li><span class="pck">✓</span> Statcast preview</li>
-          <li><span class="pck">✓</span> Model odds preview</li>
-          <li><span class="pdash">–</span> Production use</li>
-          <li><span class="pdash">–</span> NFL · NBA · NHL</li>
-        </ul>
-        <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" class="btn-p btn-p-out">Try Demo Key →</a>
-      </div>
-
-      <!-- Single Sport -->
-      <div class="p-card sfu featured">
-        <span class="p-hot">⚾ MLB</span>
-        <span class="p-name">Single Sport</span>
-        <span class="p-sport">MLB · NFL · NBA · or NHL</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">19</span><span class="p-period">/mo</span></div>
-        <ul class="p-feats">
-          <li><span class="pck">✓</span> Your choice of 1 sport</li>
-          <li><span class="pck">✓</span> 50,000 req/day</li>
-          <li><span class="pck">✓</span> All endpoints for that sport</li>
-          <li><span class="pck">✓</span> ⚡ Poisson model odds (MLB)</li>
-          <li><span class="pck">✓</span> Owned Statcast (MLB)</li>
-          <li><span class="pck">✓</span> Key in 60 seconds</li>
-        </ul>
-        <button class="btn-p btn-p-red" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
-      </div>
-
-      <!-- Basic -->
-      <div class="p-card sfu">
-        <span class="p-name">Basic</span>
-        <span class="p-sport">All 7 core sports</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">49</span><span class="p-period">/mo</span></div>
-        <ul class="p-feats">
-          <li><span class="pck">✓</span> MLB · NFL · NBA · NHL</li>
-          <li><span class="pck">✓</span> All 47 endpoints</li>
-          <li><span class="pck">✓</span> 50,000 req/day</li>
-          <li><span class="pck">✓</span> ⚡ Poisson model odds</li>
-          <li><span class="pck">✓</span> DK + FanDuel prop merge</li>
-          <li><span class="pck">✓</span> Email support (~48hr)</li>
-        </ul>
-        <button class="btn-p btn-p-ink" onclick="doCheckout('BASIC')">Get Basic — $49/mo →</button>
-      </div>
-
-      <!-- Pro -->
-      <div class="p-card sfu">
-        <span class="p-name">Pro</span>
-        <span class="p-sport">All 7 core sports</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">99</span><span class="p-period">/mo</span></div>
-        <ul class="p-feats">
-          <li><span class="pck">✓</span> Everything in Basic</li>
-          <li><span class="pck">✓</span> 200,000 req/day</li>
-          <li><span class="pck">✓</span> 3 API keys</li>
-          <li><span class="pck">✓</span> Priority email (24hr)</li>
-          <li><span class="pck">✓</span> Early endpoint access</li>
-          <li><span class="pck">✓</span> Historical / backtest data</li>
-        </ul>
-        <button class="btn-p btn-p-ink" onclick="doCheckout('PRO')">Get Pro — $99/mo →</button>
-      </div>
-
-      <!-- Ultra -->
-      <div class="p-card sfu">
-        <span class="p-name">Ultra</span>
-        <span class="p-sport">All 7 core sports</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">249</span><span class="p-period">/mo</span></div>
-        <ul class="p-feats">
-          <li><span class="pck">✓</span> Everything in Pro</li>
-          <li><span class="pck">✓</span> 500,000 req/day</li>
-          <li><span class="pck">✓</span> 10 API keys</li>
-          <li><span class="pck">✓</span> Email + Slack (4hr)</li>
-          <li><span class="pck">✓</span> 99.5% uptime target</li>
-          <li><span class="pck">✓</span> Custom rate limits</li>
-        </ul>
-        <button class="btn-p btn-p-ink" onclick="doCheckout('ULTRA')">Get Ultra — $249/mo →</button>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="p-card sfu enterprise-card">
-        <span class="p-hot">Enterprise</span>
-        <span class="p-name">Enterprise</span>
-        <span class="p-sport">Mega access · Stripe checkout</span>
-        <div class="p-price"><span class="p-dollar">$</span><span class="p-amount">1,500</span><span class="p-period">/mo</span></div>
-        <ul class="p-feats">
-          <li><span class="pck">✓</span> High-volume production access</li>
-          <li><span class="pck">✓</span> Raw Supabase export options</li>
-          <li><span class="pck">✓</span> White-label / resale rights</li>
-          <li><span class="pck">✓</span> Signed DPA available</li>
-          <li><span class="pck">✓</span> Dedicated Slack + 1hr support path</li>
-          <li><span class="pck">✓</span> Custom model variants</li>
-        </ul>
-        <button class="btn-p btn-p-red" onclick="doCheckout('ENTERPRISE')">Activate Enterprise — $1,500/mo →</button>
-      </div>
-
-    </div>
-    <p class="pricing-note">Also on <a href="https://rapidapi.com/team/propdata-propdata-default" target="_blank" style="color:var(--red);text-decoration:none;font-weight:600;">RapidAPI</a> &nbsp;·&nbsp; Enterprise checkout: <button onclick="doCheckout('ENTERPRISE')" style="border:0;background:transparent;color:var(--red);text-decoration:none;font-weight:700;cursor:pointer;font:inherit;">$1,500/mo</button> &nbsp;·&nbsp; <strong>1-888-784-3881</strong></p>
+<!-- ps:pricing -->
+<section id="pricing" style="padding:80px 20px;background:#F5F3EE;border-top:1px solid #EAE7DF;border-bottom:1px solid #EAE7DF">
+  <div style="max-width:1160px;margin:0 auto">
+    <p style="font:700 12px/1 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#D73B1A;margin:0">PropSports API pricing</p>
+    <h2 style="margin:14px 0 0;font:700 clamp(28px,3.4vw,40px)/1.1 system-ui,sans-serif;letter-spacing:-.02em;color:#12151B">Start with MLB for $29/mo.</h2>
+    <p style="margin:12px 0 0;max-width:640px;font:400 17px/1.6 system-ui,sans-serif;color:#454C57">One sport $29/mo · up to three sports $79/mo · all 7 core sports $149/mo. Pro, Scale and Enterprise add production volume. API key emailed after checkout; cancel anytime.</p>
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px"><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Single Sport</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$29<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">One selected sport<br>50,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Developer</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$79<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">Up to 3 selected sports<br>100,000 requests/day</div></div><div style="background:#fff;border:1px solid #D73B1A;border-radius:12px;padding:18px 18px 16px;box-shadow:0 18px 40px -20px rgba(215,59,26,.5);">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#D73B1A">All Sports · Best value</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$149<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>200,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Pro</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$299<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>500,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Scale</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$599<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>2,000,000 requests/day</div></div><div style="background:#fff;border:1px solid #EAE7DF;border-radius:12px;padding:18px 18px 16px;">
+        <div style="font:700 11px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6A7280">Enterprise</div>
+        <div style="margin-top:10px;font:700 32px/1 system-ui,sans-serif;color:#12151B">$1,500<span style="font:500 13px system-ui,sans-serif;color:#6A7280">/mo</span></div>
+        <div style="margin-top:8px;font:400 13.5px/1.45 system-ui,sans-serif;color:#454C57">All 7 core sports<br>5,000,000 requests/day</div></div></div>
+    <div style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px"><button type="button" onclick="doCheckout('MLB')" style="cursor:pointer;border:0;border-radius:8px;background:#D73B1A;color:#fff;font:600 15px system-ui,sans-serif;padding:14px 20px">Get MLB API key — $29/mo →</button><a href="/pricing" style="font:600 15px system-ui,sans-serif;color:#12151B;text-decoration:underline;text-underline-offset:3px">Compare all plans, including Developer →</a></div>
   </div>
-</div>
+</section>
+<!-- /ps:pricing -->
 
 <!-- CTA -->
 <div class="cta-band">
@@ -1234,7 +1178,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
     <h2 class="sfu">Ready to build with MLB data?</h2>
     <p class="lead sfu">Demo key available right now. No credit card required. Full key in 60 seconds when you're ready to ship.</p>
     <div class="cta-btns sfu">
-      <button class="btn-white" onclick="doCheckout('MLB')">Get MLB Key — $19/mo →</button>
+      <button class="btn-white" onclick="doCheckout('MLB')">Get MLB Key — $29/mo →</button>
       <a href="/docs" class="btn-red-outline">Read the Docs</a>
     </div>
   </div>
@@ -1439,16 +1383,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── STRIPE CHECKOUT ──
-var PRICE_IDS = {
-  MLB:   'price_1Tgl7SF3CaVzg4OROnbVwkJn',
-  NFL:   'price_1TglBvF3CaVzg4ORiqx6QDne',
-  NBA:   'price_1TglD6F3CaVzg4ORolvfntBE',
-  NHL:   'price_1TglEDF3CaVzg4ORkrqBkQSf',
-  BASIC: 'price_1TgVGEF3CaVzg4ORwIgccsLq',
-  PRO:   'price_1TgVIFF3CaVzg4ORBLnm7oV3',
-  ULTRA: 'price_1TgVK2F3CaVzg4ORyH92T0n5',
-  ENTERPRISE: 'price_1Tnp8AF3CaVzg4OREtKmEdm9'
-};
+var PRICE_IDS = {"MLB":"price_1ULUM6F3CaVzg4ORYIP0C8QL","NFL":"price_1ULUM8F3CaVzg4ORWk5GyS2x","NBA":"price_1ULUMAF3CaVzg4ORAZ6dhDq2","WNBA":"price_1ULUMDF3CaVzg4ORWEU2jpul","NHL":"price_1ULUMFF3CaVzg4ORTnhbbiST","TENNIS":"price_1ULUMHF3CaVzg4ORnDZu5Wtg","SOCCER":"price_1ULUMJF3CaVzg4ORkXDAXrxA","DEVELOPER":"price_1ULUMYF3CaVzg4ORpHsYNH6v","ALL_SPORTS":"price_1ULUMaF3CaVzg4ORW37dQT5M","PRO":"price_1ULUMcF3CaVzg4ORNDzMI20y","SCALE":"price_1ULUMeF3CaVzg4ORfxBoHHbF","ENTERPRISE":"price_1ULUMgF3CaVzg4OR3CrWZ1FV"};
 
 function doCheckout(tier) {
   var priceId = PRICE_IDS[tier];
@@ -1477,10 +1412,10 @@ function doCheckout(tier) {
     alert('Checkout issue: ' + e.message + '\nEmail sales@proptechusa.ai or call 1-888-784-3881');
     if (event && event.target) {
       event.target.disabled = false;
-      event.target.textContent = tier === 'MLB' ? 'Get MLB Key — $19/mo →' :
-        tier === 'BASIC' ? 'Get Basic — $49/mo →' :
-        tier === 'PRO' ? 'Get Pro — $99/mo →' :
-        tier === 'ULTRA' ? 'Get Ultra — $249/mo →' : 'Subscribe →';
+      event.target.textContent = tier === 'MLB' ? 'Get MLB Key — $29/mo →' :
+        tier === 'ALL_SPORTS' ? 'Get All Sports — $149/mo →' :
+        tier === 'PRO' ? 'Get Pro — $299/mo →' :
+        tier === 'SCALE' ? 'Get Scale — $599/mo →' : 'Subscribe →';
     }
   });
 }

@@ -1,0 +1,6 @@
+# Not part of the served site
+scripts/
+.qa/
+*.py
+index.html.bak_*
+

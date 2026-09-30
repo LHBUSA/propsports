@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /scripts/
+Disallow: /index.html.bak_20260411_221818
+
 Sitemap: https://propsports.proptechusa.ai/sitemap.xml

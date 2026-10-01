@@ -81,12 +81,12 @@
 <section class="sp-hero dark" style="--c:var(--accent)">
   <div class="wrap sp-hero-in">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">PropSports</a> / API Reference</nav>
-    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All <span data-ps-endpoints>151</span> routes in the PropSports production catalog, publicly documented and available on commercial plans. Each one shows whether it is open without a key, has demo access, or requires an API key. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
+    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All <span data-ps-endpoints>151</span> routes in the PropSports production catalog, publicly documented and available on commercial plans. Routes are grouped by sport with descriptions and examples. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b><span data-ps-endpoints>151</span></b></div>
-      <div><span>Open without key</span><b>65</b></div>
-      <div><span>Demo access</span><b>7</b></div>
-      <div><span>API key required</span><b>79</b></div>
+      
+      
+      
       <div><span>Base URL</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Auth</span><b class="mono">X-API-Key or ?key=</b></div>
       <div><span>Machine-readable</span><b class="mono"><a href="https://propsports-api.sales-fd3.workers.dev/sports" target="_blank" rel="noopener">GET /sports</a></b></div>
@@ -95,18 +95,18 @@
 </section>
 <section class="sec white" id="catalog" aria-labelledby="ref-catalog">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label">Catalog</p><h2 id="ref-catalog"><span data-ps-endpoints>151</span> routes across 7 sports.</h2><p class="sec-lead">Counts come from production: <a class="link" href="https://propsports-api.sales-fd3.workers.dev/health" target="_blank" rel="noopener">GET /health</a> totals and <a class="link" href="https://propsports-api.sales-fd3.workers.dev/sports" target="_blank" rel="noopener">GET /sports</a>, which lists every route with its access level. Demo key: <code>psa_demo_propsports2026</code>. Prefixes <code>/v1/</code> and <code>/api/</code> are accepted.</p></div></div>
+    <div class="sec-head"><div><p class="label">Catalog</p><h2 id="ref-catalog"><span data-ps-endpoints>151</span> routes across 7 sports.</h2><p class="sec-lead">Counts come from production via <a class="link" href="https://propsports-api.sales-fd3.workers.dev/health" target="_blank" rel="noopener">GET /health</a> and <a class="link" href="https://propsports-api.sales-fd3.workers.dev/sports" target="_blank" rel="noopener">GET /sports</a>.</p></div></div>
     <div class="ref-sum-wrap"><table class="ref-sum">
-      <thead><tr><th scope="col">Sport</th><th scope="col">Routes</th><th scope="col">Open without key</th><th scope="col">Demo access</th><th scope="col">API key required</th></tr></thead>
-      <tbody><tr style="--c:#E2574C"><th scope="row"><a href="#mlb"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB</a></th><td class="num"><b>45</b></td><td class="num">38</td><td class="num">7</td><td class="num zero">0</td></tr><tr style="--c:#5FAE63"><th scope="row"><a href="#nfl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span>NFL</a></th><td class="num"><b>15</b></td><td class="num">3</td><td class="num zero">0</td><td class="num">12</td></tr><tr style="--c:#E8843C"><th scope="row"><a href="#nba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>NBA</a></th><td class="num"><b>19</b></td><td class="num">10</td><td class="num zero">0</td><td class="num">9</td></tr><tr style="--c:#E0708F"><th scope="row"><a href="#wnba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>WNBA</a></th><td class="num"><b>25</b></td><td class="num">2</td><td class="num zero">0</td><td class="num">23</td></tr><tr style="--c:#5AA9E6"><th scope="row"><a href="#nhl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span>NHL</a></th><td class="num"><b>24</b></td><td class="num">8</td><td class="num zero">0</td><td class="num">16</td></tr><tr style="--c:#C9D84E"><th scope="row"><a href="#tennis"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span>Tennis</a></th><td class="num"><b>10</b></td><td class="num">2</td><td class="num zero">0</td><td class="num">8</td></tr><tr style="--c:#3FC093"><th scope="row"><a href="#soccer"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span>Soccer</a></th><td class="num"><b>13</b></td><td class="num">2</td><td class="num zero">0</td><td class="num">11</td></tr></tbody>
-      <tfoot><tr><th scope="row">All sports</th><td class="num"><b><span data-ps-endpoints>151</span></b></td><td class="num">65</td><td class="num">7</td><td class="num">79</td></tr></tfoot>
+      <thead><tr><th scope="col">Sport</th><th scope="col">Routes</th></tr></thead>
+      <tbody><tr style="--c:#E2574C"><th scope="row"><a href="#mlb"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB</a></th><td class="num"><b>45</b></td></tr><tr style="--c:#5FAE63"><th scope="row"><a href="#nfl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span>NFL</a></th><td class="num"><b>15</b></td></tr><tr style="--c:#E8843C"><th scope="row"><a href="#nba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>NBA</a></th><td class="num"><b>19</b></td></tr><tr style="--c:#E0708F"><th scope="row"><a href="#wnba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>WNBA</a></th><td class="num"><b>25</b></td></tr><tr style="--c:#5AA9E6"><th scope="row"><a href="#nhl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span>NHL</a></th><td class="num"><b>24</b></td></tr><tr style="--c:#C9D84E"><th scope="row"><a href="#tennis"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span>Tennis</a></th><td class="num"><b>10</b></td></tr><tr style="--c:#3FC093"><th scope="row"><a href="#soccer"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span>Soccer</a></th><td class="num"><b>13</b></td></tr></tbody>
+      <tfoot><tr><th scope="row">All sports</th><td class="num"><b><span data-ps-endpoints>151</span></b></td></tr></tfoot>
     </table></div>
-    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-demo">Demo access</em>No key, or the shared demo key (rate-limited), or any MLB key.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
+    
   </div>
 </section>
 <section class="sec alt" id="mlb" aria-labelledby="ref-mlb">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#E2574C">MLB</span><h2 id="ref-mlb">MLB · 45 documented routes</h2><p class="sec-lead">38 open without key · 7 demo access. <a class="link" href="/sports/mlb">MLB API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#E2574C">MLB</span><h2 id="ref-mlb">MLB · 45 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/mlb">MLB API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore</span><em class="acc acc-open">Open without key</em></div></li>
@@ -175,7 +175,7 @@
 </section>
 <section class="sec" id="nfl" aria-labelledby="ref-nfl">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#5FAE63">NFL</span><h2 id="ref-nfl">NFL · 15 documented routes</h2><p class="sec-lead">3 open without key · 12 API key required. <a class="link" href="/sports/nfl">NFL API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#5FAE63">NFL</span><h2 id="ref-nfl">NFL · 15 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nfl">NFL API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week)</span><em class="acc acc-open">Open without key</em></div></li>
@@ -202,7 +202,7 @@
 </section>
 <section class="sec alt" id="nba" aria-labelledby="ref-nba">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#E8843C">NBA</span><h2 id="ref-nba">NBA · 19 documented routes</h2><p class="sec-lead">10 open without key · 9 API key required. <a class="link" href="/sports/nba">NBA API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#E8843C">NBA</span><h2 id="ref-nba">NBA · 19 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nba">NBA API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">3</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/nba/schedule</code><span>Scoreboard by date (playoffs, then regular season)</span><em class="acc acc-open">Open without key</em></div></li>
@@ -235,7 +235,7 @@
 </section>
 <section class="sec" id="wnba" aria-labelledby="ref-wnba">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#E0708F">WNBA</span><h2 id="ref-wnba">WNBA · 25 documented routes</h2><p class="sec-lead">2 open without key · 23 API key required. <a class="link" href="/sports/wnba">WNBA API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#E0708F">WNBA</span><h2 id="ref-wnba">WNBA · 25 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/wnba">WNBA API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">9</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate)</span><em class="acc acc-open">Open without key</em></div></li>
@@ -274,7 +274,7 @@
 </section>
 <section class="sec alt" id="nhl" aria-labelledby="ref-nhl">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#5AA9E6">NHL</span><h2 id="ref-nhl">NHL · 24 documented routes</h2><p class="sec-lead">8 open without key · 16 API key required. <a class="link" href="/sports/nhl">NHL API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#5AA9E6">NHL</span><h2 id="ref-nhl">NHL · 24 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nhl">NHL API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">5</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/nhl/board</code><span>Slate with season phase, calendar and next puck drop</span><em class="acc acc-open">Open without key</em></div></li>
@@ -312,7 +312,7 @@
 </section>
 <section class="sec" id="tennis" aria-labelledby="ref-tennis">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#C9D84E">TENNIS</span><h2 id="ref-tennis">Tennis · 10 documented routes</h2><p class="sec-lead">2 open without key · 8 API key required. <a class="link" href="/sports/tennis">Tennis API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#C9D84E">TENNIS</span><h2 id="ref-tennis">Tennis · 10 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/tennis">Tennis API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">3</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/today</code><span>Today's order of play across tournaments</span><em class="acc acc-open">Open without key</em></div></li>
@@ -334,7 +334,7 @@
 </section>
 <section class="sec alt" id="soccer" aria-labelledby="ref-soccer">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#3FC093">SOCCER</span><h2 id="ref-soccer">Soccer · 13 documented routes</h2><p class="sec-lead">2 open without key · 11 API key required. <a class="link" href="/sports/soccer">Soccer API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#3FC093">SOCCER</span><h2 id="ref-soccer">Soccer · 13 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/soccer">Soccer API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span><em class="acc acc-open">Open without key</em></div></li>

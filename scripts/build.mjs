@@ -275,8 +275,6 @@ function consoleBlock(tabs, first) {
 }
 // Every listed capability maps to a production route; an empty category is a plain dash.
 const capList = (items) => items.length ? items.map((c) => `<span class="cap">${esc(c)}</span>`).join('') : '<span class="cap-none" title="No routes in this category">—</span>';
-const perAccess = (a, id) => N[a.toUpperCase() + '_PER_SPORT'][id];
-const ufcAccess = (a) => C.UFC_ROUTES.reduce((n, [, routes]) => n + routes.filter(([, , access]) => access === a).length, 0);
 function matrix() {
   const rows = C.SPORTS.map((s) => {
     const m = s.matrix;
@@ -1019,20 +1017,15 @@ function legacyPricing(file, html) {
 const docsCatalog = () => `<!-- ps:catalog -->
     <div class="doc-section" id="catalog">
       <h2>Route catalog</h2>
-      <p>The production catalog has <strong>${CATALOG} documented routes</strong> across ${listNames(coreNames)}. Every route is listed with its access level in the <a href="/reference" style="color:var(--red);">API reference</a>, and machine-readably at <code>GET /sports</code>. <code>GET /health</code> reports the same totals.</p>
+      <p>The production catalog has <strong>${CATALOG} documented routes</strong> across ${listNames(coreNames)}. Every route is listed in the <a href="/reference" style="color:var(--red);">API reference</a>, and the machine-readable route catalog is available at <code>GET /sports</code>. <code>GET /health</code> reports the same total.</p>
       <table class="param-table">
-        <thead><tr><th>Sport</th><th>Routes</th><th>Public</th><th>Demo key</th><th>API key</th></tr></thead>
+        <thead><tr><th>Sport</th><th>Routes</th></tr></thead>
         <tbody>
-${coreSports.map((s) => `          <tr><td><a href="/reference#${s.id}" style="color:var(--red);">${s.name}</a></td><td>${N.PER_SPORT[s.id]}</td><td>${perAccess('open', s.id)}</td><td>${perAccess('demo', s.id)}</td><td>${perAccess('key', s.id)}</td></tr>`).join('\n')}
-          <tr><td><strong>All sports</strong></td><td><strong>${CATALOG}</strong></td><td>${N.OPEN}</td><td>${N.DEMO}</td><td>${N.KEY}</td></tr>
+${coreSports.map((sport) => `          <tr><td><a href="/reference#${sport.id}" style="color:var(--red);">${sport.name}</a></td><td><strong>${N.PER_SPORT[sport.id]}</strong></td></tr>`).join('\n')}
+          <tr><td><strong>All sports</strong></td><td><strong>${CATALOG}</strong></td></tr>
         </tbody>
       </table>
-      <table class="param-table">
-        <thead><tr><th>Access level</th><th>What it means</th></tr></thead>
-        <tbody>
-${['open', 'demo', 'key'].map((a) => `          <tr><td>${A[a].label}</td><td>${esc(ACCESS_HELP[a])}</td></tr>`).join('\n')}
-        </tbody>
-      </table>
+      <p>Use the sport guides for examples, response shapes and implementation notes. Plans determine which sports are included on your API key.</p>
     </div>
 <!-- /ps:catalog -->`;
 const whatsNew = () => `<div class="alert alert-gold">&#9889; <strong>New in v${API_VERSION || '6.1'}:</strong> MLB standings, teams, team profiles, rosters and team schedules; NBA standings, teams, team profiles, rosters, team schedules and team stats; affiliated minor leagues from Triple-A to Rookie. ${CATALOG} documented routes.</div>`;
@@ -1126,4 +1119,4 @@ write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 ${PAGES.map(([p, f, pr]) => `  <url><loc>${SITE}${p}</loc><lastmod>${TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority></url>`).join('\n')}
 </urlset>
 `);
-console.log(`built ${out.length} files · catalog ${CATALOG} endpoints (${live ? 'production /health + /sports v' + API_VERSION : 'offline fallback'}) · registry ${N.DOCUMENTED_ROUTES} (${accessSummary(N.OPEN, N.DEMO, N.KEY)}) · sitemap ${PAGES.length} URLs`);
+console.log(`built ${out.length} files · catalog ${CATALOG} endpoints (${live ? 'production /health + /sports v' + API_VERSION : 'offline fallback'}) · registry ${N.DOCUMENTED_ROUTES} routes · sitemap ${PAGES.length} URLs`);

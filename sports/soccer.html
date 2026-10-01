@@ -90,8 +90,8 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>13</b></div>
-      <div><span>Open without key</span><b>2</b></div>
-      <div><span>API key required</span><b>11</b></div>
+      
+      
       <div><span>Base path</span><b class="mono">/soccer</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Upstream cache headers</b></div>
@@ -131,33 +131,33 @@
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">13 documented Soccer routes.</h2><p class="sec-lead">Every Soccer route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>: 2 open without key · 11 API key required. Keyed routes take <code>X-API-Key</code> or <code>?key=</code>.</p></div></div>
-    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">13 documented Soccer routes.</h2><p class="sec-lead">Every Soccer route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
+    
     <div class="ep-groups">
   <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Competitions <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players, teams &amp; DNA <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span></div></li>
   </ul></div></div>
   </div>
 </section>
 <section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production.</p></div></div>
     <div class="console dark" data-console data-first="soccer">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="soccer" aria-selected="true" style="--c:#3FC093"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span><strong>/soccer/matches</strong><span class="p">/soccer/matches</span></button>
@@ -177,7 +177,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated soccer platform (soccer.propbetedge.ai); live snapshot every minute</li>
-      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers Soccer includes all 13 routes.</li>
+      
       <li><b>NOTE</b>Competitions include the Premier League, Bundesliga, UEFA Champions League, UEFA Nations League and MLS.</li>
       <li><b>NOTE</b>Soccer model picks exist on the soccer platform but are not exposed through the PropSports gateway.</li>
     </ul>

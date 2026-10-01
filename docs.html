@@ -303,7 +303,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
       <a href="#base-url" class="sb-link">Base URL &amp; Headers</a>
       <a href="#rate-limits" class="sb-link">Rate Limits</a>
       <a href="#errors" class="sb-link">Errors &amp; Status Codes</a>
-      <a href="#demo-key" class="sb-link">Demo Key</a>
+      <a href="#demo-key" class="sb-link">API access</a>
       <a href="#catalog" class="sb-link">Route catalog</a>
     </div>
     <div class="sb-section">
@@ -410,7 +410,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
     <!-- AUTH -->
     <div class="doc-section" id="auth">
       <h2>Authentication</h2>
-      <p>Pass your API key in the <code>X-API-Key</code> request header or as a <code>?key=</code> query param. The demo key works without any header for MLB evaluation.</p>
+      <p>Pass your API key in the <code>X-API-Key</code> request header or as a <code>?key=</code> query param.</p>
       <div class="code-block">
         <div class="code-header"><div class="dot" style="background:#ff5f57"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#28c840"></div><span>cURL — authenticated</span></div>
         <pre><span class="cm"># Header auth (recommended)</span>
@@ -420,7 +420,7 @@ curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule
 <span class="cm"># Query param auth (also works)</span>
 curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today?key=your_api_key_here</span>
 
-<span class="cm"># Demo key — MLB eval only, 20 req/hr global cap</span>
+<span class="cm"># API access — MLB eval only, 20 req/hr global cap</span>
 curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today?key=psa_demo_propsports2026</span></pre>
       </div>
       <div class="code-block">
@@ -481,7 +481,7 @@ data = r.json()
         </tbody>
       </table>
       <p>Daily counters roll over on the US Eastern calendar date. Rate limit exceeded returns <code>429</code> with a JSON error body.</p>
-      <div class="alert alert-red">&#128683; <strong>No free tier.</strong> The demo key (<code>psa_demo_propsports2026</code>) is a shared evaluation key subject to a global 20 req/hr cap across all callers. It is not suitable for production. Plans start at $29/mo for one sport (50,000 req/day); all 7 core sports from $149/mo.</div>
+      <div class="alert alert-red">&#128683; <strong>No free tier.</strong> The API access (<code>psa_demo_propsports2026</code>) is a shared evaluation key subject to a global 20 req/hr cap across all callers. It is not suitable for production. Plans start at $29/mo for one sport (50,000 req/day); all 7 core sports from $149/mo.</div>
     </div>
 
     <!-- ERRORS -->
@@ -511,12 +511,12 @@ data = r.json()
       </table>
     </div>
 
-    <!-- DEMO KEY -->
+    <!-- API access -->
     <div class="doc-section" id="demo-key">
-      <h2>Demo Key</h2>
-      <p>The shared demo key lets you evaluate MLB response shapes before subscribing. It is intentionally limited.</p>
+      <h2>API access</h2>
+      <p>The shared API access lets you evaluate MLB response shapes before subscribing. It is intentionally limited.</p>
       <div class="code-block">
-        <div class="code-header"><span>Demo key</span></div>
+        <div class="code-header"><span>API access</span></div>
         <pre>psa_demo_propsports2026</pre>
       </div>
       <table class="param-table">
@@ -537,26 +537,19 @@ data = r.json()
       <h2>Route catalog</h2>
       <p>The production catalog has <strong>151 documented routes</strong> across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer. Every route is listed with its access level in the <a href="/reference" style="color:var(--red);">API reference</a>, and machine-readably at <code>GET /sports</code>. <code>GET /health</code> reports the same totals.</p>
       <table class="param-table">
-        <thead><tr><th>Sport</th><th>Routes</th><th>Open without key</th><th>Demo access</th><th>API key required</th></tr></thead>
+        <thead><tr><th>Sport</th><th>Routes</th></tr></thead>
         <tbody>
-          <tr><td><a href="/reference#mlb" style="color:var(--red);">MLB</a></td><td>45</td><td>38</td><td>7</td><td>0</td></tr>
-          <tr><td><a href="/reference#nfl" style="color:var(--red);">NFL</a></td><td>15</td><td>3</td><td>0</td><td>12</td></tr>
-          <tr><td><a href="/reference#nba" style="color:var(--red);">NBA</a></td><td>19</td><td>10</td><td>0</td><td>9</td></tr>
-          <tr><td><a href="/reference#wnba" style="color:var(--red);">WNBA</a></td><td>25</td><td>2</td><td>0</td><td>23</td></tr>
-          <tr><td><a href="/reference#nhl" style="color:var(--red);">NHL</a></td><td>24</td><td>8</td><td>0</td><td>16</td></tr>
-          <tr><td><a href="/reference#tennis" style="color:var(--red);">Tennis</a></td><td>10</td><td>2</td><td>0</td><td>8</td></tr>
-          <tr><td><a href="/reference#soccer" style="color:var(--red);">Soccer</a></td><td>13</td><td>2</td><td>0</td><td>11</td></tr>
+          <tr><td><a href="/reference#mlb" style="color:var(--red);">MLB</a></td><td>45</td></tr>
+          <tr><td><a href="/reference#nfl" style="color:var(--red);">NFL</a></td><td>15</td></tr>
+          <tr><td><a href="/reference#nba" style="color:var(--red);">NBA</a></td><td>19</td></tr>
+          <tr><td><a href="/reference#wnba" style="color:var(--red);">WNBA</a></td><td>25</td></tr>
+          <tr><td><a href="/reference#nhl" style="color:var(--red);">NHL</a></td><td>24</td></tr>
+          <tr><td><a href="/reference#tennis" style="color:var(--red);">Tennis</a></td><td>10</td></tr>
+          <tr><td><a href="/reference#soccer" style="color:var(--red);">Soccer</a></td><td>13</td></tr>
           <tr><td><strong>All sports</strong></td><td><strong>151</strong></td><td>65</td><td>7</td><td>79</td></tr>
         </tbody>
       </table>
-      <table class="param-table">
-        <thead><tr><th>Access level</th><th>What it means</th></tr></thead>
-        <tbody>
-          <tr><td>Open without key</td><td>Answers with no key at all.</td></tr>
-          <tr><td>Demo access</td><td>No key, or the shared demo key (rate-limited), or any MLB key.</td></tr>
-          <tr><td>API key required</td><td>A paid PropSports key entitled to the sport.</td></tr>
-        </tbody>
-      </table>
+      
     </div>
 <!-- /ps:catalog -->
 

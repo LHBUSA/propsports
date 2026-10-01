@@ -17,35 +17,50 @@ const SITE = C.SITE;
 const VERSION = Date.now().toString(36);
 const TODAY = new Date().toISOString().slice(0, 10);
 
-// Counts come from production: GET /health (totals) and GET /sports (every route with its access level).
-// The registry in ps-config.js supplies descriptions only; the build fails if it disagrees with production.
+// Counts come from production: GET /health (total) and GET /sports (canonical routes by sport).
+// The public catalog intentionally does not expose auth-tier maps. The registry supplies descriptions;
+// the build fails if route names or sport totals disagree with production.
 const getJSON = (p) => fetch(C.API_BASE + p, { headers: { Accept: 'application/json' } }).then((r) => r.ok ? r.json() : null).catch(() => null);
 const [health, sportsCatalog] = await Promise.all([getJSON('/health'), getJSON('/sports')]);
 const live = !!(health && sportsCatalog && sportsCatalog.sports);
+let liveBySport = null;
 if (live) {
   const drift = [];
   const registry = new Map();
-  for (const [sport, groups] of Object.entries(C.ROUTES)) for (const [, routes] of groups) for (const [p, , a] of routes) registry.set(p, { sport, access: a });
-  for (const [sport, s] of Object.entries(sportsCatalog.sports)) for (const p of s.routes) {
+  for (const [sport, groups] of Object.entries(C.ROUTES)) for (const [, routes] of groups) for (const [p] of routes) registry.set(p, sport);
+  for (const [sport, row] of Object.entries(sportsCatalog.sports)) for (const p of row.routes || []) {
     const mine = registry.get(p);
-    if (!mine) drift.push(`missing from registry: ${p} (${s.access[p]})`);
-    else if (mine.access !== s.access[p]) drift.push(`access differs: ${p} registry=${mine.access} production=${s.access[p]}`);
+    if (!mine) drift.push(`missing from registry: ${p} (${sport})`);
+    else if (mine !== sport) drift.push(`sport differs: ${p} registry=${mine} production=${sport}`);
     registry.delete(p);
   }
   for (const p of registry.keys()) drift.push(`not in production catalog: ${p}`);
-  const t = sportsCatalog.totals;
-  if (Number(health.endpoints) !== t.total) drift.push(`/health endpoints ${health.endpoints} ≠ /sports total ${t.total}`);
-  if (t.total !== N.DOCUMENTED_ROUTES || t.open !== N.OPEN || t.demo !== N.DEMO || t.key !== N.KEY) drift.push(`totals differ: production ${t.total}/${t.open}/${t.demo}/${t.key}, registry ${N.DOCUMENTED_ROUTES}/${N.OPEN}/${N.DEMO}/${N.KEY}`);
+
+  const liveTotal = Number(sportsCatalog.total ?? health.endpoints);
+  liveBySport = sportsCatalog.endpoints_by_sport || Object.fromEntries(
+    Object.entries(sportsCatalog.sports).map(([sport, row]) => [sport, { total: (row.routes || []).length }])
+  );
+  if (Number(health.endpoints) !== liveTotal) drift.push(`/health endpoints ${health.endpoints} ≠ /sports total ${liveTotal}`);
+  if (liveTotal !== N.DOCUMENTED_ROUTES) drift.push(`total differs: production ${liveTotal}, registry ${N.DOCUMENTED_ROUTES}`);
+  for (const sport of Object.keys(C.ROUTES)) {
+    const t = Number(liveBySport?.[sport]?.total ?? liveBySport?.[sport] ?? 0);
+    if (t && t !== N.PER_SPORT[sport]) drift.push(`${sport} differs: production ${t}, registry ${N.PER_SPORT[sport]}`);
+  }
+
   if (drift.length && !process.env.PS_ALLOW_DRIFT) { console.error('Registry does not match production (GET /sports):\n  ' + drift.join('\n  ')); process.exit(1); }
   if (drift.length) console.warn('WARNING (PS_ALLOW_DRIFT): ' + drift.join('; '));
 } else console.warn('WARNING: production catalog unreachable; using the offline fallback count.');
+
 const CATALOG = live ? Number(health.endpoints) : C.CATALOG_ENDPOINTS_FALLBACK;
 const API_VERSION = live ? health.version : null;
 writeFileSync(join(root, 'assets/catalog.json'), JSON.stringify({
-  endpoints: CATALOG, api_version: API_VERSION,
-  access: live ? { open: sportsCatalog.totals.open, demo: sportsCatalog.totals.demo, key: sportsCatalog.totals.key } : { open: N.OPEN, demo: N.DEMO, key: N.KEY },
-  by_sport: live ? sportsCatalog.totals.sports : null,
-  source: [`${C.API_BASE}/health`, `${C.API_BASE}/sports`], fetched_at: new Date().toISOString(), live, registry_matches_production: live
+  endpoints: CATALOG,
+  api_version: API_VERSION,
+  by_sport: liveBySport,
+  source: [`${C.API_BASE}/health`, `${C.API_BASE}/sports`],
+  fetched_at: new Date().toISOString(),
+  live,
+  registry_matches_production: live && CATALOG === N.DOCUMENTED_ROUTES
 }, null, 2) + '\n');
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -77,10 +92,6 @@ const mark = (id) => `<span class="mk" aria-hidden="true"><svg viewBox="0 0 24 2
 const BRAND_MARK = '<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg>';
 const brand = (tag = true) => `${BRAND_MARK}<span class="brand-word">PropSports</span>${tag ? '<span class="brand-tag">API</span>' : ''}`;
 const tag = (id) => `<span class="sport-tag" style="--c:${sportById[id].color}">${sportById[id].name.toUpperCase()}</span>`;
-const A = C.ACCESS;
-// "65 public routes · 7 demo-key routes · 79 API-key routes" (zero tiers omitted)
-const accessSummary = (open, demo, key) => [[open, 'open'], [demo, 'demo'], [key, 'key']].filter(([n]) => n > 0).map(([n, a]) => `${fmt(n)} ${A[a].short}`).join(' · ');
-const sportAccess = (id) => accessSummary(N.OPEN_PER_SPORT[id], N.DEMO_PER_SPORT[id], N.KEY_PER_SPORT[id]);
 
 /* ── hero picture (master PNG untouched; derivatives preferred) ── */
 function heroMedia() {
@@ -269,12 +280,13 @@ const ufcAccess = (a) => C.UFC_ROUTES.reduce((n, [, routes]) => n + routes.filte
 function matrix() {
   const rows = C.SPORTS.map((s) => {
     const m = s.matrix;
-    return `<tr style="--c:${s.color}"><th scope="row"><a href="/sports/${s.id}">${mark(s.id)}${s.name}</a><small>/${s.api ? s.id : 'v1/ufc'}</small></th>
+    const count = s.api ? N.PER_SPORT[s.id] : N.UFC_ENDPOINTS_LISTED;
+    return `<tr style="--c:${s.color}"><th scope="row"><a href="/sports/${s.id}">${mark(s.id)}${s.name}</a><span class="route-count" ${s.api ? `data-ps-sport-count="${s.id}"` : ''}>${count} routes</span><small>/${s.api ? s.id : 'v1/ufc'}</small></th>
       <td>${capList(m.live)}</td><td>${capList(m.pbp)}</td><td>${capList(m.players)}</td><td>${capList(m.teams)}</td><td>${capList(m.adv)}</td><td>${capList(m.models)}</td></tr>`;
   }).join('\n');
   return `<p class="scroll-hint">Scroll sideways for every column →</p>
 <div class="matrix-wrap"><table class="matrix">
-  <thead><tr><th scope="col">SPORT</th><th scope="col">SCHEDULE &amp; LIVE</th><th scope="col">PLAY-BY-PLAY &amp; GAME</th><th scope="col">PLAYERS</th><th scope="col">TEAMS &amp; STANDINGS</th><th scope="col">ADVANCED</th><th scope="col">MODELS &amp; DNA</th></tr></thead>
+  <thead><tr><th scope="col">SPORT + ROUTES</th><th scope="col">SCHEDULE &amp; LIVE</th><th scope="col">PLAY-BY-PLAY &amp; GAME</th><th scope="col">PLAYERS</th><th scope="col">TEAMS &amp; STANDINGS</th><th scope="col">ADVANCED</th><th scope="col">MODELS &amp; DNA</th></tr></thead>
   <tbody>${rows}</tbody>
 </table></div>`;
 }
@@ -380,9 +392,9 @@ ${nav()}
   ${hero.html}
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <p class="eyebrow">PROPSPORTS API</p>
-      <h1 id="hero-h">One sports data layer.<span>Every game underneath it.</span></h1>
-      <p class="hero-lead">Live schedules, scores, players, teams, play-by-play, advanced analytics and proprietary intelligence across the PropSports network — ${coreSports.length} sports on one API key, plus a dedicated UFC intelligence platform.</p>
+      <p class="eyebrow">PROPSPORTS API · ${endpoints()} ROUTES · ${coreSports.length} SPORTS</p>
+      <h1 id="hero-h">One sports data layer.<span>${endpoints()} routes underneath it.</span></h1>
+      <p class="hero-lead">Build with live schedules, scores, play-by-play, players, teams, market context, advanced analytics and proprietary intelligence across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer — one API, one key, sport-specific depth.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="/pricing">Get API Key <span aria-hidden="true">→</span></a>
         <a class="btn btn-line" href="#console">Explore the API</a>
@@ -432,7 +444,7 @@ ${nav()}
     <div class="sec-head"><div><p class="label"><b>02</b> Why PropSports</p><h2 id="why-h">Built like infrastructure. Priced like a tool.</h2><p class="sec-lead">One key, one normalized network, and sport-specific depth where each sport actually needs it.</p></div></div>
     <div class="why">
       <article class="why-card"><div class="why-num num">${C.REFRESH_SECONDS}<small>s</small></div><h3>Live network refresh</h3><p>The live network panel re-polls every open feed every ${C.REFRESH_SECONDS} seconds, so scores and states stay current.</p><p class="why-meta">NFL, NHL and NBA live routes cache for 2–10&nbsp;s</p></article>
-      <article class="why-card"><div class="why-num num">${endpoints()}</div><h3>Documented API routes</h3><p>Every route in the production catalog is documented sport by sport, with its access level, in the <a class="link" href="/reference">API reference</a>.</p><p class="why-meta">${accessSummary(N.OPEN, N.DEMO, N.KEY)}</p></article>
+      <article class="why-card"><div class="why-num num">${endpoints()}</div><h3>Production API routes</h3><p>Not a thin wrapper around scores. Every sport gets its own route depth, documented end to end in the <a class="link" href="/reference">API reference</a>.</p><p class="why-meta">45 MLB · 36 NFL · 32 WNBA · 25 Tennis · 25 Soccer</p></article>
       <article class="why-card"><div class="why-num num">${coreSports.length}</div><h3>Core sports on one API key</h3><p>${listNames(coreNames)} behind a single <code>X-API-Key</code> header.</p><div class="why-marks" aria-hidden="true">${allMarks()}</div></article>
       <article class="why-card"><div class="why-num num">${C.SPORTS.length}</div><h3>Sport intelligence platforms</h3><p>The core API plus dedicated live platforms behind WNBA, tennis and soccer, and a separate UFC intelligence platform.</p><p class="why-meta">UFC runs on its own host and keys</p></article>
       <article class="why-card wide">
@@ -452,7 +464,7 @@ ${nav()}
     <div class="net">${C.SPORTS.map((s) => `
       <a class="net-card" href="/sports/${s.id}" style="--c:${s.color}">
         <div class="net-media"><img src="${s.media}" alt="${esc(s.alt)}" width="720" height="480" loading="lazy" decoding="async"><span class="net-status">${esc(s.status)}</span><span class="net-name">${mark(s.id)}${s.name}</span></div>
-        <div class="net-body"><p>${esc(s.line)}</p><div class="net-foot"><span>${s.api ? `${N.PER_SPORT[s.id]} documented routes` : 'Separate host and keys'}</span><span class="arrow">${s.name} ${s.api ? 'API' : 'platform'}</span></div></div>
+        <div class="net-body"><p>${esc(s.line)}</p><div class="net-foot"><span ${s.api ? `data-ps-sport-count="${s.id}"` : ''}>${s.api ? `${N.PER_SPORT[s.id]} production routes` : `${N.UFC_ENDPOINTS_LISTED} UFC routes · separate API`}</span><span class="arrow">${s.name} ${s.api ? 'API' : 'platform'}</span></div></div>
       </a>`).join('')}
     </div>
     <p class="credit">Photography: NHL — Tony Schnagl / Pexels; UFC — Haribhagirath / Wikimedia Commons (CC0). Court artwork and sport panels © PropSports. <a href="/assets/media/CREDITS.md">Media credits</a></p>
@@ -461,16 +473,16 @@ ${nav()}
 
 <section class="sec white" id="platform" aria-labelledby="platform-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Coverage</p><h2 id="platform-h">One network. Deep sport-specific data.</h2><p class="sec-lead">What each sport exposes today, read from the production route catalog. Every entry maps to a documented route — all ${endpoints()} are listed on the sport pages and in the <a class="link" href="/reference">API reference</a>.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Coverage</p><h2 id="platform-h">Seven APIs worth of depth. One contract.</h2><p class="sec-lead">See exactly where the ${endpoints()} production routes go: live state, game detail, player and team data, advanced analytics, markets, DNA and model intelligence. Every route is documented and organized by sport.</p></div></div>
     ${matrix()}
-    <p class="matrix-note">WNBA, tennis and soccer are served through an allowlisted gateway to their dedicated platforms. UFC runs on its own host and keys and is not part of PropSports API plans.</p>
+    <p class="matrix-note">MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer share the PropSports API contract. UFC is a separate fight-intelligence API with its own route catalog.</p>
   </div>
 </section>
 
 <section class="sec" id="console" aria-labelledby="console-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label"><b>05</b> API</p><h2 id="console-h">Real requests. Real responses.</h2><p class="sec-lead">Each response was captured from production and is shown with its status and latency. Routes open without a key re-run live from your browser.</p></div>
+      <div><p class="label"><b>05</b> API</p><h2 id="console-h">Real requests. Real responses.</h2><p class="sec-lead">Production-shaped JSON, real sport semantics and routes you can build against immediately. Examples show status, latency and full response bodies.</p></div>
       <div class="sec-aside"><a class="link arrow" href="/reference">Full API reference</a></div>
     </div>
     ${consoleBlock(tabs, 'mlb')}
@@ -480,7 +492,7 @@ ${nav()}
 
 <section class="sec alt" id="depth" aria-labelledby="depth-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>06</b> Depth</p><h2 id="depth-h">Deeper than generic sports data.</h2><p class="sec-lead">Scores are the floor. Each sport goes further in the direction that sport actually needs.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>06</b> Depth</p><h2 id="depth-h">Scores are the floor, not the product.</h2><p class="sec-lead">Use one API for the basics, then keep going: drives, shot coordinates, Statcast, market movement, WinBA, Matchup DNA, team history and model research.</p></div></div>
     <figure class="band">
       <picture><source media="(max-width:700px)" srcset="/assets/media/editorial-nhl-lines-m.webp"><img src="/assets/media/editorial-nhl-lines.webp" alt="Hockey players lined up on the ice with their sticks down" width="1400" height="612" loading="lazy" decoding="async"></picture>
       <figcaption class="band-copy"><h3>Game intelligence, not just scores.</h3><p>Live casts, shot geometry and line deployment for hockey — and the same depth, sport by sport.</p></figcaption>

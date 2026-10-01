@@ -186,12 +186,26 @@
   }
   document.querySelectorAll('[data-console]').forEach(initConsole);
 
-  /* ── Catalog endpoint count: the live API is the source of truth ── */
+  /* ── Catalog depth: production is the source of truth ── */
   var countEls = document.querySelectorAll('[data-ps-endpoints]');
   if (countEls.length) {
     fetch(C.API_BASE + '/health', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
       var n = j && Number(j.endpoints);
       if (n > 0) countEls.forEach(function (el) { el.textContent = n.toLocaleString('en-US'); });
+    }).catch(function () {});
+  }
+
+  var sportCountEls = document.querySelectorAll('[data-ps-sport-count]');
+  if (sportCountEls.length) {
+    fetch(C.API_BASE + '/sports', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
+      if (!j || !j.sports) return;
+      sportCountEls.forEach(function (el) {
+        var id = el.getAttribute('data-ps-sport-count');
+        var row = j.sports[id];
+        var n = row && Array.isArray(row.routes) ? row.routes.length : 0;
+        if (!n) return;
+        el.textContent = n.toLocaleString('en-US') + (el.classList.contains('route-count') ? ' routes' : ' production routes');
+      });
     }).catch(function () {});
   }
 

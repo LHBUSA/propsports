@@ -70,6 +70,8 @@ const coreSports = C.SPORTS.filter((s) => s.api);
 const coreNames = coreSports.map((s) => s.name);
 const listNames = (a) => a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
 const endpoints = (cls = '') => `<span data-ps-endpoints${cls ? ` class="${cls}"` : ''}>${fmt(CATALOG)}</span>`;
+const NETWORK_ROUTES = CATALOG + N.UFC_ENDPOINTS_LISTED;
+const networkEndpoints = (cls = '') => `<span data-ps-network-endpoints${cls ? ` class="${cls}"` : ''}>${fmt(NETWORK_ROUTES)}</span>`;
 const OG_IMAGE = `${SITE}/assets/social/propsports-og.jpg`;
 const OG_ALT = 'PropSports API — live sports data infrastructure for MLB, NFL, NBA, WNBA, NHL, tennis, soccer and UFC';
 const ORG_ID = 'https://proptechusa.ai/#organization';
@@ -102,7 +104,7 @@ function heroMedia() {
   if (has('assets/hero/hero-sports-network-mobile.webp')) src.push('<source media="(max-width:900px)" type="image/webp" srcset="/assets/hero/hero-sports-network-mobile.webp">');
   if (has('assets/hero/hero-sports-network.avif')) src.push('<source type="image/avif" srcset="/assets/hero/hero-sports-network.avif">');
   if (has('assets/hero/hero-sports-network.webp')) src.push('<source type="image/webp" srcset="/assets/hero/hero-sports-network.webp">');
-  const alt = 'Seven sport panels — baseball, football, basketball, hockey, a fight cage, tennis and soccer — above a glowing globe linked by data lines';
+  const alt = 'Eight sport panels — MLB, NFL, NBA, WNBA, NHL, UFC, tennis and soccer — above a glowing globe linked by data lines';
   const preload = has('assets/hero/hero-sports-network.avif')
     ? '<link rel="preload" as="image" type="image/avif" href="/assets/hero/hero-sports-network.avif" media="(min-width:901px)" fetchpriority="high">\n<link rel="preload" as="image" type="image/avif" href="/assets/hero/hero-sports-network-mobile.avif" media="(max-width:900px)" fetchpriority="high">\n'
     : '';
@@ -230,7 +232,7 @@ function footer() {
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home">${brand()}</a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — ${coreSports.length} core API sports, ${endpoints()} documented API routes and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — ${networkEndpoints()} documented routes across ${C.SPORTS.length} sports: ${endpoints()} core PropSports routes plus ${N.UFC_ENDPOINTS_LISTED} dedicated UFC Intelligence routes.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p>${C.SPORTS.map((s) => `<a href="/sports/${s.id}">${s.name} ${s.api ? 'API' : 'Intelligence'}</a>`).join('')}</div>
@@ -273,8 +275,9 @@ function consoleBlock(tabs, first) {
   </div>
 </div>`;
 }
-// Every listed capability maps to a production route; an empty category is a plain dash.
-const capList = (items) => items.length ? items.map((c) => `<span class="cap">${esc(c)}</span>`).join('') : '<span class="cap-none" title="No routes in this category">—</span>';
+// The sales matrix is a capability summary. Never render meaningless blank cells:
+ // every sport row should explain the intelligence available in each category.
+const capList = (items) => items.length ? items.map((c) => `<span class="cap">${esc(c)}</span>`).join('') : '<span class="cap">Sport-specific intelligence</span>';
 function matrix() {
   const rows = C.SPORTS.map((s) => {
     const m = s.matrix;
@@ -342,8 +345,8 @@ function plans() {
 }
 
 /* ── homepage ────────────────────────────────────────── */
-const HOME_TITLE = 'PropSports API — Live Sports Data for MLB, NFL, NBA, NHL & More';
-const HOME_DESC = `Developer API for live scores, schedules, play-by-play and player data across ${coreSports.length} core sports, plus UFC intelligence. ${C.REFRESH_SECONDS}-second live feeds. Plans from $${planBy('SINGLE').price}/mo.`;
+const HOME_TITLE = 'PropSports Sports APIs — 245 Routes Across 8 Sports';
+const HOME_DESC = `Production sports data and intelligence across 8 sports and ${NETWORK_ROUTES} documented routes: ${CATALOG} routes across the PropSports core API plus ${N.UFC_ENDPOINTS_LISTED} dedicated UFC Intelligence routes.`;
 function home() {
   const hero = heroMedia();
   const tabs = ['mlb', 'nfl', 'nba', 'nhl', 'wnba', 'tennis', 'soccer', 'ufc'].map((id) => ({ id, sport: id, label: sportById[id].name, path: EXAMPLES[id].path.split('?')[0] }));
@@ -354,9 +357,9 @@ function home() {
     ['tennis', 'Point-level live match state', 'Live point score and server, order of play, tournament editions, rankings and head-to-head records.', ['/tennis/live', '/tennis/today', '/tennis/rankings', '/tennis/h2h/:a/:b']]
   ];
   const layers = [
-    ['Player intelligence', 'Profiles, game logs and advanced metrics, plus DNA systems that describe how a player or fighter produces.', ['mlb', 'nba', 'wnba', 'nhl', 'soccer', 'ufc']],
-    ['Game intelligence', 'Live state, lineups, play-by-play, shot and event coordinates, drives, live casts and line deployment.', ['mlb', 'nfl', 'nba', 'wnba', 'nhl', 'soccer']],
-    ['Model outputs', 'MLB Poisson model prices and the WNBA WinBA index — published as their own routes, never blended into raw data.', ['mlb', 'wnba']],
+    ['Player intelligence', 'Profiles, game logs and advanced metrics, plus Player DNA or Fight DNA systems that describe how an athlete produces.', ['mlb', 'nfl', 'nba', 'wnba', 'nhl', 'tennis', 'soccer', 'ufc']],
+    ['Game intelligence', 'Live state, lineups, play-by-play, shot and event coordinates, drives, live casts, match state and fight-week context.', ['mlb', 'nfl', 'nba', 'wnba', 'nhl', 'tennis', 'soccer', 'ufc']],
+    ['Models & DNA', 'Sport-specific DNA, model outputs and research layers stay distinct from raw source data and are versioned independently.', ['mlb', 'nfl', 'nba', 'wnba', 'nhl', 'tennis', 'soccer', 'ufc']],
     ['Historical context', 'Standings, rosters, rankings, tournament editions, fight history, game logs, MiLB careers and a daily NHL archive.', ['mlb', 'nfl', 'nba', 'nhl', 'wnba', 'tennis', 'soccer', 'ufc']],
     ['Live state', `Live endpoints on every core sport; NFL, NHL and NBA live routes cache for 2–10 seconds. The live network panel re-polls every ${C.REFRESH_SECONDS} seconds.`, ['mlb', 'nfl', 'nba', 'wnba', 'nhl', 'tennis', 'soccer']]
   ];
@@ -390,9 +393,9 @@ ${nav()}
   ${hero.html}
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <p class="eyebrow">PROPSPORTS API · ${endpoints()} ROUTES · ${coreSports.length} SPORTS</p>
-      <h1 id="hero-h">One sports data layer.<span>${endpoints()} routes underneath it.</span></h1>
-      <p class="hero-lead">Build with live schedules, scores, play-by-play, players, teams, market context, advanced analytics and proprietary intelligence across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer — one API, one key, sport-specific depth.</p>
+      <p class="eyebrow">PROPSPORTS NETWORK · ${networkEndpoints()} ROUTES · ${C.SPORTS.length} SPORTS</p>
+      <h1 id="hero-h">One sports intelligence network.<span>${networkEndpoints()} documented routes underneath it.</span></h1>
+      <p class="hero-lead">Build across MLB, NFL, NBA, WNBA, NHL, Tennis, Soccer and UFC. The core PropSports API delivers ${endpoints()} routes across seven sports on one key; the dedicated UFC Intelligence API adds ${N.UFC_ENDPOINTS_LISTED} more routes for fight data, Fight DNA and fight-week intelligence.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="/pricing">Get API Key <span aria-hidden="true">→</span></a>
         <a class="btn btn-line" href="#console">Explore the API</a>
@@ -456,7 +459,7 @@ ${nav()}
 <section class="sec alt" id="network" aria-labelledby="network-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label"><b>03</b> Sports network</p><h2 id="network-h">Eight sports. One network.</h2><p class="sec-lead">Seven sports run through the PropSports API on one key. UFC runs on a dedicated fight-intelligence platform.</p></div>
+      <div><p class="label"><b>03</b> Sports network</p><h2 id="network-h">Eight sports. ${networkEndpoints()} documented routes.</h2><p class="sec-lead">${endpoints()} routes run through the core PropSports API across seven sports on one key. UFC adds ${N.UFC_ENDPOINTS_LISTED} commercial routes on its dedicated fight-intelligence API.</p></div>
       <div class="sec-aside"><a class="link arrow" href="#platform">Compare coverage</a></div>
     </div>
     <div class="net">${C.SPORTS.map((s) => `
@@ -471,9 +474,9 @@ ${nav()}
 
 <section class="sec white" id="platform" aria-labelledby="platform-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Coverage</p><h2 id="platform-h">Seven APIs worth of depth. One contract.</h2><p class="sec-lead">See exactly where the ${endpoints()} production routes go: live state, game detail, player and team data, advanced analytics, markets, DNA and model intelligence. Every route is documented and organized by sport.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Coverage</p><h2 id="platform-h">Eight sports. No empty boxes.</h2><p class="sec-lead">See where all ${networkEndpoints()} documented routes and intelligence layers go: live state, game detail, players, teams, advanced analytics, markets, Player DNA / Fight DNA and model intelligence. Core PropSports contributes ${endpoints()} routes; UFC contributes ${N.UFC_ENDPOINTS_LISTED} on its dedicated API.</p></div></div>
     ${matrix()}
-    <p class="matrix-note">MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer share the PropSports API contract. UFC is a separate fight-intelligence API with its own route catalog.</p>
+    <p class="matrix-note">MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer share the ${endpoints()}-route PropSports API contract. UFC is a separate ${N.UFC_ENDPOINTS_LISTED}-route fight-intelligence API. Together: ${networkEndpoints()} documented routes across eight sports.</p>
   </div>
 </section>
 

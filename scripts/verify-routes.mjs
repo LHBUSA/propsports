@@ -23,10 +23,9 @@ for (const [sport, groups] of Object.entries(C.ROUTES)) {
       if (access === 'key') { rows.push({ sport, path, access, result: 'keyed (not externally verifiable)' }); continue; }
       let url = path.replace(/:\w+/g, (m) => (sport === 'nba' && m === ':id' ? NBA_GAME : path.startsWith('/mlb/team/') ? MLB_TEAM : SAMPLE[m] || '1'));
       url += QUERY[path] || '';
-      if (access === 'demo') url += (url.includes('?') ? '&' : '?') + 'key=' + C.DEMO_KEY;
       let status = 0, body = '';
       try { const r = await fetch(C.API_BASE + url); status = r.status; body = (await r.text()).slice(0, 200); } catch (e) { body = String(e); }
-      const unknown = (status === 404 && /Endpoint not found/i.test(body)) || (status === 403 && /Demo key is MLB-only/i.test(body));
+      const unknown = (status === 404 && /Endpoint not found/i.test(body));
       rows.push({ sport, path, access, status, result: unknown ? 'NOT RECOGNIZED' : 'recognized', note: status >= 400 ? body.slice(0, 80) : '' });
     }
   }

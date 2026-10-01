@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muop6kvx">
+<link rel="stylesheet" href="/assets/ps.css?v=mup2un0m">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Sports","item":"https://propsports.proptechusa.ai/#network"},{"@type":"ListItem","position":3,"name":"UFC Intelligence","item":"https://propsports.proptechusa.ai/sports/ufc"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/sports/ufc#webpage","url":"https://propsports.proptechusa.ai/sports/ufc","name":"UFC API — Fight DNA & Round Statistics | PropSports","description":"UFC runs on the dedicated combat-sports intelligence platform, not through the PropSports API key: events and cards, weigh-ins, fighter history,…","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US"}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
@@ -90,8 +90,6 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>14</b></div>
-      
-      
       <div><span>Base path</span><b class="mono">/v1/ufc</b></div>
       <div><span>Host</span><b class="mono">ufc-api.propbetedge.ai</b></div>
       <div><span>Live cache</span><b>Platform-managed</b></div>
@@ -132,7 +130,6 @@
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
     <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">14 documented UFC routes.</h2><p class="sec-lead">Every UFC route in the UFC platform, all <code>GET</code> on <code>https://ufc-api.propbetedge.ai</code>.</p></div></div>
-    
     <div class="ep-groups">
   <div class="ep-group"><h3>Events &amp; cards <span class="ep-n">6</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/v1/ufc/events</code><span>Events (?status=upcoming)</span></div></li>
@@ -178,7 +175,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated UFC platform (ufc-api.propbetedge.ai); weigh-in ingest every minute</li>
-      
+      <li><b>ACCESS</b>Keys and billing are handled on the UFC platform.</li>
       <li><b>NOTE</b>UFC uses its own host and API keys; it is not part of PropSports API plans.</li>
       <li><b>NOTE</b>Fight DNA describes style and output — it is not a pick, price or probability.</li>
       <li><b>NOTE</b>No live in-fight scoring or public prediction routes are offered.</li>
@@ -198,7 +195,7 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>151</span> documented API routes and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>206</span> documented API routes and a dedicated UFC intelligence platform.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
@@ -208,9 +205,9 @@
     <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muop6kvx"></script>
-<script src="/assets/ps.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-network.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-live.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-config.js?v=mup2un0m"></script>
+<script src="/assets/ps.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-network.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-live.js?v=mup2un0m" defer></script>
 </body>
 </html>

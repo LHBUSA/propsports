@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muop6kvx">
+<link rel="stylesheet" href="/assets/ps.css?v=mup2un0m">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Sports","item":"https://propsports.proptechusa.ai/#network"},{"@type":"ListItem","position":3,"name":"MLB API","item":"https://propsports.proptechusa.ai/sports/mlb"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/sports/mlb#webpage","url":"https://propsports.proptechusa.ai/sports/mlb","name":"MLB API — Live Games, Statcast & Model Output | PropSports","description":"MLB is the deepest dataset on the network: live game state, standings, teams and rosters, owned Statcast tables, game environment (weather, park factor,…","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US","about":{"@id":"https://propsports.proptechusa.ai/sports/mlb#api"}},{"@type":"SoftwareApplication","@id":"https://propsports.proptechusa.ai/sports/mlb#api","name":"PropSports MLB API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://propsports.proptechusa.ai/sports/mlb","description":"MLB is the deepest dataset on the network: live game state, standings, teams and rosters, owned Statcast tables, game environment (weather, park factor,…","publisher":{"@id":"https://proptechusa.ai/#organization"},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"isAccessibleForFree":false,"offers":{"@type":"Offer","name":"Single Sport — MLB","price":"29","priceCurrency":"USD","url":"https://propsports.proptechusa.ai/pricing","priceSpecification":{"@type":"UnitPriceSpecification","price":"29","priceCurrency":"USD","unitText":"MONTH"}}}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
@@ -90,8 +90,6 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>45</b></div>
-      
-      
       <div><span>Base path</span><b class="mono">/mlb</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Statcast 15 min · odds 2–5 min</b></div>
@@ -132,7 +130,6 @@
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
     <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">45 documented MLB routes.</h2><p class="sec-lead">Every MLB route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
-    
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore</span></div></li>
@@ -224,10 +221,9 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>MLB Stats API (games, standings, teams, rosters, minor leagues), Supabase Statcast tables, Open-Meteo, DraftKings and FanDuel props</li>
-      
+      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers MLB includes all 45 routes.</li>
       <li><b>NOTE</b>Model prices come from the PropBetEdge odds engine and are served from a separate route family.</li>
       <li><b>NOTE</b>Park factor is a field on /mlb/weather; indoor parks return none.</li>
-      
       <li><b>NOTE</b>Minor-league routes cover Triple-A, Double-A, High-A, Single-A and Rookie; player careers share MLB player IDs where the source provides them.</li>
     </ul>
   </div>
@@ -245,7 +241,7 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>151</span> documented API routes and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>206</span> documented API routes and a dedicated UFC intelligence platform.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
@@ -255,9 +251,9 @@
     <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muop6kvx"></script>
-<script src="/assets/ps.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-network.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-live.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-config.js?v=mup2un0m"></script>
+<script src="/assets/ps.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-network.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-live.js?v=mup2un0m" defer></script>
 </body>
 </html>

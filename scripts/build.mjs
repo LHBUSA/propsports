@@ -78,7 +78,7 @@ const BRAND_MARK = '<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="tru
 const brand = (tag = true) => `${BRAND_MARK}<span class="brand-word">PropSports</span>${tag ? '<span class="brand-tag">API</span>' : ''}`;
 const tag = (id) => `<span class="sport-tag" style="--c:${sportById[id].color}">${sportById[id].name.toUpperCase()}</span>`;
 const A = C.ACCESS;
-// "65 open without key · 7 demo access · 79 API key required" (zero tiers omitted)
+// "65 public routes · 7 demo-key routes · 79 API-key routes" (zero tiers omitted)
 const accessSummary = (open, demo, key) => [[open, 'open'], [demo, 'demo'], [key, 'key']].filter(([n]) => n > 0).map(([n, a]) => `${fmt(n)} ${A[a].short}`).join(' · ');
 const sportAccess = (id) => accessSummary(N.OPEN_PER_SPORT[id], N.DEMO_PER_SPORT[id], N.KEY_PER_SPORT[id]);
 
@@ -247,7 +247,7 @@ function endpointGroups(groups) {
     <li><span class="method">GET</span><div><code>${esc(p)}</code><span>${esc(d)}</span><em class="acc ${A[a].css}">${A[a].label}</em></div></li>`).join('')}
   </ul></div>`).join('')}</div>`;
 }
-const ACCESS_HELP = { open: 'Answers with no key at all.', demo: 'No key, or the shared demo key (rate-limited), or any MLB key.', key: 'A paid PropSports key entitled to the sport.' };
+const ACCESS_HELP = { open: 'No API key required.', demo: 'Evaluation access; the shared demo key is rate-limited.', key: 'Requires a paid PropSports key for this sport.' };
 const accessLegend = (tiers = ['open', 'demo', 'key']) => `<div class="acc-legend" role="note">${tiers.map((a) => `<span><em class="acc ${A[a].css}">${A[a].label}</em>${esc(ACCESS_HELP[a])}</span>`).join('')}</div>`;
 const EXAMPLES = JSON.parse(read('assets/api-examples.json')).examples;
 function consoleBlock(tabs, first) {
@@ -267,18 +267,19 @@ function consoleBlock(tabs, first) {
 // Every listed capability maps to a production route; an empty category is a plain dash.
 const capList = (items) => items.length ? items.map((c) => `<span class="cap">${esc(c)}</span>`).join('') : '<span class="cap-none" title="No routes in this category">—</span>';
 const perAccess = (a, id) => N[a.toUpperCase() + '_PER_SPORT'][id];
+const ufcAccess = (a) => C.UFC_ROUTES.reduce((n, [, routes]) => n + routes.filter(([, , access]) => access === a).length, 0);
 function matrix() {
   const rows = C.SPORTS.map((s) => {
     const m = s.matrix;
-    const access = s.api
-      ? `<span class="via${s.platform ? '' : ' core'}">${s.platform ? 'API + dedicated platform' : 'Core API'}</span><span class="acc-total">${N.PER_SPORT[s.id]} routes</span>${['open', 'demo', 'key'].filter((a) => perAccess(a, s.id)).map((a) => `<span class="acc-row"><em class="acc ${A[a].css}">${perAccess(a, s.id)}</em>${A[a].short}</span>`).join('')}`
-      : `<span class="via">Separate host</span><span class="acc-total">${N.UFC_ENDPOINTS_LISTED} routes</span><span class="acc-row">UFC platform keys</span>`;
+    const total = s.api ? N.PER_SPORT[s.id] : N.UFC_ENDPOINTS_LISTED;
+    const count = (a) => s.api ? perAccess(a, s.id) : ufcAccess(a);
+    const access = `<span class="acc-total">${total} total routes</span>${['open', 'demo', 'key'].filter((a) => count(a)).map((a) => `<span class="acc-row"><em class="acc ${A[a].css}">${count(a)}</em><span>${A[a].label}</span></span>`).join('')}`;
     return `<tr style="--c:${s.color}"><th scope="row"><a href="/sports/${s.id}">${mark(s.id)}${s.name}</a><small>/${s.api ? s.id : 'v1/ufc'}</small></th>
       <td>${capList(m.live)}</td><td>${capList(m.pbp)}</td><td>${capList(m.players)}</td><td>${capList(m.teams)}</td><td>${capList(m.adv)}</td><td>${capList(m.models)}</td><td>${access}</td></tr>`;
   }).join('\n');
   return `<p class="scroll-hint">Scroll sideways for every column →</p>
 <div class="matrix-wrap"><table class="matrix">
-  <thead><tr><th scope="col">SPORT</th><th scope="col">SCHEDULE &amp; LIVE</th><th scope="col">PLAY-BY-PLAY &amp; GAME</th><th scope="col">PLAYERS</th><th scope="col">TEAMS &amp; STANDINGS</th><th scope="col">ADVANCED</th><th scope="col">MODELS &amp; DNA</th><th scope="col">ACCESS</th></tr></thead>
+  <thead><tr><th scope="col">SPORT</th><th scope="col">SCHEDULE &amp; LIVE</th><th scope="col">PLAY-BY-PLAY &amp; GAME</th><th scope="col">PLAYERS</th><th scope="col">TEAMS &amp; STANDINGS</th><th scope="col">ADVANCED</th><th scope="col">MODELS &amp; DNA</th><th scope="col">ROUTE ACCESS</th></tr></thead>
   <tbody>${rows}</tbody>
 </table></div>`;
 }
@@ -329,7 +330,7 @@ function plans() {
     </tbody></table></div></details>`;
   const notes = `<div class="plan-foot">
     <span>Evaluate free: <code>${C.DEMO_KEY}</code> (MLB, ${C.DEMO_LIMIT})</span>
-    <span><b>${N.OPEN}</b> routes open without key · <b>${N.DEMO}</b> with demo access</span>
+    <span><b>${N.OPEN}</b> public routes · <b>${N.DEMO}</b> demo-key routes</span>
     <span>UFC Intelligence is separate and billed on <a class="link" href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">its own platform</a></span>
     <span><a class="link" href="${PORTAL}" target="_blank" rel="noopener">Manage an existing subscription</a></span>
     <span>Questions: <a class="link" href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a> · <a class="link" href="tel:18887843881">1-888-784-3881</a></span>
@@ -564,7 +565,7 @@ function pricingPage() {
   const faq = [
     ['How do I get my API key?', 'Choose a plan and complete Stripe checkout. Your key is created automatically and emailed to you.'],
     ['Can I cancel?', 'Yes. Manage or cancel your subscription any time in the Stripe customer portal.'],
-    ['Can I try it before paying?', `${N.OPEN} routes are open without a key, and ${N.DEMO} more MLB routes have demo access: call them with no key or the shared demo key ${C.DEMO_KEY} (${C.DEMO_LIMIT.replace(', shared', '')}, shared).`],
+    ['Can I try it before paying?', `${N.OPEN} routes are public and require no API key. ${N.DEMO} additional MLB routes support evaluation access with the shared demo key ${C.DEMO_KEY} (${C.DEMO_LIMIT.replace(', shared', '')}, shared).`],
     ['Is UFC included?', 'No. UFC Intelligence runs on its own platform with its own keys and billing.'],
     ['What does Single Sport include?', `Every documented route for the one sport you choose, at ${fmt(planBy('SINGLE').limit)} requests a day.`],
     ['How does Developer work?', `Pick up to ${C.DEVELOPER_MAX_SPORTS} sports before checkout — one required, two optional — with ${fmt(planBy('DEVELOPER').limit)} requests a day.`],
@@ -583,8 +584,8 @@ ${nav('pricing')}
     <div class="sp-facts">
       <div><span>Core sports</span><b>${coreSports.length}</b></div>
       <div><span>Documented routes</span><b>${endpoints()}</b></div>
-      <div><span>Open without key</span><b>${N.OPEN}</b></div>
-      <div><span>Demo access</span><b>${N.DEMO}</b></div>
+      <div><span>Public routes</span><b>${N.OPEN}</b></div>
+      <div><span>Demo-key routes</span><b>${N.DEMO}</b></div>
       <div><span>Daily limits</span><b>${fmt(Math.min(...C.PLANS.map((p) => p.limit)))} – ${fmt(Math.max(...C.PLANS.map((p) => p.limit)))}</b></div>
       <div><span>Billing</span><b>Stripe · monthly</b></div>
     </div>
@@ -857,7 +858,7 @@ ${nav('reference')}
 <section class="sp-hero dark" style="--c:var(--accent)">
   <div class="wrap sp-hero-in">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">PropSports</a> / API Reference</nav>
-    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All ${endpoints()} routes in the PropSports production catalog, publicly documented and available on commercial plans. Each one shows whether it is open without a key, has demo access, or requires an API key. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
+    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All ${endpoints()} routes in the PropSports production catalog, publicly documented and available on commercial plans. Each route is labeled Public, Demo key, or API key. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>${endpoints()}</b></div>
       <div><span>${A.open.label}</span><b>${N.OPEN}</b></div>
@@ -1027,7 +1028,7 @@ const docsCatalog = () => `<!-- ps:catalog -->
       <h2>Route catalog</h2>
       <p>The production catalog has <strong>${CATALOG} documented routes</strong> across ${listNames(coreNames)}. Every route is listed with its access level in the <a href="/reference" style="color:var(--red);">API reference</a>, and machine-readably at <code>GET /sports</code>. <code>GET /health</code> reports the same totals.</p>
       <table class="param-table">
-        <thead><tr><th>Sport</th><th>Routes</th><th>Open without key</th><th>Demo access</th><th>API key required</th></tr></thead>
+        <thead><tr><th>Sport</th><th>Routes</th><th>Public</th><th>Demo key</th><th>API key</th></tr></thead>
         <tbody>
 ${coreSports.map((s) => `          <tr><td><a href="/reference#${s.id}" style="color:var(--red);">${s.name}</a></td><td>${N.PER_SPORT[s.id]}</td><td>${perAccess('open', s.id)}</td><td>${perAccess('demo', s.id)}</td><td>${perAccess('key', s.id)}</td></tr>`).join('\n')}
           <tr><td><strong>All sports</strong></td><td><strong>${CATALOG}</strong></td><td>${N.OPEN}</td><td>${N.DEMO}</td><td>${N.KEY}</td></tr>

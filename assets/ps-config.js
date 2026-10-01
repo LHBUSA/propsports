@@ -276,25 +276,54 @@
     ]
   };
 
-  // UFC runs on its own host and is not counted in the PropSports API route total.
+  // UFC runs on its own commercial host and is counted in the eight-sport
+  // network total, but not in the 206-route PropSports core API catalog.
+  // Contract source: LHBUSA/ufc-api config/entitlements.json (39 commercial GET routes).
   var UFC_ROUTES = [
-    ['Events & cards', [
-      ['/v1/ufc/events', 'Events (?status=upcoming)', 'open'],
-      ['/v1/ufc/events/:id/card', 'Fight card', 'open'],
-      ['/v1/ufc/events/:id/weigh-ins', 'Event weigh-ins', 'open'],
-      ['/v1/ufc/weigh-ins', 'Weigh-in results', 'open'],
-      ['/v1/ufc/results', 'Results', 'open'],
-      ['/v1/ufc/rankings', 'Official rankings snapshot', 'open']]],
+    ['Events & fight week', [
+      ['/v1/ufc', 'API index', 'key'],
+      ['/v1/ufc/events', 'Events: upcoming, recent, all or by date', 'key'],
+      ['/v1/ufc/events/:id', 'Event detail', 'key'],
+      ['/v1/ufc/events/:id/card', 'Ordered fight card', 'key'],
+      ['/v1/ufc/events/:id/weigh-ins', 'Event weigh-ins with coverage state', 'key'],
+      ['/v1/ufc/events/:id/card-changes', 'Withdrawals, replacements and card changes', 'key'],
+      ['/v1/ufc/events/:id/intelligence', 'Fight Week intelligence by bout', 'key'],
+      ['/v1/ufc/weigh-ins', 'Official weigh-in readings', 'key'],
+      ['/v1/ufc/injuries', 'Sourced fighter availability events', 'key'],
+      ['/v1/ufc/results', 'Recent results', 'key'],
+      ['/v1/ufc/rankings', 'Official rankings snapshot', 'key']]],
     ['Fighters & bouts', [
-      ['/v1/ufc/fighters', 'Fighters', 'open'],
-      ['/v1/ufc/fighters/:id', 'Fighter profile', 'open'],
-      ['/v1/ufc/fighters/:id/history', 'Fight history and career stats', 'open'],
-      ['/v1/ufc/bouts/:id/stats', 'Round-by-round bout statistics', 'open']]],
-    ['Fight DNA & intelligence', [
-      ['/v1/ufc/dna/metrics', 'Fight DNA metric definitions', 'open'],
-      ['/v1/ufc/fighters/:id/dna', 'Fighter DNA (not a pick, price or probability)', 'key'],
-      ['/v1/ufc/events/:id/intelligence', 'Card intelligence', 'key'],
-      ['/v1/ufc/bouts/:id/ledger', 'Fight state ledger checkpoints', 'key']]]
+      ['/v1/ufc/fighters', 'Search and list fighters', 'key'],
+      ['/v1/ufc/fighters/media', 'Bulk fighter image metadata', 'key'],
+      ['/v1/ufc/fighters/:id', 'Fighter profile composite', 'key'],
+      ['/v1/ufc/fighters/:id/history', 'Fighter bout history', 'key'],
+      ['/v1/ufc/fighters/:id/status', 'Current availability plus sourced history', 'key'],
+      ['/v1/ufc/fighters/:id/stats', 'Career round rows, rates and aggregates', 'key'],
+      ['/v1/ufc/bouts/:id', 'Bout detail', 'key'],
+      ['/v1/ufc/bouts/:id/stats', 'Round-level bout statistics', 'key'],
+      ['/v1/ufc/bouts/:id/ledger', 'Fight State Ledger snapshots and diffs', 'key']]],
+    ['Fight DNA', [
+      ['/v1/ufc/dna/metrics', 'Fight DNA metric registry', 'key'],
+      ['/v1/ufc/dna/query', 'Cross-fighter Fight DNA query', 'key'],
+      ['/v1/ufc/fighters/:id/dna', 'Fight DNA snapshot', 'key'],
+      ['/v1/ufc/fighters/:id/splits', 'Stance DNA splits', 'key'],
+      ['/v1/ufc/fighters/:id/round-profile', 'Round DNA profile', 'key'],
+      ['/v1/ufc/fighters/:id/finish-profile', 'Finish DNA profile', 'key'],
+      ['/v1/ufc/fighters/:id/position-profile', 'Position profile when licensed data is available', 'key'],
+      ['/v1/ufc/matchups/:fighterA/:fighterB/dna', 'Fighter-vs-fighter Matchup DNA', 'key']]],
+    ['News & media', [
+      ['/v1/ufc/news', 'PropBetEdge newsroom list', 'key'],
+      ['/v1/ufc/articles/:slug', 'Article detail', 'key'],
+      ['/v1/ufc/events/:id/articles', 'Event articles', 'key'],
+      ['/v1/ufc/fighters/:id/articles', 'Fighter articles', 'key'],
+      ['/v1/ufc/videos', 'Official video metadata feed', 'key'],
+      ['/v1/ufc/events/:id/videos', 'Event video metadata', 'key'],
+      ['/v1/ufc/fighters/:id/videos', 'Fighter video metadata', 'key'],
+      ['/v1/ufc/bouts/:id/videos', 'Bout video metadata', 'key'],
+      ['/v1/ufc/wire', 'Third-party headline wire; enterprise / rights-review gated', 'key']]],
+    ['Discovery', [
+      ['/v1/ufc/search', 'Search fighters, events and articles', 'key'],
+      ['/v1/ufc/counts', 'Coverage counts', 'key']]]
   ];
 
   var SPORTS = [
@@ -304,7 +333,7 @@
       summary: 'MLB is the deepest dataset on the network: live game state, standings, teams and rosters, owned Statcast tables, game environment (weather, park factor, umpires), market data, the PropBetEdge Poisson model and affiliated minor leagues from Triple-A to Rookie.',
       sources: 'MLB Stats API (games, standings, teams, rosters, minor leagues), Supabase Statcast tables, Open-Meteo, DraftKings and FanDuel props',
       cache: 'Statcast 15 min · odds 2–5 min',
-      matrix: { live: ['Schedule & slate', 'Live games', 'Lineups & probables', 'MiLB scores, Triple-A to Rookie'], pbp: ['Plays', 'Box score', 'Linescore', 'MiLB game detail'], players: ['Season stats', 'Game logs', 'MiLB careers & form'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Statcast batters & pitchers', 'Weather & park factor', 'Umpire crews', 'Sportsbook props'], models: ['Poisson model prices', 'Top model plays'] } },
+      matrix: { live: ['Schedule & slate', 'Live games', 'Lineups & probables', 'MiLB scores, Triple-A to Rookie'], pbp: ['Plays', 'Box score', 'Linescore', 'MiLB game detail'], players: ['Season stats', 'Game logs', 'MiLB careers & form', 'Hitter & Pitcher DNA'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Statcast batters & pitchers', 'Weather & park factor', 'Umpire crews', 'Sportsbook props'], models: ['Hitter DNA', 'Pitcher DNA', 'Poisson model prices', 'Top model plays'] } },
     { id: 'nfl', status: 'PropSports API', line: '36 routes spanning live games, injuries, weather, markets and Player DNA.', media: '/assets/media/sport-nfl.webp', alt: 'A football spinning through spray under green stadium lights', name: 'NFL', long: 'National Football League', color: '#5FAE63', api: true,
       deep: '/nfl', platform: null, examples: ['nfl'],
       headline: '36 NFL routes from live games to market intelligence and Player DNA.',
@@ -318,7 +347,7 @@
       summary: 'Game-level NBA detail — play-by-play with court coordinates, shot charts, reconstructed lineups and box scores with computed TS% and USG% — plus standings, teams, rosters, team schedules and team stats.',
       sources: 'ESPN game summaries, stats.nba.com and the PropBetEdge NBA data layer (standings, teams, rosters, schedules, team stats)',
       cache: 'Live 10 s',
-      matrix: { live: ['Schedule & slate', 'Live games', 'Game lines'], pbp: ['Plays with coordinates', 'Shot chart', 'Box score', 'Game summary'], players: ['Player stats', 'League leaders', 'Rosters'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules', 'Team stats'], adv: ['TS% & USG%', 'Estimated lineups', 'Win-probability series', 'Hustle box'], models: [] } },
+      matrix: { live: ['Schedule & slate', 'Live games', 'Game lines'], pbp: ['Plays with coordinates', 'Shot chart', 'Box score', 'Game summary'], players: ['Player stats', 'League leaders', 'Rosters', 'Player DNA'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules', 'Team stats'], adv: ['TS% & USG%', 'Estimated lineups', 'Win-probability series', 'Hustle box'], models: ['Player DNA', 'WinBA', 'Model intelligence'] } },
     { id: 'wnba', status: 'API + live platform', line: '32 routes across live games, props, WinBA, Player DNA and PBE intelligence.', media: '/assets/media/sport-wnba.webp', alt: 'A lit basketball arena floor seen from the baseline', name: 'WNBA', long: "Women's National Basketball Association", color: '#E0708F', api: true,
       deep: null, platform: 'https://wnba.propbetedge.ai', examples: ['wnba'],
       headline: '32 WNBA routes from live games to market and model intelligence.',
@@ -332,28 +361,28 @@
       summary: 'NHL slate, standings and leaders are public; keyed routes add play-by-play, live cast, shot geometry, goalie starters and line deployment derived from shift charts. Shot data is raw geometry — no xG or GSAx is claimed.',
       sources: 'api-web.nhle.com and api.nhle.com; daily archive to Supabase',
       cache: 'Live 5–8 s · standings 15 min',
-      matrix: { live: ['Board, schedule & scoreboard', 'Live games'], pbp: ['Play-by-play', 'Live cast', 'Box score'], players: ['Profiles, stats & game logs', 'Leaders', 'Goalie Edge detail'], teams: ['Standings', 'Rosters', 'Team stats', 'Team schedules', 'Team deployment'], adv: ['Shot geometry (raw)', 'Goalie starters', 'Line deployment'], models: [] } },
+      matrix: { live: ['Board, schedule & scoreboard', 'Live games'], pbp: ['Play-by-play', 'Live cast', 'Box score'], players: ['Profiles, stats & game logs', 'Leaders', 'Goalie Edge detail', 'Skater DNA'], teams: ['Standings', 'Rosters', 'Team stats', 'Team schedules', 'Team deployment'], adv: ['Shot geometry (raw)', 'Goalie starters', 'Line deployment'], models: ['Skater DNA (rights-gated)', 'PBE Picks', 'Game intelligence'] } },
     { id: 'tennis', status: 'API + live platform', line: '25 routes for live match state, Matchup DNA, rankings, venues and Tennis DNA.', media: '/assets/media/sport-tennis.webp', alt: 'A tennis ball hitting a clay court in a burst of dust', name: 'Tennis', long: 'ATP and WTA tennis', color: '#C9D84E', api: true,
       deep: null, platform: 'https://tennis.propbetedge.ai', examples: ['tennis'],
       headline: 'Live point score, tournaments, rankings and H2H.',
       summary: 'Served through the PropSports gateway from the dedicated tennis platform: live matches with point score and server, order of play, tournaments, player profiles, rankings and head-to-head records.',
       sources: 'Dedicated tennis platform (tennis-api.propbetedge.ai); live polling every minute',
       cache: 'Upstream cache headers',
-      matrix: { live: ["Today's order of play", 'Live point score & server'], pbp: ['Match detail', 'Set-by-set score'], players: ['Player directory', 'Profiles'], teams: ['WTA & ATP rankings', 'Tournaments & editions'], adv: ['Head-to-head records', 'Point-level live state'], models: ['Tennis DNA'] } },
+      matrix: { live: ["Today's order of play", 'Live point score & server'], pbp: ['Match detail', 'Set-by-set score'], players: ['Player directory', 'Profiles', 'Player DNA'], teams: ['WTA & ATP rankings', 'Tournaments & editions'], adv: ['Head-to-head records', 'Point-level live state'], models: ['Tennis DNA', 'Matchup intelligence'] } },
     { id: 'soccer', status: 'API + live platform', line: '25 routes across fixtures, live match cast, team history, newsroom and model intelligence.', media: '/assets/media/sport-soccer.webp', alt: 'A soccer ball splashing across wet grass under floodlights', name: 'Soccer', long: 'Club and international soccer', color: '#3FC093', api: true,
       deep: null, platform: 'https://soccer.propbetedge.ai', examples: ['soccer'],
       headline: 'Fixtures, live matches, tables and DNA.',
       summary: 'Served through the PropSports gateway from the dedicated soccer platform: fixtures and live matches, match cast, competitions, league tables, players and teams, plus player and team DNA.',
       sources: 'Dedicated soccer platform (soccer.propbetedge.ai); live snapshot every minute',
       cache: 'Upstream cache headers',
-      matrix: { live: ['Fixtures & results', 'Live matches'], pbp: ['Match cast', 'Match detail', 'Analyzer preview'], players: ['Players & profiles'], teams: ['League tables', 'Competitions', 'Team profiles', 'Team history'], adv: ['Coverage & data health', 'Newsroom', 'Video feed'], models: ['Player DNA', 'Team DNA', 'Algo v1 & v2'] } },
-    { id: 'ufc', status: 'Fight Intelligence', line: 'Fight DNA, round statistics, weigh-ins and card intelligence.', media: '/assets/media/sport-ufc.webp', alt: 'A crowded arena around a lit fighting cage', name: 'UFC', long: 'UFC and combat sports', color: '#D8483F', api: false,
+      matrix: { live: ['Fixtures & results', 'Live matches'], pbp: ['Match cast', 'Match detail', 'Analyzer preview'], players: ['Players & profiles', 'Player DNA'], teams: ['League tables', 'Competitions', 'Team profiles', 'Team history', 'Team DNA'], adv: ['Coverage & data health', 'Newsroom', 'Video feed'], models: ['Player DNA', 'Team DNA', 'Algo v1 & v2'] } },
+    { id: 'ufc', status: 'Fight Intelligence', line: '39-route fight-intelligence API: Fight DNA, Matchup DNA, fight week, availability, media and card intelligence.', media: '/assets/media/sport-ufc.webp', alt: 'A crowded arena around a lit fighting cage', name: 'UFC', long: 'UFC and combat sports', color: '#D8483F', api: false,
       deep: null, platform: 'https://ufc.proptechusa.ai', examples: ['ufc'],
-      headline: 'Fight DNA, round statistics and card intelligence.',
-      summary: 'UFC runs on the dedicated combat-sports intelligence platform, not through the PropSports API key: events and cards, weigh-ins, fighter history, round-by-round bout statistics, rankings, Fight DNA and card intelligence.',
+      headline: '39 commercial routes across Fight DNA, fight week, fighter state and media intelligence.',
+      summary: 'UFC runs on the dedicated combat-sports intelligence platform, not through the PropSports API key: 39 commercial routes across events, cards, weigh-ins, availability, fighter and bout history, round statistics, Fight DNA, Matchup DNA, Fight State Ledger, editorial and official media metadata.',
       sources: 'Dedicated UFC platform (ufc-api.propbetedge.ai); weigh-in ingest every minute',
       cache: 'Platform-managed',
-      matrix: { live: ['Events & cards', 'Weigh-ins', 'Results'], pbp: ['Round statistics'], players: ['Fighter profiles', 'Fight history'], teams: ['Official rankings'], adv: ['Fight state ledger'], models: ['Fight DNA', 'Card intelligence'] } }
+      matrix: { live: ['Events & cards', 'Weigh-ins', 'Results', 'Card changes', 'Injuries & availability'], pbp: ['Bout detail', 'Round statistics', 'Fight State Ledger'], players: ['Fighter profiles', 'Fight history', 'Fighter status', 'Fight DNA'], teams: ['Official rankings', 'Search & discovery'], adv: ['Fight-week intelligence', 'Newsroom & articles', 'Official video metadata', 'Coverage counts'], models: ['Fight DNA', 'Matchup DNA', 'DNA query', 'Card intelligence'] } }
   ];
 
   // Product-story content per sport page. Every claim maps to a documented route or verified platform behavior.
@@ -487,7 +516,8 @@
       DOCUMENTED_ROUTES: total, PER_SPORT: perSport,
       OPEN: totals.open, DEMO: totals.demo, KEY: totals.key,
       OPEN_PER_SPORT: byAccess.open, DEMO_PER_SPORT: byAccess.demo, KEY_PER_SPORT: byAccess.key,
-      UFC_ENDPOINTS_LISTED: count(UFC_ROUTES)
+      UFC_ENDPOINTS_LISTED: count(UFC_ROUTES),
+      NETWORK_DOCUMENTED_ROUTES: total + count(UFC_ROUTES)
     }
   };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -124,9 +124,21 @@ const planOffer = (p) => ({ '@type': 'Offer', name: `PropSports API ${p.name}`, 
 const APP = {
   '@type': 'SoftwareApplication', '@id': API_ID, name: 'PropSports API', applicationCategory: 'DeveloperApplication', operatingSystem: 'Any',
   url: `${SITE}/`, publisher: { '@id': ORG_ID }, brand: { '@id': BRAND_ID }, image: OG_IMAGE,
-  description: `Developer API for live sports data across ${listNames(coreNames)}: schedules, live scores, play-by-play, players, teams, advanced statistics and model output.`,
-  featureList: ['Live scores and game state', 'Schedules and standings', 'Play-by-play and game detail', 'Player and team data', 'MLB Statcast tables', 'MLB Poisson model output', 'WNBA WinBA and Player DNA'],
+  description: `${CATALOG} documented production routes across ${coreSports.length} core sports on one API key: live scores, schedules, play-by-play, players, teams, advanced analytics, Player DNA and model intelligence.`,
+  featureList: ['206 core sports API routes', 'MLB Hitter DNA and Pitcher DNA', 'NFL Player DNA', 'NBA Player DNA and WinBA', 'WNBA Player DNA and WinBA', 'NHL Skater DNA (rights-gated)', 'Tennis DNA and matchup intelligence', 'Soccer Player DNA and Team DNA', 'Live scores and game state', 'Play-by-play and game detail'],
   offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: String(Math.min(...C.PLANS.map((p) => p.price))), highPrice: String(Math.max(...C.PLANS.map((p) => p.price))), offerCount: C.PLANS.length, offers: C.PLANS.map(planOffer) }
+};
+const UFC_APP = {
+  '@type': 'SoftwareApplication', '@id': `${SITE}/sports/ufc#api`, name: 'UFC Intelligence API', applicationCategory: 'DeveloperApplication', operatingSystem: 'Any',
+  url: 'https://ufc.proptechusa.ai', publisher: { '@id': ORG_ID }, image: OG_IMAGE,
+  description: `${N.UFC_ENDPOINTS_LISTED} documented commercial UFC Intelligence routes covering fight data, Fight DNA, Matchup DNA, fighter availability, fight-week intelligence, media and editorial metadata.`,
+  featureList: ['39 commercial UFC routes', 'Fight DNA', 'Matchup DNA', 'Fight State Ledger', 'Official weigh-ins', 'Fighter availability and card changes', 'Round statistics', 'Fight-week intelligence', 'Official video metadata']
+};
+const NETWORK = {
+  '@type': 'ItemList', '@id': `${SITE}/#sports-network`, name: 'PropSports eight-sport API network',
+  description: `${NETWORK_ROUTES} documented routes across eight sports: ${CATALOG} core PropSports routes plus ${N.UFC_ENDPOINTS_LISTED} dedicated UFC Intelligence routes.`,
+  numberOfItems: C.SPORTS.length,
+  itemListElement: C.SPORTS.map((sport, i) => ({ '@type': 'ListItem', position: i + 1, name: sport.name, url: `${SITE}/sports/${sport.id}` }))
 };
 const crumbs = (items) => ({ '@type': 'BreadcrumbList', itemListElement: items.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: `${SITE}${path}` })) });
 const webpage = (path, title, description, extra = {}) => ({ '@type': 'WebPage', '@id': `${SITE}${path}#webpage`, url: `${SITE}${path}`, name: title, description, isPartOf: { '@id': SITE_ID }, publisher: { '@id': ORG_ID }, inLanguage: 'en-US', ...extra });
@@ -383,7 +395,7 @@ function home() {
     ['No hidden fallbacks', 'When an upstream source fails, the route returns the error instead of silently serving substitute data.'],
     ['Say what a metric is not', 'Fight DNA is documented as not a pick, price or probability.']
   ];
-  const graph = [ORG, BRAND, WEBSITE, APP, webpage('/', HOME_TITLE, HOME_DESC, { about: { '@id': API_ID }, primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 } })];
+  const graph = [ORG, BRAND, WEBSITE, APP, UFC_APP, NETWORK, webpage('/', HOME_TITLE, HOME_DESC, { about: [{ '@id': API_ID }, { '@id': `${SITE}/sports/ufc#api` }], primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 } })];
 
   return `${head({ title: HOME_TITLE, description: HOME_DESC, path: '/', graph, extra: hero.preload })}
 ${wire}
@@ -621,7 +633,7 @@ const SPORT_TITLES = {
   nhl: 'NHL API — Live Cast, Shot Geometry & Standings | PropSports',
   tennis: 'Tennis API — Live ATP & WTA Scores & Rankings | PropSports',
   soccer: 'Soccer API — Fixtures, Live Matches & Tables | PropSports',
-  ufc: 'UFC API — Fight DNA & Round Statistics | PropSports'
+  ufc: 'UFC Intelligence API — 39 Routes, Fight DNA & Matchup DNA | PropSports'
 };
 const NOTES = {
   mlb: ['Model prices come from the PropBetEdge odds engine and are served from a separate route family.', 'Park factor is a field on /mlb/weather; indoor parks return none.', 'Minor-league routes cover Triple-A, Double-A, High-A, Single-A and Rookie; player careers share MLB player IDs where the source provides them.'],
@@ -655,8 +667,8 @@ function sportPage(s) {
   const appNode = s.api
     ? { '@type': 'SoftwareApplication', '@id': `${SITE}${path}#api`, name: `PropSports ${s.name} API`, applicationCategory: 'DeveloperApplication', operatingSystem: 'Any', url: `${SITE}${path}`, description, publisher: { '@id': ORG_ID }, brand: { '@id': BRAND_ID }, isAccessibleForFree: false,
         offers: { '@type': 'Offer', name: `Single Sport — ${s.name}`, price: String(planBy('SINGLE').price), priceCurrency: 'USD', url: `${SITE}/pricing`, priceSpecification: { '@type': 'UnitPriceSpecification', price: String(planBy('SINGLE').price), priceCurrency: 'USD', unitText: 'MONTH' } } }
-    : null;
-  const graph = [ORG, BRAND, WEBSITE, crumbs([['PropSports API', '/'], ['Sports', '/#network'], [`${s.name} ${s.api ? 'API' : 'Intelligence'}`, path]]), webpage(path, title, description, s.api ? { about: { '@id': `${SITE}${path}#api` } } : {}), ...(appNode ? [appNode] : [])];
+    : { ...UFC_APP, '@id': `${SITE}${path}#api`, url: `${SITE}${path}`, description, isAccessibleForFree: false };
+  const graph = [ORG, BRAND, WEBSITE, crumbs([['PropSports API', '/'], ['Sports', '/#network'], [`${s.name} ${s.api ? 'API' : 'Intelligence'}`, path]]), webpage(path, title, description, { about: { '@id': `${SITE}${path}#api` } }), ...(appNode ? [appNode] : [])];
   const castName = { mlb: 'MLB PBEcast', nfl: 'NFL PBEcast', nba: 'NBACast', wnba: 'WNBACast', nhl: 'NHL PBEcast', tennis: 'Tennis PBEcast', soccer: 'Soccer PBEcast' }[s.id];
   let n = 0;
   const sec = () => String(++n).padStart(2, '0');

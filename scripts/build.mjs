@@ -243,12 +243,10 @@ const wire = `<div class="wire dark" aria-label="PropSports sportswire">
 /* ── fragments ───────────────────────────────────────── */
 function endpointGroups(groups) {
   return `<div class="ep-groups">${groups.map(([name, routes]) => `
-  <div class="ep-group"><h3>${esc(name)} <span class="ep-n">${routes.length}</span></h3><ul class="ep-list">${routes.map(([p, d, a]) => `
-    <li><span class="method">GET</span><div><code>${esc(p)}</code><span>${esc(d)}</span><em class="acc ${A[a].css}">${A[a].label}</em></div></li>`).join('')}
+  <div class="ep-group"><h3>${esc(name)} <span class="ep-n">${routes.length}</span></h3><ul class="ep-list">${routes.map(([p, d]) => `
+    <li><span class="method">GET</span><div><code>${esc(p)}</code><span>${esc(d)}</span></div></li>`).join('')}
   </ul></div>`).join('')}</div>`;
 }
-const ACCESS_HELP = { open: 'No API key required.', demo: 'Evaluation access; the shared demo key is rate-limited.', key: 'Requires a paid PropSports key for this sport.' };
-const accessLegend = (tiers = ['open', 'demo', 'key']) => `<div class="acc-legend" role="note">${tiers.map((a) => `<span><em class="acc ${A[a].css}">${A[a].label}</em>${esc(ACCESS_HELP[a])}</span>`).join('')}</div>`;
 const EXAMPLES = JSON.parse(read('assets/api-examples.json')).examples;
 function consoleBlock(tabs, first) {
   return `<div class="console dark" data-console data-first="${first}">
@@ -271,15 +269,12 @@ const ufcAccess = (a) => C.UFC_ROUTES.reduce((n, [, routes]) => n + routes.filte
 function matrix() {
   const rows = C.SPORTS.map((s) => {
     const m = s.matrix;
-    const total = s.api ? N.PER_SPORT[s.id] : N.UFC_ENDPOINTS_LISTED;
-    const count = (a) => s.api ? perAccess(a, s.id) : ufcAccess(a);
-    const access = `<span class="acc-total">${total} total routes</span>${['open', 'demo', 'key'].filter((a) => count(a)).map((a) => `<span class="acc-row"><em class="acc ${A[a].css}">${count(a)}</em><span>${A[a].label}</span></span>`).join('')}`;
     return `<tr style="--c:${s.color}"><th scope="row"><a href="/sports/${s.id}">${mark(s.id)}${s.name}</a><small>/${s.api ? s.id : 'v1/ufc'}</small></th>
-      <td>${capList(m.live)}</td><td>${capList(m.pbp)}</td><td>${capList(m.players)}</td><td>${capList(m.teams)}</td><td>${capList(m.adv)}</td><td>${capList(m.models)}</td><td>${access}</td></tr>`;
+      <td>${capList(m.live)}</td><td>${capList(m.pbp)}</td><td>${capList(m.players)}</td><td>${capList(m.teams)}</td><td>${capList(m.adv)}</td><td>${capList(m.models)}</td></tr>`;
   }).join('\n');
   return `<p class="scroll-hint">Scroll sideways for every column →</p>
 <div class="matrix-wrap"><table class="matrix">
-  <thead><tr><th scope="col">SPORT</th><th scope="col">SCHEDULE &amp; LIVE</th><th scope="col">PLAY-BY-PLAY &amp; GAME</th><th scope="col">PLAYERS</th><th scope="col">TEAMS &amp; STANDINGS</th><th scope="col">ADVANCED</th><th scope="col">MODELS &amp; DNA</th><th scope="col">ROUTE ACCESS</th></tr></thead>
+  <thead><tr><th scope="col">SPORT</th><th scope="col">SCHEDULE &amp; LIVE</th><th scope="col">PLAY-BY-PLAY &amp; GAME</th><th scope="col">PLAYERS</th><th scope="col">TEAMS &amp; STANDINGS</th><th scope="col">ADVANCED</th><th scope="col">MODELS &amp; DNA</th></tr></thead>
   <tbody>${rows}</tbody>
 </table></div>`;
 }
@@ -329,8 +324,6 @@ function plans() {
       ${row('Billing', () => 'Monthly · cancel in the Stripe portal')}
     </tbody></table></div></details>`;
   const notes = `<div class="plan-foot">
-    <span>Evaluate free: <code>${C.DEMO_KEY}</code> (MLB, ${C.DEMO_LIMIT})</span>
-    <span><b>${N.OPEN}</b> public routes · <b>${N.DEMO}</b> demo-key routes</span>
     <span>UFC Intelligence is separate and billed on <a class="link" href="https://ufc.proptechusa.ai" target="_blank" rel="noopener">its own platform</a></span>
     <span><a class="link" href="${PORTAL}" target="_blank" rel="noopener">Manage an existing subscription</a></span>
     <span>Questions: <a class="link" href="mailto:sales@proptechusa.ai">sales@proptechusa.ai</a> · <a class="link" href="tel:18887843881">1-888-784-3881</a></span>
@@ -565,7 +558,7 @@ function pricingPage() {
   const faq = [
     ['How do I get my API key?', 'Choose a plan and complete Stripe checkout. Your key is created automatically and emailed to you.'],
     ['Can I cancel?', 'Yes. Manage or cancel your subscription any time in the Stripe customer portal.'],
-    ['Can I try it before paying?', `${N.OPEN} routes are public and require no API key. ${N.DEMO} additional MLB routes support evaluation access with the shared demo key ${C.DEMO_KEY} (${C.DEMO_LIMIT.replace(', shared', '')}, shared).`],
+    ['How do I get access?', 'Choose the sport or plan you need. Your API key is emailed after checkout.'],
     ['Is UFC included?', 'No. UFC Intelligence runs on its own platform with its own keys and billing.'],
     ['What does Single Sport include?', `Every documented route for the one sport you choose, at ${fmt(planBy('SINGLE').limit)} requests a day.`],
     ['How does Developer work?', `Pick up to ${C.DEVELOPER_MAX_SPORTS} sports before checkout — one required, two optional — with ${fmt(planBy('DEVELOPER').limit)} requests a day.`],
@@ -584,8 +577,6 @@ ${nav('pricing')}
     <div class="sp-facts">
       <div><span>Core sports</span><b>${coreSports.length}</b></div>
       <div><span>Documented routes</span><b>${endpoints()}</b></div>
-      <div><span>Public routes</span><b>${N.OPEN}</b></div>
-      <div><span>Demo-key routes</span><b>${N.DEMO}</b></div>
       <div><span>Daily limits</span><b>${fmt(Math.min(...C.PLANS.map((p) => p.limit)))} – ${fmt(Math.max(...C.PLANS.map((p) => p.limit)))}</b></div>
       <div><span>Billing</span><b>Stripe · monthly</b></div>
     </div>
@@ -620,9 +611,9 @@ const SPORT_TITLES = {
   ufc: 'UFC API — Fight DNA & Round Statistics | PropSports'
 };
 const NOTES = {
-  mlb: ['Model prices come from the PropBetEdge odds engine and are served from a separate route family.', 'Park factor is a field on /mlb/weather; indoor parks return none.', 'Player, standings, team and roster routes have demo access: call them with no key or the shared demo key (20 requests/hour), or any MLB key.', 'Minor-league routes cover Triple-A, Double-A, High-A, Single-A and Rookie; player careers share MLB player IDs where the source provides them.'],
-  nfl: ['/nfl/schedule, /nfl/games/live and /nfl/odds are open without a key; every other NFL route requires an NFL-entitled API key.', 'Win probability is the ESPN series, passed through — not a PropSports model.'],
-  nba: ['Lineups are reconstructed from starters and substitutions and are estimates.', 'The hustle box depends on stats.nba.com access and may return available:false.', 'Win probability is the ESPN series, passed through.', 'Standings, teams, rosters, team schedules and team stats come from the PropBetEdge NBA data layer and require an NBA-entitled API key.'],
+  mlb: ['Model prices come from the PropBetEdge odds engine and are served from a separate route family.', 'Park factor is a field on /mlb/weather; indoor parks return none.', 'Minor-league routes cover Triple-A, Double-A, High-A, Single-A and Rookie; player careers share MLB player IDs where the source provides them.'],
+  nfl: ['Win probability is the ESPN series, passed through — not a PropSports model.'],
+  nba: ['Lineups are reconstructed from starters and substitutions and are estimates.', 'The hustle box depends on stats.nba.com access and may return available:false.', 'Win probability is the ESPN series, passed through.', 'Standings, teams, rosters, team schedules and team stats come from the PropBetEdge NBA data layer.'],
   wnba: ['WinBA measures association with winning, not causation.', 'Player DNA covers the current season; /wnba/dna/meta lists which fields are proxies.'],
   nhl: ['Shot routes return raw geometry marked raw-features-only — no xG probabilities.', 'Goalie routes report GSAx as unavailable rather than estimating it.', 'Deployment is derived from shift charts for completed games.'],
   tennis: ['WTA rankings are the default; ATP rankings (?tour=atp) come from a secondary source and can lag.', 'The Tennis DNA route is access-gated by the upstream platform.', 'No tennis model output is offered.'],
@@ -633,8 +624,6 @@ function sportPage(s) {
   const groups = s.api ? C.ROUTES[s.id] : C.UFC_ROUTES;
   const host = s.api ? C.API_BASE : C.UFC_BASE;
   const total = s.api ? N.PER_SPORT[s.id] : N.UFC_ENDPOINTS_LISTED;
-  const ufcCount = (a) => groups.reduce((n, g) => n + g[1].filter((r) => r[2] === a).length, 0);
-  const tier = (a) => s.api ? perAccess(a, s.id) : ufcCount(a);
   const path = `/sports/${s.id}`;
   const title = SPORT_TITLES[s.id];
   const description = s.summary.length > 158 ? s.summary.slice(0, 155).replace(/\s+\S*$/, '') + '…' : s.summary;
@@ -656,7 +645,6 @@ function sportPage(s) {
     : null;
   const graph = [ORG, BRAND, WEBSITE, crumbs([['PropSports API', '/'], ['Sports', '/#network'], [`${s.name} ${s.api ? 'API' : 'Intelligence'}`, path]]), webpage(path, title, description, s.api ? { about: { '@id': `${SITE}${path}#api` } } : {}), ...(appNode ? [appNode] : [])];
   const castName = { mlb: 'MLB PBEcast', nfl: 'NFL PBEcast', nba: 'NBACast', wnba: 'WNBACast', nhl: 'NHL PBEcast', tennis: 'Tennis PBEcast', soccer: 'Soccer PBEcast' }[s.id];
-  const accessKey = s.api ? '<code>X-API-Key</code> or <code>?key=</code>' : 'a UFC platform key';
   let n = 0;
   const sec = () => String(++n).padStart(2, '0');
 
@@ -675,7 +663,6 @@ ${nav()}
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>${total}</b></div>
-      ${['open', 'demo', 'key'].filter(tier).map((a) => `<div><span>${A[a].label}</span><b>${tier(a)}</b></div>`).join('\n      ')}
       <div><span>Base path</span><b class="mono">${s.api ? '/' + s.id : '/v1/ufc'}</b></div>
       <div><span>Host</span><b class="mono">${esc(host.replace('https://', ''))}</b></div>
       <div><span>Live cache</span><b>${esc(s.cache)}</b></div>
@@ -710,14 +697,13 @@ ${nav()}
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>${sec()}</b> Endpoints</p><h2 id="ep-h">${total} documented ${s.name} routes.</h2><p class="sec-lead">Every ${s.name} route in the ${s.api ? 'production catalog' : 'UFC platform'}, all <code>GET</code> on <code>${esc(host)}</code>: ${esc(accessSummary(tier('open'), tier('demo'), tier('key')))}. Keyed routes take ${accessKey}.</p></div></div>
-    ${accessLegend(['open', 'demo', 'key'].filter(tier))}
+    <div class="sec-head"><div><p class="label"><b>${sec()}</b> Endpoints</p><h2 id="ep-h">${total} documented ${s.name} routes.</h2><p class="sec-lead">Every ${s.name} route in the ${s.api ? 'production catalog' : 'UFC platform'}, all <code>GET</code> on <code>${esc(host)}</code>.</p></div></div>
     ${endpointGroups(groups)}
   </div>
 </section>
 <section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>${sec()}</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>${sec()}</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production.</p></div></div>
     ${consoleBlock(tabs, tabs[0].id)}
   </div>
 </section>
@@ -842,15 +828,14 @@ ${scripts(false)}`;
 
 /* ── API reference ───────────────────────────────────── */
 const REF_TITLE = 'PropSports API Reference — Routes by Sport';
-const REF_DESC = `Every documented PropSports API route across ${listNames(coreNames)}, grouped by sport with access level, authentication and base URL.`;
+const REF_DESC = `Every documented PropSports API route across ${listNames(coreNames)}, grouped by sport with descriptions and base URL.`;
 function reference() {
   const graph = [ORG, BRAND, WEBSITE, crumbs([['PropSports API', '/'], ['API Reference', '/reference']]),
     { '@type': 'TechArticle', '@id': `${SITE}/reference#article`, headline: 'PropSports API Reference', description: REF_DESC, url: `${SITE}/reference`, inLanguage: 'en-US', isPartOf: { '@id': SITE_ID }, publisher: { '@id': ORG_ID }, about: { '@id': API_ID }, image: OG_IMAGE }];
-  const cell = (n) => n ? `<td class="num">${n}</td>` : '<td class="num zero">0</td>';
   const summary = `<div class="ref-sum-wrap"><table class="ref-sum">
-      <thead><tr><th scope="col">Sport</th><th scope="col">Routes</th><th scope="col">${A.open.label}</th><th scope="col">${A.demo.label}</th><th scope="col">${A.key.label}</th></tr></thead>
-      <tbody>${coreSports.map((s) => `<tr style="--c:${s.color}"><th scope="row"><a href="#${s.id}">${mark(s.id)}${s.name}</a></th><td class="num"><b>${N.PER_SPORT[s.id]}</b></td>${cell(perAccess('open', s.id))}${cell(perAccess('demo', s.id))}${cell(perAccess('key', s.id))}</tr>`).join('')}</tbody>
-      <tfoot><tr><th scope="row">All sports</th><td class="num"><b>${endpoints()}</b></td><td class="num">${N.OPEN}</td><td class="num">${N.DEMO}</td><td class="num">${N.KEY}</td></tr></tfoot>
+      <thead><tr><th scope="col">Sport</th><th scope="col">Routes</th></tr></thead>
+      <tbody>${coreSports.map((s) => `<tr style="--c:${s.color}"><th scope="row"><a href="#${s.id}">${mark(s.id)}${s.name}</a></th><td class="num"><b>${N.PER_SPORT[s.id]}</b></td></tr>`).join('')}</tbody>
+      <tfoot><tr><th scope="row">All sports</th><td class="num"><b>${endpoints()}</b></td></tr></tfoot>
     </table></div>`;
   return `${head({ title: REF_TITLE, description: REF_DESC, path: '/reference', graph })}
 ${nav('reference')}
@@ -858,12 +843,9 @@ ${nav('reference')}
 <section class="sp-hero dark" style="--c:var(--accent)">
   <div class="wrap sp-hero-in">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">PropSports</a> / API Reference</nav>
-    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All ${endpoints()} routes in the PropSports production catalog, publicly documented and available on commercial plans. Each route is labeled Public, Demo key, or API key. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
+    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All ${endpoints()} routes in the PropSports production catalog, grouped by sport with descriptions and examples. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>${endpoints()}</b></div>
-      <div><span>${A.open.label}</span><b>${N.OPEN}</b></div>
-      <div><span>${A.demo.label}</span><b>${N.DEMO}</b></div>
-      <div><span>${A.key.label}</span><b>${N.KEY}</b></div>
       <div><span>Base URL</span><b class="mono">${esc(C.API_BASE.replace('https://', ''))}</b></div>
       <div><span>Auth</span><b class="mono">X-API-Key or ?key=</b></div>
       <div><span>Machine-readable</span><b class="mono"><a href="${C.API_BASE}/sports" target="_blank" rel="noopener">GET /sports</a></b></div>
@@ -872,14 +854,13 @@ ${nav('reference')}
 </section>
 <section class="sec white" id="catalog" aria-labelledby="ref-catalog">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label">Catalog</p><h2 id="ref-catalog">${endpoints()} routes across ${coreSports.length} sports.</h2><p class="sec-lead">Counts come from production: <a class="link" href="${C.API_BASE}/health" target="_blank" rel="noopener">GET /health</a> totals and <a class="link" href="${C.API_BASE}/sports" target="_blank" rel="noopener">GET /sports</a>, which lists every route with its access level. Demo key: <code>${C.DEMO_KEY}</code>. Prefixes <code>/v1/</code> and <code>/api/</code> are accepted.</p></div></div>
+    <div class="sec-head"><div><p class="label">Catalog</p><h2 id="ref-catalog">${endpoints()} routes across ${coreSports.length} sports.</h2><p class="sec-lead">Counts come from production: <a class="link" href="${C.API_BASE}/health" target="_blank" rel="noopener">GET /health</a> totals and <a class="link" href="${C.API_BASE}/sports" target="_blank" rel="noopener">GET /sports</a>. Prefixes <code>/v1/</code> and <code>/api/</code> are accepted.</p></div></div>
     ${summary}
-    ${accessLegend()}
   </div>
 </section>
 ${coreSports.map((s, i) => `<section class="sec${i % 2 ? '' : ' alt'}" id="${s.id}" aria-labelledby="ref-${s.id}">
   <div class="wrap">
-    <div class="sec-head"><div>${tag(s.id)}<h2 id="ref-${s.id}">${s.name} · ${N.PER_SPORT[s.id]} documented routes</h2><p class="sec-lead">${esc(sportAccess(s.id))}. <a class="link" href="/sports/${s.id}">${s.name} API overview →</a></p></div></div>
+    <div class="sec-head"><div>${tag(s.id)}<h2 id="ref-${s.id}">${s.name} · ${N.PER_SPORT[s.id]} documented routes</h2><p class="sec-lead"><a class="link" href="/sports/${s.id}">${s.name} API overview →</a></p></div></div>
     ${endpointGroups(C.ROUTES[s.id])}
   </div>
 </section>`).join('\n')}

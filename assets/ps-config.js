@@ -117,7 +117,7 @@
         ['/nfl/dna/rb', 'Running back Player DNA', 'key'],
         ['/nfl/dna/te', 'Tight end Player DNA', 'key']]]
     ],
-    nba: [    nba: [
+    nba: [
       ['Schedule & live', [
         ['/nba/schedule', 'Scoreboard by date (playoffs, then regular season)', 'open'],
         ['/nba/schedule/today', "Today's slate", 'open'],
@@ -274,7 +274,7 @@
         ['/soccer/algo/v2/record', 'Model record v2', 'key'],
         ['/soccer/algo/v2/research', 'Model research summary v2', 'key']]]
     ]
-  };  };
+  };
 
   // UFC runs on its own host and is not counted in the PropSports API route total.
   var UFC_ROUTES = [
@@ -305,13 +305,13 @@
       sources: 'MLB Stats API (games, standings, teams, rosters, minor leagues), Supabase Statcast tables, Open-Meteo, DraftKings and FanDuel props',
       cache: 'Statcast 15 min · odds 2–5 min',
       matrix: { live: ['Schedule & slate', 'Live games', 'Lineups & probables', 'MiLB scores, Triple-A to Rookie'], pbp: ['Plays', 'Box score', 'Linescore', 'MiLB game detail'], players: ['Season stats', 'Game logs', 'MiLB careers & form'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Statcast batters & pitchers', 'Weather & park factor', 'Umpire crews', 'Sportsbook props'], models: ['Poisson model prices', 'Top model plays'] } },
-    { id: 'nfl', status: 'PropSports API', line: 'Normalized scoreboards, drives, play-by-play and standings.', media: '/assets/media/sport-nfl.webp', alt: 'A football spinning through spray under green stadium lights', name: 'NFL', long: 'National Football League', color: '#5FAE63', api: true,
+    { id: 'nfl', status: 'PropSports API', line: '36 routes spanning live games, injuries, weather, markets and Player DNA.', media: '/assets/media/sport-nfl.webp', alt: 'A football spinning through spray under green stadium lights', name: 'NFL', long: 'National Football League', color: '#5FAE63', api: true,
       deep: '/nfl', platform: null, examples: ['nfl'],
-      headline: 'Normalized scoreboards, drives and play-by-play.',
-      summary: 'A normalized NFL layer: scoreboards by date or week, standings, team directory and rosters, and per-game detail down to plays, drives, leaders and the win-probability series.',
+      headline: '36 NFL routes from live games to market intelligence and Player DNA.',
+      summary: 'A 36-route NFL layer covering scoreboards, current-season state, standings, rosters, play-by-play, drives, leaders, injuries, weather, sportsbook markets, line movement, game intelligence and position-specific Player DNA.',
       sources: 'ESPN site and core APIs, normalized by the PropSports NFL adapter',
       cache: 'Live 2–3 s',
-      matrix: { live: ['Scoreboard by date or week', 'Live games', 'Game odds'], pbp: ['Play-by-play', 'Drives', 'Box score', 'Game leaders'], players: ['Rosters', 'Player box stats'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Win-probability series', 'Drive history'], models: [] } },
+      matrix: { live: ['Scoreboard by date or week', 'Live games', 'Season & current-game state', 'Game odds'], pbp: ['Play-by-play', 'Drives', 'Box score', 'Game leaders'], players: ['Rosters', 'Current player stats', 'QB / WR / RB / TE DNA'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules'], adv: ['Injuries & changes', 'Kickoff weather', 'Best line', 'Market catalog & line movement'], models: ['Game intelligence', 'Player DNA'] } },
     { id: 'nba', status: 'PropSports API', line: 'Play-by-play with coordinates, shot charts and TS% / USG%.', media: '/assets/media/sport-nba.webp', alt: 'An empty basketball court under arena lights', name: 'NBA', long: 'National Basketball Association', color: '#E8843C', api: true,
       deep: '/nba', platform: null, examples: ['nba'],
       headline: 'Shot coordinates, advanced box scores, standings and teams.',
@@ -319,13 +319,13 @@
       sources: 'ESPN game summaries, stats.nba.com and the PropBetEdge NBA data layer (standings, teams, rosters, schedules, team stats)',
       cache: 'Live 10 s',
       matrix: { live: ['Schedule & slate', 'Live games', 'Game lines'], pbp: ['Plays with coordinates', 'Shot chart', 'Box score', 'Game summary'], players: ['Player stats', 'League leaders', 'Rosters'], teams: ['Standings', 'Teams', 'Team profiles', 'Rosters', 'Team schedules', 'Team stats'], adv: ['TS% & USG%', 'Estimated lineups', 'Win-probability series', 'Hustle box'], models: [] } },
-    { id: 'wnba', status: 'API + live platform', line: 'Live game state, WinBA and Player DNA from the WNBA platform.', media: '/assets/media/sport-wnba.webp', alt: 'A lit basketball arena floor seen from the baseline', name: 'WNBA', long: "Women's National Basketball Association", color: '#E0708F', api: true,
+    { id: 'wnba', status: 'API + live platform', line: '32 routes across live games, props, WinBA, Player DNA and PBE intelligence.', media: '/assets/media/sport-wnba.webp', alt: 'A lit basketball arena floor seen from the baseline', name: 'WNBA', long: "Women's National Basketball Association", color: '#E0708F', api: true,
       deep: null, platform: 'https://wnba.propbetedge.ai', examples: ['wnba'],
-      headline: 'Games, players, WinBA and Player DNA.',
-      summary: 'Served through the PropSports gateway from the dedicated WNBA platform: live game state and events, box scores and shots, teams, rosters, standings, player game logs, WinBA and Player DNA.',
+      headline: '32 WNBA routes from live games to market and model intelligence.',
+      summary: 'A 32-route WNBA API covering schedules, live game state, events, box scores, shots, teams, standings, player game logs, injuries, transactions, player and team stats, odds, player props, the official PBE track record, WinBA and Player DNA.',
       sources: 'Dedicated WNBA platform (wnba-api.propbetedge.ai); live ingest every minute',
       cache: 'Upstream cache headers',
-      matrix: { live: ['Today & schedule', 'Live game state'], pbp: ['Game events', 'Shots', 'Box score'], players: ['Profiles & game logs', 'Injuries & transactions'], teams: ['Standings & playoffs', 'Rosters'], adv: ['Player & team stats'], models: ['WinBA index', 'Player DNA'] } },
+      matrix: { live: ['Today & schedule', 'Live game state'], pbp: ['Game events', 'Shots', 'Box score'], players: ['Profiles & game logs', 'Injuries & transactions'], teams: ['Standings & playoffs', 'Rosters'], adv: ['Player & team stats', 'Odds & player props', 'Source health', 'Official track record'], models: ['WinBA index', 'Player DNA', 'PBE status & coverage'] } },
     { id: 'nhl', status: 'PropSports API', line: 'Live cast, shot geometry, goalie starters and line deployment.', media: '/assets/media/sport-nhl.webp', alt: 'Hockey players and a goalie at the crease under rink lights', name: 'NHL', long: 'National Hockey League', color: '#5AA9E6', api: true,
       deep: '/nhl', platform: null, examples: ['nhl', 'nhl-board'],
       headline: 'Live cast, shot geometry and line deployment.',
@@ -333,20 +333,20 @@
       sources: 'api-web.nhle.com and api.nhle.com; daily archive to Supabase',
       cache: 'Live 5–8 s · standings 15 min',
       matrix: { live: ['Board, schedule & scoreboard', 'Live games'], pbp: ['Play-by-play', 'Live cast', 'Box score'], players: ['Profiles, stats & game logs', 'Leaders', 'Goalie Edge detail'], teams: ['Standings', 'Rosters', 'Team stats', 'Team schedules', 'Team deployment'], adv: ['Shot geometry (raw)', 'Goalie starters', 'Line deployment'], models: [] } },
-    { id: 'tennis', status: 'API + live platform', line: 'Point-level live scores, rankings and head-to-head records.', media: '/assets/media/sport-tennis.webp', alt: 'A tennis ball hitting a clay court in a burst of dust', name: 'Tennis', long: 'ATP and WTA tennis', color: '#C9D84E', api: true,
+    { id: 'tennis', status: 'API + live platform', line: '25 routes for live match state, Matchup DNA, rankings, venues and Tennis DNA.', media: '/assets/media/sport-tennis.webp', alt: 'A tennis ball hitting a clay court in a burst of dust', name: 'Tennis', long: 'ATP and WTA tennis', color: '#C9D84E', api: true,
       deep: null, platform: 'https://tennis.propbetedge.ai', examples: ['tennis'],
       headline: 'Live point score, tournaments, rankings and H2H.',
       summary: 'Served through the PropSports gateway from the dedicated tennis platform: live matches with point score and server, order of play, tournaments, player profiles, rankings and head-to-head records.',
       sources: 'Dedicated tennis platform (tennis-api.propbetedge.ai); live polling every minute',
       cache: 'Upstream cache headers',
       matrix: { live: ["Today's order of play", 'Live point score & server'], pbp: ['Match detail', 'Set-by-set score'], players: ['Player directory', 'Profiles'], teams: ['WTA & ATP rankings', 'Tournaments & editions'], adv: ['Head-to-head records', 'Point-level live state'], models: ['Tennis DNA'] } },
-    { id: 'soccer', status: 'API + live platform', line: 'Fixtures, live matches, league tables and player DNA.', media: '/assets/media/sport-soccer.webp', alt: 'A soccer ball splashing across wet grass under floodlights', name: 'Soccer', long: 'Club and international soccer', color: '#3FC093', api: true,
+    { id: 'soccer', status: 'API + live platform', line: '25 routes across fixtures, live match cast, team history, newsroom and model intelligence.', media: '/assets/media/sport-soccer.webp', alt: 'A soccer ball splashing across wet grass under floodlights', name: 'Soccer', long: 'Club and international soccer', color: '#3FC093', api: true,
       deep: null, platform: 'https://soccer.propbetedge.ai', examples: ['soccer'],
       headline: 'Fixtures, live matches, tables and DNA.',
       summary: 'Served through the PropSports gateway from the dedicated soccer platform: fixtures and live matches, match cast, competitions, league tables, players and teams, plus player and team DNA.',
       sources: 'Dedicated soccer platform (soccer.propbetedge.ai); live snapshot every minute',
       cache: 'Upstream cache headers',
-      matrix: { live: ['Fixtures & results', 'Live matches'], pbp: ['Match cast', 'Match detail'], players: ['Players & profiles'], teams: ['League tables', 'Competitions', 'Team profiles'], adv: ['Coverage counts'], models: ['Player DNA', 'Team DNA'] } },
+      matrix: { live: ['Fixtures & results', 'Live matches'], pbp: ['Match cast', 'Match detail', 'Analyzer preview'], players: ['Players & profiles'], teams: ['League tables', 'Competitions', 'Team profiles', 'Team history'], adv: ['Coverage & data health', 'Newsroom', 'Video feed'], models: ['Player DNA', 'Team DNA', 'Algo v1 & v2'] } },
     { id: 'ufc', status: 'Fight Intelligence', line: 'Fight DNA, round statistics, weigh-ins and card intelligence.', media: '/assets/media/sport-ufc.webp', alt: 'A crowded arena around a lit fighting cage', name: 'UFC', long: 'UFC and combat sports', color: '#D8483F', api: false,
       deep: null, platform: 'https://ufc.proptechusa.ai', examples: ['ufc'],
       headline: 'Fight DNA, round statistics and card intelligence.',

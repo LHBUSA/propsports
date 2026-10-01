@@ -109,67 +109,67 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#E2574C">MLB</span><h2 id="ref-mlb">MLB · 45 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/mlb">MLB API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/schedule/today</code><span>Today's slate</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/games/live</code><span>Games currently in progress</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/lineups</code><span>Posted lineups and probable pitchers</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/schedule</code><span>Schedule by date with probable pitchers, venue and linescore</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/schedule/today</code><span>Today's slate</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/games/live</code><span>Games currently in progress</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/lineups</code><span>Posted lineups and probable pitchers</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game detail <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/game/:pk/linescore</code><span>Inning-by-inning linescore</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/game/:pk/boxscore</code><span>Full box score</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/game/:pk/plays</code><span>Most recent plays (?limit)</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/linescore</code><span>Inning-by-inning linescore</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/boxscore</code><span>Full box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/game/:pk/plays</code><span>Most recent plays (?limit)</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players <span class="ep-n">2</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/player/:id/stats</code><span>Season stats</span><em class="acc acc-demo">Demo access</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/player/:id/gamelog</code><span>Game log</span><em class="acc acc-demo">Demo access</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/player/:id/stats</code><span>Season stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/player/:id/gamelog</code><span>Game log</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Teams &amp; standings <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/standings</code><span>League and division standings with records (?season)</span><em class="acc acc-demo">Demo access</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/teams</code><span>All 30 clubs with league, division and venue</span><em class="acc acc-demo">Demo access</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/team/:id</code><span>Team profile</span><em class="acc acc-demo">Demo access</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/team/:id/roster</code><span>Active roster</span><em class="acc acc-demo">Demo access</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/team/:id/schedule</code><span>Team schedule and results</span><em class="acc acc-demo">Demo access</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/standings</code><span>League and division standings with records (?season)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/teams</code><span>All 30 clubs with league, division and venue</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/team/:id</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/team/:id/roster</code><span>Active roster</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/team/:id/schedule</code><span>Team schedule and results</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Statcast <span class="ep-n">2</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/statcast/batters</code><span>Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/statcast/pitchers</code><span>Pitcher Statcast table with pagination</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/statcast/batters</code><span>Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/statcast/pitchers</code><span>Pitcher Statcast table with pagination</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game environment <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/weather</code><span>Wind, temperature and park factor for one park</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/weather/all</code><span>Weather for every game on the slate</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/umpires</code><span>Umpire crews by game</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/weather</code><span>Wind, temperature and park factor for one park</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/weather/all</code><span>Weather for every game on the slate</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/umpires</code><span>Umpire crews by game</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Market data <span class="ep-n">8</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/odds</code><span>Game lines: spread, total, moneyline</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/hr</code><span>Home-run props, best book across DraftKings and FanDuel</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/totalbases</code><span>Total-bases props</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/hits</code><span>Hits props</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/strikeouts</code><span>Pitcher strikeout props</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/rbi</code><span>RBI props</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/all</code><span>All prop markets combined</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/player</code><span>One player across prop markets (?name)</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds</code><span>Game lines: spread, total, moneyline</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/hr</code><span>Home-run props, best book across DraftKings and FanDuel</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/totalbases</code><span>Total-bases props</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/hits</code><span>Hits props</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/strikeouts</code><span>Pitcher strikeout props</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/rbi</code><span>RBI props</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/all</code><span>All prop markets combined</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/player</code><span>One player across prop markets (?name)</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Model output <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/odds/model</code><span>PropBetEdge Poisson model prices (?market, ?player, ?direction)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/model/top</code><span>Top model OVER plays</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/odds/model/player</code><span>One player across model markets (?name)</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model</code><span>PropBetEdge Poisson model prices (?market, ?player, ?direction)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model/top</code><span>Top model OVER plays</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/odds/model/player</code><span>One player across model markets (?name)</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Minor leagues (MiLB) <span class="ep-n">15</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/mlb/minors/meta</code><span>Minor-league API metadata and schema version</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/levels</code><span>Levels: Triple-A, Double-A, High-A, Single-A, Rookie</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/organizations</code><span>MLB organizations and their affiliates (?season)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/teams</code><span>Affiliated teams (?season, ?level, ?org, ?league)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/teams/:id</code><span>Team detail</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/standings</code><span>Standings by level and league (?season, ?level, ?type)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/scores</code><span>Scores by date (?date, ?level, ?org)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/games/:pk</code><span>Game detail</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/leaders</code><span>Qualified leaders (?level, ?group, ?stat, ?limit)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/players/:id</code><span>Player career across minor-league and MLB levels</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/players/:id/form</code><span>Recent player form (?as_of)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/postseason</code><span>Postseason series (?season, ?level)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/postseason/champions</code><span>League champions across stored seasons</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/search</code><span>Team, league and player lookup (?q)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/mlb/minors/coverage</code><span>Coverage and freshness by season</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/meta</code><span>Minor-league API metadata and schema version</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/levels</code><span>Levels: Triple-A, Double-A, High-A, Single-A, Rookie</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/organizations</code><span>MLB organizations and their affiliates (?season)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/teams</code><span>Affiliated teams (?season, ?level, ?org, ?league)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/teams/:id</code><span>Team detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/standings</code><span>Standings by level and league (?season, ?level, ?type)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/scores</code><span>Scores by date (?date, ?level, ?org)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/games/:pk</code><span>Game detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/leaders</code><span>Qualified leaders (?level, ?group, ?stat, ?limit)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/players/:id</code><span>Player career across minor-league and MLB levels</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/players/:id/form</code><span>Recent player form (?as_of)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/postseason</code><span>Postseason series (?season, ?level)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/postseason/champions</code><span>League champions across stored seasons</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/search</code><span>Team, league and player lookup (?q)</span></div></li>
+    <li><span class="method">GET</span><div><code>/mlb/minors/coverage</code><span>Coverage and freshness by season</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -178,25 +178,25 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#5FAE63">NFL</span><h2 id="ref-nfl">NFL · 15 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nfl">NFL API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/scoreboard</code><span>Scoreboard by date or week</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/games/live</code><span>Games in progress</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/odds</code><span>Game odds</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/scoreboard</code><span>Scoreboard by date or week</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/games/live</code><span>Games in progress</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/odds</code><span>Game odds</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Teams &amp; standings <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nfl/standings</code><span>Current standings</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/teams</code><span>Team directory</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/team/:id</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/team/:id/roster</code><span>Current roster</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/team/:id/schedule</code><span>Team schedule</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/standings</code><span>Current standings</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/teams</code><span>Team directory</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id/roster</code><span>Current roster</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id/schedule</code><span>Team schedule</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game detail <span class="ep-n">6</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nfl/game/:id</code><span>Normalized game detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/boxscore</code><span>Player box score</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/plays</code><span>Play-by-play</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/drives</code><span>Drive history and current drive</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/leaders</code><span>Game leaders</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series (ESPN source, last 200 points)</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id</code><span>Normalized game detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/boxscore</code><span>Player box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/plays</code><span>Play-by-play</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/drives</code><span>Drive history and current drive</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/leaders</code><span>Game leaders</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series (ESPN source, last 200 points)</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -205,31 +205,31 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#E8843C">NBA</span><h2 id="ref-nba">NBA · 19 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nba">NBA API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nba/schedule</code><span>Scoreboard by date (playoffs, then regular season)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/schedule/today</code><span>Today's slate</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/games/live</code><span>Games in progress</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nba/schedule</code><span>Scoreboard by date (playoffs, then regular season)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/schedule/today</code><span>Today's slate</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/games/live</code><span>Games in progress</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game detail <span class="ep-n">7</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nba/game/:id/summary</code><span>Game summary with header</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/game/:id/boxscore</code><span>Normalized box score with computed TS% and USG%</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/game/:id/plays</code><span>Play-by-play with court coordinates and event category</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/game/:id/shotchart</code><span>Made and missed shots with x/y coordinates</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/game/:id/lineup</code><span>On-court five reconstructed from starters and substitutions (estimated)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/game/:id/winprob</code><span>Win-probability series (ESPN source)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/game/:id/hustle</code><span>Hustle box when the source allows it (may return available:false)</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/summary</code><span>Game summary with header</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/boxscore</code><span>Normalized box score with computed TS% and USG%</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/plays</code><span>Play-by-play with court coordinates and event category</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/shotchart</code><span>Made and missed shots with x/y coordinates</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/lineup</code><span>On-court five reconstructed from starters and substitutions (estimated)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/winprob</code><span>Win-probability series (ESPN source)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/game/:id/hustle</code><span>Hustle box when the source allows it (may return available:false)</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Teams &amp; standings <span class="ep-n">6</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nba/standings</code><span>Conference standings</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/teams</code><span>All 30 teams</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/team/:id</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/team/:id/roster</code><span>Current roster</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/team/:id/schedule</code><span>Team schedule and results</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/team/:id/stats</code><span>Team statistics</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nba/standings</code><span>Conference standings</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/teams</code><span>All 30 teams</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/team/:id</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/team/:id/roster</code><span>Current roster</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/team/:id/schedule</code><span>Team schedule and results</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/team/:id/stats</code><span>Team statistics</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players &amp; markets <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nba/leaders</code><span>League leaders (?stat, ?season)</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/player/:id/stats</code><span>Year-over-year player stats</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nba/odds</code><span>Game lines</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nba/leaders</code><span>League leaders (?stat, ?season)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/player/:id/stats</code><span>Year-over-year player stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/nba/odds</code><span>Game lines</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -238,37 +238,37 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#E0708F">WNBA</span><h2 id="ref-wnba">WNBA · 25 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/wnba">WNBA API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">9</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/schedule</code><span>Schedule</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/season</code><span>Season context</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id</code><span>Game detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/live</code><span>Live game state</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/events</code><span>Play-by-play events</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/boxscore</code><span>Box score</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/shots</code><span>Shot events</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/matchups/:id</code><span>Matchup detail</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate)</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/schedule</code><span>Schedule</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/season</code><span>Season context</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id</code><span>Game detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/live</code><span>Live game state</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/events</code><span>Play-by-play events</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/boxscore</code><span>Box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/shots</code><span>Shot events</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/matchups/:id</code><span>Matchup detail</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Teams &amp; standings <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/standings</code><span>Standings</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/playoffs</code><span>Playoff picture</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/teams</code><span>Teams</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/teams/:id</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/teams/:id/roster</code><span>Roster</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/standings</code><span>Standings</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/playoffs</code><span>Playoff picture</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams</code><span>Teams</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams/:id</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams/:id/roster</code><span>Roster</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/players</code><span>Players</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/players/:id</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/players/:id/gamelog</code><span>Game log</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/injuries</code><span>Injury report</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/transactions</code><span>Transactions</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players</code><span>Players</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players/:id</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players/:id/gamelog</code><span>Game log</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/injuries</code><span>Injury report</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/transactions</code><span>Transactions</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Stats &amp; intelligence <span class="ep-n">6</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/stats/players</code><span>Player statistics</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/stats/teams</code><span>Team statistics</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index (association with winning, not causal)</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/dna/meta</code><span>Player DNA method, version and field availability</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/dna/index</code><span>Player DNA index</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/dna/players/:id</code><span>Player DNA profile</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/players</code><span>Player statistics</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/teams</code><span>Team statistics</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index (association with winning, not causal)</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/meta</code><span>Player DNA method, version and field availability</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/index</code><span>Player DNA index</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/players/:id</code><span>Player DNA profile</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -277,36 +277,36 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#5AA9E6">NHL</span><h2 id="ref-nhl">NHL · 24 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nhl">NHL API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/board</code><span>Slate with season phase, calendar and next puck drop</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/schedule</code><span>Normalized schedule</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/schedule/today</code><span>Today's slate</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/scoreboard</code><span>Scoreboard</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/games/live</code><span>Games in progress</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/board</code><span>Slate with season phase, calendar and next puck drop</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/schedule</code><span>Normalized schedule</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/schedule/today</code><span>Today's slate</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/scoreboard</code><span>Scoreboard</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/games/live</code><span>Games in progress</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Standings &amp; leaders <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/standings</code><span>Standings (flags prior-season final before opening night)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/leaders</code><span>Skater leaders (?category, ?season, ?limit)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/goalies/leaders</code><span>Goalie leaders</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/standings</code><span>Standings (flags prior-season final before opening night)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/leaders</code><span>Skater leaders (?category, ?season, ?limit)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/goalies/leaders</code><span>Goalie leaders</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game detail <span class="ep-n">7</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/game/:id</code><span>Game landing and header</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/boxscore</code><span>Box score</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/plays</code><span>Normalized play-by-play</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/cast</code><span>Live cast: manpower, goalies in net, totals</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/shots</code><span>Shot geometry — raw features, not xG probabilities</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/goalies</code><span>Confirmed or projected starters, rest and recent form</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/deployment</code><span>Lines and pairs derived from shift charts (final games)</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id</code><span>Game landing and header</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/boxscore</code><span>Box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/plays</code><span>Normalized play-by-play</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/cast</code><span>Live cast: manpower, goalies in net, totals</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/shots</code><span>Shot geometry — raw features, not xG probabilities</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/goalies</code><span>Confirmed or projected starters, rest and recent form</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/deployment</code><span>Lines and pairs derived from shift charts (final games)</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players &amp; teams <span class="ep-n">9</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/player/:id</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/player/:id/stats</code><span>Player stats</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/player/:id/game-log</code><span>Game log</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/goalie/:id/edge</code><span>NHL Edge goalie detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/roster</code><span>Roster</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/stats</code><span>Team stats</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/schedule</code><span>Team schedule</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/deployment</code><span>Deployment from the team's last completed game</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/odds</code><span>Game lines</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id/stats</code><span>Player stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id/game-log</code><span>Game log</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/goalie/:id/edge</code><span>NHL Edge goalie detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/roster</code><span>Roster</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/stats</code><span>Team stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/schedule</code><span>Team schedule</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/deployment</code><span>Deployment from the team's last completed game</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/odds</code><span>Game lines</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -315,20 +315,20 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#C9D84E">TENNIS</span><h2 id="ref-tennis">Tennis · 10 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/tennis">Tennis API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/tennis/today</code><span>Today's order of play across tournaments</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/live</code><span>Live matches with point score, server and set detail</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/matches/:id</code><span>Match detail</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/today</code><span>Today's order of play across tournaments</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/live</code><span>Live matches with point score, server and set detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matches/:id</code><span>Match detail</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Tournaments <span class="ep-n">2</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/tennis/tournaments</code><span>Tournaments</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/tournaments/:slug/:year</code><span>Tournament edition</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/tournaments</code><span>Tournaments</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/tournaments/:slug/:year</code><span>Tournament edition</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players &amp; rankings <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/tennis/players</code><span>Players</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/players/:slug</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot (access-gated upstream)</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA rankings by default; ATP with ?tour=atp</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/h2h/:a/:b</code><span>Head-to-head record</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players</code><span>Players</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot (access-gated upstream)</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA rankings by default; ATP with ?tour=atp</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/h2h/:a/:b</code><span>Head-to-head record</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -337,23 +337,23 @@
     <div class="sec-head"><div><span class="sport-tag" style="--c:#3FC093">SOCCER</span><h2 id="ref-soccer">Soccer · 13 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/soccer">Soccer API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Competitions <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players, teams &amp; DNA <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span></div></li>
   </ul></div></div>
   </div>
 </section>

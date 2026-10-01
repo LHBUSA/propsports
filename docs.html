@@ -480,7 +480,7 @@ data = r.json()
         </tbody>
       </table>
       <p>Daily counters roll over on the US Eastern calendar date. Rate limit exceeded returns <code>429</code> with a JSON error body.</p>
-      <div class="alert alert-red">&#128683; <strong>No free tier.</strong> The API access (<code>psa_demo_propsports2026</code>) is a shared evaluation key subject to a global 20 req/hr cap across all callers. It is not suitable for production. Plans start at $29/mo for one sport (50,000 req/day); all 7 core sports from $149/mo.</div>
+      <div class="alert alert-red">&#128683; <strong>No free tier.</strong> Production access requires a paid PropSports API key. Plans start at $29/mo for one sport (50,000 req/day); all 7 core sports from $149/mo.</div>
     </div>
 
     <!-- ERRORS -->
@@ -511,25 +511,6 @@ data = r.json()
     </div>
 
     <!-- API access -->
-    <div class="doc-section" id="demo-key">
-      <h2>API access</h2>
-      <p>The shared API access lets you evaluate MLB response shapes before subscribing. It is intentionally limited.</p>
-      <div class="code-block">
-        <div class="code-header"><span>API access</span></div>
-        <pre>psa_demo_propsports2026</pre>
-      </div>
-      <table class="param-table">
-        <thead><tr><th>Constraint</th><th>Value</th></tr></thead>
-        <tbody>
-          <tr><td>Sports covered</td><td>MLB only</td></tr>
-          <tr><td>Rate limit</td><td>20 req/hr &mdash; global across all demo callers</td></tr>
-          <tr><td>SLA</td><td>None &mdash; shared key may be exhausted at peak hours</td></tr>
-          <tr><td>Production use</td><td>Not allowed</td></tr>
-          <tr><td>Attribution</td><td>PropSports API must be credited</td></tr>
-        </tbody>
-      </table>
-    </div>
-
     <!-- CATALOG -->
 <!-- ps:catalog -->
     <div class="doc-section" id="catalog">

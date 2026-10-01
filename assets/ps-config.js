@@ -410,7 +410,6 @@
 
   root.PS_CONFIG = {
     API_BASE: API_BASE, UFC_BASE: UFC_BASE,
-    DEMO_KEY: 'psa_demo_propsports2026', DEMO_LIMIT: '20 requests/hour, shared',
     CHECKOUT_URL: 'https://propsports-stripe.sales-fd3.workers.dev/create-checkout',
     SITE: 'https://propsports.proptechusa.ai',
     REFRESH_SECONDS: 15,

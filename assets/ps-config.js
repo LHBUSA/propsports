@@ -6,14 +6,15 @@
   var API_BASE = 'https://propsports-api.sales-fd3.workers.dev';
   var UFC_BASE = 'https://ufc-api.propbetedge.ai';
 
-  // Access levels, named exactly as production reports them in GET /sports.
+  // Internal route classification for build/runtime behavior only. The public site
+  // deliberately does not publish access-tier maps or shared/demo credentials.
   var ACCESS = {
     open: { label: 'Public', short: 'public routes', css: 'acc-open' },
-    demo: { label: 'Demo key', short: 'demo-key routes', css: 'acc-demo' },
     key: { label: 'API key', short: 'API-key routes', css: 'acc-key' }
   };
 
-  // [path, description, access] — access: 'open' (public route; no API key), 'demo' (evaluation route; shared demo key supported), 'key' (paid API key entitled to the sport)
+  // [path, description, access] — access is retained internally for plan behavior;
+  // the customer-facing catalog publishes routes and sport depth, not auth internals.
   var ROUTES = {
     mlb: [
       ['Schedule & live', [
@@ -26,14 +27,14 @@
         ['/mlb/game/:pk/boxscore', 'Full box score', 'open'],
         ['/mlb/game/:pk/plays', 'Most recent plays (?limit)', 'open']]],
       ['Players', [
-        ['/mlb/player/:id/stats', 'Season stats', 'demo'],
-        ['/mlb/player/:id/gamelog', 'Game log', 'demo']]],
+        ['/mlb/player/:id/stats', 'Season stats', 'open'],
+        ['/mlb/player/:id/gamelog', 'Game log', 'open']]],
       ['Teams & standings', [
-        ['/mlb/standings', 'League and division standings with records (?season)', 'demo'],
-        ['/mlb/teams', 'All 30 clubs with league, division and venue', 'demo'],
-        ['/mlb/team/:id', 'Team profile', 'demo'],
-        ['/mlb/team/:id/roster', 'Active roster', 'demo'],
-        ['/mlb/team/:id/schedule', 'Team schedule and results', 'demo']]],
+        ['/mlb/standings', 'League and division standings with records (?season)', 'open'],
+        ['/mlb/teams', 'All 30 clubs with league, division and venue', 'open'],
+        ['/mlb/team/:id', 'Team profile', 'open'],
+        ['/mlb/team/:id/roster', 'Active roster', 'open'],
+        ['/mlb/team/:id/schedule', 'Team schedule and results', 'open']]],
       ['Statcast', [
         ['/mlb/statcast/batters', 'Exit velocity, barrel %, xBA / xSLG / xwOBA, last-7 and handedness splits', 'open'],
         ['/mlb/statcast/pitchers', 'Pitcher Statcast table with pagination', 'open']]],
@@ -89,9 +90,34 @@
         ['/nfl/game/:id/plays', 'Play-by-play', 'key'],
         ['/nfl/game/:id/drives', 'Drive history and current drive', 'key'],
         ['/nfl/game/:id/leaders', 'Game leaders', 'key'],
-        ['/nfl/game/:id/winprob', 'Win-probability series (ESPN source, last 200 points)', 'key']]]
+        ['/nfl/game/:id/winprob', 'Win-probability series', 'key']]],
+      ['Current season intelligence', [
+        ['/nfl/season', 'Current season, phase, week and slate state', 'key'],
+        ['/nfl/current-games', 'Current game-state window', 'key'],
+        ['/nfl/current-stats', 'Accumulated current-season leaders', 'key'],
+        ['/nfl/current-player', 'One player current-season production', 'key'],
+        ['/nfl/scores', 'Current-season score ledger', 'key'],
+        ['/nfl/stats', 'Category leader view', 'key']]],
+      ['Availability & context', [
+        ['/nfl/injuries', 'Persisted injury availability feed', 'key'],
+        ['/nfl/changes', 'Material NFL changes feed', 'key'],
+        ['/nfl/best-line', 'Current best-line shopping view', 'key'],
+        ['/nfl/game-weather', 'Kickoff weather context', 'key']]],
+      ['Markets & intelligence', [
+        ['/nfl/capabilities', 'NFL intelligence capability contract', 'key'],
+        ['/nfl/markets/catalog', 'Supported player-prop markets', 'key'],
+        ['/nfl/events', 'Sportsbook event discovery', 'key'],
+        ['/nfl/event-markets', 'Available markets for an event', 'key'],
+        ['/nfl/props/board', 'Current player-prop book quotes', 'key'],
+        ['/nfl/line-movement', 'Observed player-prop movement', 'key'],
+        ['/nfl/game-intelligence', 'Weather and market-implied game context', 'key']]],
+      ['Player DNA', [
+        ['/nfl/dna/qb', 'Quarterback Player DNA', 'key'],
+        ['/nfl/dna/wr', 'Wide receiver Player DNA', 'key'],
+        ['/nfl/dna/rb', 'Running back Player DNA', 'key'],
+        ['/nfl/dna/te', 'Tight end Player DNA', 'key']]]
     ],
-    nba: [
+    nba: [    nba: [
       ['Schedule & live', [
         ['/nba/schedule', 'Scoreboard by date (playoffs, then regular season)', 'open'],
         ['/nba/schedule/today', "Today's slate", 'open'],
@@ -169,48 +195,86 @@
         ['/wnba/players/:id/gamelog', 'Game log', 'key'],
         ['/wnba/injuries', 'Injury report', 'key'],
         ['/wnba/transactions', 'Transactions', 'key']]],
-      ['Stats & intelligence', [
+      ['Stats & DNA', [
         ['/wnba/stats/players', 'Player statistics', 'key'],
         ['/wnba/stats/teams', 'Team statistics', 'key'],
-        ['/wnba/stats/winba', 'WinBA winning-impact index (association with winning, not causal)', 'key'],
+        ['/wnba/stats/winba', 'WinBA winning-impact index', 'key'],
         ['/wnba/dna/meta', 'Player DNA method, version and field availability', 'key'],
         ['/wnba/dna/index', 'Player DNA index', 'key'],
-        ['/wnba/dna/players/:id', 'Player DNA profile', 'key']]]
+        ['/wnba/dna/players/:id', 'Player DNA profile', 'key']]],
+      ['Markets & PBE intelligence', [
+        ['/wnba/sources', 'Source and ingest health', 'key'],
+        ['/wnba/odds', 'Current game market snapshot', 'key'],
+        ['/wnba/props', 'Current player-prop markets', 'key'],
+        ['/wnba/track-record', 'Official public model record', 'key'],
+        ['/wnba/pbe/status', 'PBE model and validation status', 'key'],
+        ['/wnba/pbe/coverage', 'Current PBE coverage window', 'key'],
+        ['/wnba/pbe/free-sample', 'Current public PBE sample', 'key']]]
     ],
     tennis: [
       ['Matches & live', [
         ['/tennis/today', "Today's order of play across tournaments", 'open'],
         ['/tennis/live', 'Live matches with point score, server and set detail', 'open'],
-        ['/tennis/matches/:id', 'Match detail', 'key']]],
-      ['Tournaments', [
+        ['/tennis/matches/:id', 'Match detail', 'key'],
+        ['/tennis/schedule', 'Schedule with tour, surface and event filters', 'key'],
+        ['/tennis/pbecast/:id', 'Point-level PBEcast match state', 'key'],
+        ['/tennis/matches/:id/broadcast', 'Verified broadcast rights when available', 'key']]],
+      ['Tournaments & coverage', [
         ['/tennis/tournaments', 'Tournaments', 'key'],
-        ['/tennis/tournaments/:slug/:year', 'Tournament edition', 'key']]],
+        ['/tennis/tournaments/:slug/:year', 'Tournament edition', 'key'],
+        ['/tennis/slams', 'Grand Slam coverage', 'key'],
+        ['/tennis/sources', 'Source registry and canary evidence', 'key'],
+        ['/tennis/coverage', 'Warehouse coverage summary', 'key']]],
       ['Players & rankings', [
         ['/tennis/players', 'Players', 'key'],
         ['/tennis/players/:slug', 'Player profile', 'key'],
-        ['/tennis/players/:slug/dna', 'Tennis DNA snapshot (access-gated upstream)', 'key'],
-        ['/tennis/rankings', 'WTA rankings by default; ATP with ?tour=atp', 'key'],
-        ['/tennis/h2h/:a/:b', 'Head-to-head record', 'key']]]
+        ['/tennis/players/:slug/dna', 'Tennis DNA snapshot', 'key'],
+        ['/tennis/players/:slug/profile', 'Deep player profile', 'key'],
+        ['/tennis/rankings', 'WTA and ATP rankings', 'key'],
+        ['/tennis/men', 'ATP coverage overview', 'key'],
+        ['/tennis/men/players', 'ATP player directory', 'key']]],
+      ['Matchup intelligence', [
+        ['/tennis/h2h/:a/:b', 'Head-to-head record', 'key'],
+        ['/tennis/matchups', 'Upcoming matchup board', 'key'],
+        ['/tennis/matchups/:id', 'Matchup DNA detail', 'key'],
+        ['/tennis/players-to-watch', 'Players to Watch intelligence', 'key'],
+        ['/tennis/dna/leaders', 'Tennis DNA leaderboards', 'key'],
+        ['/tennis/search', 'Canonical player and tournament search', 'key'],
+        ['/tennis/venues/:slug', 'Venue intelligence', 'key']]]
     ],
     soccer: [
       ['Matches & live', [
         ['/soccer/matches', 'Fixtures and results (?date, ?competition, ?limit)', 'open'],
         ['/soccer/live', 'Live and recently finished matches', 'open'],
         ['/soccer/matches/:id', 'Match detail', 'key'],
-        ['/soccer/matches/:id/cast', 'Match cast', 'key']]],
-      ['Competitions', [
+        ['/soccer/matches/:id/cast', 'Match cast', 'key'],
+        ['/soccer/matches/:id/analyzer-preview', 'Match analyzer preview', 'key']]],
+      ['Competitions & teams', [
         ['/soccer/competitions', 'Competitions and seasons', 'key'],
         ['/soccer/competitions/:slug', 'Competition detail', 'key'],
         ['/soccer/table', 'League table', 'key'],
-        ['/soccer/coverage', 'Coverage counts: matches, events, lineups', 'key']]],
-      ['Players, teams & DNA', [
+        ['/soccer/coverage', 'Coverage counts: matches, events and lineups', 'key'],
+        ['/soccer/data-health', 'Canonical data-health summary', 'key'],
+        ['/soccer/teams/:slug', 'Team profile', 'key'],
+        ['/soccer/teams/:slug/history', 'Team historical context', 'key'],
+        ['/soccer/teams/:slug/dna', 'Team DNA', 'key']]],
+      ['Players & DNA', [
         ['/soccer/players', 'Players', 'key'],
         ['/soccer/players/:slug', 'Player profile', 'key'],
-        ['/soccer/players/:slug/dna', 'Player DNA', 'key'],
-        ['/soccer/teams/:slug', 'Team profile', 'key'],
-        ['/soccer/teams/:slug/dna', 'Team DNA', 'key']]]
+        ['/soccer/players/:slug/dna', 'Player DNA', 'key']]],
+      ['News & media', [
+        ['/soccer/news', 'Soccer newsroom feed', 'key'],
+        ['/soccer/news/:slug', 'Article detail', 'key'],
+        ['/soccer/videos', 'Video feed', 'key']]],
+      ['Model intelligence', [
+        ['/soccer/algo/picks', 'Model picks v1', 'key'],
+        ['/soccer/algo/record', 'Model record v1', 'key'],
+        ['/soccer/algo/research', 'Model research summary v1', 'key'],
+        ['/soccer/algo/v2/picks', 'Model picks v2', 'key'],
+        ['/soccer/algo/v2/record', 'Model record v2', 'key'],
+        ['/soccer/algo/v2/research', 'Model research summary v2', 'key']]]
     ]
-  };
+  };  };
 
   // UFC runs on its own host and is not counted in the PropSports API route total.
   var UFC_ROUTES = [
@@ -415,7 +479,7 @@
     REFRESH_SECONDS: 15,
     // Endpoint count shown on the site = the live API catalog (GET /health "endpoints").
     // Build fetches it; pages re-read it at runtime. This is only the offline fallback.
-    CATALOG_ENDPOINTS_FALLBACK: 151,
+    CATALOG_ENDPOINTS_FALLBACK: 206,
     ACCESS: ACCESS, SPORTS: SPORTS, STORY: STORY, EDGE: EDGE, ROUTES: ROUTES, UFC_ROUTES: UFC_ROUTES, PLANS: PLANS, PRICE_IDS: PRICE_IDS, DEVELOPER_MAX_SPORTS: DEVELOPER_MAX_SPORTS,
     COUNTS: {
       SPORT_PLATFORMS: SPORTS.length,

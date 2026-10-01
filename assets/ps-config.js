@@ -8,12 +8,12 @@
 
   // Access levels, named exactly as production reports them in GET /sports.
   var ACCESS = {
-    open: { label: 'Open without key', short: 'open without key', css: 'acc-open' },
-    demo: { label: 'Demo access', short: 'demo access', css: 'acc-demo' },
-    key: { label: 'API key required', short: 'API key required', css: 'acc-key' }
+    open: { label: 'Public', short: 'public routes', css: 'acc-open' },
+    demo: { label: 'Demo key', short: 'demo-key routes', css: 'acc-demo' },
+    key: { label: 'API key', short: 'API-key routes', css: 'acc-key' }
   };
 
-  // [path, description, access] — access: 'open' (no key), 'demo' (no key or the shared demo key, rate-limited; any MLB key), 'key' (API key entitled to the sport)
+  // [path, description, access] — access: 'open' (public route; no API key), 'demo' (evaluation route; shared demo key supported), 'key' (paid API key entitled to the sport)
   var ROUTES = {
     mlb: [
       ['Schedule & live', [

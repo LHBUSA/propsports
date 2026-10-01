@@ -90,8 +90,8 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>25</b></div>
-      <div><span>Open without key</span><b>2</b></div>
-      <div><span>API key required</span><b>23</b></div>
+      
+      
       <div><span>Base path</span><b class="mono">/wnba</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Upstream cache headers</b></div>
@@ -131,47 +131,47 @@
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">25 documented WNBA routes.</h2><p class="sec-lead">Every WNBA route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>: 2 open without key · 23 API key required. Keyed routes take <code>X-API-Key</code> or <code>?key=</code>.</p></div></div>
-    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">25 documented WNBA routes.</h2><p class="sec-lead">Every WNBA route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
+    
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">9</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/schedule</code><span>Schedule</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/season</code><span>Season context</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id</code><span>Game detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/live</code><span>Live game state</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/events</code><span>Play-by-play events</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/boxscore</code><span>Box score</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/games/:id/shots</code><span>Shot events</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/matchups/:id</code><span>Matchup detail</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate)</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/schedule</code><span>Schedule</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/season</code><span>Season context</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id</code><span>Game detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/live</code><span>Live game state</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/events</code><span>Play-by-play events</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/boxscore</code><span>Box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/games/:id/shots</code><span>Shot events</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/matchups/:id</code><span>Matchup detail</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Teams &amp; standings <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/standings</code><span>Standings</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/playoffs</code><span>Playoff picture</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/teams</code><span>Teams</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/teams/:id</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/teams/:id/roster</code><span>Roster</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/standings</code><span>Standings</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/playoffs</code><span>Playoff picture</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams</code><span>Teams</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams/:id</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/teams/:id/roster</code><span>Roster</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/players</code><span>Players</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/players/:id</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/players/:id/gamelog</code><span>Game log</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/injuries</code><span>Injury report</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/transactions</code><span>Transactions</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players</code><span>Players</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players/:id</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/players/:id/gamelog</code><span>Game log</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/injuries</code><span>Injury report</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/transactions</code><span>Transactions</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Stats &amp; intelligence <span class="ep-n">6</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/wnba/stats/players</code><span>Player statistics</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/stats/teams</code><span>Team statistics</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index (association with winning, not causal)</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/dna/meta</code><span>Player DNA method, version and field availability</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/dna/index</code><span>Player DNA index</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/dna/players/:id</code><span>Player DNA profile</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/players</code><span>Player statistics</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/teams</code><span>Team statistics</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index (association with winning, not causal)</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/meta</code><span>Player DNA method, version and field availability</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/index</code><span>Player DNA index</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/dna/players/:id</code><span>Player DNA profile</span></div></li>
   </ul></div></div>
   </div>
 </section>
 <section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production.</p></div></div>
     <div class="console dark" data-console data-first="wnba">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="wnba" aria-selected="true" style="--c:#E0708F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span><strong>/wnba/today</strong><span class="p">/wnba/today</span></button>
@@ -191,7 +191,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated WNBA platform (wnba-api.propbetedge.ai); live ingest every minute</li>
-      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers WNBA includes all 25 routes.</li>
+      
       <li><b>NOTE</b>WinBA measures association with winning, not causation.</li>
       <li><b>NOTE</b>Player DNA covers the current season; /wnba/dna/meta lists which fields are proxies.</li>
     </ul>

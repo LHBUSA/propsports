@@ -90,8 +90,8 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>15</b></div>
-      <div><span>Open without key</span><b>3</b></div>
-      <div><span>API key required</span><b>12</b></div>
+      
+      
       <div><span>Base path</span><b class="mono">/nfl</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Live 2–3 s</b></div>
@@ -130,35 +130,35 @@
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">15 documented NFL routes.</h2><p class="sec-lead">Every NFL route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>: 3 open without key · 12 API key required. Keyed routes take <code>X-API-Key</code> or <code>?key=</code>.</p></div></div>
-    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">15 documented NFL routes.</h2><p class="sec-lead">Every NFL route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
+    
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/scoreboard</code><span>Scoreboard by date or week</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/games/live</code><span>Games in progress</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/odds</code><span>Game odds</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/scoreboard</code><span>Scoreboard by date or week</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/games/live</code><span>Games in progress</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/odds</code><span>Game odds</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Teams &amp; standings <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nfl/standings</code><span>Current standings</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/teams</code><span>Team directory</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/team/:id</code><span>Team profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/team/:id/roster</code><span>Current roster</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/team/:id/schedule</code><span>Team schedule</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/standings</code><span>Current standings</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/teams</code><span>Team directory</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id/roster</code><span>Current roster</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/team/:id/schedule</code><span>Team schedule</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game detail <span class="ep-n">6</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nfl/game/:id</code><span>Normalized game detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/boxscore</code><span>Player box score</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/plays</code><span>Play-by-play</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/drives</code><span>Drive history and current drive</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/leaders</code><span>Game leaders</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series (ESPN source, last 200 points)</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id</code><span>Normalized game detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/boxscore</code><span>Player box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/plays</code><span>Play-by-play</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/drives</code><span>Drive history and current drive</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/leaders</code><span>Game leaders</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series (ESPN source, last 200 points)</span></div></li>
   </ul></div></div>
   </div>
 </section>
 <section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production.</p></div></div>
     <div class="console dark" data-console data-first="nfl">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="nfl" aria-selected="true" style="--c:#5FAE63"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span><strong>/nfl/schedule</strong><span class="p">/nfl/schedule</span></button>
@@ -178,8 +178,8 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>ESPN site and core APIs, normalized by the PropSports NFL adapter</li>
-      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers NFL includes all 15 routes.</li>
-      <li><b>NOTE</b>/nfl/schedule, /nfl/games/live and /nfl/odds are open without a key; every other NFL route requires an NFL-entitled API key.</li>
+      
+      
       <li><b>NOTE</b>Win probability is the ESPN series, passed through — not a PropSports model.</li>
     </ul>
   </div>

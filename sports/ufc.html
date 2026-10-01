@@ -90,8 +90,8 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>14</b></div>
-      <div><span>Open without key</span><b>11</b></div>
-      <div><span>API key required</span><b>3</b></div>
+      
+      
       <div><span>Base path</span><b class="mono">/v1/ufc</b></div>
       <div><span>Host</span><b class="mono">ufc-api.propbetedge.ai</b></div>
       <div><span>Live cache</span><b>Platform-managed</b></div>
@@ -131,34 +131,34 @@
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">14 documented UFC routes.</h2><p class="sec-lead">Every UFC route in the UFC platform, all <code>GET</code> on <code>https://ufc-api.propbetedge.ai</code>: 11 open without key · 3 API key required. Keyed routes take a UFC platform key.</p></div></div>
-    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">14 documented UFC routes.</h2><p class="sec-lead">Every UFC route in the UFC platform, all <code>GET</code> on <code>https://ufc-api.propbetedge.ai</code>.</p></div></div>
+    
     <div class="ep-groups">
   <div class="ep-group"><h3>Events &amp; cards <span class="ep-n">6</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/v1/ufc/events</code><span>Events (?status=upcoming)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/card</code><span>Fight card</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/weigh-ins</code><span>Event weigh-ins</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/weigh-ins</code><span>Weigh-in results</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/results</code><span>Results</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/rankings</code><span>Official rankings snapshot</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events</code><span>Events (?status=upcoming)</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/card</code><span>Fight card</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/weigh-ins</code><span>Event weigh-ins</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/weigh-ins</code><span>Weigh-in results</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/results</code><span>Results</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/rankings</code><span>Official rankings snapshot</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Fighters &amp; bouts <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters</code><span>Fighters</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id</code><span>Fighter profile</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/history</code><span>Fight history and career stats</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/stats</code><span>Round-by-round bout statistics</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters</code><span>Fighters</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id</code><span>Fighter profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/history</code><span>Fight history and career stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/stats</code><span>Round-by-round bout statistics</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Fight DNA &amp; intelligence <span class="ep-n">4</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/v1/ufc/dna/metrics</code><span>Fight DNA metric definitions</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/dna</code><span>Fighter DNA (not a pick, price or probability)</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/intelligence</code><span>Card intelligence</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/ledger</code><span>Fight state ledger checkpoints</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/dna/metrics</code><span>Fight DNA metric definitions</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/fighters/:id/dna</code><span>Fighter DNA (not a pick, price or probability)</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/events/:id/intelligence</code><span>Card intelligence</span></div></li>
+    <li><span class="method">GET</span><div><code>/v1/ufc/bouts/:id/ledger</code><span>Fight state ledger checkpoints</span></div></li>
   </ul></div></div>
   </div>
 </section>
 <section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production.</p></div></div>
     <div class="console dark" data-console data-first="ufc">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="ufc" aria-selected="true" style="--c:#D8483F"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9.6 7h4.8L17 9.6v4.8L14.4 17H9.6L7 14.4V9.6z" opacity=".45"/></svg></span><strong>/events</strong><span class="p">/v1/ufc/events</span></button>
@@ -178,7 +178,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated UFC platform (ufc-api.propbetedge.ai); weigh-in ingest every minute</li>
-      <li><b>ACCESS</b>Keys and billing are handled on the UFC platform.</li>
+      
       <li><b>NOTE</b>UFC uses its own host and API keys; it is not part of PropSports API plans.</li>
       <li><b>NOTE</b>Fight DNA describes style and output — it is not a pick, price or probability.</li>
       <li><b>NOTE</b>No live in-fight scoring or public prediction routes are offered.</li>

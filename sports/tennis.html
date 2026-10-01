@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muop6kvx">
+<link rel="stylesheet" href="/assets/ps.css?v=mup2un0m">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Sports","item":"https://propsports.proptechusa.ai/#network"},{"@type":"ListItem","position":3,"name":"Tennis API","item":"https://propsports.proptechusa.ai/sports/tennis"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/sports/tennis#webpage","url":"https://propsports.proptechusa.ai/sports/tennis","name":"Tennis API — Live ATP & WTA Scores & Rankings | PropSports","description":"Served through the PropSports gateway from the dedicated tennis platform: live matches with point score and server, order of play, tournaments, player…","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US","about":{"@id":"https://propsports.proptechusa.ai/sports/tennis#api"}},{"@type":"SoftwareApplication","@id":"https://propsports.proptechusa.ai/sports/tennis#api","name":"PropSports Tennis API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://propsports.proptechusa.ai/sports/tennis","description":"Served through the PropSports gateway from the dedicated tennis platform: live matches with point score and server, order of play, tournaments, player…","publisher":{"@id":"https://proptechusa.ai/#organization"},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"isAccessibleForFree":false,"offers":{"@type":"Offer","name":"Single Sport — Tennis","price":"29","priceCurrency":"USD","url":"https://propsports.proptechusa.ai/pricing","priceSpecification":{"@type":"UnitPriceSpecification","price":"29","priceCurrency":"USD","unitText":"MONTH"}}}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
@@ -89,9 +89,7 @@
       <div class="hero-actions"><button type="button" class="btn btn-primary" data-checkout="TENNIS">Get Tennis API key — $29/mo</button><a class="btn btn-line" href="/pricing">Compare all plans</a></div>
     </div>
     <div class="sp-facts">
-      <div><span>Documented routes</span><b>10</b></div>
-      
-      
+      <div><span>Documented routes</span><b>25</b></div>
       <div><span>Base path</span><b class="mono">/tennis</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Upstream cache headers</b></div>
@@ -131,24 +129,40 @@
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">10 documented Tennis routes.</h2><p class="sec-lead">Every Tennis route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
-    
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">25 documented Tennis routes.</h2><p class="sec-lead">Every Tennis route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
     <div class="ep-groups">
-  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">3</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">6</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/today</code><span>Today's order of play across tournaments</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/live</code><span>Live matches with point score, server and set detail</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/matches/:id</code><span>Match detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/schedule</code><span>Schedule with tour, surface and event filters</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/pbecast/:id</code><span>Point-level PBEcast match state</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matches/:id/broadcast</code><span>Verified broadcast rights when available</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Tournaments <span class="ep-n">2</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Tournaments &amp; coverage <span class="ep-n">5</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/tournaments</code><span>Tournaments</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/tournaments/:slug/:year</code><span>Tournament edition</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/slams</code><span>Grand Slam coverage</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/sources</code><span>Source registry and canary evidence</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/coverage</code><span>Warehouse coverage summary</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Players &amp; rankings <span class="ep-n">5</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Players &amp; rankings <span class="ep-n">7</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/players</code><span>Players</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/players/:slug</code><span>Player profile</span></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot (access-gated upstream)</span></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA rankings by default; ATP with ?tour=atp</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug/profile</code><span>Deep player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA and ATP rankings</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/men</code><span>ATP coverage overview</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/men/players</code><span>ATP player directory</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Matchup intelligence <span class="ep-n">7</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/h2h/:a/:b</code><span>Head-to-head record</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matchups</code><span>Upcoming matchup board</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matchups/:id</code><span>Matchup DNA detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players-to-watch</code><span>Players to Watch intelligence</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/dna/leaders</code><span>Tennis DNA leaderboards</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/search</code><span>Canonical player and tournament search</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/venues/:slug</code><span>Venue intelligence</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -174,7 +188,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated tennis platform (tennis-api.propbetedge.ai); live polling every minute</li>
-      
+      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers Tennis includes all 25 routes.</li>
       <li><b>NOTE</b>WTA rankings are the default; ATP rankings (?tour=atp) come from a secondary source and can lag.</li>
       <li><b>NOTE</b>The Tennis DNA route is access-gated by the upstream platform.</li>
       <li><b>NOTE</b>No tennis model output is offered.</li>
@@ -194,7 +208,7 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>151</span> documented API routes and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>206</span> documented API routes and a dedicated UFC intelligence platform.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
@@ -204,9 +218,9 @@
     <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muop6kvx"></script>
-<script src="/assets/ps.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-network.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-live.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-config.js?v=mup2un0m"></script>
+<script src="/assets/ps.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-network.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-live.js?v=mup2un0m" defer></script>
 </body>
 </html>

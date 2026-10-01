@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muop6kvx">
+<link rel="stylesheet" href="/assets/ps.css?v=mup2un0m">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"API Reference","item":"https://propsports.proptechusa.ai/reference"}]},{"@type":"TechArticle","@id":"https://propsports.proptechusa.ai/reference#article","headline":"PropSports API Reference","description":"Every documented PropSports API route across MLB, NFL, NBA, WNBA, NHL, Tennis and Soccer, grouped by sport with descriptions and base URL.","url":"https://propsports.proptechusa.ai/reference","inLanguage":"en-US","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"about":{"@id":"https://propsports.proptechusa.ai/#api"},"image":"https://propsports.proptechusa.ai/assets/social/propsports-og.jpg"}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
@@ -81,12 +81,9 @@
 <section class="sp-hero dark" style="--c:var(--accent)">
   <div class="wrap sp-hero-in">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">PropSports</a> / API Reference</nav>
-    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All <span data-ps-endpoints>151</span> routes in the PropSports production catalog, publicly documented and available on commercial plans. Routes are grouped by sport with descriptions and examples. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
+    <div class="sp-hero-copy"><p class="eyebrow">API REFERENCE</p><h1>Every route, by sport.</h1><p class="hero-lead">All <span data-ps-endpoints>206</span> routes in the PropSports production catalog, grouped by sport with descriptions and examples. Walkthroughs live in the <a class="link" href="/docs">documentation</a>.</p></div>
     <div class="sp-facts">
-      <div><span>Documented routes</span><b><span data-ps-endpoints>151</span></b></div>
-      
-      
-      
+      <div><span>Documented routes</span><b><span data-ps-endpoints>206</span></b></div>
       <div><span>Base URL</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Auth</span><b class="mono">X-API-Key or ?key=</b></div>
       <div><span>Machine-readable</span><b class="mono"><a href="https://propsports-api.sales-fd3.workers.dev/sports" target="_blank" rel="noopener">GET /sports</a></b></div>
@@ -95,13 +92,12 @@
 </section>
 <section class="sec white" id="catalog" aria-labelledby="ref-catalog">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label">Catalog</p><h2 id="ref-catalog"><span data-ps-endpoints>151</span> routes across 7 sports.</h2><p class="sec-lead">Counts come from production via <a class="link" href="https://propsports-api.sales-fd3.workers.dev/health" target="_blank" rel="noopener">GET /health</a> and <a class="link" href="https://propsports-api.sales-fd3.workers.dev/sports" target="_blank" rel="noopener">GET /sports</a>.</p></div></div>
+    <div class="sec-head"><div><p class="label">Catalog</p><h2 id="ref-catalog"><span data-ps-endpoints>206</span> routes across 7 sports.</h2><p class="sec-lead">Counts come from production: <a class="link" href="https://propsports-api.sales-fd3.workers.dev/health" target="_blank" rel="noopener">GET /health</a> totals and <a class="link" href="https://propsports-api.sales-fd3.workers.dev/sports" target="_blank" rel="noopener">GET /sports</a>. Prefixes <code>/v1/</code> and <code>/api/</code> are accepted.</p></div></div>
     <div class="ref-sum-wrap"><table class="ref-sum">
       <thead><tr><th scope="col">Sport</th><th scope="col">Routes</th></tr></thead>
-      <tbody><tr style="--c:#E2574C"><th scope="row"><a href="#mlb"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB</a></th><td class="num"><b>45</b></td></tr><tr style="--c:#5FAE63"><th scope="row"><a href="#nfl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span>NFL</a></th><td class="num"><b>15</b></td></tr><tr style="--c:#E8843C"><th scope="row"><a href="#nba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>NBA</a></th><td class="num"><b>19</b></td></tr><tr style="--c:#E0708F"><th scope="row"><a href="#wnba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>WNBA</a></th><td class="num"><b>25</b></td></tr><tr style="--c:#5AA9E6"><th scope="row"><a href="#nhl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span>NHL</a></th><td class="num"><b>24</b></td></tr><tr style="--c:#C9D84E"><th scope="row"><a href="#tennis"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span>Tennis</a></th><td class="num"><b>10</b></td></tr><tr style="--c:#3FC093"><th scope="row"><a href="#soccer"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span>Soccer</a></th><td class="num"><b>13</b></td></tr></tbody>
-      <tfoot><tr><th scope="row">All sports</th><td class="num"><b><span data-ps-endpoints>151</span></b></td></tr></tfoot>
+      <tbody><tr style="--c:#E2574C"><th scope="row"><a href="#mlb"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7.4 5.1c1.9 1.9 2.9 4.3 2.9 6.9s-1 5-2.9 6.9M16.6 5.1c-1.9 1.9-2.9 4.3-2.9 6.9s1 5 2.9 6.9"/></svg></span>MLB</a></th><td class="num"><b>45</b></td></tr><tr style="--c:#5FAE63"><th scope="row"><a href="#nfl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="5.8" transform="rotate(-40 12 12)"/><path d="M9 15l6-6M9.9 12.6l1.5 1.5M11.3 11.2l1.5 1.5M12.7 9.8l1.5 1.5"/></svg></span>NFL</a></th><td class="num"><b>36</b></td></tr><tr style="--c:#E8843C"><th scope="row"><a href="#nba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>NBA</a></th><td class="num"><b>19</b></td></tr><tr style="--c:#E0708F"><th scope="row"><a href="#wnba"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c2.7 2.7 2.7 10.1 0 12.8M18.4 5.6c-2.7 2.7-2.7 10.1 0 12.8"/></svg></span>WNBA</a></th><td class="num"><b>32</b></td></tr><tr style="--c:#5AA9E6"><th scope="row"><a href="#nhl"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span>NHL</a></th><td class="num"><b>24</b></td></tr><tr style="--c:#C9D84E"><th scope="row"><a href="#tennis"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.3 5.7c3.4 3.3 3.4 9.3 0 12.6M18.7 5.7c-3.4 3.3-3.4 9.3 0 12.6"/></svg></span>Tennis</a></th><td class="num"><b>25</b></td></tr><tr style="--c:#3FC093"><th scope="row"><a href="#soccer"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6l4 2.9-1.5 4.6h-5L8 10.5zM12 7.6V3.2M16 10.5l4.2-1.3M14.5 15.1l2.6 3.7M9.5 15.1l-2.6 3.7M8 10.5L3.8 9.2"/></svg></span>Soccer</a></th><td class="num"><b>25</b></td></tr></tbody>
+      <tfoot><tr><th scope="row">All sports</th><td class="num"><b><span data-ps-endpoints>206</span></b></td></tr></tfoot>
     </table></div>
-    
   </div>
 </section>
 <section class="sec alt" id="mlb" aria-labelledby="ref-mlb">
@@ -175,7 +171,7 @@
 </section>
 <section class="sec" id="nfl" aria-labelledby="ref-nfl">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#5FAE63">NFL</span><h2 id="ref-nfl">NFL · 15 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nfl">NFL API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#5FAE63">NFL</span><h2 id="ref-nfl">NFL · 36 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/nfl">NFL API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/nfl/schedule</code><span>Normalized scoreboard for the current slate (?date, ?week)</span></div></li>
@@ -196,7 +192,36 @@
     <li><span class="method">GET</span><div><code>/nfl/game/:id/plays</code><span>Play-by-play</span></div></li>
     <li><span class="method">GET</span><div><code>/nfl/game/:id/drives</code><span>Drive history and current drive</span></div></li>
     <li><span class="method">GET</span><div><code>/nfl/game/:id/leaders</code><span>Game leaders</span></div></li>
-    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series (ESPN source, last 200 points)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game/:id/winprob</code><span>Win-probability series</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Current season intelligence <span class="ep-n">6</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/season</code><span>Current season, phase, week and slate state</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/current-games</code><span>Current game-state window</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/current-stats</code><span>Accumulated current-season leaders</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/current-player</code><span>One player current-season production</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/scores</code><span>Current-season score ledger</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/stats</code><span>Category leader view</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Availability &amp; context <span class="ep-n">4</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/injuries</code><span>Persisted injury availability feed</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/changes</code><span>Material NFL changes feed</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/best-line</code><span>Current best-line shopping view</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game-weather</code><span>Kickoff weather context</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Markets &amp; intelligence <span class="ep-n">7</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/capabilities</code><span>NFL intelligence capability contract</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/markets/catalog</code><span>Supported player-prop markets</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/events</code><span>Sportsbook event discovery</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/event-markets</code><span>Available markets for an event</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/props/board</code><span>Current player-prop book quotes</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/line-movement</code><span>Observed player-prop movement</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/game-intelligence</code><span>Weather and market-implied game context</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Player DNA <span class="ep-n">4</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/nfl/dna/qb</code><span>Quarterback Player DNA</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/dna/wr</code><span>Wide receiver Player DNA</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/dna/rb</code><span>Running back Player DNA</span></div></li>
+    <li><span class="method">GET</span><div><code>/nfl/dna/te</code><span>Tight end Player DNA</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -235,7 +260,7 @@
 </section>
 <section class="sec" id="wnba" aria-labelledby="ref-wnba">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#E0708F">WNBA</span><h2 id="ref-wnba">WNBA · 25 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/wnba">WNBA API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#E0708F">WNBA</span><h2 id="ref-wnba">WNBA · 32 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/wnba">WNBA API overview →</a></p></div></div>
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">9</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/wnba/today</code><span>Today's slate (or the next slate)</span></div></li>
@@ -262,13 +287,22 @@
     <li><span class="method">GET</span><div><code>/wnba/injuries</code><span>Injury report</span></div></li>
     <li><span class="method">GET</span><div><code>/wnba/transactions</code><span>Transactions</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Stats &amp; intelligence <span class="ep-n">6</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Stats &amp; DNA <span class="ep-n">6</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/wnba/stats/players</code><span>Player statistics</span></div></li>
     <li><span class="method">GET</span><div><code>/wnba/stats/teams</code><span>Team statistics</span></div></li>
-    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index (association with winning, not causal)</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/stats/winba</code><span>WinBA winning-impact index</span></div></li>
     <li><span class="method">GET</span><div><code>/wnba/dna/meta</code><span>Player DNA method, version and field availability</span></div></li>
     <li><span class="method">GET</span><div><code>/wnba/dna/index</code><span>Player DNA index</span></div></li>
     <li><span class="method">GET</span><div><code>/wnba/dna/players/:id</code><span>Player DNA profile</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Markets &amp; PBE intelligence <span class="ep-n">7</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/wnba/sources</code><span>Source and ingest health</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/odds</code><span>Current game market snapshot</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/props</code><span>Current player-prop markets</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/track-record</code><span>Official public model record</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/pbe/status</code><span>PBE model and validation status</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/pbe/coverage</code><span>Current PBE coverage window</span></div></li>
+    <li><span class="method">GET</span><div><code>/wnba/pbe/free-sample</code><span>Current public PBE sample</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -312,48 +346,81 @@
 </section>
 <section class="sec" id="tennis" aria-labelledby="ref-tennis">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#C9D84E">TENNIS</span><h2 id="ref-tennis">Tennis · 10 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/tennis">Tennis API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#C9D84E">TENNIS</span><h2 id="ref-tennis">Tennis · 25 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/tennis">Tennis API overview →</a></p></div></div>
     <div class="ep-groups">
-  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">3</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">6</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/today</code><span>Today's order of play across tournaments</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/live</code><span>Live matches with point score, server and set detail</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/matches/:id</code><span>Match detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/schedule</code><span>Schedule with tour, surface and event filters</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/pbecast/:id</code><span>Point-level PBEcast match state</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matches/:id/broadcast</code><span>Verified broadcast rights when available</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Tournaments <span class="ep-n">2</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Tournaments &amp; coverage <span class="ep-n">5</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/tournaments</code><span>Tournaments</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/tournaments/:slug/:year</code><span>Tournament edition</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/slams</code><span>Grand Slam coverage</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/sources</code><span>Source registry and canary evidence</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/coverage</code><span>Warehouse coverage summary</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Players &amp; rankings <span class="ep-n">5</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Players &amp; rankings <span class="ep-n">7</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/players</code><span>Players</span></div></li>
     <li><span class="method">GET</span><div><code>/tennis/players/:slug</code><span>Player profile</span></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot (access-gated upstream)</span></div></li>
-    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA rankings by default; ATP with ?tour=atp</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug/dna</code><span>Tennis DNA snapshot</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players/:slug/profile</code><span>Deep player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/rankings</code><span>WTA and ATP rankings</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/men</code><span>ATP coverage overview</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/men/players</code><span>ATP player directory</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Matchup intelligence <span class="ep-n">7</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/tennis/h2h/:a/:b</code><span>Head-to-head record</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matchups</code><span>Upcoming matchup board</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/matchups/:id</code><span>Matchup DNA detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/players-to-watch</code><span>Players to Watch intelligence</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/dna/leaders</code><span>Tennis DNA leaderboards</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/search</code><span>Canonical player and tournament search</span></div></li>
+    <li><span class="method">GET</span><div><code>/tennis/venues/:slug</code><span>Venue intelligence</span></div></li>
   </ul></div></div>
   </div>
 </section>
 <section class="sec alt" id="soccer" aria-labelledby="ref-soccer">
   <div class="wrap">
-    <div class="sec-head"><div><span class="sport-tag" style="--c:#3FC093">SOCCER</span><h2 id="ref-soccer">Soccer · 13 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/soccer">Soccer API overview →</a></p></div></div>
+    <div class="sec-head"><div><span class="sport-tag" style="--c:#3FC093">SOCCER</span><h2 id="ref-soccer">Soccer · 25 documented routes</h2><p class="sec-lead"><a class="link" href="/sports/soccer">Soccer API overview →</a></p></div></div>
     <div class="ep-groups">
-  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">5</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id/analyzer-preview</code><span>Match analyzer preview</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Competitions <span class="ep-n">4</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Competitions &amp; teams <span class="ep-n">8</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table</span></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events and lineups</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/data-health</code><span>Canonical data-health summary</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/history</code><span>Team historical context</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Players, teams &amp; DNA <span class="ep-n">5</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Players &amp; DNA <span class="ep-n">3</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA</span></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>News &amp; media <span class="ep-n">3</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/news</code><span>Soccer newsroom feed</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/news/:slug</code><span>Article detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/videos</code><span>Video feed</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Model intelligence <span class="ep-n">6</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/algo/picks</code><span>Model picks v1</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/record</code><span>Model record v1</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/research</code><span>Model research summary v1</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/v2/picks</code><span>Model picks v2</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/v2/record</code><span>Model record v2</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/v2/research</code><span>Model research summary v2</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -364,7 +431,7 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>151</span> documented API routes and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>206</span> documented API routes and a dedicated UFC intelligence platform.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
@@ -374,7 +441,7 @@
     <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muop6kvx"></script>
-<script src="/assets/ps.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-config.js?v=mup2un0m"></script>
+<script src="/assets/ps.js?v=mup2un0m" defer></script>
 </body>
 </html>

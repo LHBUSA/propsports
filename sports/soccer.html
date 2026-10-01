@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600&display=swap">
-<link rel="stylesheet" href="/assets/ps.css?v=muop6kvx">
+<link rel="stylesheet" href="/assets/ps.css?v=mup2un0m">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://proptechusa.ai/#organization","name":"PropTechUSA.ai","url":"https://proptechusa.ai","logo":{"@type":"ImageObject","url":"https://propsports.proptechusa.ai/assets/brand/icon-512.png","width":512,"height":512},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"email":"sales@proptechusa.ai","telephone":"+1-888-784-3881"},{"@type":"Brand","@id":"https://propsports.proptechusa.ai/#brand","name":"PropSports","logo":"https://propsports.proptechusa.ai/assets/brand/icon-512.png"},{"@type":"WebSite","@id":"https://propsports.proptechusa.ai/#website","url":"https://propsports.proptechusa.ai/","name":"PropSports API","inLanguage":"en-US","publisher":{"@id":"https://proptechusa.ai/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PropSports API","item":"https://propsports.proptechusa.ai/"},{"@type":"ListItem","position":2,"name":"Sports","item":"https://propsports.proptechusa.ai/#network"},{"@type":"ListItem","position":3,"name":"Soccer API","item":"https://propsports.proptechusa.ai/sports/soccer"}]},{"@type":"WebPage","@id":"https://propsports.proptechusa.ai/sports/soccer#webpage","url":"https://propsports.proptechusa.ai/sports/soccer","name":"Soccer API — Fixtures, Live Matches & Tables | PropSports","description":"Served through the PropSports gateway from the dedicated soccer platform: fixtures and live matches, match cast, competitions, league tables, players and…","isPartOf":{"@id":"https://propsports.proptechusa.ai/#website"},"publisher":{"@id":"https://proptechusa.ai/#organization"},"inLanguage":"en-US","about":{"@id":"https://propsports.proptechusa.ai/sports/soccer#api"}},{"@type":"SoftwareApplication","@id":"https://propsports.proptechusa.ai/sports/soccer#api","name":"PropSports Soccer API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://propsports.proptechusa.ai/sports/soccer","description":"Served through the PropSports gateway from the dedicated soccer platform: fixtures and live matches, match cast, competitions, league tables, players and…","publisher":{"@id":"https://proptechusa.ai/#organization"},"brand":{"@id":"https://propsports.proptechusa.ai/#brand"},"isAccessibleForFree":false,"offers":{"@type":"Offer","name":"Single Sport — Soccer","price":"29","priceCurrency":"USD","url":"https://propsports.proptechusa.ai/pricing","priceSpecification":{"@type":"UnitPriceSpecification","price":"29","priceCurrency":"USD","unitText":"MONTH"}}}]}</script>
 <script defer src="https://www.proptechusa.ai/network-analytics.js" data-proptech-surface="propsports"></script>
 </head>
@@ -89,9 +89,7 @@
       <div class="hero-actions"><button type="button" class="btn btn-primary" data-checkout="SOCCER">Get Soccer API key — $29/mo</button><a class="btn btn-line" href="/pricing">Compare all plans</a></div>
     </div>
     <div class="sp-facts">
-      <div><span>Documented routes</span><b>13</b></div>
-      
-      
+      <div><span>Documented routes</span><b>25</b></div>
       <div><span>Base path</span><b class="mono">/soccer</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Upstream cache headers</b></div>
@@ -121,37 +119,52 @@
     <div class="sec-head"><div><p class="label"><b>03</b> Capabilities</p><h2 id="cap-h">What the Soccer API covers.</h2></div></div>
     <div class="caps">
       <div><h3>Schedule &amp; live</h3><ul><li>Fixtures &amp; results</li><li>Live matches</li></ul></div>
-      <div><h3>Play-by-play &amp; game</h3><ul><li>Match cast</li><li>Match detail</li></ul></div>
+      <div><h3>Play-by-play &amp; game</h3><ul><li>Match cast</li><li>Match detail</li><li>Analyzer preview</li></ul></div>
       <div><h3>Players</h3><ul><li>Players &amp; profiles</li></ul></div>
-      <div><h3>Teams &amp; standings</h3><ul><li>League tables</li><li>Competitions</li><li>Team profiles</li></ul></div>
-      <div><h3>Advanced</h3><ul><li>Coverage counts</li></ul></div>
-      <div><h3>Models &amp; DNA</h3><ul><li>Player DNA</li><li>Team DNA</li></ul></div>
+      <div><h3>Teams &amp; standings</h3><ul><li>League tables</li><li>Competitions</li><li>Team profiles</li><li>Team history</li></ul></div>
+      <div><h3>Advanced</h3><ul><li>Coverage &amp; data health</li><li>Newsroom</li><li>Video feed</li></ul></div>
+      <div><h3>Models &amp; DNA</h3><ul><li>Player DNA</li><li>Team DNA</li><li>Algo v1 &amp; v2</li></ul></div>
     </div>
   </div>
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">13 documented Soccer routes.</h2><p class="sec-lead">Every Soccer route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
-    
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">25 documented Soccer routes.</h2><p class="sec-lead">Every Soccer route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
     <div class="ep-groups">
-  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">4</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Matches &amp; live <span class="ep-n">5</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/matches</code><span>Fixtures and results (?date, ?competition, ?limit)</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/live</code><span>Live and recently finished matches</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/matches/:id</code><span>Match detail</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/matches/:id/cast</code><span>Match cast</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/matches/:id/analyzer-preview</code><span>Match analyzer preview</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Competitions <span class="ep-n">4</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Competitions &amp; teams <span class="ep-n">8</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/competitions</code><span>Competitions and seasons</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/competitions/:slug</code><span>Competition detail</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/table</code><span>League table</span></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events, lineups</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/coverage</code><span>Coverage counts: matches, events and lineups</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/data-health</code><span>Canonical data-health summary</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/history</code><span>Team historical context</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span></div></li>
   </ul></div>
-  <div class="ep-group"><h3>Players, teams &amp; DNA <span class="ep-n">5</span></h3><ul class="ep-list">
+  <div class="ep-group"><h3>Players &amp; DNA <span class="ep-n">3</span></h3><ul class="ep-list">
     <li><span class="method">GET</span><div><code>/soccer/players</code><span>Players</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/players/:slug</code><span>Player profile</span></div></li>
     <li><span class="method">GET</span><div><code>/soccer/players/:slug/dna</code><span>Player DNA</span></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug</code><span>Team profile</span></div></li>
-    <li><span class="method">GET</span><div><code>/soccer/teams/:slug/dna</code><span>Team DNA</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>News &amp; media <span class="ep-n">3</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/news</code><span>Soccer newsroom feed</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/news/:slug</code><span>Article detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/videos</code><span>Video feed</span></div></li>
+  </ul></div>
+  <div class="ep-group"><h3>Model intelligence <span class="ep-n">6</span></h3><ul class="ep-list">
+    <li><span class="method">GET</span><div><code>/soccer/algo/picks</code><span>Model picks v1</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/record</code><span>Model record v1</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/research</code><span>Model research summary v1</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/v2/picks</code><span>Model picks v2</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/v2/record</code><span>Model record v2</span></div></li>
+    <li><span class="method">GET</span><div><code>/soccer/algo/v2/research</code><span>Model research summary v2</span></div></li>
   </ul></div></div>
   </div>
 </section>
@@ -177,7 +190,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>Dedicated soccer platform (soccer.propbetedge.ai); live snapshot every minute</li>
-      
+      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers Soccer includes all 25 routes.</li>
       <li><b>NOTE</b>Competitions include the Premier League, Bundesliga, UEFA Champions League, UEFA Nations League and MLS.</li>
       <li><b>NOTE</b>Soccer model picks exist on the soccer platform but are not exposed through the PropSports gateway.</li>
     </ul>
@@ -196,7 +209,7 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="PropSports API home"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#D73B1A"/><polygon points="10,6 6,17 13,17 9,26 26,13 18,13 22,6" fill="#fff"/></svg><span class="brand-word">PropSports</span><span class="brand-tag">API</span></a>
-        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>151</span> documented API routes and a dedicated UFC intelligence platform.</p>
+        <p>Live sports data infrastructure from PropTechUSA.ai — 7 core API sports, <span data-ps-endpoints>206</span> documented API routes and a dedicated UFC intelligence platform.</p>
       </div>
       <div><p class="foot-h">PLATFORM</p><a href="/#live">Live network</a><a href="/#network">Sports network</a><a href="/reference">API reference</a><a href="/docs">Documentation</a><a href="/pricing">Pricing</a><a href="/live">PropSports powering PropBetEdge</a></div>
       <div><p class="foot-h">SPORT APIS</p><a href="/sports/mlb">MLB API</a><a href="/sports/nfl">NFL API</a><a href="/sports/nba">NBA API</a><a href="/sports/wnba">WNBA API</a><a href="/sports/nhl">NHL API</a><a href="/sports/tennis">Tennis API</a><a href="/sports/soccer">Soccer API</a><a href="/sports/ufc">UFC Intelligence</a></div>
@@ -206,9 +219,9 @@
     <div class="foot-bottom"><span>© 2026 PropTechUSA.ai · Built on Cloudflare Workers</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://billing.stripe.com/p/login/cNi3cv2vY7em3lr4oj7wA00" target="_blank" rel="noopener">Manage subscription</a></span></div>
   </div>
 </footer>
-<script src="/assets/ps-config.js?v=muop6kvx"></script>
-<script src="/assets/ps.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-network.js?v=muop6kvx" defer></script>
-<script src="/assets/ps-live.js?v=muop6kvx" defer></script>
+<script src="/assets/ps-config.js?v=mup2un0m"></script>
+<script src="/assets/ps.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-network.js?v=mup2un0m" defer></script>
+<script src="/assets/ps-live.js?v=mup2un0m" defer></script>
 </body>
 </html>

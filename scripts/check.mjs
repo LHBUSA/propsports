@@ -83,9 +83,9 @@ for (const f of PAGES) {
   for (const re of [/\bfour sports\b/i, /\ball four\b/i, /\b4 sports\b/i, /\bWINBA\b/, /\b6[x×] daily\b/i, /\b(31|47|59|125) endpoints\b/i])
     { const m = text.match(re); check(!m, `${f}: stale copy "${m && m[0]}"`); }
   // RapidAPI is gone everywhere (text and links); empty coverage cells are never labelled "Not offered";
-  // access is only ever "Open without key", "Demo access" or "API key required".
+  // customer-facing access language must stay route-centric: Public, Demo key, or API key.
   { const m = html.match(/rapidapi/i); check(!m, `${f}: RapidAPI reference remains`); }
-  for (const re of [/Not offered/i, /\bPublic \(no key\)/i, /\bPublic routes\b/, /\d+ public\b/, /class="acc acc-pub"/, /\bDemo key<\/em>/])
+  for (const re of [/Not offered/i, /open without (?:a )?(?:key|auth(?:entication)?)/i, /included with key/i, /API key required/i, /class="acc acc-pub"/])
     { const m = html.match(re); check(!m, `${f}: ambiguous access wording "${m && m[0]}"`); }
   for (const m of text.matchAll(/(\d[\d,]*)(?:<\/?(?:b|span|strong|em)[^>]*>)?\s+(?:catalog\s+)?endpoints/gi)) {
     if (/^0\d$/.test(m[1])) continue; // section index labels such as "02 Endpoints"

@@ -351,12 +351,12 @@ function home() {
     ['Live state', `Live endpoints on every core sport; NFL, NHL and NBA live routes cache for 2–10 seconds. The live network panel re-polls every ${C.REFRESH_SECONDS} seconds.`, ['mlb', 'nfl', 'nba', 'wnba', 'nhl', 'tennis', 'soccer']]
   ];
   const tiers = [
-    ['SPORT SOURCES', 'Upstream feeds', ['MLB StatsAPI', 'ESPN APIs', 'stats.nba.com', 'NHL APIs', 'Open-Meteo', 'DraftKings · FanDuel props', 'Platform-native sources']],
-    ['INGEST · NORMALIZE', 'Adapters and workers', ['NFL scoreboard adapter', 'NHL play normalizer', 'NBA box-score math', 'WNBA ingest · 1 min', 'Tennis live poller · 1 min', 'Soccer ingest · 1 min', 'UFC weigh-ins · 1 min', 'NHL archive · daily']],
-    ['DATA LAYER', 'Storage', ['Supabase Postgres', 'Workers KV', 'R2 object storage']],
-    ['INTELLIGENCE', 'Sport-specific', ['MLB Poisson model', 'Statcast tables', 'NHL shot geometry', 'NHL line deployment', 'WinBA', 'Player DNA', 'Soccer DNA', 'Fight DNA']],
-    ['CLOUDFLARE EDGE API', 'propsports-api Worker', ['API-key auth', 'Per-key daily limits', 'Gateway allowlist', 'Per-route caching', 'Source health canaries']],
-    ['YOUR APPLICATION', 'REST · JSON', ['CORS enabled', 'GET only', 'PropBetEdge sport sites']]
+    ['LIVE DATA', 'Game and event state', ['Schedules & scores', 'Live game state', 'Play-by-play', 'Players & teams']],
+    ['NORMALIZED API', 'Consistent developer contracts', ['REST + JSON', 'Stable sport routes', 'Normalized identifiers', 'Clear null semantics']],
+    ['ADVANCED DATA', 'Deeper sport intelligence', ['Advanced statistics', 'Player and team analytics', 'Market context', 'Historical context']],
+    ['PROPRIETARY INTELLIGENCE', 'PropSports models and DNA', ['Player DNA', 'Team DNA', 'WinBA', 'Model outputs']],
+    ['PRODUCTION DELIVERY', 'Built for applications', ['API-key authentication', 'Plan-based limits', 'CORS enabled', 'Production monitoring']],
+    ['YOUR APPLICATION', 'Use the data anywhere', ['Apps & dashboards', 'Research workflows', 'Media products', 'Internal tools']]
   ];
   const rules = [
     ['Never fabricate unavailable fields', 'NHL goalie routes report GSAx as unavailable instead of estimating it.'],
@@ -502,18 +502,18 @@ ${nav()}
 
 <section class="sec white" id="infrastructure" aria-labelledby="infra-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>08</b> Infrastructure</p><h2 id="infra-h">Built as infrastructure.</h2><p class="sec-lead">How data moves today. Core sports are served by the PropSports edge worker; WNBA, tennis and soccer pass through a gateway to dedicated platforms; UFC runs on its own host.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>08</b> Platform</p><h2 id="infra-h">Built for production use.</h2><p class="sec-lead">PropSports turns live sports data, advanced statistics and proprietary intelligence into consistent APIs your product can call directly.</p></div></div>
     <div class="topo">
-      <div class="tiers">${tiers.map(([n, s, nodes]) => `
-        <div class="tier"><div class="tier-name">${n}<small>${esc(s)}</small></div><div class="tier-body">${nodes.map((x) => `<span class="node"><i></i>${esc(x)}</span>`).join('')}</div></div>`).join('')}
+      <div class="tiers">
+        ${tiers.map(([name, sub, nodes]) => `<div class="tier"><div class="tier-name">${name}<small>${sub}</small></div><div class="tier-body">${nodes.map((n) => `<span class="node"><i></i>${n}</span>`).join('')}</div></div>`).join('')}
       </div>
       <dl class="topo-notes">
-        <dt>AUTHENTICATION</dt><dd><code>X-API-Key</code> header or <code>?key=</code>. Keys are issued at checkout and stored in Workers KV with their sports and daily limit.</dd>
-        <dt>RATE LIMITS</dt><dd>Per-key daily counters in KV, ${fmt(Math.min(...C.PLANS.map((p) => p.limit)))}–${fmt(Math.max(...C.PLANS.map((p) => p.limit)))} requests/day by plan. The demo key shares ${C.DEMO_LIMIT.replace(', shared', '')}.</dd>
-        <dt>CACHING</dt><dd>Cache lifetimes are set per route: NFL live 2–3 s, NHL live 5–8 s, NBA live 10 s, Statcast 15 min.</dd>
-        <dt>GATEWAY</dt><dd>GET-only allowlist for WNBA, tennis and soccer with a 10 s upstream timeout. Your key is stripped before forwarding.</dd>
-        <dt>SCHEDULED JOBS</dt><dd>Cron-triggered Workers: WNBA, tennis and soccer ingest every minute, UFC weigh-ins every minute, NHL archive daily.</dd>
-        <dt>HEALTH</dt><dd><code>/health</code>, <code>/health/nfl-sources</code> and <code>/health/nhl-sources</code> probe upstream shape.</dd>
+        <dt>AUTHENTICATION</dt><dd>Use your PropSports API key with supported requests. Access follows the sports included in your plan.</dd>
+        <dt>PLAN LIMITS</dt><dd>Daily request capacity scales by plan, from individual sport access through high-volume all-sports usage.</dd>
+        <dt>FRESHNESS</dt><dd>Live and fast-changing data is refreshed on sport-appropriate cadences, with timestamps and availability state exposed where relevant.</dd>
+        <dt>RELIABILITY</dt><dd>Production monitoring and fail-closed data rules prevent unavailable values from being silently invented or substituted.</dd>
+        <dt>CONSISTENCY</dt><dd>Sport-specific data stays native while common concepts such as teams, players, games and status use predictable API contracts.</dd>
+        <dt>DELIVERY</dt><dd>REST + JSON responses are designed for web apps, dashboards, research systems, media products and internal tooling.</dd>
       </dl>
     </div>
   </div>

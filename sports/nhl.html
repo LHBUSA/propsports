@@ -90,8 +90,8 @@
     </div>
     <div class="sp-facts">
       <div><span>Documented routes</span><b>24</b></div>
-      <div><span>Open without key</span><b>8</b></div>
-      <div><span>API key required</span><b>16</b></div>
+      
+      
       <div><span>Base path</span><b class="mono">/nhl</b></div>
       <div><span>Host</span><b class="mono">propsports-api.sales-fd3.workers.dev</b></div>
       <div><span>Live cache</span><b>Live 5–8 s · standings 15 min</b></div>
@@ -130,46 +130,46 @@
 </section>
 <section class="sec" id="endpoints" aria-labelledby="ep-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">24 documented NHL routes.</h2><p class="sec-lead">Every NHL route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>: 8 open without key · 16 API key required. Keyed routes take <code>X-API-Key</code> or <code>?key=</code>.</p></div></div>
-    <div class="acc-legend" role="note"><span><em class="acc acc-open">Open without key</em>Answers with no key at all.</span><span><em class="acc acc-key">API key required</em>A paid PropSports key entitled to the sport.</span></div>
+    <div class="sec-head"><div><p class="label"><b>04</b> Endpoints</p><h2 id="ep-h">24 documented NHL routes.</h2><p class="sec-lead">Every NHL route in the production catalog, all <code>GET</code> on <code>https://propsports-api.sales-fd3.workers.dev</code>.</p></div></div>
+    
     <div class="ep-groups">
   <div class="ep-group"><h3>Schedule &amp; live <span class="ep-n">5</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/board</code><span>Slate with season phase, calendar and next puck drop</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/schedule</code><span>Normalized schedule</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/schedule/today</code><span>Today's slate</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/scoreboard</code><span>Scoreboard</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/games/live</code><span>Games in progress</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/board</code><span>Slate with season phase, calendar and next puck drop</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/schedule</code><span>Normalized schedule</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/schedule/today</code><span>Today's slate</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/scoreboard</code><span>Scoreboard</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/games/live</code><span>Games in progress</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Standings &amp; leaders <span class="ep-n">3</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/standings</code><span>Standings (flags prior-season final before opening night)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/leaders</code><span>Skater leaders (?category, ?season, ?limit)</span><em class="acc acc-open">Open without key</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/goalies/leaders</code><span>Goalie leaders</span><em class="acc acc-open">Open without key</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/standings</code><span>Standings (flags prior-season final before opening night)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/leaders</code><span>Skater leaders (?category, ?season, ?limit)</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/goalies/leaders</code><span>Goalie leaders</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Game detail <span class="ep-n">7</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/game/:id</code><span>Game landing and header</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/boxscore</code><span>Box score</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/plays</code><span>Normalized play-by-play</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/cast</code><span>Live cast: manpower, goalies in net, totals</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/shots</code><span>Shot geometry — raw features, not xG probabilities</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/goalies</code><span>Confirmed or projected starters, rest and recent form</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/game/:id/deployment</code><span>Lines and pairs derived from shift charts (final games)</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id</code><span>Game landing and header</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/boxscore</code><span>Box score</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/plays</code><span>Normalized play-by-play</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/cast</code><span>Live cast: manpower, goalies in net, totals</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/shots</code><span>Shot geometry — raw features, not xG probabilities</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/goalies</code><span>Confirmed or projected starters, rest and recent form</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/game/:id/deployment</code><span>Lines and pairs derived from shift charts (final games)</span></div></li>
   </ul></div>
   <div class="ep-group"><h3>Players &amp; teams <span class="ep-n">9</span></h3><ul class="ep-list">
-    <li><span class="method">GET</span><div><code>/nhl/player/:id</code><span>Player profile</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/player/:id/stats</code><span>Player stats</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/player/:id/game-log</code><span>Game log</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/goalie/:id/edge</code><span>NHL Edge goalie detail</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/roster</code><span>Roster</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/stats</code><span>Team stats</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/schedule</code><span>Team schedule</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/deployment</code><span>Deployment from the team's last completed game</span><em class="acc acc-key">API key required</em></div></li>
-    <li><span class="method">GET</span><div><code>/nhl/odds</code><span>Game lines</span><em class="acc acc-key">API key required</em></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id</code><span>Player profile</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id/stats</code><span>Player stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/player/:id/game-log</code><span>Game log</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/goalie/:id/edge</code><span>NHL Edge goalie detail</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/roster</code><span>Roster</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/stats</code><span>Team stats</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/schedule</code><span>Team schedule</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/team/:abbr/deployment</code><span>Deployment from the team's last completed game</span></div></li>
+    <li><span class="method">GET</span><div><code>/nhl/odds</code><span>Game lines</span></div></li>
   </ul></div></div>
   </div>
 </section>
 <section class="sec alt" aria-labelledby="ex-h">
   <div class="wrap">
-    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production. Routes open without a key re-run live.</p></div></div>
+    <div class="sec-head"><div><p class="label"><b>05</b> Example</p><h2 id="ex-h">Example request and response.</h2><p class="sec-lead">Captured from production.</p></div></div>
     <div class="console dark" data-console data-first="nhl">
   <div class="con-nav" role="tablist" aria-label="Example requests">
     <button type="button" role="tab" data-ex="nhl" aria-selected="true" style="--c:#5AA9E6"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="8" ry="3.2"/><path d="M4 9v5.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V9"/></svg></span><strong>/nhl/standings</strong><span class="p">/nhl/standings</span></button>
@@ -190,7 +190,7 @@
     <div><p class="label"><b>06</b> Data notes</p><h2 id="notes-h">Depth and availability.</h2><p class="sec-lead">Where the data comes from, and what it deliberately does not claim.</p></div>
     <ul class="facts-list">
       <li><b>SOURCES</b>api-web.nhle.com and api.nhle.com; daily archive to Supabase</li>
-      <li><b>ACCESS</b>Single Sport ($29/mo), Developer (up to 3 sports, $79/mo) or any all-sports plan from $149/mo. Every plan that covers NHL includes all 24 routes.</li>
+      
       <li><b>NOTE</b>Shot routes return raw geometry marked raw-features-only — no xG probabilities.</li>
       <li><b>NOTE</b>Goalie routes report GSAx as unavailable rather than estimating it.</li>
       <li><b>NOTE</b>Deployment is derived from shift charts for completed games.</li>

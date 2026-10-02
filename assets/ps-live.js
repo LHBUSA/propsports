@@ -159,7 +159,8 @@
     return { name: n || 'TBD', short: n || 'TBD', code: ps.length ? 'DBL' : '', photo: '' };
   }
   function addTennis(all, d) {
-    var data = d && d.data || {}, matches = arr(data.live).concat(arr(data.upcoming).slice(0, 12));
+    var data = d && d.data || {}, live = arr(data.live), upcoming = arr(data.upcoming).filter(function (g) { return NET.currentUpcoming(g && g.scheduled_at); });
+    var matches = live.concat(upcoming.slice(0, 12));
     matches.forEach(function (g) {
       var st = stateFrom(g.status), A = tennisSide(g.sides && g.sides.A), B = tennisSide(g.sides && g.sides.B), t = g.tournament || {};
       var o = { sport: 'tennis', eventId: g.id, state: st, tennis: true, away: A.name, home: B.name, aAb: A.short, hAb: B.short, aRec: A.code, hRec: B.code, awayLogo: A.photo, homeLogo: B.photo, face: true,

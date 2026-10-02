@@ -59,6 +59,12 @@
     if (next) return { kind: 'next', tone: 'ok', text: 'Next · ' + fmtDay(next.start), lifecycle: lc || 'active' };
     return { kind: 'no_games', tone: 'idle', text: 'No games today', lifecycle: lc || 'active' };
   }
+  function currentUpcoming(start, now) {
+    var at = Date.parse(start || '');
+    var t = now == null ? Date.now() : Number(now);
+    return Number.isFinite(at) && Number.isFinite(t) && at >= t - 6 * 3600e3;
+  }
+
   function networkSummary(statuses) {
     var s = { total: statuses.length, active: 0, seasonal: 0, failing: 0 };
     statuses.forEach(function (x) {
@@ -69,7 +75,7 @@
     return s;
   }
 
-  var api = { castUrl: castUrl, castLabel: castLabel, castHome: castHome, castAction: castAction, sportStatus: sportStatus, networkSummary: networkSummary, CAST_SPORTS: Object.keys(CAST) };
+  var api = { castUrl: castUrl, castLabel: castLabel, castHome: castHome, castAction: castAction, sportStatus: sportStatus, networkSummary: networkSummary, currentUpcoming: currentUpcoming, CAST_SPORTS: Object.keys(CAST) };
   root.PS_NETWORK = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -28,6 +28,15 @@ t('labels and actions', () => {
   assert.equal(N.castAction('Live', 'mlb'), 'Open live cast'); assert.equal(N.castAction('Final', 'nhl'), 'Watch replay'); assert.equal(N.castAction('Preview', 'soccer'), 'Open preview'); assert.equal(N.castAction('Preview', 'tennis'), 'Open match preview');
 });
 
+t('currentUpcoming suppresses stale tennis fixtures but keeps the reconciliation window', () => {
+  const now = Date.parse('2026-10-02T13:00:00Z');
+  assert.equal(N.currentUpcoming('2026-09-30T15:00:00Z', now), false);
+  assert.equal(N.currentUpcoming('2026-10-02T08:00:00Z', now), true);
+  assert.equal(N.currentUpcoming('2026-10-02T06:00:00Z', now), false);
+  assert.equal(N.currentUpcoming('2026-10-03T02:00:00Z', now), true);
+  assert.equal(N.currentUpcoming(null, now), false);
+});
+
 /* ── status semantics ── */
 const ok = (meta) => ({ ok: true, status: 200, body: meta ? { meta } : {} });
 const g = (state, extra = {}) => ({ state, start: '2026-10-01T23:00Z', isToday: false, ...extra });

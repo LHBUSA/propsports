@@ -65,6 +65,28 @@
     return Number.isFinite(at) && Number.isFinite(t) && at >= t - 6 * 3600e3;
   }
 
+  /* ── calendar day ───────────────────────────────────── */
+  // The viewer's browser-local calendar day as an absolute UTC window. Soccer's `date=` is a UTC
+  // day, so a local-day slate must be requested with timestamp `from`/`to` (never hard-code a zone).
+  function localDayWindow(now) {
+    var n = now == null ? new Date() : new Date(now);
+    var start = new Date(n.getFullYear(), n.getMonth(), n.getDate(), 0, 0, 0, 0);
+    var next = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1, 0, 0, 0, 0);
+    return { from: start.toISOString(), to: new Date(next.getTime() - 1).toISOString() };
+  }
+  function inWindow(start, win) {
+    var at = Date.parse(start || '');
+    return Number.isFinite(at) && at >= Date.parse(win.from) && at <= Date.parse(win.to);
+  }
+  // Canonical soccer status `unknown` carries no evidence of state. Keep it while kickoff is ahead or
+  // within a short grace period; a materially old unknown fixture is dropped, never shown as NEXT/LIVE/FINAL.
+  var UNKNOWN_GRACE_MS = 3 * 3600e3;
+  function unknownIsCurrent(status, start, now) {
+    if (String(status || '').toLowerCase() !== 'unknown') return true;
+    var at = Date.parse(start || ''), t = now == null ? Date.now() : Number(now);
+    return Number.isFinite(at) && Number.isFinite(t) && at >= t - UNKNOWN_GRACE_MS;
+  }
+
   function networkSummary(statuses) {
     var s = { total: statuses.length, active: 0, seasonal: 0, failing: 0 };
     statuses.forEach(function (x) {
@@ -75,7 +97,7 @@
     return s;
   }
 
-  var api = { castUrl: castUrl, castLabel: castLabel, castHome: castHome, castAction: castAction, sportStatus: sportStatus, networkSummary: networkSummary, currentUpcoming: currentUpcoming, CAST_SPORTS: Object.keys(CAST) };
+  var api = { castUrl: castUrl, castLabel: castLabel, castHome: castHome, castAction: castAction, sportStatus: sportStatus, networkSummary: networkSummary, currentUpcoming: currentUpcoming, localDayWindow: localDayWindow, inWindow: inWindow, unknownIsCurrent: unknownIsCurrent, CAST_SPORTS: Object.keys(CAST) };
   root.PS_NETWORK = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

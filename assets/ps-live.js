@@ -46,7 +46,6 @@
     if (n === 0) return 'today'; if (n === 1) return 'tomorrow';
     return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   }
-  function dayISO() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
   function stateFrom(value) {
     var x = safe(value).toLowerCase();
     if (x === 'live' || x === 'in' || x === 'crit' || x === 'in_progress' || x === 'in_play' || x === 'inplay' || x === 'paused' || x === 'ht' || x.indexOf('progress') >= 0 || x.indexOf('halftime') >= 0) return 'Live';
@@ -173,7 +172,9 @@
     });
   }
   function addSoccer(all, d) {
+    var win = NET.localDayWindow(), now = Date.now();
     arr(d && d.data).forEach(function (g) {
+      if (!NET.inWindow(g.kickoff_at, win) || !NET.unknownIsCurrent(g.status, g.kickoff_at, now)) return;
       var raw = safe(g.status).toLowerCase(), st = stateFrom(g.status), sc = g.score || {}, h = g.home || {}, a = g.away || {};
       var o = { sport: 'soccer', eventId: g.id, state: st, away: a.short_name || a.name || '', home: h.short_name || h.name || '', aAb: a.short_name || a.name || '', hAb: h.short_name || h.name || '',
         awayLogo: soccerCrest(a.crest), homeLogo: soccerCrest(h.crest), aS: sc.away, hS: sc.home, start: g.kickoff_at,
@@ -181,7 +182,7 @@
       var md = g.matchday ? 'Matchday ' + g.matchday : safe(g.round);
       if (st === 'Live') { var min = g.minute || g.clock || sc.minute; o.clock = raw === 'ht' || raw.indexOf('half') >= 0 ? 'HT' : (min ? min + "'" : 'Live'); o.sub = md; }
       else if (st === 'Final') { o.clock = 'FT'; o.sub = md; }
-      else { o.clock = timeLabel(g.kickoff_at); o.sub = md; }
+      else { o.clock = timeLabel(g.kickoff_at); o.sub = raw === 'unknown' && Date.parse(g.kickoff_at) < now ? 'Status pending' : md; }
       all.push(o);
     });
   }
@@ -202,7 +203,7 @@
     { sport: 'wnba', url: function () { return API + '/wnba/today'; }, add: addWNBA },
     { sport: 'nhl', url: function () { return API + '/nhl/schedule/today'; }, add: addNHL },
     { sport: 'tennis', url: function () { return API + '/tennis/today'; }, add: addTennis },
-    { sport: 'soccer', url: function () { return API + '/soccer/matches?date=' + encodeURIComponent(dayISO()) + '&order=asc&limit=40'; }, add: addSoccer },
+    { sport: 'soccer', url: function () { var w = NET.localDayWindow(); return API + '/soccer/matches?from=' + encodeURIComponent(w.from) + '&to=' + encodeURIComponent(w.to) + '&order=asc&limit=40'; }, add: addSoccer },
     { sport: 'ufc', url: function () { return C.UFC_BASE + '/v1/ufc/events?status=upcoming&limit=2'; }, add: addUFC }
   ];
   if (PREVIEW_SPORT) FEEDS = FEEDS.filter(function (f) { return f.sport === PREVIEW_SPORT; });

@@ -1,5 +1,6 @@
 // Regression tests for PBEcast deep links and sport status semantics.
 // Run: node scripts/test-network.mjs
+process.env.TZ = 'America/Chicago'; // soccer local-day regression is pinned to a real viewer zone
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
@@ -35,6 +36,34 @@ t('currentUpcoming suppresses stale tennis fixtures but keeps the reconciliation
   assert.equal(N.currentUpcoming('2026-10-02T06:00:00Z', now), false);
   assert.equal(N.currentUpcoming('2026-10-03T02:00:00Z', now), true);
   assert.equal(N.currentUpcoming(null, now), false);
+});
+
+t('soccer slate = viewer-local calendar day as a UTC window (2026-10-03 16:37 CDT)', () => {
+  const now = new Date(2026, 9, 3, 16, 37); // local wall clock in America/Chicago
+  assert.equal(now.toISOString(), '2026-10-03T21:37:00.000Z');
+  const w = N.localDayWindow(now);
+  assert.deepEqual(w, { from: '2026-10-03T05:00:00.000Z', to: '2026-10-04T04:59:59.999Z' });
+  const expect = { '2026-10-03T00:00:00+00:00': false, '2026-10-03T02:00:00+00:00': false, '2026-10-03T20:00:00+00:00': true, '2026-10-03T22:30:00+00:00': true, '2026-10-04T00:45:00+00:00': true };
+  for (const [k, inc] of Object.entries(expect)) assert.equal(N.inWindow(k, w), inc, k);
+  // every included kickoff is on the viewer's local today: no "Yesterday" row, no late-evening drop
+  const day = (v) => { const d = new Date(v); return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; };
+  for (const k of Object.keys(expect)) assert.equal(N.inWindow(k, w), day(k) === day(now), k);
+  // window boundaries are inclusive of local midnight, exclusive of next local midnight
+  assert.equal(N.inWindow('2026-10-03T05:00:00Z', w), true); assert.equal(N.inWindow('2026-10-04T05:00:00Z', w), false);
+  assert.equal(N.inWindow(null, w), false);
+});
+t('soccer local window follows DST and is never hard-coded to one offset', () => {
+  assert.deepEqual(N.localDayWindow(new Date(2026, 11, 15, 12)), { from: '2026-12-15T06:00:00.000Z', to: '2026-12-16T05:59:59.999Z' });
+  assert.deepEqual(N.localDayWindow(new Date(2026, 10, 1, 12)), { from: '2026-11-01T05:00:00.000Z', to: '2026-11-02T05:59:59.999Z' }); // 25h fall-back day
+});
+t('stale unknown soccer fixtures never masquerade as NEXT', () => {
+  const now = Date.parse('2026-10-03T21:37:00Z');
+  assert.equal(N.unknownIsCurrent('unknown', '2026-10-03T00:00:00+00:00', now), false);
+  assert.equal(N.unknownIsCurrent('unknown', '2026-10-03T02:00:00+00:00', now), false);
+  assert.equal(N.unknownIsCurrent('unknown', '2026-10-03T20:00:00Z', now), true);  // short grace
+  assert.equal(N.unknownIsCurrent('unknown', '2026-10-04T00:45:00Z', now), true);  // future stays pending
+  assert.equal(N.unknownIsCurrent('unknown', null, now), false);
+  for (const st of ['finished', 'live', 'scheduled']) assert.equal(N.unknownIsCurrent(st, '2026-10-01T00:00:00Z', now), true, st);
 });
 
 /* ── status semantics ── */

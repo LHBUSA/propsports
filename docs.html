@@ -415,17 +415,17 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
       <div class="code-block">
         <div class="code-header"><div class="dot" style="background:#ff5f57"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#28c840"></div><span>cURL — authenticated</span></div>
         <pre><span class="cm"># Header auth (recommended)</span>
-curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today</span> \
+curl <span class="url">https://propsports.proptechusa.ai/v1/mlb/schedule/today</span> \
   -H <span class="str">"X-API-Key: your_api_key_here"</span>
 
 <span class="cm"># Query param auth (also works)</span>
-curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today?key=your_api_key_here</span>
+curl <span class="url">https://propsports.proptechusa.ai/v1/mlb/schedule/today?key=your_api_key_here</span>
 
-<span class="cm"># Use your API key</span>\ncurl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today?key=your_api_key_here</span></pre>
+<span class="cm"># Use your API key</span>\ncurl <span class="url">https://propsports.proptechusa.ai/v1/mlb/schedule/today?key=your_api_key_here</span></pre>
       </div>
       <div class="code-block">
         <div class="code-header"><span>JavaScript</span></div>
-        <pre><span class="kw">const</span> BASE = <span class="str">'https://propsports-api.sales-fd3.workers.dev'</span>;
+        <pre><span class="kw">const</span> BASE = <span class="str">'https://propsports.proptechusa.ai/v1'</span>;
 <span class="kw">const</span> KEY  = <span class="str">'your_api_key_here'</span>;
 
 <span class="kw">const</span> data = <span class="kw">await</span> <span class="fn">fetch</span>(`${BASE}/mlb/schedule/today`, {
@@ -438,7 +438,7 @@ curl <span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/schedule
         <div class="code-header"><span>Python</span></div>
         <pre><span class="kw">import</span> requests
 
-BASE = <span class="str">"https://propsports-api.sales-fd3.workers.dev"</span>
+BASE = <span class="str">"https://propsports.proptechusa.ai/v1"</span>
 KEY  = <span class="str">"your_api_key_here"</span>
 
 r = requests.get(f<span class="str">"{BASE}/mlb/schedule/today"</span>, headers={<span class="str">"X-API-Key"</span>: KEY})
@@ -452,7 +452,7 @@ data = r.json()
       <h2>Base URL &amp; Headers</h2>
       <div class="code-block">
         <div class="code-header"><span>Base URL</span></div>
-        <pre><span class="url">https://propsports-api.sales-fd3.workers.dev</span></pre>
+        <pre><span class="url">https://propsports.proptechusa.ai/v1</span></pre>
       </div>
       <table class="param-table">
         <thead><tr><th>Header</th><th>Value</th><th>Notes</th></tr></thead>
@@ -606,7 +606,7 @@ data = r.json()
       <div class="code-block">
         <div class="code-header"><span>JavaScript</span></div>
         <pre><span class="kw">const</span> plays = <span class="kw">await</span> <span class="fn">fetch</span>(
-  <span class="str">'https://propsports-api.sales-fd3.workers.dev/mlb/odds/model/top?limit=10'</span>,
+  <span class="str">'https://propsports.proptechusa.ai/v1/mlb/odds/model/top?limit=10'</span>,
   { headers: { <span class="str">'X-API-Key'</span>: KEY } }
 ).then(r => r.json());
 
@@ -628,7 +628,7 @@ plays.plays.forEach(p => {
       </table>
       <div class="code-block">
         <div class="code-header"><span>cURL</span></div>
-        <pre>curl "<span class="url">https://propsports-api.sales-fd3.workers.dev/mlb/odds/model/player?name=Soto</span>" \
+        <pre>curl "<span class="url">https://propsports.proptechusa.ai/v1/mlb/odds/model/player?name=Soto</span>" \
   -H <span class="str">"X-API-Key: your_key"</span></pre>
       </div>
     </div>

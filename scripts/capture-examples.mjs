@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const API = 'https://propsports-api.sales-fd3.workers.dev';
+const API = 'https://propsports.proptechusa.ai/v1';
 const UFC = 'https://ufc-api.propbetedge.ai';
 
 const EXAMPLES = [

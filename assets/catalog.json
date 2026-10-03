@@ -39,8 +39,8 @@
     }
   },
   "source": [
-    "https://propsports-api.sales-fd3.workers.dev/health",
-    "https://propsports-api.sales-fd3.workers.dev/sports"
+    "https://propsports.proptechusa.ai/v1/health",
+    "https://propsports.proptechusa.ai/v1/sports"
   ],
   "fetched_at": "2026-10-01T05:12:03.830Z",
   "live": true,

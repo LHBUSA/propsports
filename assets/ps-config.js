@@ -3,7 +3,7 @@
    scripts/build.mjs refuses to build when this registry and production disagree.
    Loaded by browsers (window.PS_CONFIG) and by scripts/build.mjs (vm). */
 (function (root) {
-  var API_BASE = 'https://propsports-api.sales-fd3.workers.dev';
+  var API_BASE = 'https://propsports.proptechusa.ai/v1';
   var UFC_BASE = 'https://ufc-api.propbetedge.ai';
 
   // Internal route classification for build/runtime behavior only. The public site

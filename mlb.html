@@ -799,7 +799,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
 
         <div class="mlb-hero-actions fu d3">
           <button class="btn-red" onclick="doCheckout('MLB')">Get MLB Key — $29/mo →</button>
-          <a href="https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today" target="_blank" rel="noopener" class="btn-outline">▶ Try Live API</a>
+          <a href="https://propsports.proptechusa.ai/v1/mlb/schedule/today" target="_blank" rel="noopener" class="btn-outline">▶ Try Live API</a>
         </div>
 
         <div class="mlb-trustline fu d4">
@@ -836,7 +836,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
         <div class="mlb-code-card">
           <div class="mlb-code-top">
             <i style="background:#FF5F57"></i><i style="background:#FFBD2E"></i><i style="background:#28CA41"></i>
-            <span class="mlb-code-url">propsports-api.sales-fd3.workers.dev/mlb/odds/model/top</span>
+            <span class="mlb-code-url">propsports.proptechusa.ai/v1/mlb/odds/model/top</span>
             <span class="mlb-code-live">● LIVE</span>
           </div>
           <div class="mlb-code-tabs">
@@ -950,7 +950,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
       <div>
         <span class="eyebrow">API Reference</span>
         <h2 style="margin-bottom:4px;">All 25 MLB endpoints.</h2>
-        <p style="font:400 13px var(--mono);color:var(--muted);">Base URL: <code style="background:var(--white);padding:2px 8px;border-radius:4px;">https://propsports-api.sales-fd3.workers.dev</code></p>
+        <p style="font:400 13px var(--mono);color:var(--muted);">Base URL: <code style="background:var(--white);padding:2px 8px;border-radius:4px;">https://propsports.proptechusa.ai/v1</code></p>
       </div>
     </div>
     <div class="ep-search-wrap">
@@ -1247,13 +1247,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);padding:52px 24px 24px;}
 </footer>
 
 <script>
-const BASE = 'https://propsports-api.sales-fd3.workers.dev';
+const BASE = 'https://propsports.proptechusa.ai/v1';
 
 const DEMO_CONFIG = {
-  schedule: { url: BASE + '/mlb/schedule/today', label: 'propsports-api.sales-fd3.workers.dev/mlb/schedule/today' },
-  statcast: { url: BASE + '/mlb/statcast/batters', label: 'propsports-api.sales-fd3.workers.dev/mlb/statcast/batters' },
-  model:    { url: BASE + '/mlb/odds/model/top',   label: 'propsports-api.sales-fd3.workers.dev/mlb/odds/model/top' },
-  weather:  { url: BASE + '/mlb/weather/all',      label: 'propsports-api.sales-fd3.workers.dev/mlb/weather/all' },
+  schedule: { url: BASE + '/mlb/schedule/today', label: 'propsports.proptechusa.ai/v1/mlb/schedule/today' },
+  statcast: { url: BASE + '/mlb/statcast/batters', label: 'propsports.proptechusa.ai/v1/mlb/statcast/batters' },
+  model:    { url: BASE + '/mlb/odds/model/top',   label: 'propsports.proptechusa.ai/v1/mlb/odds/model/top' },
+  weather:  { url: BASE + '/mlb/weather/all',      label: 'propsports.proptechusa.ai/v1/mlb/weather/all' },
 };
 
 let activePane = 'schedule';

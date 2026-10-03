@@ -39,7 +39,7 @@ const ALL_ENDPOINTS = [
   {sport:'🏒',label:'NHL',path:'/nhl/odds',desc:'Puck lines, totals, moneylines',page:'/nhl.html'},
 ];
 
-const BASE = 'https://propsports-api.sales-fd3.workers.dev';
+const BASE = 'https://propsports.proptechusa.ai/v1';
 
 // ── GLOBAL SEARCH MODAL ───────────────────────────────────────────────────
 function openSearch() {

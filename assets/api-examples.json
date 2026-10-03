@@ -3,8 +3,8 @@
   "note": "Real responses captured from production. Arrays trimmed for display; see trims.",
   "examples": {
     "mlb": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/schedule/today",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/mlb/schedule/today",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/mlb/schedule/today",
       "status": 200,
       "ms": 477,
@@ -355,8 +355,8 @@
       }
     },
     "mlb-statcast": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/statcast/pitchers?limit=2",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/mlb/statcast/pitchers?limit=2",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/mlb/statcast/pitchers?limit=2",
       "status": 200,
       "ms": 145,
@@ -429,8 +429,8 @@
       }
     },
     "mlb-standings": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/standings",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/mlb/standings",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/mlb/standings",
       "status": 200,
       "ms": 323,
@@ -494,8 +494,8 @@
       }
     },
     "mlb-minors": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/mlb/minors/standings?level=11",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/mlb/minors/standings?level=11",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/mlb/minors/standings?level=11",
       "status": 200,
       "ms": 519,
@@ -598,8 +598,8 @@
       }
     },
     "nfl": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/nfl/schedule",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/nfl/schedule",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/nfl/schedule",
       "status": 200,
       "ms": 162,
@@ -729,8 +729,8 @@
       }
     },
     "nba": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/nba/schedule/today",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/nba/schedule/today",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/nba/schedule/today",
       "status": 200,
       "ms": 173,
@@ -754,8 +754,8 @@
       }
     },
     "nhl": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/nhl/standings",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/nhl/standings",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/nhl/standings",
       "status": 200,
       "ms": 80,
@@ -847,8 +847,8 @@
       }
     },
     "nhl-board": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/nhl/board",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/nhl/board",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/nhl/board",
       "status": 200,
       "ms": 45,
@@ -1015,8 +1015,8 @@
       }
     },
     "wnba": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/wnba/today",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/wnba/today",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/wnba/today",
       "status": 200,
       "ms": 751,
@@ -1316,8 +1316,8 @@
       }
     },
     "tennis": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/tennis/live",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/tennis/live",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/tennis/live",
       "status": 200,
       "ms": 935,
@@ -1345,8 +1345,8 @@
       }
     },
     "soccer": {
-      "url": "https://propsports-api.sales-fd3.workers.dev/soccer/matches?limit=2",
-      "host": "https://propsports-api.sales-fd3.workers.dev",
+      "url": "https://propsports.proptechusa.ai/v1/soccer/matches?limit=2",
+      "host": "https://propsports.proptechusa.ai/v1",
       "path": "/soccer/matches?limit=2",
       "status": 200,
       "ms": 277,

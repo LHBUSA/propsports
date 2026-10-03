@@ -180,6 +180,9 @@ for (const [, loc] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   check(fileFor(loc.replace(SITE, '') || '/'), `sitemap URL has no page: ${loc}`);
 }
 
+/* source-brand (network standard DATA · PropSports): marketing + product shell carry no upstream branding */
+{ const { scan } = await import('./guard-source-brand.mjs'); for (const v of scan()) check(false, `source-brand: ${v}`); check(true, 'source-brand guard'); }
+
 console.log(`${checks} checks · ${failures.length} failures`);
 failures.forEach((m) => console.log('  ✗ ' + m));
 process.exit(failures.length ? 1 : 0);

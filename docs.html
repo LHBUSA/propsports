@@ -303,6 +303,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--off)
       <a href="#base-url" class="sb-link">Base URL &amp; Headers</a>
       <a href="#rate-limits" class="sb-link">Rate Limits</a>
       <a href="#errors" class="sb-link">Errors &amp; Status Codes</a>
+      <a href="#data-contract" class="sb-link">Data contract</a>
       <a href="#demo-key" class="sb-link">API access</a>
       <a href="#catalog" class="sb-link">Route catalog</a>
     </div>
@@ -508,6 +509,21 @@ data = r.json()
           <tr><td class="pn">500</td><td>Internal server error &mdash; upstream API failure</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- DATA CONTRACT -->
+    <div class="doc-section" id="data-contract">
+      <h2>Data contract</h2>
+      <p>PropSports is the data source of record: we collect, archive, normalize, reconcile and serve every dataset. Every JSON object response carries <code>"data_source": "PropSports"</code>.</p>
+      <p><strong>Deprecated provider fields.</strong> Some responses still carry upstream-provider fields for existing integrations: <code>source</code> when it names an upstream provider, <code>source.provider</code>, <code>source_urls</code>, <code>source_url</code>, <code>roster_url</code>, <code>provider</code>, <code>source_route</code>, and provider-keyed identifiers such as <code>espn_*</code> ids. They keep working unchanged, are compatibility-only, and will be removed in the next versioned contract. A response that carries any of them also lists them in <code>deprecated_fields</code> with a <code>deprecation_note</code>. Build new integrations on <code>data_source</code> and PropSports ids.</p>
+      <div class="code-block">
+        <div class="code-header"><span>Contract fields</span></div>
+        <pre>{
+  <span class="key">"data_source"</span>:       <span class="str">"PropSports"</span>,
+  <span class="key">"deprecated_fields"</span>: [<span class="str">"source_urls"</span>],
+  <span class="key">"deprecation_note"</span>:  <span class="str">"Upstream-provider fields are compatibility-only ..."</span>
+}</pre>
+      </div>
     </div>
 
     <!-- API access -->
@@ -1136,11 +1152,9 @@ plays.plays.forEach(p => {
     <div class="psa-ft-base-in">
       <div class="psa-ft-copy">&copy; 2026 PropTechUSA.ai &middot; All Rights Reserved &middot; Saint Paul, MN</div>
       <div class="psa-ft-badges">
-        <span class="psa-ft-badge">v4.2.0</span>
-        <span class="psa-ft-badge">151 endpoints</span>
+        <span class="psa-ft-badge">v6.1.0</span>
+        <span class="psa-ft-badge">206 endpoints</span>
         <span class="psa-ft-badge">Cloudflare Workers</span>
-        <span class="psa-ft-badge">MLB Stats API</span>
-        <span class="psa-ft-badge">Baseball Savant</span>
       </div>
     </div>
   </div>

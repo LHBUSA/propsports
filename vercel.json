@@ -24,6 +24,22 @@
     {
       "source": "/v1/f1/:path*",
       "destination": "https://f1-api.propbetedge.ai/v1/f1/:path*"
+    },
+    {
+      "source": "/v1/ufc",
+      "destination": "https://proptechusa-ufc-api.sales-fd3.workers.dev/v1/ufc"
+    },
+    {
+      "source": "/v1/ufc/:path*",
+      "destination": "https://proptechusa-ufc-api.sales-fd3.workers.dev/v1/ufc/:path*"
+    },
+    {
+      "source": "/v1",
+      "destination": "https://propsports-api.sales-fd3.workers.dev/v1"
+    },
+    {
+      "source": "/v1/:path*",
+      "destination": "https://propsports-api.sales-fd3.workers.dev/v1/:path*"
     }
   ]
 }

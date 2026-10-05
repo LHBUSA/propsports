@@ -52,6 +52,14 @@ t('soccer slate = viewer-local calendar day as a UTC window (2026-10-03 16:37 CD
   assert.equal(N.inWindow('2026-10-03T05:00:00Z', w), true); assert.equal(N.inWindow('2026-10-04T05:00:00Z', w), false);
   assert.equal(N.inWindow(null, w), false);
 });
+t('viewer-local scoreboard day rejects UTC-today events that are still yesterday in Chicago', () => {
+  const now = new Date(2026, 9, 5, 4, 59, 30); // 2026-10-05 04:59:30 America/Chicago
+  assert.equal(now.toISOString(), '2026-10-05T09:59:30.000Z');
+  assert.equal(N.isLocalDay('2026-10-05T04:10:00Z', now), false); // 11:10 PM Oct 4 local
+  assert.equal(N.isLocalDay('2026-10-05T05:30:00Z', now), true);  // 12:30 AM Oct 5 local
+  assert.equal(N.isLocalDay('2026-10-05T09:55:00Z', now), true);
+});
+
 t('soccer local window follows DST and is never hard-coded to one offset', () => {
   assert.deepEqual(N.localDayWindow(new Date(2026, 11, 15, 12)), { from: '2026-12-15T06:00:00.000Z', to: '2026-12-16T05:59:59.999Z' });
   assert.deepEqual(N.localDayWindow(new Date(2026, 10, 1, 12)), { from: '2026-11-01T05:00:00.000Z', to: '2026-11-02T05:59:59.999Z' }); // 25h fall-back day

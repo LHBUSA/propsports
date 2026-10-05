@@ -158,7 +158,10 @@
     return { name: n || 'TBD', short: n || 'TBD', code: ps.length ? 'DBL' : '', photo: '' };
   }
   function addTennis(all, d) {
-    var data = d && d.data || {}, live = arr(data.live), upcoming = arr(data.upcoming).filter(function (g) { return NET.currentUpcoming(g && g.scheduled_at); });
+    var data = d && d.data || {}, live = arr(data.live), now = new Date();
+    var upcoming = arr(data.upcoming).filter(function (g) {
+      return NET.currentUpcoming(g && g.scheduled_at) && NET.isLocalDay(g && g.scheduled_at, now);
+    });
     var matches = live.concat(upcoming.slice(0, 12));
     matches.forEach(function (g) {
       var st = stateFrom(g.status), A = tennisSide(g.sides && g.sides.A), B = tennisSide(g.sides && g.sides.B), t = g.tournament || {};

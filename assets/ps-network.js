@@ -78,6 +78,9 @@
     var at = Date.parse(start || '');
     return Number.isFinite(at) && at >= Date.parse(win.from) && at <= Date.parse(win.to);
   }
+  function isLocalDay(start, now) {
+    return inWindow(start, localDayWindow(now));
+  }
   // Canonical soccer status `unknown` carries no evidence of state. Keep it while kickoff is ahead or
   // within a short grace period; a materially old unknown fixture is dropped, never shown as NEXT/LIVE/FINAL.
   var UNKNOWN_GRACE_MS = 3 * 3600e3;
@@ -97,7 +100,7 @@
     return s;
   }
 
-  var api = { castUrl: castUrl, castLabel: castLabel, castHome: castHome, castAction: castAction, sportStatus: sportStatus, networkSummary: networkSummary, currentUpcoming: currentUpcoming, localDayWindow: localDayWindow, inWindow: inWindow, unknownIsCurrent: unknownIsCurrent, CAST_SPORTS: Object.keys(CAST) };
+  var api = { castUrl: castUrl, castLabel: castLabel, castHome: castHome, castAction: castAction, sportStatus: sportStatus, networkSummary: networkSummary, currentUpcoming: currentUpcoming, localDayWindow: localDayWindow, inWindow: inWindow, isLocalDay: isLocalDay, unknownIsCurrent: unknownIsCurrent, CAST_SPORTS: Object.keys(CAST) };
   root.PS_NETWORK = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

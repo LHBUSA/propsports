@@ -472,7 +472,7 @@
     { id: 'SCALE', name: 'Scale', price: 599, per: 'mo', limit: 2000000, sports: 'All 7 core sports', checkout: 'SCALE', tag: 'High volume',
       lede: 'High-volume infrastructure.', feats: ['Built for high-volume production', 'Higher-concurrency positioning'] },
     { id: 'ENTERPRISE', name: 'Enterprise', price: 1500, per: 'mo', limit: 5000000, sports: 'All 7 core sports', checkout: 'ENTERPRISE',
-      lede: 'Production terms and priority integration.', feats: ['Priority integration support', 'Production terms', 'Custom licensing where source rights permit'] }
+      lede: 'Production terms and priority integration.', feats: ['Priority integration support', 'Production terms', 'Custom data and rights scope by written agreement'] }
   ];
 
   // Forward-facing Stripe price IDs only (production, 2026 V2).

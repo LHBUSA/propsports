@@ -141,7 +141,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
   <div class="doc-header">
     <div class="eyebrow">Legal</div>
     <h1>Terms of Service</h1>
-    <div class="updated">Last updated: September 30, 2026 &nbsp;&middot;&nbsp; Effective immediately upon account creation</div>
+    <div class="updated">Last updated: October 6, 2026 &nbsp;&middot;&nbsp; Effective immediately upon account creation</div>
   </div>
 
   <div class="toc">
@@ -165,7 +165,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
   </div>
 
   <div class="callout">
-    <strong>Plain English summary:</strong> Use PropSports API to build products. Standard plans allow temporary caching, not a permanent copy of the API dataset. If your product needs to permanently store completed-game data or keep using retained data after cancellation, you need a written data-license or Enterprise agreement that expressly grants those rights. Don't scrape the Service, resell raw data, or exceed your rate limit.
+    <strong>Plain English summary:</strong> Use PropSports API to build products. Standard plans license access to our sports-data infrastructure and the permitted API outputs within your plan; they are not a blanket sublicense to third-party league, promotion, team, athlete, trademark, logo, likeness, photography, video or other media rights. Broader storage, redistribution, branding or media rights may be scoped separately in a written Enterprise or data-license agreement where available and authorized. Standard plans allow temporary caching, not a permanent copy of the API dataset. Don't scrape the Service, resell raw data, or exceed your rate limit.
   </div>
 
   <!-- 01 -->
@@ -276,7 +276,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
       <li>Build web applications, mobile apps, or tools that display or analyze sports data</li>
       <li>Power internal dashboards, analytics tools, or research applications</li>
       <li>Create derivative works and products based on the API's output</li>
-      <li>Use data in commercial products, provided such use does not violate these Terms</li>
+      <li>Use permitted API output in commercial products within your plan, subject to these Terms, source-specific restrictions, attribution requirements, and any third-party rights that apply</li>
       <li>Access the Service programmatically within your plan's rate limits</li>
       <li>Cache API responses temporarily (up to 1 hour) to reduce request volume. This temporary caching right does not by itself authorize permanent archival storage; see Historical Storage &amp; Data Licensing below.</li>
       <li>Reference PropSports API as your data provider in your product documentation</li>
@@ -346,7 +346,7 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
   <!-- 08 -->
   <div class="section" id="data">
     <h2><span class="num">08</span> Data Sources &amp; Accuracy</h2>
-    <p>PropSports API aggregates data from public sources including the MLB Stats API, NHL Stats API, NBA Stats API, Baseball Savant (Statcast), ESPN, and Open-Meteo (weather). Proprietary Poisson model odds are generated from our own Statcast pipeline — not scraped from sportsbooks. These sources are consistent with those used by major sports analytics platforms.</p>
+    <p>PropSports API combines data from multiple official, public, permitted and internally derived sources with our own collection, normalization, identity resolution, data-quality controls, schemas, derived analytics and delivery infrastructure. The source mix varies by sport, endpoint and product and may change as upstream availability, technical requirements and rights change. Proprietary model outputs and derived intelligence are produced by PropSports systems and are identified separately from source facts where applicable.</p>
     <p>While we make best efforts to provide accurate, timely data, we make <strong>no guarantees</strong> of data accuracy, completeness, or timeliness. Sports data is inherently real-time and subject to correction, revision, and delay. Model odds are generated outputs, not official sportsbook lines, and carry their own margin of error.</p>
     <p><strong>You should not use PropSports API data as the sole basis for financial decisions.</strong> We are not responsible for losses arising from reliance on API data in any context, including sports betting, fantasy sports, or financial trading.</p>
     <p>Source APIs may change without notice. We will make reasonable efforts to maintain endpoint compatibility but cannot guarantee uninterrupted access to any specific data field or model output.</p>
@@ -355,8 +355,12 @@ code{font-size:13px;background:var(--paper2);padding:1px 6px;border-radius:3px;f
   <!-- 09 -->
   <div class="section" id="ip">
     <h2><span class="num">09</span> Intellectual Property</h2>
-    <p>The PropSports API platform — including its infrastructure, Poisson model, documentation, code, design, and branding — is owned by PropTechUSA.ai. These Terms grant you a limited, non-exclusive, non-transferable license to access and use the Service within the scope of your plan.</p>
-    <p>Underlying sports data (game scores, statistics, player information) is sourced from public APIs. We make no claim to ownership of raw sports data. Your use of such data remains subject to the terms of the original data sources.</p>
+    <p>The PropSports API platform — including its collection and normalization infrastructure, identity-resolution systems, schemas, APIs, documentation, code, designs, models, derived analytics, reusable data systems and branding — is owned by PropTechUSA.ai or its licensors. These Terms grant you a limited, non-exclusive, non-transferable license to access and use the Service within the scope of your plan and any written agreement that applies to your account.</p>
+    <p>Underlying sports facts and third-party intellectual property remain subject to the rights that attach to them. PropSports does not claim ownership of third-party raw facts, league or promotion names, team marks, athlete names or likenesses, third-party photography, video, logos, trademarks or other third-party media merely because they are referenced, normalized, linked, displayed, described or made technically accessible through a PropSports product.</p>
+    <p><strong>No blanket third-party rights grant.</strong> A standard PropSports subscription or API key does not, by itself, grant a blanket license or sublicense to any league, promotion, governing body, team, athlete, broadcaster, publisher or other third party's trademarks, logos, likenesses, photography, video, audio or other protected content. The presence of an identifier, URL, image field, media record, attribution record or other reference in an API response does not expand the rights included in your plan.</p>
+    <p><strong>Separate rights may be available.</strong> A written Enterprise order form, data license, media addendum or other signed agreement may grant broader display, caching, retention, redistribution, branding or media rights where PropSports has authority to grant those rights or arranges the required rights for the applicable deployment. Only the written agreement identifying those rights grants them. The absence of a right from a standard plan is not a representation that the right can never be licensed or arranged separately.</p>
+    <p><strong>Source-specific obligations travel with the data.</strong> Where an API response includes license, attribution, source, rights-label or similar metadata, you must preserve and comply with the applicable requirements. Links, identifiers and metadata pointing to third-party content do not transfer ownership of that content.</p>
+    <p><strong>No implied affiliation.</strong> References to sports leagues, promotions, teams, athletes or other third parties are for identification, interoperability and data-description purposes unless an express written agreement states otherwise. No endorsement, sponsorship, affiliation, official-data status or partnership is implied merely by inclusion in the Service.</p>
     <p>"PropSports API," "PropTechUSA.ai," "PropBetEdge," and associated logos are trademarks of PropTechUSA.ai. You may not use these marks without prior written permission.</p>
   </div>
 
